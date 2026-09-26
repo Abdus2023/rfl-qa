@@ -1,0 +1,37 @@
+name: Alpha release gates
+on:
+  push:
+    branches: [arena/01a0dfcc-rfl-qa]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Schema and reference gate
+        run: python tools/validate.py --all
+      - name: Automated gates
+        run: pytest -q
+      - name: CLI derivation and reporting
+        run: |
+          python tools/derive.py dossiers/examples/003-callback-teardown.json > /tmp/qualification.json
+          python tools/report.py /tmp/qualification.json > /tmp/qualification.md
+      - name: Full evidence and procedural release gate
+        # Deliberately nonzero until real independent human calibration is evidenced.
+        # Synthetic fixture agreement must never authorize a release.
+        run: python tools/release_gates.py
+      - name: Retain actual execution evidence even when release is blocked
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: alpha-execution-evidence
+          path: evidence/execution/

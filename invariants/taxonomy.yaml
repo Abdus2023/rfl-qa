@@ -1,0 +1,20 @@
+record_type: taxonomy
+version: 1.1-alpha
+classes:
+  A: compiler-enforceable
+  B: API-enforceable
+  C: runtime-enforced
+  D: external/system assumption
+epistemic_statuses:
+- VERIFIED
+- PARTIALLY_VERIFIED
+- PROVISIONAL
+- OPEN
+- BLOCKED
+strengths:
+- PROOF
+- OBSERVATION
+- COVERAGE
+- ABSENCE_OF_EVIDENCE
+note: Class never implies epistemic status. Runtime diagnostics observe bounded executions;
+  they are not universal prevention.

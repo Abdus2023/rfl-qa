@@ -1,0 +1,932 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rfl-qa.dev/schemas/claim.schema.json",
+  "type": "object",
+  "properties": {
+    "record_type": {
+      "const": "dossier"
+    },
+    "schema_version": {
+      "const": "1.1-alpha"
+    },
+    "qualification_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^Q-\\d{4}-\\d{4}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "fixture_kind": {
+      "type": "string",
+      "enum": [
+        "synthetic",
+        "human_assessment"
+      ]
+    },
+    "competency_id": {
+      "type": "string",
+      "enum": [
+        "C047",
+        "C053",
+        "C034"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "competencies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "C047",
+              "C053",
+              "C034"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "maxItems": 1
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "task_classes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "environments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "competencies",
+        "domains",
+        "task_classes",
+        "environments",
+        "exclusions"
+      ],
+      "additionalProperties": false
+    },
+    "primary_evidence_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "https://rfl-qa.dev/schemas/evidence.schema.json"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "invariants": {
+      "type": "array",
+      "items": {
+        "$ref": "https://rfl-qa.dev/schemas/invariant.schema.json"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "hard_gates": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "BLOCKED"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "callback_after_free",
+              "double_free",
+              "uaf",
+              "data_race",
+              "deadlock",
+              "prohibited_sleep",
+              "ffi_lifetime",
+              "critical_external_assumption",
+              "required_abi_break",
+              "dma_ownership"
+            ]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "status",
+        "findings"
+      ],
+      "additionalProperties": false
+    },
+    "oracle_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "oracle_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "check_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "result": {
+                  "type": "string",
+                  "enum": [
+                    "PASS",
+                    "BLOCKED",
+                    "NOT_RUN"
+                  ]
+                },
+                "evidence_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 0,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "check_id",
+                "result",
+                "evidence_refs"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "oracle_ref",
+          "checks"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "const": "assessment"
+          },
+          "assessor_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dossier_ref": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^Q-\\d{4}-\\d{4}$"
+          },
+          "dossier_digest": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "independent": {
+            "const": true
+          },
+          "claimed_level": {
+            "type": "string",
+            "enum": [
+              "L0",
+              "L1",
+              "L2",
+              "L3",
+              "L4",
+              "L5"
+            ]
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "behavior_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^CB-\\d{3}-\\d{2}$"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "DEMONSTRATED",
+                    "FAILED"
+                  ]
+                },
+                "evidence_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "behavior_id",
+                "status",
+                "evidence_refs"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "evidence_tier": {
+            "type": "string",
+            "enum": [
+              "E0",
+              "E1",
+              "E2",
+              "E3",
+              "E4",
+              "E5"
+            ]
+          },
+          "invariant_findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "invariant_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "class": {
+                  "type": "string",
+                  "enum": [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                  ]
+                },
+                "epistemic_status": {
+                  "type": "string",
+                  "enum": [
+                    "VERIFIED",
+                    "PARTIALLY_VERIFIED",
+                    "PROVISIONAL",
+                    "OPEN",
+                    "BLOCKED"
+                  ]
+                }
+              },
+              "required": [
+                "invariant_ref",
+                "class",
+                "epistemic_status"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "hard_gates": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "PASS",
+                  "BLOCKED"
+                ]
+              },
+              "findings": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "callback_after_free",
+                    "double_free",
+                    "uaf",
+                    "data_race",
+                    "deadlock",
+                    "prohibited_sleep",
+                    "ffi_lifetime",
+                    "critical_external_assumption",
+                    "required_abi_break",
+                    "dma_ownership"
+                  ]
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "status",
+              "findings"
+            ],
+            "additionalProperties": false
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "record_type",
+          "assessor_id",
+          "dossier_ref",
+          "dossier_digest",
+          "independent",
+          "claimed_level",
+          "observations",
+          "evidence_tier",
+          "invariant_findings",
+          "hard_gates",
+          "evidence_refs",
+          "limitations"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "maxItems": 2
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "record_type",
+    "schema_version",
+    "qualification_id",
+    "timestamp",
+    "fixture_kind",
+    "competency_id",
+    "scope",
+    "primary_evidence_ref",
+    "evidence",
+    "invariants",
+    "hard_gates",
+    "oracle_results",
+    "assessments",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "scope": {
+      "type": "object",
+      "properties": {
+        "competencies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "C047",
+              "C053",
+              "C034"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "maxItems": 1
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "task_classes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "environments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "competencies",
+        "domains",
+        "task_classes",
+        "environments",
+        "exclusions"
+      ],
+      "additionalProperties": false
+    },
+    "assessment": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "assessment"
+        },
+        "assessor_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dossier_ref": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^Q-\\d{4}-\\d{4}$"
+        },
+        "dossier_digest": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "independent": {
+          "const": true
+        },
+        "claimed_level": {
+          "type": "string",
+          "enum": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5"
+          ]
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "behavior_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^CB-\\d{3}-\\d{2}$"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "DEMONSTRATED",
+                  "FAILED"
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "behavior_id",
+              "status",
+              "evidence_refs"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "evidence_tier": {
+          "type": "string",
+          "enum": [
+            "E0",
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5"
+          ]
+        },
+        "invariant_findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "invariant_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "class": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "epistemic_status": {
+                "type": "string",
+                "enum": [
+                  "VERIFIED",
+                  "PARTIALLY_VERIFIED",
+                  "PROVISIONAL",
+                  "OPEN",
+                  "BLOCKED"
+                ]
+              }
+            },
+            "required": [
+              "invariant_ref",
+              "class",
+              "epistemic_status"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "hard_gates": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "callback_after_free",
+                  "double_free",
+                  "uaf",
+                  "data_race",
+                  "deadlock",
+                  "prohibited_sleep",
+                  "ffi_lifetime",
+                  "critical_external_assumption",
+                  "required_abi_break",
+                  "dma_ownership"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "status",
+            "findings"
+          ],
+          "additionalProperties": false
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "record_type",
+        "assessor_id",
+        "dossier_ref",
+        "dossier_digest",
+        "independent",
+        "claimed_level",
+        "observations",
+        "evidence_tier",
+        "invariant_findings",
+        "hard_gates",
+        "evidence_refs",
+        "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "calibration_case": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "calibration_case"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "qualification_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "classification": {
+          "type": "string",
+          "enum": [
+            "VALIDATED_WITHIN_SCOPE",
+            "SCOPE_EXCEEDED",
+            "ASSESSMENT_ERROR",
+            "ORACLE_FAILURE",
+            "SPECIFICATION_FAILURE",
+            "EXTERNAL_FAILURE",
+            "INCONCLUSIVE"
+          ]
+        },
+        "fixture_kind": {
+          "type": "string",
+          "enum": [
+            "synthetic",
+            "observed"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope_analysis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_behavior": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assessment_record": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oracle_capability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "specification_coverage": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confounders": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "revision_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "record_type",
+        "id",
+        "qualification_ref",
+        "classification",
+        "fixture_kind",
+        "rationale",
+        "scope_analysis",
+        "candidate_behavior",
+        "assessment_record",
+        "oracle_capability",
+        "specification_coverage",
+        "confounders",
+        "evidence_refs",
+        "revision_required"
+      ],
+      "additionalProperties": false
+    },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "outcome"
+        },
+        "qualification_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fixture_kind": {
+          "type": "string",
+          "enum": [
+            "synthetic",
+            "observed"
+          ]
+        },
+        "observation_window": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "string",
+              "minLength": 1,
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "minLength": 1,
+              "format": "date"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "additionalProperties": false
+        },
+        "artifacts": {
+          "type": "object",
+          "properties": {
+            "patches_submitted": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "patches_merged": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "patches_revised": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "patches_reverted": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "patches_submitted",
+            "patches_merged",
+            "patches_revised",
+            "patches_reverted"
+          ],
+          "additionalProperties": false
+        },
+        "defect_events": {
+          "type": "object",
+          "properties": {
+            "uaf": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "data_race": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "deadlock": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "lifetime_regression": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "abi_regression": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "uaf",
+            "data_race",
+            "deadlock",
+            "lifetime_regression",
+            "abi_regression"
+          ],
+          "additionalProperties": false
+        },
+        "maintainer_feedback": {
+          "type": "object",
+          "properties": {
+            "safety_rewrite_required": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "semantic_rewrite_required": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "safety_rewrite_required",
+            "semantic_rewrite_required"
+          ],
+          "additionalProperties": false
+        },
+        "confounders": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "record_type",
+        "qualification_ref",
+        "fixture_kind",
+        "observation_window",
+        "artifacts",
+        "defect_events",
+        "maintainer_feedback",
+        "confounders"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

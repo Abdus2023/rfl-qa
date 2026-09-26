@@ -1,0 +1,763 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rfl-qa.dev/schemas/qualification.schema.json",
+  "type": "object",
+  "properties": {
+    "record_type": {
+      "const": "qualification"
+    },
+    "schema_version": {
+      "const": "1.1-alpha"
+    },
+    "qualification_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^Q-\\d{4}-\\d{4}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "competencies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "C047",
+              "C053",
+              "C034"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "maxItems": 1
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "task_classes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "environments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "competencies",
+        "domains",
+        "task_classes",
+        "environments",
+        "exclusions"
+      ],
+      "additionalProperties": false
+    },
+    "capability": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2",
+                "L3",
+                "L4",
+                "L5"
+              ]
+            },
+            "demonstrated_behaviors": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "failed_behaviors": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "level_boundary": {
+              "type": "object",
+              "properties": {
+                "L0_satisfied": {
+                  "type": "boolean"
+                },
+                "L1_satisfied": {
+                  "type": "boolean"
+                },
+                "L2_satisfied": {
+                  "type": "boolean"
+                },
+                "L3_satisfied": {
+                  "type": "boolean"
+                },
+                "L4_satisfied": {
+                  "type": "boolean"
+                },
+                "L5_satisfied": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "L0_satisfied",
+                "L1_satisfied",
+                "L2_satisfied",
+                "L3_satisfied",
+                "L4_satisfied",
+                "L5_satisfied"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "level",
+            "demonstrated_behaviors",
+            "failed_behaviors",
+            "evidence_refs",
+            "level_boundary"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "https://rfl-qa.dev/schemas/evidence.schema.json"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "evidence_tier": {
+      "type": "string",
+      "enum": [
+        "E0",
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ]
+    },
+    "invariants": {
+      "type": "array",
+      "items": {
+        "$ref": "https://rfl-qa.dev/schemas/invariant.schema.json"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "hard_gates": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "BLOCKED"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "status",
+        "findings"
+      ],
+      "additionalProperties": false
+    },
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "const": "assessment"
+          },
+          "assessor_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dossier_ref": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^Q-\\d{4}-\\d{4}$"
+          },
+          "dossier_digest": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "independent": {
+            "const": true
+          },
+          "claimed_level": {
+            "type": "string",
+            "enum": [
+              "L0",
+              "L1",
+              "L2",
+              "L3",
+              "L4",
+              "L5"
+            ]
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "behavior_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^CB-\\d{3}-\\d{2}$"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "DEMONSTRATED",
+                    "FAILED"
+                  ]
+                },
+                "evidence_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "behavior_id",
+                "status",
+                "evidence_refs"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "evidence_tier": {
+            "type": "string",
+            "enum": [
+              "E0",
+              "E1",
+              "E2",
+              "E3",
+              "E4",
+              "E5"
+            ]
+          },
+          "invariant_findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "invariant_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "class": {
+                  "type": "string",
+                  "enum": [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                  ]
+                },
+                "epistemic_status": {
+                  "type": "string",
+                  "enum": [
+                    "VERIFIED",
+                    "PARTIALLY_VERIFIED",
+                    "PROVISIONAL",
+                    "OPEN",
+                    "BLOCKED"
+                  ]
+                }
+              },
+              "required": [
+                "invariant_ref",
+                "class",
+                "epistemic_status"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "hard_gates": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "PASS",
+                  "BLOCKED"
+                ]
+              },
+              "findings": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "callback_after_free",
+                    "double_free",
+                    "uaf",
+                    "data_race",
+                    "deadlock",
+                    "prohibited_sleep",
+                    "ffi_lifetime",
+                    "critical_external_assumption",
+                    "required_abi_break",
+                    "dma_ownership"
+                  ]
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "status",
+              "findings"
+            ],
+            "additionalProperties": false
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "record_type",
+          "assessor_id",
+          "dossier_ref",
+          "dossier_digest",
+          "independent",
+          "claimed_level",
+          "observations",
+          "evidence_tier",
+          "invariant_findings",
+          "hard_gates",
+          "evidence_refs",
+          "limitations"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "maxItems": 2
+    },
+    "capabilities_by_assessor": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "assessor_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "capability": {
+            "type": "object",
+            "properties": {
+              "level": {
+                "type": "string",
+                "enum": [
+                  "L0",
+                  "L1",
+                  "L2",
+                  "L3",
+                  "L4",
+                  "L5"
+                ]
+              },
+              "demonstrated_behaviors": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "failed_behaviors": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "level_boundary": {
+                "type": "object",
+                "properties": {
+                  "L0_satisfied": {
+                    "type": "boolean"
+                  },
+                  "L1_satisfied": {
+                    "type": "boolean"
+                  },
+                  "L2_satisfied": {
+                    "type": "boolean"
+                  },
+                  "L3_satisfied": {
+                    "type": "boolean"
+                  },
+                  "L4_satisfied": {
+                    "type": "boolean"
+                  },
+                  "L5_satisfied": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "L0_satisfied",
+                  "L1_satisfied",
+                  "L2_satisfied",
+                  "L3_satisfied",
+                  "L4_satisfied",
+                  "L5_satisfied"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "level",
+              "demonstrated_behaviors",
+              "failed_behaviors",
+              "evidence_refs",
+              "level_boundary"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "assessor_id",
+          "capability"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "maxItems": 2
+    },
+    "inter_rater": {
+      "type": "object",
+      "properties": {
+        "agreement": {
+          "type": "boolean"
+        },
+        "automatic_qualification_halted": {
+          "type": "boolean"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "classification": {
+                "type": "string",
+                "enum": [
+                  "acceptable",
+                  "assessor_training_issue",
+                  "rubric_ambiguity",
+                  "oracle_ambiguity",
+                  "specification_defect",
+                  "artifact_ambiguity"
+                ]
+              },
+              "differences": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "adjudication_status": {
+                "const": "OPEN"
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "classification",
+              "differences",
+              "adjudication_status",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "agreement",
+        "automatic_qualification_halted",
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "PROVISIONAL",
+            "VERIFIED_WITHIN_SCOPE",
+            "REJECTED"
+          ]
+        },
+        "epistemic_ceiling": {
+          "type": "string",
+          "enum": [
+            "VERIFIED",
+            "PARTIALLY_VERIFIED",
+            "PROVISIONAL",
+            "OPEN",
+            "BLOCKED"
+          ]
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "competencies": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "C047",
+                  "C053",
+                  "C034"
+                ]
+              },
+              "minItems": 1,
+              "uniqueItems": true,
+              "maxItems": 1
+            },
+            "domains": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "task_classes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "environments": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "exclusions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "competencies",
+            "domains",
+            "task_classes",
+            "environments",
+            "exclusions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "status",
+        "epistemic_ceiling",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "derived_signature": {
+      "type": "string",
+      "minLength": 1
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "rules_version": {
+          "const": "1.1-alpha.1"
+        },
+        "input_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "rubric_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "oracles_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "invariant_catalog_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "rules_version",
+        "input_sha256",
+        "rubric_sha256",
+        "oracles_sha256",
+        "invariant_catalog_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "assessment_hash": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "record_type",
+    "schema_version",
+    "qualification_id",
+    "timestamp",
+    "scope",
+    "capability",
+    "evidence",
+    "evidence_tier",
+    "invariants",
+    "hard_gates",
+    "assessments",
+    "capabilities_by_assessor",
+    "inter_rater",
+    "decision",
+    "derived_signature",
+    "limitations",
+    "provenance",
+    "assessment_hash"
+  ],
+  "additionalProperties": false
+}

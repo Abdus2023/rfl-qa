@@ -1,0 +1,46 @@
+record_type: expected_observations
+oracle_ref: OR-RCU
+expectations:
+- check_id: OR-RCU-callback_after_free
+  expected_result: PASS
+  reason: callback_possible implies target alive
+- check_id: OR-RCU-double_free
+  expected_result: PASS
+  reason: final free occurs once
+- check_id: OR-RCU-uaf
+  expected_result: PASS
+  reason: no access follows free
+- check_id: OR-RCU-data_race
+  expected_result: PASS
+  reason: concurrent accesses are synchronized
+- check_id: OR-RCU-deadlock
+  expected_result: PASS
+  reason: lock ordering has no exercised cycle
+- check_id: OR-RCU-prohibited_sleep
+  expected_result: PASS
+  reason: no sleep in prohibited context
+- check_id: OR-RCU-ffi_lifetime
+  expected_result: PASS
+  reason: C pointer validity outlives each use
+- check_id: OR-RCU-critical_external_assumption
+  expected_result: PASS
+  reason: critical C lifetime contract is evidenced
+- check_id: OR-RCU-required_abi_break
+  expected_result: PASS
+  reason: required public ABI behavior is preserved; internal API stability not assumed
+- check_id: OR-RCU-dma_ownership
+  expected_result: PASS
+  reason: DMA excluded; no DMA capability claimed or ownership transferred by this
+    task
+- check_id: OR-RCU-PROOF
+  expected_result: PASS
+  reason: Record strength PROOF; never infer universal race freedom.
+- check_id: OR-RCU-OBSERVATION
+  expected_result: PASS
+  reason: Record strength OBSERVATION; never infer universal race freedom.
+- check_id: OR-RCU-COVERAGE
+  expected_result: PASS
+  reason: Record strength COVERAGE; never infer universal race freedom.
+- check_id: OR-RCU-ABSENCE_OF_EVIDENCE
+  expected_result: PASS
+  reason: Record strength ABSENCE_OF_EVIDENCE; never infer universal race freedom.

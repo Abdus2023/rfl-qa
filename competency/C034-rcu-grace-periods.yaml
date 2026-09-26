@@ -1,0 +1,58 @@
+record_type: competency
+id: C034
+domain: concurrency_lkmm
+title: RCU grace periods
+description: Scoped rcu grace periods behavior assessed with a synthetic alpha task;
+  not blanket engineering certification.
+behavior_matrix:
+  L1:
+  - id: CB-034-01
+    description: Identifies a reader racing with removal in the supplied schedule.
+  L2:
+  - id: CB-034-02
+    description: Traverses a read-side protected list and explains the matching grace
+      period.
+  L3:
+  - id: CB-034-03
+    description: Constructs a guard preventing reference escape and models remove/grace-period/free
+      ordering.
+  L4:
+  - id: CB-034-04
+    description: Audits memory ordering and adversarial reader/remove interleavings
+      without treating KCSAN as proof.
+  L5:
+  - id: CB-034-05
+    description: Produces a reviewed subsystem RCU policy covering flavor-specific
+      lifetime contracts.
+required_evidence:
+  behavior_evidence_required: true
+  invariant_refs:
+  - A01
+  - B01
+  - C01
+  - D01
+  oracle_refs:
+  - OR-RCU
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+- required_abi_break
+- dma_ownership
+scope_constraints:
+  task_classes:
+  - rcu_read_side
+  - grace_period_teardown
+  environments:
+  - x86_64
+  - CONFIG_RUST=y
+  - PREEMPT_RT=y
+  exclusions:
+  - arm64
+  - dma
+  - nmi_context

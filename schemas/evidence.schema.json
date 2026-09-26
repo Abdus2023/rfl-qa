@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rfl-qa.dev/schemas/evidence.schema.json",
+  "type": "object",
+  "properties": {
+    "record_type": {
+      "const": "evidence"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "E0",
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ]
+    },
+    "artifact_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "rustc",
+        "formal",
+        "kasan",
+        "kcsan",
+        "lockdep",
+        "kunit",
+        "source_audit",
+        "hardware_documentation",
+        "subsystem_contract",
+        "reviewed_specification",
+        "manual_review",
+        "not_tested",
+        "scheduler"
+      ]
+    },
+    "strength": {
+      "type": "string",
+      "enum": [
+        "PROOF",
+        "OBSERVATION",
+        "COVERAGE",
+        "ABSENCE_OF_EVIDENCE"
+      ]
+    },
+    "epistemic_status": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "PARTIALLY_VERIFIED",
+        "PROVISIONAL",
+        "OPEN",
+        "BLOCKED"
+      ]
+    },
+    "establishes": {
+      "type": "string",
+      "enum": [
+        "ASSUMPTION_BOUND_PROOF",
+        "BOUNDED_OBSERVATION",
+        "MEASURED_COVERAGE",
+        "NOT_TESTED"
+      ]
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "population": {
+          "type": "string",
+          "minLength": 1
+        },
+        "executed": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "population",
+        "executed"
+      ],
+      "additionalProperties": false
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "environments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "detected_defects": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "callback_after_free",
+          "double_free",
+          "uaf",
+          "data_race",
+          "deadlock",
+          "prohibited_sleep",
+          "ffi_lifetime",
+          "critical_external_assumption",
+          "required_abi_break",
+          "dma_ownership"
+        ]
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "record_type",
+    "id",
+    "tier",
+    "artifact_ref",
+    "method",
+    "strength",
+    "epistemic_status",
+    "establishes",
+    "statement",
+    "coverage",
+    "assumptions",
+    "environments",
+    "limitations",
+    "required",
+    "detected_defects"
+  ],
+  "additionalProperties": false
+}

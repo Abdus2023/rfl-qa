@@ -1,0 +1,181 @@
+record_type: oracle
+id: OR-RCU
+competency_id: C034
+description: Assessor oracle over declared evidence; NOT universal formal verification.
+hard_gate_coverage:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+- required_abi_break
+- dma_ownership
+checks:
+- id: OR-RCU-callback_after_free
+  input: '002-rcu: trace, safety audit and applicability statement for callback_after_free'
+  expected_condition: callback_possible implies target alive
+  failure_condition: 'Observed or logically demonstrated violation of: callback_possible
+    implies target alive'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - callback_after_free
+- id: OR-RCU-double_free
+  input: '002-rcu: trace, safety audit and applicability statement for double_free'
+  expected_condition: final free occurs once
+  failure_condition: 'Observed or logically demonstrated violation of: final free
+    occurs once'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - double_free
+- id: OR-RCU-uaf
+  input: '002-rcu: trace, safety audit and applicability statement for uaf'
+  expected_condition: no access follows free
+  failure_condition: 'Observed or logically demonstrated violation of: no access follows
+    free'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - uaf
+- id: OR-RCU-data_race
+  input: '002-rcu: trace, safety audit and applicability statement for data_race'
+  expected_condition: concurrent accesses are synchronized
+  failure_condition: 'Observed or logically demonstrated violation of: concurrent
+    accesses are synchronized'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - data_race
+- id: OR-RCU-deadlock
+  input: '002-rcu: trace, safety audit and applicability statement for deadlock'
+  expected_condition: lock ordering has no exercised cycle
+  failure_condition: 'Observed or logically demonstrated violation of: lock ordering
+    has no exercised cycle'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - deadlock
+- id: OR-RCU-prohibited_sleep
+  input: '002-rcu: trace, safety audit and applicability statement for prohibited_sleep'
+  expected_condition: no sleep in prohibited context
+  failure_condition: 'Observed or logically demonstrated violation of: no sleep in
+    prohibited context'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - prohibited_sleep
+- id: OR-RCU-ffi_lifetime
+  input: '002-rcu: trace, safety audit and applicability statement for ffi_lifetime'
+  expected_condition: C pointer validity outlives each use
+  failure_condition: 'Observed or logically demonstrated violation of: C pointer validity
+    outlives each use'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - ffi_lifetime
+- id: OR-RCU-critical_external_assumption
+  input: '002-rcu: trace, safety audit and applicability statement for critical_external_assumption'
+  expected_condition: critical C lifetime contract is evidenced
+  failure_condition: 'Observed or logically demonstrated violation of: critical C
+    lifetime contract is evidenced'
+  predicate: safety
+  invariant_refs:
+  - D01
+  strengths: []
+  hard_gate_refs:
+  - critical_external_assumption
+- id: OR-RCU-required_abi_break
+  input: '002-rcu: trace, safety audit and applicability statement for required_abi_break'
+  expected_condition: required public ABI behavior is preserved; internal API stability
+    not assumed
+  failure_condition: 'Observed or logically demonstrated violation of: required public
+    ABI behavior is preserved; internal API stability not assumed'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - required_abi_break
+- id: OR-RCU-dma_ownership
+  input: '002-rcu: trace, safety audit and applicability statement for dma_ownership'
+  expected_condition: DMA excluded; no DMA capability claimed or ownership transferred
+    by this task
+  failure_condition: 'Observed or logically demonstrated violation of: DMA excluded;
+    no DMA capability claimed or ownership transferred by this task'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - dma_ownership
+- id: OR-RCU-PROOF
+  input: Compile-fail lifetime example under sound-API assumptions.
+  expected_condition: Record strength PROOF; never infer universal race freedom.
+  failure_condition: Strength is missing, conflated or promoted to universal proof.
+  predicate: strength
+  invariant_refs:
+  - A01
+  strengths:
+  - PROOF
+  hard_gate_refs: []
+- id: OR-RCU-OBSERVATION
+  input: KCSAN reports no race in tested schedules.
+  expected_condition: Record strength OBSERVATION; never infer universal race freedom.
+  failure_condition: Strength is missing, conflated or promoted to universal proof.
+  predicate: strength
+  invariant_refs: []
+  strengths:
+  - OBSERVATION
+  hard_gate_refs: []
+- id: OR-RCU-COVERAGE
+  input: 1000000 generated schedules; not all possible executions.
+  expected_condition: Record strength COVERAGE; never infer universal race freedom.
+  failure_condition: Strength is missing, conflated or promoted to universal proof.
+  predicate: strength
+  invariant_refs: []
+  strengths:
+  - COVERAGE
+  hard_gate_refs: []
+- id: OR-RCU-ABSENCE_OF_EVIDENCE
+  input: NMI not exercised and excluded from scope.
+  expected_condition: Record strength ABSENCE_OF_EVIDENCE; never infer universal race
+    freedom.
+  failure_condition: Strength is missing, conflated or promoted to universal proof.
+  predicate: strength
+  invariant_refs: []
+  strengths:
+  - ABSENCE_OF_EVIDENCE
+  hard_gate_refs: []
+teardown_model:
+- CREATE
+- REGISTER
+- ACTIVE
+- STOP
+- QUIESCE
+- CALLBACK DRAIN
+- REFERENCE DRAIN
+- DESTROY
+- FREE
+safety_predicates:
+- alive(reference) => object_alive
+- callback_possible => callback_target_alive
+- free(object) => no live reference AND no callback possible AND no RCU reader AND
+  no registered owner
