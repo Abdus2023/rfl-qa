@@ -1,0 +1,183 @@
+# Change proposal — instrument revision v1.1-alpha.4 (STAGE A: PROPOSAL ONLY).
+# Machine-readable change manifest per section 12. Exact targets; no vague changes.
+# NO competency/, schemas/, oracles/, or rubric file is modified in this stage.
+# The authoritative instrument remains 1.1-alpha.3 until an approved Stage B freeze executes these deltas.
+
+change_set:
+  id: CS-REV-1
+  from_instrument:
+    version: 1.1-alpha.3
+    commit: f1f4810058b58bcb4183e85d473f717823ae9792
+    digest: 8fbf31d89f7e8391  # prefix; full digest in current-instrument-manifest.yaml (32 files)
+  proposed_version: 1.1-alpha.4
+  motivating_audit: f1f4810058b58bcb4183e85d473f717823ae9792  # competency-model audit; findings imported unaltered
+
+  changes:
+    - change_id: CH-1
+      class: ORACLE_REVISION
+      competency: [C034, C047, C053]
+      target:
+        files: [oracles/context/oracle.yaml, oracles/ffi/oracle.yaml, oracles/teardown/oracle.yaml,
+                invariants/C-runtime/C01.yaml, assessors/rubric.md, competency/_schema.yaml]
+        field: 'prohibited_sleep check condition + new execution_context metadata block'
+      current: >
+        expected_condition: 'no sleep in prohibited context' — the phrase presupposes a
+        context classification that NO instrument file defines. Frozen scope selects
+        PREEMPT_RT=y, where S2/S3 show spinlock-held sections may sleep and RCU read-side
+        critical sections are preemptible; classic-kernel atomic-context rules do not map
+        1:1 onto this configuration.
+      proposed: >
+        Add a machine-readable execution_context classification to each behavior/oracle:
+        contexts = {ATOMIC_OR_IRQ, CLASSIC_RCU_READ_SIDE, PREEMPT_RT_SLEEPABLE_SECTION,
+        SRCU_READ_SIDE, PROCESS_CONTEXT_SLEEPABLE}. The prohibited_sleep predicate becomes
+        per-context: sleep forbidden in ATOMIC_OR_IRQ and CLASSIC_RCU_READ_SIDE (classic
+        kernels); permitted-within-constraints under PREEMPT_RT sleepable sections/SRCU
+        (self-deadlock and context-inversion constraints still gated via deadlock/critical
+        gates). Behaviors declare which contexts their tasks exercise; assessors score the
+        gate against the declared context set.
+      rationale: 'CM-001 (HIGH): context-free gate + configuration-sensitive scope = ambiguous or wrong competency signal.'
+      evidence_refs: [S2, S3, audit CM-001]
+      technical_status: SUPPORTED
+      construct_status: PARTIALLY_SUPPORTED   # construct improvement claimed, needs probe + future assessor evidence
+      compatibility: INCOMPARABLE   # gate semantics materially change
+      invalidates_existing_calibration: false   # no human calibration exists (NOT_RUN); see calibration_reset note
+      requires_new_calibration: true
+      requires_new_kernel_execution: false
+      requires_new_criterion_study: false
+      regression_tests: [RG-CM001-1, RG-CM001-2, RG-GATE-1]
+
+    - change_id: CH-2
+      class: BEHAVIOR_ADDITION
+      competency: C053
+      target:
+        files: [competency/C053-pin-init.yaml, oracles/context/oracle.yaml]
+        field: 'behavior_matrix.L4 entry CB-053-06 + OR-PIN publication check'
+      current: 'No behavior tests publication semantics (visibility/ordering of the initialized object to other execution contexts); purpose text names "publication" but no behavior measures it.'
+      proposed: >
+        CB-053-06 (L4): "Audits publication of the initialized pinned object: ownership
+        transfer point, synchronization/visibility obligations toward other CPUs, and
+        callback/registration-before-publication ordering; distinguishes Rust visibility
+        guarantees from kernel runtime publication invariants."
+        Full behavior spec in CM-014-publication.md (section 7 schema). Oracle: OR-PIN-
+        publication — predicate: publication_correctness claimed only with stated
+        synchronization evidence; failure: publication asserted without synchronization/
+        ownership-transfer reasoning. Pin/!Unpin explicitly documented as insufficient
+        (S1).
+      rationale: 'CM-014 (HIGH): construct claims publication but never measures it; !Unpin = safe publication is a live failure mode.'
+      evidence_refs: [S1, S5, audit CM-014, audit CM-019]
+      technical_status: SUPPORTED
+      construct_status: PARTIALLY_SUPPORTED
+      compatibility: INCOMPARABLE   # L4 requirement set changes
+      invalidates_existing_calibration: false   # none exists
+      requires_new_calibration: true
+      requires_new_kernel_execution: false
+      requires_new_criterion_study: false
+      regression_tests: [RG-CM014-1, RG-E2L-1, RG-GATE-2]
+
+    - change_id: CH-3
+      class: RUBRIC_REVISION
+      competency: C034
+      target:
+        files: [assessors/rubric.md]
+        field: 'L1→L2 scoring guidance paragraph'
+      current: 'No guidance distinguishes API-vocabulary recall (L1-grade evidence) from grace-period/lifetime reasoning (L2-grade evidence) for CB-034-02.'
+      proposed: >
+        Rubric guidance: CB-034-02 DEMONSTRATED requires (a) identification of which grace
+        period covers the removal AND (b) a correct statement of what remains unreclaimed
+        until it elapses AND (c) at least one correct consequence claim (what may/may not
+        be freed after it). Vocabulary-only answers (naming APIs/flags without the
+        invariant) score the behavior UNSUPPORTED. The boundary itself is retained;
+        practical discrimination remains OPEN pending construct probes RG-C034-* and real
+        assessor rounds.
+      rationale: 'Audit CM-002 (MEDIUM): L1→L2 weakly discriminates API familiarity from reclamation reasoning (Profile D).'
+      evidence_refs: [audit CM-002, audit CM-003, level-boundary-analysis.md]
+      technical_status: SUPPORTED
+      construct_status: PARTIALLY_SUPPORTED
+      compatibility: COMPARABLE_HISTORICAL   # scoring guidance tightens interpretation; construct unchanged
+      invalidates_existing_calibration: false
+      requires_new_calibration: false   # no construct change; guidance applies at next round
+      requires_new_kernel_execution: false
+      requires_new_criterion_study: false
+      regression_tests: [RG-C034B-1]
+
+    - change_id: CH-4
+      class: CLARIFICATION
+      competency: C047
+      target:
+        files: [oracles/teardown/oracle.yaml, assessors/rubric.md]
+        field: 'new scope_metadata block on OR-CALLBACK + rubric interpretation rule'
+      current: >
+        Free-implication conjunction reads as a universal theorem to an unmotivated reader;
+        only the oracle file description says "NOT universal formal verification"; no
+        explicit exceptions listed anywhere.
+      proposed: >
+        scope_metadata on OR-CALLBACK (and mirrored on OR-PIN/OR-RCU): {interpretation:
+        scoped_sufficient_condition_checklist, not: universal_kernel_theorem, known_exceptions:
+        [SLAB_TYPESAFE_BY_RCU-style retained-content caches, refcounted-release freeing paths,
+        cross-CPU stale-pointer windows, mechanism-specific cancellation guarantees (racing
+        enqueues caveat)]}. Rubric rule: an assessor or report must never present an oracle
+        result as a universal safety theorem; oracle semantics (checks, predicates, expected/
+        failure conditions) otherwise UNCHANGED.
+      rationale: 'Audit CM-008/CM-009 (HIGH/MEDIUM): prevent scoped-checklist → theorem upgrade; add mechanism tolerance guidance.'
+      evidence_refs: [S3, S4, audit CM-008, audit CM-009]
+      technical_status: SUPPORTED
+      construct_status: SUPPORTED
+      compatibility: COMPARABLE_HISTORICAL   # semantics unchanged; metadata + guidance only
+      invalidates_existing_calibration: false
+      requires_new_calibration: false
+      requires_new_kernel_execution: false
+      requires_new_criterion_study: false
+      regression_tests: [RG-C047O-1]
+
+    - change_id: CH-5
+      class: RUBRIC_REVISION
+      competency: [C034, C047, C053]
+      target:
+        files: [assessors/rubric.md, calibration/inter-rater.md]
+        field: 'new no-duplicate-credit scoring rule'
+      current: 'Nothing forbids one ordering argument (grace-period-as-reference-drain) from satisfying CB-034-03 AND CB-047-03; shared runtime-invariant statements could be scored in multiple competencies from one artifact.'
+      proposed: >
+        Scoring rule: (1) behaviors in different competencies require evidence from
+        artifact-distinct sources; a single ordering argument may support at most one of
+        {CB-034-03, CB-047-03} unless the artifacts exercise genuinely different mechanisms;
+        (2) invariant findings must cite competency-local evidence; (3) derived reports must
+        annotate any cross-competency evidence reuse explicitly.
+      rationale: 'Audit CM-018 (MEDIUM): duplicate-credit inflation across composed competencies.'
+      evidence_refs: [audit CM-018, cross-competency-analysis.md]
+      technical_status: SUPPORTED
+      construct_status: SUPPORTED
+      compatibility: INCOMPARABLE   # scoring mechanics change (conservative direction)
+      invalidates_existing_calibration: false
+      requires_new_calibration: true
+      requires_new_kernel_execution: false
+      requires_new_criterion_study: false
+      regression_tests: [RG-DUP-1]
+
+  non_changes:
+    - id: NC-1
+      target: 'L4→L5 boundaries (all three competencies)'
+      decision: RETAINED_OPEN
+      rationale: >
+        Section 10 mandate: L5 as currently written ("reviewed policy") depends on review
+        authority/infrastructure that does not exist; separating technical capability from
+        organizational authority is REQUIRED, but no observable, independently assessable L5
+        construct can be established in this environment without manufacturing a boundary.
+        L5 remains OPEN / NOT_OBSERVABLE_WITH_CURRENT_PROTOCOL; assessors must mark all L5
+        requirements UNSATISFIED-BY-INFRASTRUCTURE (not failed-by-candidate) until calibrated
+        review exists.
+      evidence_refs: [audit CM-015, audit CM-004, S7]
+    - id: NC-2
+      target: 'C047 release/last-put context behavior (audit CM-011)'
+      decision: DEFERRED_TO_NEXT_REVISION
+      rationale: 'Recommended ADD_MISSING_BEHAVIOR, but excluded from this smallest-justified-delta changeset to keep the revision reviewable; queued for the next change cycle.'
+    - id: NC-3
+      target: 'C053×C047 init-time registration boundary (audit CM-019); C034 flavor pinning (audit CM-003 full revision)'
+      decision: DEFERRED_TO_NEXT_REVISION
+      rationale: 'Same restraint rationale as NC-2; CH-2 records the init-registration interaction inside the publication behavior.'
+
+  calibration_reset_note: >
+    Per section 20: CH-1, CH-2, CH-5 are material changes (gate semantics; behavior set;
+    scoring rules) → the FIRST real calibration round must occur under the new frozen
+    instrument only; there is no old human calibration to invalidate (round NOT_RUN), and the
+    synthetic fixture pairs remain engine-exercise evidence only, bounded to their historical
+    instrument identity (1.1-alpha.3). No old agreement is reused as validation of alpha.4.
