@@ -1,0 +1,65 @@
+# External source records — competency-model validity audit (primary sources preferred).
+# Secondary sources are used only to locate primary evidence or document attributed interpretation.
+sources:
+  - source_id: S1
+    title: 'std::pin module documentation (structural pinning, Pin guarantees, drop guarantee)'
+    location: https://doc.rust-lang.org/std/pin/
+    version_or_commit: 'Rust stable documentation, current at access time'
+    relevant_scope: 'Pin<P> guarantees: address stability via type system; pinning does not deallocate, zero, or synchronize; Unpin semantics; structural pinning hazards; drop guarantee'
+    evidence_class: PRIMARY_SOURCE
+    accessed_at: '2026-09-27'
+  - source_id: S2
+    title: "A Tour Through RCU's Requirements (kernel.org RCU design documentation)"
+    location: https://www.kernel.org/doc/Documentation/RCU/Design/Requirements/Requirements.html
+    version_or_commit: 'kernel.org documentation tree, current at access time'
+    relevant_scope: 'Sleeping locks forbidden in classic RCU read-side critical sections; sleeplockified spinlocks under -rt MAY be acquired within RCU read-side critical sections; SRCU and userspace RCU permit sleeping locks; CONFIG_PREEMPT makes read-side critical sections preemptible'
+    evidence_class: PRIMARY_SOURCE
+    accessed_at: '2026-09-27'
+  - source_id: S3
+    title: 'What is RCU? ("Read, Copy, Update") — kernel.org core documentation'
+    location: https://docs.kernel.org/RCU/whatisRCU.html
+    version_or_commit: 'kernel.org documentation tree, current at access time'
+    relevant_scope: 'rcu_read_lock() blocking prohibition (classic); CONFIG_PREEMPT_RT permits preemption of RCU read-side critical sections and permits spinlocks to block within them; anything disabling bh/preemption/irq enters an RCU read-side critical section; grace-period semantics; call_rcu/synchronize_rcu roles'
+    evidence_class: PRIMARY_SOURCE
+    accessed_at: '2026-09-27'
+  - source_id: S4
+    title: 'Workqueue — kernel.org core-api documentation'
+    location: https://docs.kernel.org/core-api/workqueue.html
+    version_or_commit: 'kernel.org documentation tree, current at access time'
+    relevant_scope: 'cancel_work_sync(): work guaranteed not pending/executing on any CPU ON RETURN "as long as there are not racing enqueues"; delayed_work variant; WQ_BH work items execute in softirq context and cannot sleep; flush_rcu_work'
+    evidence_class: PRIMARY_SOURCE
+    accessed_at: '2026-09-27'
+  - source_id: S5
+    title: 'kernel crate documentation (rust.docs.kernel.org) — init module and pinned-initialization macros'
+    location: https://rust.docs.kernel.org/6.14/kernel/
+    version_or_commit: '6.14 docs snapshot at access time; init API present; pin-init split into its own crate by 6.16/6.17 (see S7 tracker)'
+    relevant_scope: 'kernel::init: "API to safely and fallibly initialize pinned structs using in-place constructors"; pin_init!, try_pin_init!, stack_pin_init!, try_init! macros — confirms in-place pinned initialization is merged kernel-crate API, actively versioned'
+    evidence_class: PRIMARY_SOURCE
+    accessed_at: '2026-09-27'
+  - source_id: S6
+    title: 'Rust-for-Linux kernel source documentation — kernel::sync::rcu'
+    location: https://rust-for-linux.github.io/docs/src/kernel/sync/rcu.rs.html
+    version_or_commit: 'RfL docs at access time'
+    relevant_scope: 'Guard is deliberately !Send (read-side lock is per-thread/CPU); invariant comment binds actual rcu_read_lock() holding to guard lifetime; read_lock() wrapper — minimal RCU binding surface (no typed RCU-pointer abstraction at this location)'
+    evidence_class: UPSTREAM_IMPLEMENTATION
+    accessed_at: '2026-09-27'
+  - source_id: S7
+    title: 'Rust-for-Linux mailing list: workqueue OwnedQueue/ScopedWork/ScopedWork patch series; pin-init upstream sync series (2026)'
+    location: 'https://ratatoskr.run/rust-for-linux/2026/08/17384384/t ; https://ratatoskr.run/rust-for-linux/2026/04/3534165/t'
+    version_or_commit: 'patch series mid-2026'
+    relevant_scope: 'ScopedWork destructor invokes cancel_work_sync() so non-'"'"'static work items cannot outlive data (teardown-by-drop); pin-init crate under active upstream sync — evidence that C047/C053 implementation surfaces are MOVING targets'
+    evidence_class: UPSTREAM_REVIEW/DISCUSSION
+    accessed_at: '2026-09-27'
+    note: 'Secondary mirror used to locate the patch series; claims about mainline state anchored on S5.'
+  - source_id: S8
+    title: 'Kernel Memory Consistency Model (LKMM) documentation and KCSAN tool documentation'
+    location: 'https://docs.kernel.org/core-api/wrappers/memory-barriers.html ; https://docs.kernel.org/dev-tools/kcsan.html'
+    version_or_commit: 'kernel.org documentation tree, current at access time'
+    relevant_scope: 'LKMM defines happens-before and ordering primitives; KCSAN is a sampling watchpoint dynamic detector — non-observation of a race within a run is an OBSERVATION with COVERAGE limits, not proof of absence'
+    evidence_class: PRIMARY_SOURCE
+    accessed_at: '2026-09-27'
+    note: 'Used for epistemic classification of KCSAN claims in C034/C047 behaviors; content consistent with invariants/taxonomy.yaml.'
+usage_rules:
+  - 'No blog, tutorial, generated summary, or model-generated explanation is treated as authoritative.'
+  - 'Current upstream behavior is NOT silently substituted for the historical alpha state of the competency model; version sensitivity recorded per finding.'
+  - 'Upstream implementation evidence (S5-S7) demonstrates API reality, never candidate-level competence.'

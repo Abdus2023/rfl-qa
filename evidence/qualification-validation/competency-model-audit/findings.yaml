@@ -1,0 +1,268 @@
+# Findings ledger — competency-model validity audit (schema per §18).
+# Severity describes impact on the model, not a ranking of competencies.
+# technical_status/construct_status use the frozen decision vocabulary.
+# evidence_refs: S# = source-manifest.yaml; LBA = level-boundary-analysis.md; XCA = cross-competency-analysis.md; AP = adversarial-profiles.md; MC = missing-competencies.md.
+
+findings:
+  - finding_id: CM-001
+    competency: C034
+    category: VERSION_DRIFT
+    claim: 'prohibited_sleep gate semantics are configuration-dependent in RCU read-side contexts; frozen scope selects PREEMPT_RT=y where spinlocks may block within RCU read-side critical sections (S2/S3)'
+    evidence_refs: [S2, S3]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: HIGH
+    affected_levels: [L1, L2, L3, L4]
+    affected_behaviors: [CB-034-02, CB-034-03, CB-034-04]
+    failure_mode: assessor applies context-free gate to a regime where its premise differs; false veto or false pass across configurations
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION — define gate semantics per execution context and configuration at next freeze
+    confidence: HIGH
+  - finding_id: CM-002
+    competency: C034
+    category: LEVEL_BOUNDARY
+    claim: 'L1→L2 boundary is weak: both levels satisfiable by API familiarity (Profile D) without reclamation reasoning'
+    evidence_refs: [LBA, AP]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L1, L2]
+    affected_behaviors: [CB-034-01, CB-034-02]
+    failure_mode: under-discrimination at the lowest boundary
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION — probe expects grace-period *reasoning*, not vocabulary, in L2 scoring guidance
+    confidence: MEDIUM
+  - finding_id: CM-003
+    competency: C034
+    category: ASSESSOR_AMBIGUITY
+    claim: 'CB-034-02 "matching grace period" does not pin the RCU flavor (classic/SRCU/bh/kfree_rcu/call_rcu) whose semantics differ materially'
+    evidence_refs: [S2, S3]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L2]
+    affected_behaviors: [CB-034-02]
+    failure_mode: divergent assessor interpretations of an acceptable answer
+    recommended_action: REVISE_BEHAVIOR candidate at next freeze (pin flavor per task); clarification acceptable meanwhile
+    confidence: HIGH
+  - finding_id: CM-004
+    competency: C034
+    category: OBSERVABILITY
+    claim: 'CB-034-05 (reviewed subsystem policy) is DIFFICULT_TO_OBSERVE under the current protocol: no calibrated reviewer infrastructure exists'
+    evidence_refs: [LBA]
+    technical_status: SUPPORTED
+    construct_status: PROVISIONAL
+    severity: MEDIUM
+    affected_levels: [L5]
+    affected_behaviors: [CB-034-05]
+    failure_mode: L5 boundary unverifiable until reviewers exist
+    recommended_action: DEFER_PENDING_EVIDENCE — bind L5 evidence to the (currently BLOCKED) human calibration infrastructure
+    confidence: HIGH
+  - finding_id: CM-005
+    competency: C034
+    category: MISSING_BEHAVIOR
+    claim: 'grace-period polling APIs and kfree_rcu-vs-call_rcu ownership distinction absent from the matrix'
+    evidence_refs: [MC]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: LOW
+    affected_levels: [L4]
+    affected_behaviors: []
+    failure_mode: narrower coverage than the full real-world API family
+    recommended_action: OPTIONAL/SPECIALIZED — DEFER_PENDING_EVIDENCE
+    confidence: MEDIUM
+  - finding_id: CM-006
+    competency: C034
+    category: VERSION_DRIFT
+    claim: 'Rust RCU binding surface (sync::rcu Guard, !Send, per-thread invariant, S6) is minimal and actively evolving; CB-034-03 wording must bind to durable principle, not API spelling'
+    evidence_refs: [S6, S7]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: LOW
+    affected_levels: [L3]
+    affected_behaviors: [CB-034-03]
+    failure_mode: assessors scoring macro/API fluency instead of reasoning
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION — rubric guidance: score reasoning, re-anchor examples per freeze
+    confidence: HIGH
+  - finding_id: CM-007
+    competency: ALL
+    category: ASSESSOR_AMBIGUITY
+    claim: 'artifacts are not pinned to Rust specifically; profiles B/C placement swings on an unpinned convention (AP)'
+    evidence_refs: [AP]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L2, L3, L4]
+    affected_behaviors: [CB-034-03, CB-047-02, CB-047-03, CB-053-03]
+    failure_mode: inconsistent language-expectation across assessors
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION — pin artifact-language expectation per behavior at next freeze
+    confidence: HIGH
+  - finding_id: CM-008
+    competency: C047
+    category: ORACLE_MISMATCH
+    claim: 'free-implication conjunction is a sufficient-condition assessment checklist for the modeled mechanism class, NOT a universal kernel theorem (SLAB_TYPESAFE_BY_RCU retention; release-path freeing; cross-CPU stale pointers)'
+    evidence_refs: [S3, S4]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: HIGH
+    affected_levels: [L3, L4]
+    affected_behaviors: [CB-047-03, CB-047-04]
+    failure_mode: oracle predicate silently promoted to universal theorem in scoring or reporting
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION — oracle files already carry the scoped disclaimer; add assessor guidance forbidding universal-theorem upgrades
+    confidence: HIGH
+  - finding_id: CM-009
+    competency: C047
+    category: SCOPE
+    claim: 'teardown pipeline is a workqueue-centric canonical model; IRQ/timer/RCU-callback/BH mechanisms and PREEMPT_RT threading change stage semantics (S4, S2/S3)'
+    evidence_refs: [S2, S3, S4]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L3, L4]
+    affected_behaviors: [CB-047-03, CB-047-04]
+    failure_mode: assessors reject valid mechanism-appropriate reorderings (or accept invalid ones)
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION — add mechanism-tolerance instruction to assessor guidance
+    confidence: HIGH
+  - finding_id: CM-010
+    competency: C047
+    category: LEVEL_BOUNDARY
+    claim: 'L3→L4 is genuinely discriminative: documented cancel/racing-enqueue caveat (S4) makes drain-admission design necessary, not decorative'
+    evidence_refs: [S4]
+    technical_status: SUPPORTED
+    construct_status: SUPPORTED
+    severity: INFO
+    affected_levels: [L3, L4]
+    affected_behaviors: [CB-047-04]
+    failure_mode: none — positive finding
+    recommended_action: RETAIN
+    confidence: HIGH
+  - finding_id: CM-011
+    competency: C047
+    category: MISSING_BEHAVIOR
+    claim: 'release/last-put callback execution context (runs in arbitrary context; must not sleep or block on itself) is absent'
+    evidence_refs: [MC]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L3]
+    affected_behaviors: [CB-047-03]
+    failure_mode: candidate can pass without knowing release-context discipline
+    recommended_action: ADD_MISSING_BEHAVIOR recommended at next freeze (deferred — audit does not modify files)
+    confidence: MEDIUM
+  - finding_id: CM-012
+    competency: C047
+    category: PREREQUISITE
+    claim: 'registration-creates-lifetime-obligation is implicit in CB-047-02 (owner recorded) but never stated; emerging RfL ScopedWork drop-cancel pattern makes it load-bearing (S7)'
+    evidence_refs: [S7]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: LOW
+    affected_levels: [L2]
+    affected_behaviors: [CB-047-02]
+    failure_mode: obligation left implicit in scoring
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION
+    confidence: MEDIUM
+  - finding_id: CM-013
+    competency: C053
+    category: CONSTRUCT_MISMATCH
+    claim: 'L1/L2 are Rust/C-generic prerequisite layers (address stability, borrow rejection), not kernel-object construction; title over-signals kernel specificity; "safe API" (L3) ambiguous between Rust contract safety and kernel invariant safety'
+    evidence_refs: [S1, S5]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L1, L2, L3]
+    affected_behaviors: [CB-053-01, CB-053-02, CB-053-03]
+    failure_mode: generic Rust competence scored as kernel initialization competence (or vice versa)
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION — score L1/L2 as prerequisite evidence; define "safe" in rubric guidance
+    confidence: HIGH
+  - finding_id: CM-014
+    competency: C053
+    category: MISSING_BEHAVIOR
+    claim: 'publication semantics (memory ordering/visibility of the initialized object to other CPUs) absent; Pin provides no visibility guarantee (S1); construct says "publication" in its purpose but no behavior tests it'
+    evidence_refs: [S1, MC]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: HIGH
+    affected_levels: [L3, L4]
+    affected_behaviors: [CB-053-03, CB-053-04]
+    failure_mode: candidate passes while believing !Unpin/pinning yields safe publication (explicitly attacked equivalence)
+    recommended_action: ADD_MISSING_BEHAVIOR recommended at next freeze (deferred — audit does not modify files)
+    confidence: HIGH
+  - finding_id: CM-015
+    competency: ALL
+    category: LEVEL_BOUNDARY
+    claim: 'all three L4→L5 boundaries conflate capability with governance maturity: L5 requires REVIEWED artifacts, and no calibrated review infrastructure exists (also task-complexity vs capability conflation)'
+    evidence_refs: [LBA]
+    technical_status: SUPPORTED
+    construct_status: OPEN
+    severity: HIGH
+    affected_levels: [L5]
+    affected_behaviors: [CB-034-05, CB-047-05, CB-053-05]
+    failure_mode: L5 placement depends on review access, not demonstrated capability; boundary not discriminative under frozen protocol
+    recommended_action: REVISE_LEVEL_BOUNDARY candidate at next freeze; interim: treat L5 as PROVISIONAL-pending-review-infrastructure in any use
+    confidence: HIGH
+  - finding_id: CM-016
+    competency: ALL
+    category: CONSTRUCT_MISMATCH
+    claim: 'cumulative single scale cannot represent auditor/reviewer capability separately (Profile G blocked at implementation behaviors)'
+    evidence_refs: [AP]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: LOW
+    affected_levels: [L3, L4, L5]
+    affected_behaviors: []
+    failure_mode: auditor profiles underplaced; acceptable documented trade-off
+    recommended_action: RETAIN (documented rubric choice); revisit only with evidence from real rounds
+    confidence: MEDIUM
+  - finding_id: CM-017
+    competency: ALL
+    category: SCOPE
+    claim: 'transfer/generalization across subsystems unmeasured (Profile H passes within single synthetic scope)'
+    evidence_refs: [AP, MC]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L4, L5]
+    affected_behaviors: []
+    failure_mode: subsystem-specific competence mistaken for general competence; forbidden by frozen no-extrapolation rules if claimed
+    recommended_action: RETAIN_WITH_BOUNDARY_CLARIFICATION — scope statements must explicitly disclaim transfer
+    confidence: HIGH
+  - finding_id: CM-018
+    competency: ALL
+    category: REDUNDANCY
+    claim: 'CB-034-03 and CB-047-03 ordering arguments can double-count one artifact (grace-period-as-reference-drain composition, XCA); runtime-invariant statements recurs across competencies (XCA)'
+    evidence_refs: [XCA]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L3]
+    affected_behaviors: [CB-034-03, CB-047-03]
+    failure_mode: single ordering argument scored in two competencies
+    recommended_action: calibration-design rule — distinct artifacts/schedules per competency; forbid cross-competency evidence reuse
+    confidence: MEDIUM
+  - finding_id: CM-019
+    competency: C053 × C047
+    category: SCOPE
+    claim: 'callback publication during initialization (registration before init completion) owned by neither matrix'
+    evidence_refs: [XCA]
+    technical_status: SUPPORTED
+    construct_status: OPEN
+    severity: LOW
+    affected_levels: [L3]
+    affected_behaviors: []
+    failure_mode: init-time registration races unassessed
+    recommended_action: MISSING_BOUNDARY recorded for next freeze; DEFER_PENDING_EVIDENCE
+    confidence: MEDIUM
+  - finding_id: CM-020
+    competency: ALL
+    category: VERSION_DRIFT
+    claim: 'implementation surfaces are moving targets: kernel::init merged then pin-init split to its own crate with active 2026 upstream sync; workqueue lifetime wrappers (ScopedWork, cancel_work_sync-in-drop) landing in 2026 series (S5/S7)'
+    evidence_refs: [S5, S6, S7]
+    technical_status: SUPPORTED
+    construct_status: PARTIALLY_SUPPORTED
+    severity: MEDIUM
+    affected_levels: [L2, L3, L4]
+    affected_behaviors: [CB-053-02, CB-053-03, CB-053-04, CB-047-02, CB-047-03]
+    failure_mode: version-specific API details silently presented as timeless competency
+    recommended_action: re-anchor assessor examples per instrument freeze; behaviors are already phrased at durable-principle level (positive)
+    confidence: HIGH
+finding_count: 20
+summary_counts: {HIGH: 4, MEDIUM: 11, LOW: 4, INFO: 1}
