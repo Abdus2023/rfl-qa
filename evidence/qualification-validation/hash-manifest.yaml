@@ -1,0 +1,32 @@
+algorithm: SHA256
+cycle: qualification-validation-phase
+source_commit: 459ec8b9836339537d2cbd995e73af0a330d69ff
+generated_at: '2026-09-27T08:17:30.418957+00:00'
+exclusions:
+- hash-manifest.yaml (self-reference)
+- __pycache__ (runtime cache)
+referenced:
+  instrument_commit: 459ec8b9836339537d2cbd995e73af0a330d69ff
+  ci_run_baseline: '36304213414'
+  aud_007: FIXED_AND_RETESTED
+  aud_008: FIXED_AND_RETESTED
+  human_calibration: NOT_RUN
+  inter_rater: NOT_RUN
+  kernel_execution: NOT_RUN
+  criterion_validity: NOT_ESTABLISHED
+  release: BLOCKED
+receipt_files:
+  REPORT.md: fe1f53903a980f1e335c07f608966925b0aa6bec962f33ec7fad9761183f4297
+  calibration/agreement.yaml: 42a469bea62ae3f310767d02c3cf617e157d967cf4faaddeb8dda0e82c42bcae
+  calibration/assessor-a.yaml: 03e9794f1578d56b09d8576c1bb346c8870fef0d7862d13e16894548309b2d1a
+  calibration/assessor-b.yaml: 6915008caf5ddfbdf2ef69bf58a7638741f2f5fe06d7489cc0d8a9f780f11d2b
+  calibration/cases.yaml: eaa73255e59336131f7eb0a5b63a3de4d5aba3a4f75520ed2c7da802a19e12ff
+  calibration/disagreements.yaml: ca6a13007e5729cd0b1d869c474ca45bfcf44c73bee2ac2e8a1a55c760536507
+  commands.log: 2911bb5ee68cb0584b13c6a45b5223245634a33d54499e6adc3f27b1861e0fcf
+  criterion/analysis.yaml: c80b82350f0f99352d05501ae3b3b1ef80089d7c925e588f44e10368e2ea455f
+  criterion/dataset-manifest.yaml: c8811e31d33efa96ff186abc92f47f3dabae8c1cc181d6353d56ff148422a13d
+  criterion/study-protocol.yaml: e20df0c95ed86c79e6c3caa609e0eb1afefd74c0cb7123e1b5960c2aae2d9f1d
+  environment.yaml: 3afa7c6e0a7b9fbe4bdae24816bf8932b73ca92e7ae5a202bad0ce69a78abe4e
+  instrument.yaml: 854bdb1d3da85ca7434a0153216f4ef8c384edf6773935e9ee5df4b2026cef5f
+  kernel/artifacts.yaml: 69d114567a13b30cfc0200835f534514d2f3353dc873ca32251385490a670fbc
+  kernel/execution.yaml: f18af11e8fbd9360fb19e04dd04a6415ebaee14350d98d779ab782023379c558
