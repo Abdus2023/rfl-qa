@@ -23,7 +23,10 @@ def verified(d):
 
 
 def current_provenance(old, template):
-    """Add only schema-v2 provenance to a COPY; do not repair the adversarial facts."""
+    """Add template observations/bindings to a COPY, retaining old fields.
+
+    This does not authenticate or transcribe narrative facts; safe template facts
+    may contradict the old prose. That limitation is explicitly replayed/reported."""
     d=deepcopy(old)
     d['oracle_observations']=deepcopy(template['oracle_observations'])
     for e, t in zip(d['evidence'], template['evidence']):
@@ -359,3 +362,55 @@ def test_catalog_inconsistent_identity_rejects(dossier,catalog):
 def test_empty_dynamic_population_not_observation(dossier):
     e=next(e for e in dossier['evidence'] if e['method']=='kcsan');e['coverage']['executed']=0
     with pytest.raises(Invalid,match='no executions'):check_evidence(e)
+
+
+@pytest.mark.parametrize('gate',GATES)
+def test_all_ten_veto_at_l5_e5_verified_agreement(dossier,run,gate):
+    d=verified(dossier)
+    for e in d['evidence']:e['tier']='E5'
+    for a in d['assessments']:
+        a['claimed_level']='L5';a['evidence_tier']='E5'
+        a['observations']=[{'behavior_id':f'CB-047-{n:02}','status':'DEMONSTRATED','evidence_refs':['ARTIFACT']} for n in range(1,6)]
+    control=run(rebind(d))
+    assert control['decision']['epistemic_ceiling']=='VERIFIED'
+    assert control['inter_rater']['agreement'] is True
+    d['hard_gates']={'status':'BLOCKED','findings':[gate]}
+    for a in d['assessments']:a['hard_gates']=deepcopy(d['hard_gates'])
+    out=run(rebind(d))
+    assert out['capability']['level']=='L5' and out['evidence_tier']=='E5'
+    assert out['decision']['epistemic_ceiling']=='VERIFIED' and out['inter_rater']['agreement'] is True
+    assert out['hard_gates']['status']=='BLOCKED' and out['decision']['status']=='REJECTED'
+    assert out['derived_signature']=='BLOCKED'
+
+
+@pytest.mark.parametrize('field',['scope','invariants','oracle_results','oracle_observations','evidence','assessments','timestamp','primary_evidence_ref'])
+@pytest.mark.parametrize('mutation',['missing','null'])
+def test_mandatory_fields_not_repaired(dossier,field,mutation):
+    if mutation=='missing':del dossier[field]
+    else:dossier[field]=None
+    with pytest.raises(Invalid):validate_record(dossier)
+
+
+@pytest.mark.parametrize('mutation',['scope','capability','evidence'])
+def test_semantic_changes_are_hash_bound(dossier,run,mutation):
+    before=run(dossier)
+    if mutation=='scope':dossier['scope']['exclusions'].append('additional_unqualified_task')
+    if mutation=='evidence':dossier['evidence'][0]['statement']+=' Additional explicit fact.'
+    if mutation=='capability':
+        for a in dossier['assessments']:
+            a['claimed_level']='L5'
+            a['observations']=[{'behavior_id':f'CB-047-{n:02}','status':'DEMONSTRATED','evidence_refs':['ARTIFACT']} for n in range(1,6)]
+    assert run(rebind(dossier))['assessment_hash']!=before['assessment_hash']
+
+
+def test_original_unsafe_narrative_explicitly_transcribed_to_trace(dossier,run):
+    old=load(AUDIT/'contradictory-teardown-trace-with-pass-labels.json')
+    assert 'FREE(target) while callback_possible=true and live_reference=true' in old['evidence'][0]['statement']
+    d=current_provenance(old,dossier)
+    # Explicit fixture transcription, NOT a general prose parser or engine inference.
+    for o in d['oracle_observations']:
+        if o['payload']['kind']=='trace':
+            o['payload']['trace'][-1].update(object_alive=False,callback_possible=True,live_references=1)
+    out=run(rebind(d))
+    assert out['decision']['status']=='REJECTED' and out['derived_signature']=='BLOCKED'
+    assert {'uaf','callback_after_free'}<=set(out['hard_gates']['findings'])
