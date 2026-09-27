@@ -1,0 +1,40 @@
+# CI observation — empirical validation execution phase (section 22).
+# Evidence classes kept separate: API metadata OBSERVED; byte contents UNCONFIRMED (EOF).
+publication:
+  baseline: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+  phase_package_commit: 4a209f8f21e32c96aaa5cc0e55e1e256de9e1326
+  remote: https://github.com/Abdus2023/rfl-qa.git
+  branch: arena/01a0dfcc-rfl-qa
+  force_push: false
+  workflow_sha: same as phase_package_commit (workflow unchanged since 6b426364)
+ci_run:
+  run_id: 36306102996
+  event: push
+  workflow: Alpha release gates
+  commit: 4a209f8f21e32c96aaa5cc0e55e1e256de9e1326
+  started: '2026-09-27T08:24:38Z'
+  completed: '2026-09-27T08:27:38Z'
+  conclusion: failure   # DESIGNED: procedural release gate exits 1 while release is BLOCKED
+software_gate_results:   # OBSERVED via Actions API step metadata
+  install_pinned_dependencies: success
+  schema_and_reference_gate: success
+  automated_gates: success
+  cli_derivation_and_reporting: success
+  full_evidence_and_procedural_release_gate: failure   # designed BLOCKED / exit 1; NOT flipped
+  evidence_upload: success   # if: always()
+artifact:
+  name: aud-007-008-execution-evidence
+  id: 10927746058
+  size_in_bytes: 107842
+  created_at: '2026-09-27T08:27:35Z'
+  expired: false
+  byte_retrieval: EOF (0 bytes received; exit 1)
+  content: UNCONFIRMED
+logs:
+  retrieval: 'gh run view 36306102996 --log -> EOF (0 bytes; exit 1)'
+  available: false
+  detailed_log_claims: UNCONFIRMED
+distinctions_preserved:
+  - 'CI software gate PASS != procedural release gate PASS != measurement validity'
+  - 'procedural failure conclusion is the designed truthful BLOCKED outcome, not a software regression'
+  - 'artifact/log content claims are NOT made from metadata'

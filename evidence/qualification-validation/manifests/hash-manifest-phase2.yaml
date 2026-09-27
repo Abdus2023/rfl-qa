@@ -1,0 +1,75 @@
+algorithm: SHA256
+cycle: empirical-validation-execution
+source_commit: 4a209f8f21e32c96aaa5cc0e55e1e256de9e1326
+baseline_commit: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+generated_at: '2026-09-27T08:28:13.747000+00:00'
+exclusions:
+- hash-manifest.yaml (phase-1 self-referential manifest, unchanged)
+- hash-manifest-phase2.yaml (this file)
+- __pycache__ (runtime cache)
+phase1_receipt_drift_check:
+  files_checked: 14
+  drift: []
+  all_unchanged: true
+referenced:
+  ci_run_id: 36306102996
+  ci_run_sha: 4a209f8f21e32c96aaa5cc0e55e1e256de9e1326
+  instrument_commit: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+  human_calibration: NOT_RUN
+  inter_rater: NOT_RUN
+  kernel_execution: NOT_RUN
+  dynamic_analysis: NOT_RUN
+  oracle_validity: NOT_ESTABLISHED
+  criterion_validity: NOT_ESTABLISHED
+  measurement_validity: NOT_ESTABLISHED
+  release: BLOCKED
+receipt_files:
+  REPORT.md: fe1f53903a980f1e335c07f608966925b0aa6bec962f33ec7fad9761183f4297
+  calibration/agreement/round-CS-VAL-1.yaml: 3dae04054a54150a6fd77af198ddf488159cd957683f506e54a058ee5ee8748f
+  calibration/agreement.yaml: 42a469bea62ae3f310767d02c3cf617e157d967cf4faaddeb8dda0e82c42bcae
+  calibration/assessor-a.yaml: 03e9794f1578d56b09d8576c1bb346c8870fef0d7862d13e16894548309b2d1a
+  calibration/assessor-b.yaml: 6915008caf5ddfbdf2ef69bf58a7638741f2f5fe06d7489cc0d8a9f780f11d2b
+  calibration/assessor-submissions/INDEX.yaml: 732b80a2c9948fc2677b2a6f2cfbda17abc8eda5d541d03a737409fa8f87c1c2
+  calibration/cases/assessor-view/CS-001.assessor.yaml: 93b1b933b93afc4bcf661850390a3c3507545c97cf5edcb953575cad58b96f60
+  calibration/cases/assessor-view/CS-002.assessor.yaml: e42477d6ca04d2cde3fb50d565d462b9b889ae288c0a8887eaeb516dfa866ab1
+  calibration/cases/assessor-view/CS-003.assessor.yaml: ea5e57bc39969e01fce3247dafd32892f5ba7660308f3d49ccac8006bb876099
+  calibration/cases/assessor-view/CS-004.assessor.yaml: 1ed7419b130c13635947ead0163299bd95b52ed69db83246bb1ecdff8c89166b
+  calibration/cases/assessor-view/CS-005.assessor.yaml: 6fae56163f938e39cad043aa5bcea61361a3bc164335639af63061cd428fa967
+  calibration/cases/assessor-view/CS-006.assessor.yaml: 5b8824d0c159e4945d20912e8b523d0c615b50777e5255042a05d76e425a7c1d
+  calibration/cases/assessor-view/CS-007.assessor.yaml: d64cf35cf795f58bc65fa9f27a313cf39f359659bb170f4f19e1d96bf1208a14
+  calibration/cases/assessor-view/CS-008.assessor.yaml: c86a41b2f94aa7524549f997517b887b54782de1282e49d0628096f3eba7d12b
+  calibration/cases/assessor-view/CS-009.assessor.yaml: b37227a01a314bc8679ffa86e9522fb20038b86c8ddbcf450c67f065a8c5637e
+  calibration/cases/assessor-view/CS-010.assessor.yaml: 257510cf70ad9ef1ad2458a03afc7a19299c38091206937ee13feeebae42c1fb
+  calibration/cases/assessor-view/CS-011.assessor.yaml: 9688742619d3476ba2d5e74ce7909d1027a10e7fbbe005ce82c82ada1070853a
+  calibration/cases/assessor-view/CS-012.assessor.yaml: 308c4fdf161c750aaca631fe830142eacf50eaea6bf8e93d8d21638b9a487fd5
+  calibration/cases/assessor-view/CS-013.assessor.yaml: 4322857ce90c202d3f386cad4dbca5dd89b21142090f9a987065949c3cc24383
+  calibration/cases/assessor-view/CS-014.assessor.yaml: 6d337fec20f0b2c2a9918d505aca5c6902e0ff532cbc2f23a246aaa8a93acce8
+  calibration/cases/assessor-view/CS-015.assessor.yaml: 1074f5b751386238e52a92c5beb764b77430a3068aa48d1c7306c557afb915a6
+  calibration/cases/assessor-view/CS-016.assessor.yaml: 3fa06301f44bcfdc0a8247b2f2b3eab1aed3ac256b3d4c47f52b14328bfbf925
+  calibration/cases/make_assessor_views.py: 0880ed3eebe25d6caded82f79ffeb50d5a3377cd652435e26a6aebb54110ce7d
+  calibration/cases/view-generation.yaml: 0f4f5707250e0dfff802f07ef449f2a6629158b1956b0c6aa075b3d25a1550e6
+  calibration/cases.yaml: eaa73255e59336131f7eb0a5b63a3de4d5aba3a4f75520ed2c7da802a19e12ff
+  calibration/disagreements/phase-execution-ledger.yaml: f7891720554b2abaa7c2c6f08798eb696f5971b2cce4f457bb4cfab5989a3250
+  calibration/disagreements.yaml: ca6a13007e5729cd0b1d869c474ca45bfcf44c73bee2ac2e8a1a55c760536507
+  commands-phase2.log: 42d178d78db33039d3c81926e1a707afb308dbbb218d886fb45b2c9e5e0cbdc5
+  commands.log: 2911bb5ee68cb0584b13c6a45b5223245634a33d54499e6adc3f27b1861e0fcf
+  criterion/analysis/phase2-analysis.yaml: a0132f51d5638556303e374f66d62ce26ee2f8c36c72a4c09e72569e7c7d0f47
+  criterion/analysis.yaml: c80b82350f0f99352d05501ae3b3b1ef80089d7c925e588f44e10368e2ea455f
+  criterion/dataset-manifest.yaml: c8811e31d33efa96ff186abc92f47f3dabae8c1cc181d6353d56ff148422a13d
+  criterion/observations/INDEX.yaml: a8dcc81cea7bf0f68f73bdc8fb4eb81ee4bf206bc4371f942462957a398037d9
+  criterion/protocol/unchanged-confirmation.yaml: 9ef23de3d1598a76b9b7ca2f66f18892764c712ef559b038081b5b8453daae37
+  criterion/study-protocol.yaml: e20df0c95ed86c79e6c3caa609e0eb1afefd74c0cb7123e1b5960c2aae2d9f1d
+  environment-phase2.yaml: 74c753e0dc3ef5ae10e5ba463f5f6c564b81cc3fb448b228d424075d5b9e3f82
+  environment.yaml: 3afa7c6e0a7b9fbe4bdae24816bf8932b73ca92e7ae5a202bad0ce69a78abe4e
+  instrument.yaml: 854bdb1d3da85ca7434a0153216f4ef8c384edf6773935e9ee5df4b2026cef5f
+  kernel/artifacts.yaml: 69d114567a13b30cfc0200835f534514d2f3353dc873ca32251385490a670fbc
+  kernel/execution.yaml: f18af11e8fbd9360fb19e04dd04a6415ebaee14350d98d779ab782023379c558
+  kernel/lab-001/execution.yaml: e20aeedc4e0e96c9b9e714a12476e16c97dbadca949a780a37e8791a3fbb8760
+  kernel/lab-002/execution.yaml: 62b069f759035ad062abeb4c9114abd33108ad17182b64eeccad1c8b1573675e
+  kernel/lab-003/execution.yaml: 0faec807e7fe2cc3d1c84197d0a33e0563afe980c354b94cd1bcc9bc848a26a7
+  manifests/ci-observation-phase2.yaml: 26c85532b529841beab59830a293f46e683bb6f26731218b48f5154dc6a89ca5
+  manifests/freeze-verification.yaml: 5a64699b116eecc8f806c4fd53c37a2cec23871df7ca912c64df5f0c20b41f7b
+  manifests/reproducibility-phase2-output-hashes.txt: c845b31b15ddd57c683334dbd0a6b7206a5b425910a2dddd40f383363c04ffb5
+  manifests/reproducibility-phase2.yaml: a818769956ac2afc29515afcdfdc996940f9fa3c7399e8e6fdb1561fc91d1503
+  manifests/verify_precheck.py: c6b14b8c20f75f6689b586c7d2addfa97340793e4c992a40ff8a99eaade25861
+  phase-report.md: a2b8adccd887998b8b3c47f0cf12442336e53532fce2b766a9a52c6d9f156622
