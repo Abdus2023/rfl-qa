@@ -1,0 +1,47 @@
+# Kernel laboratory execution record — lab 002-rcu.
+# STATE MACHINE: RESOURCE CHECK -> RESOURCE MISSING -> NOT_RUN.
+# Environment probe was executed once and applies uniformly to all three labs
+# (see lab-001/execution.yaml environment_probe and commands-phase2.log).
+lab_execution:
+  lab_id: 002-rcu
+  status: NOT_RUN
+  reason: RESOURCE_MISSING
+  source_commit: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+  instrument_digest_note: instrument directory manifest digest unchanged (see ../../manifests/freeze-verification.yaml)
+  frozen_requirements:
+    architecture: x86_64
+    config: ['CONFIG_RUST=y', 'PREEMPT_RT=y']
+    oracle_ref: OR-RCU
+    exclusions: [arm64, dma, nmi_context]
+  environment_probe:
+    probed: true
+    probe_result_ref: ../lab-001/execution.yaml   # uniform result; probe executed once
+    probe_conclusion: RESOURCE_MISSING (no Rust toolchain, no LLVM/clang, no kernel build tree, no kbuild tools, no QEMU)
+  kernel_version: NOT_AVAILABLE
+  compiler_version: NOT_AVAILABLE
+  rust_version: NOT_AVAILABLE
+  architecture: NOT_AVAILABLE
+  kernel_config: NOT_AVAILABLE
+  build_command: NOT_RUN
+  runtime_command: NOT_RUN
+  sanitizer: NOT_RUN
+  environment_digest: NOT_AVAILABLE
+  input_hash: NOT_AVAILABLE
+  command_hash: NOT_AVAILABLE
+  output_hash: NOT_AVAILABLE
+  artifact_hashes: {}
+  result: NOT_RUN
+  execution_timestamp: null
+  negative_fixtures:
+    intentional_data_race: NEGATIVE_FIXTURE_NOT_RUN
+    oracle_sensitivity: NOT_ESTABLISHED
+  evidence_binding: NOT_APPLICABLE_NO_EXECUTION
+  dynamic_analysis_epistemics:
+    kcsan_status: NOT_RUN
+    kcsan_result_would_be: OBSERVATION + tested COVERAGE (never 'NO RACE PROVEN', never PROOF)
+    test_population: none
+    execution_count: 0
+    explored_interleavings: NOT_MEASURABLE_NOT_RUN
+    untested_contexts: ALL (nothing executed)
+  limitations:
+    - 'No KCSAN, runtime, or compile observation exists for this lab; none may be inferred.'
