@@ -1,0 +1,52 @@
+# commands.log — receipt for the aud-007-008-ci-verification cycle.
+# Each entry: command actually executed this cycle in /home/user/rfl-qa, with observed outcome.
+# Exit codes are the observed process exits; outputs summarized, never invented.
+
+git fetch origin refs/heads/arena/01a0dfcc-rfl-qa:refs/remotes/origin/arena/01a0dfcc-rfl-qa
+  -> exit 0 (fetched; discovered remote tip advanced)
+git ls-remote origin refs/heads/arena/01a0dfcc-rfl-qa
+  -> exit 0; output: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91 (NOT d3abe21: owner had already pushed the workflow change)
+git show d3abe21:.github/workflows/alpha-gates.yml > /tmp/workflow-old.yml
+  -> exit 0
+diff -u /tmp/workflow-old.yml .github/workflows/alpha-gates.yml > /home/user/alpha-gates-manual-update.patch
+  -> exit 1 (differences found, as expected); regenerated transport patch from surviving working-tree file vs durable remote blob
+git log --oneline -4 origin/arena/01a0dfcc-rfl-qa
+  -> 6b42636 (Update release gates script and artifact paths) / d3abe21 / aa71917 / 92d3bba
+git show --stat 6b426364
+  -> 1 file changed, 3 insertions(+), 3 deletions(-): .github/workflows/alpha-gates.yml only
+diff -u /tmp/workflow-remote.yml .github/workflows/alpha-gates.yml   [after git show 6b426364:...]
+  -> no differences (TREE-MATCHES-REMOTE): working tree already contains exactly the owner-committed workflow change
+git diff d3abe21 6b426364 -- .github/workflows/alpha-gates.yml
+  -> byte-identical to the previously recorded two-hunk patch (blobs bf1d929..181501d)
+git reset 6b426364 (mixed; no file replacement, no force)
+  -> exit 0; git status --short: clean (TREE-CLEAN-AT-6b426364)
+cat .github/workflows/alpha-gates.yml
+  -> exit 0; full semantic audit input (see workflow-audit.yaml)
+python3 -m venv .venv && .venv/bin/pip install --no-cache-dir -q -r requirements.txt && .venv/bin/pip check
+  -> exit 0; "No broken requirements found" (VENV-OK)
+.venv/bin/python evidence/aud-007-008/seal.py --verify
+  -> exit 0; "PASS: 80 evidence files and 98 source files sealed; all 183 old evidence files preserved. CI remains BLOCKED."
+.venv/bin/python -m pytest -q
+  -> exit 0; "653 passed in 70.24s"
+.venv/bin/python tools/validate.py --all
+  -> exit 0; dossier PASS lines
+.venv/bin/python -m pytest -q tests/test_source_provenance.py tests/provenance_cases.py
+  -> exit 0; "89 passed in 18.12s"
+for d in 001-pin-init 002-rcu 003-callback-teardown: derive.py > /tmp/fresh-check/... ; report.py > /tmp/fresh-check/...
+  -> exit 0 (PIPELINES-EXIT:0)
+cmp /tmp/fresh-check/$f.qualification.json evidence/aud-007-008/procedural/$f.qualification.json ; cmp report.md
+  -> all 6 comparisons byte-identical (BYTE-IDENTICAL-TO-SEALED x3)
+gh run list --branch arena/01a0dfcc-rfl-qa --limit 6 --json ...
+  -> exit 0; runs at 6b426364: 36304213414 (push), 36304216174 (pull_request), both completed
+gh run view 36304213414 --json status,conclusion,headSha,displayTitle,createdAt,updatedAt,jobs ...
+  -> exit 0; software steps success; procedural release gate failure; upload success
+gh api repos/Abdus2023/rfl-qa/actions/runs/36304213414/artifacts
+  -> exit 0; artifact aud-007-008-execution-evidence, id 10925809245, 107829 bytes, created 2026-09-27T07:49:54Z, expired false
+gh api repos/Abdus2023/rfl-qa/actions/artifacts/10925809245/zip > /tmp/ci-artifact.zip
+  -> exit 1; EOF from Azure blob; 0 bytes received (content UNCONFIRMED)
+gh run view 36304213414 --log > /tmp/ci-run-log.txt
+  -> exit 1; EOF from results-receiver; 0 bytes (logs UNCONFIRMED)
+gh run view 36304216174 --json conclusion,headSha,jobs ...
+  -> exit 0; same SHA; only failing step: Full evidence and procedural release gate
+.venv/bin/python --version ; uname -sm ; git rev-parse HEAD ; git status --short
+  -> Python 3.11.2 ; Linux x86_64 ; 6b426364c594c1040f98f47ba7e8c49d2b2b2a91 ; clean

@@ -1,0 +1,27 @@
+# CI log availability for current-source run 36304213414 (and historical pattern).
+logs:
+  primary_run_id: 36304213414
+  available: false
+  retrieval_error: EOF
+  retrieval_attempts:
+    - method: 'gh run view 36304213414 --log'
+      exit_code: 1
+      error_class: EOF
+    - method: 'gh api repos/Abdus2023/rfl-qa/actions/runs/36304213414/logs (previous cycle, same infrastructure path)'
+      error_class: EOF
+  detailed_log_claims: UNCONFIRMED
+inference_boundary:
+  rule: >
+    CI API metadata (step conclusions) and independently retrieved log content are separate
+    evidence classes. Step success/failure conclusions are OBSERVED metadata; anything that
+    would only be visible inside log text (exact test counts printed by CI, per-case names,
+    the procedural gate's printed blocking reasons) remains UNCONFIRMED and is NOT inferred.
+  what_is_still_established_without_logs:
+    - 'Automated gates step success implies the full pytest suite exited 0 at commit 6b426364 (pytest -q exits nonzero on any test failure).'
+    - 'Schema and reference gate success implies tools/validate.py --all exited 0 at commit 6b426364.'
+    - 'CLI derivation and reporting success implies the canonical derive/report commands exited 0 at commit 6b426364.'
+    - 'Procedural release gate failure is the designed nonzero exit while release is BLOCKED.'
+  what_remains_unconfirmed:
+    - exact test count printed by CI (locally established as 653 at the same tree; CI count not independently read)
+    - per-case CI log lines for C1-C15 / M1-M7 / P1-P10
+    - procedural gate printed blocking details inside CI

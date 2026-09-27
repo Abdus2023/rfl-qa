@@ -1,0 +1,28 @@
+algorithm: SHA256
+cycle: aud-007-008-ci-verification
+source_commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+parent_commit: d3abe21f4c28b70932aba9f3054e1000537fd993
+generated_at: '2026-09-27T08:03:42.362379+00:00'
+exclusions:
+- hash-manifest.yaml (self-reference)
+- __pycache__ (runtime cache)
+referenced:
+  parent_commit: d3abe21f4c28b70932aba9f3054e1000537fd993
+  workflow_commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+  ci_run_id: 36304213414
+  ci_run_sha: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+  aud_007_disposition: FIXED_AND_RETESTED
+  aud_008_disposition: FIXED_AND_RETESTED
+  release_disposition: BLOCKED
+  receipt_commit: recorded in post-commit publication note (self-reference excluded
+    from hashing)
+receipt_files:
+  REPORT.md: c721888e7ed5446866453a75862a845ce09828a91ff91e0337db95beaace1245
+  artifact-results.yaml: 9d16f4db12ec88abcc7f6703787379aa0ec84c5ce6ef3f94213647f7777a4c6c
+  ci-run.yaml: 1ce346af7c56cf42f97e93692397905a4481cf8bdf7b94b162f6c7dff57c946c
+  commands.log: 00946ba522d611ea29835370a3c368b39ae1991a461e1172330132c1535aee92
+  environment.yaml: df9b43a391be48fb1441daa1cb2ef7ff71be5cf56a5f5d0e98f0a79a1960b7d2
+  gate-results.yaml: 1f9d476422d17f486e46612039855c809b940472d7eef84d3e1bd3dee1f1aace
+  log-results.yaml: eb8aa802e182c2841f96f98a28ff99e7475ff233948f98244b25e40f6dee711e
+  provenance-results.yaml: f6a5259721ba7a9505db976ec7c461d8670c82e59ec40c3e1db022b236ee6ddb
+  workflow-audit.yaml: 4ae7ddd30827786929a9ce517281b087693a68b35f75b080683b0b9ca680f173

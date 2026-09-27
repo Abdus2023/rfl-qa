@@ -1,0 +1,30 @@
+# Per-step gate results, current-source CI push run 36304213414 at 6b426364.
+# Source: GitHub Actions API job/steps metadata (Observed). Log content UNCONFIRMED (EOF).
+run_id: 36304213414
+commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+job: gates
+job_conclusion: failure   # designed: procedural release gate blocks release
+steps:
+  - {name: 'Set up job', conclusion: success}
+  - {name: 'Run actions/checkout@v4', conclusion: success}
+  - {name: 'Run actions/setup-python@v5', conclusion: success}
+  - {name: 'Install pinned dependencies', conclusion: success, role: dependency installation}
+  - {name: 'Schema and reference gate', conclusion: success, command: 'python tools/validate.py --all'}
+  - {name: 'Automated gates', conclusion: success, command: 'pytest -q'}
+  - {name: 'CLI derivation and reporting', conclusion: success, command: 'python tools/derive.py dossiers/examples/003-callback-teardown.json + python tools/report.py'}
+  - {name: 'Full evidence and procedural release gate', conclusion: failure, command: 'python tools/release_gates.py --output evidence/aud-007-008/ci-execution', interpretation: 'DESIGNED BLOCKED: release gate deliberately exits nonzero while independent human calibration and other qualification prerequisites are absent. Not a software regression.'}
+  - {name: 'Retain actual execution evidence even when release is blocked', conclusion: success, role: evidence upload, if_condition: always()}
+  - {name: 'Post Run actions/setup-python@v5', conclusion: skipped}
+  - {name: 'Post Run actions/checkout@v4', conclusion: success}
+  - {name: 'Complete job', conclusion: success}
+software_state_summary:
+  dependency_installation: PASS
+  schema_reference_gate: PASS
+  automated_gates: PASS
+  cli_derivation_reporting: PASS
+  procedural_release_gate: BLOCKED   # exit 1 by design; must NOT be flipped to success
+  evidence_upload: PASS
+pr_corroboration_run_36304216174:
+  conclusion: failure
+  only_failing_step: 'Full evidence and procedural release gate'
+  source: API metadata (Observed)
