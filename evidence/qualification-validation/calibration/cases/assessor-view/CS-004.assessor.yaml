@@ -1,0 +1,30 @@
+id: CS-004
+class: negative
+competency_id: C034
+task: 'Assess the candidate artifact against C034. The candidate''s own trace accepts a reader racing
+  with removal.
+
+  '
+evidence_package:
+- inline_fragment: 'candidate trace (synthetic): reader traverses list while remover unlinks and frees;
+
+    candidate writes: "free is fine here; readers hold no reference that matters after unlink."
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-RCU
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

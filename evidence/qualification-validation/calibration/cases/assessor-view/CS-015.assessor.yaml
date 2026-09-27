@@ -1,0 +1,34 @@
+id: CS-015
+class: positive
+competency_id: C034
+task: 'Single-level increment check: only L1 behaviors are evidenced; the L2 behavior is asserted without
+  an artifact.
+
+  '
+evidence_package:
+- inline_fragment: 'trace (synthetic): reader/remove interleaving identified and explained with the required
+
+    grace period named.
+
+    candidate statement (synthetic): "L2 also achieved: I have traversed protected lists
+
+    before." (no artifact supplied)
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-RCU
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

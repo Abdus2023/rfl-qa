@@ -1,0 +1,32 @@
+id: CS-012
+class: evidence_quality
+competency_id: C034
+task: 'Oracle-execution variation: L3 behaviors demonstrated with strong compiler-class evidence, but
+  the runtime oracle schedule is NOT_RUN.
+
+  '
+evidence_package:
+- inline_fragment: 'artifacts (synthetic): guard implementation compiles; borrow/move analysis shown;
+
+    remove/grace/free ordering modeled and reviewed.
+
+    oracle record (synthetic): "OR-RCU schedule executions: NOT_RUN (no runtime environment)."
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-RCU
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

@@ -1,0 +1,33 @@
+id: CS-013
+class: provenance
+competency_id: C047
+task: 'AUD-007 boundary: the evidence package contains a structured rfl-json-fact observation whose schedule
+  result contradicts the authenticated artifact content it cites.
+
+  '
+evidence_package:
+- frozen_fixture_ref: evidence/aud-007-008/cases/C2.json
+- inline_fragment: 'narrative (synthetic): "five teardown schedules executed, all PASS."
+
+    structured capsule (contradicts narrative): value reports schedule-4 BLOCKED while the
+
+    authenticated artifact bytes show no such execution record.
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-CALLBACK
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

@@ -1,0 +1,28 @@
+id: CS-008
+class: hard_gate
+competency_id: C047
+task: 'Oracle-sensitivity case: the candidate artifact contains a deliberate callback-after-free interleaving.
+  Assess and record structured hard-gate findings.
+
+  '
+evidence_package:
+- inline_fragment: "trace (synthetic): free(object) at t2; workqueue callback dereferences object at t3.\n\
+    candidate audit (synthetic): \"callback cannot run after free because unregister is called\nsomewhere\
+    \ before\" \u2014 no ordering evidence supplied.\n"
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-CALLBACK
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

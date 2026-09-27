@@ -1,0 +1,35 @@
+id: CS-003
+class: negative
+competency_id: C053
+task: 'Assess the candidate artifact against C053. The candidate claims L3; the package contains no compile-fail
+  use-after-borrow demonstration.
+
+  '
+evidence_package:
+- inline_fragment: "// init.rs (excerpt, synthetic) \u2014 in-place init shown; no borrow-check example\
+    \ supplied\npub fn init(raw: *mut bindings::dev) -> Result<Pin<Box<Self>>> { /* ... */ }\n"
+- inline_fragment: 'candidate statement (synthetic): "L3: safe API with teardown model; borrow-safety
+    example
+
+    omitted for brevity."
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-PIN
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+- required_abi_break
+- dma_ownership
+scoring_contract: scoring_contract_common

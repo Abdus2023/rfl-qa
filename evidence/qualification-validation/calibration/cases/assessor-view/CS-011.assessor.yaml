@@ -1,0 +1,30 @@
+id: CS-011
+class: evidence_quality
+competency_id: C047
+task: 'Evidence-strength variation: behavior descriptions identical in wording to a passing L3 package,
+  but every evidence reference is an unexecuted assertion (no artifacts, no traces).
+
+  '
+evidence_package:
+- inline_fragment: 'candidate claims (synthetic): "CB-047-01 demonstrated; CB-047-02 demonstrated;
+
+    CB-047-03 demonstrated. Evidence: assert-based self-review, no artifacts retained."
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-CALLBACK
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

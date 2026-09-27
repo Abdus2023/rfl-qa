@@ -1,0 +1,32 @@
+id: CS-005
+class: boundary
+competency_id: C047
+task: 'Assess near the L2/L3 boundary: wrapper and registration owner recorded (L2); teardown state machine
+  covers unregister/callback ordering but omits reference and free ordering.
+
+  '
+evidence_package:
+- inline_fragment: '// wrapper.rs (synthetic): refcounted callback wrapper, owner recorded at registration
+
+    struct Cb { kref: Kref, owner: RegOwner }
+
+    // teardown notes (synthetic): "unregister before callbacks; drain step to be designed."
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-CALLBACK
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

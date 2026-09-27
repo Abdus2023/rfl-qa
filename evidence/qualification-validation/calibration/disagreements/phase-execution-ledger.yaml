@@ -1,0 +1,13 @@
+# Disagreement ledger — phase execution update.
+# Phase-1 record (calibration/disagreements.yaml) remains unchanged: disagreements == []
+# because no assessments exist. No disagreement can exist without submissions; none was
+# manufactured, none was overwritten, no adjudication occurred (there is nothing to adjudicate).
+phase: empirical-validation-execution
+disagreements: []
+adjudications: []
+taxonomy_preserved: true
+record_count: 0
+note: >
+  The frozen taxonomy (RUBRIC_AMBIGUITY, EVIDENCE_AMBIGUITY, ORACLE_AMBIGUITY, CASE_DESIGN,
+  ASSESSOR_ERROR, SCOPE_ERROR, PROVENANCE_ERROR, SPECIFICATION_GAP, OTHER) remains ready for
+  analysis-time classification in the first real round.
