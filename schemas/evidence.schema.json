@@ -140,6 +140,26 @@
         ]
       },
       "uniqueItems": true
+    },
+    "oracle_check_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "maxItems": 1000,
+      "uniqueItems": true
+    },
+    "invariant_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "maxItems": 1000,
+      "uniqueItems": true
     }
   },
   "required": [
@@ -157,7 +177,9 @@
     "environments",
     "limitations",
     "required",
-    "detected_defects"
+    "detected_defects",
+    "oracle_check_refs",
+    "invariant_refs"
   ],
   "additionalProperties": false
 }

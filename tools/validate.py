@@ -9,6 +9,8 @@ if __package__ in (None, ''):
 from tools.common import (ROOT, EPISTEMIC, GATES, Invalid, catalogs, dossier_digest,
                           index, load, require, validate_schema, digest)
 
+from tools.oracle import CATALOG_STATES, PREDICATES, supporting_refs
+
 STRENGTH_MEANING = {'PROOF': 'ASSUMPTION_BOUND_PROOF', 'OBSERVATION': 'BOUNDED_OBSERVATION',
                     'COVERAGE': 'MEASURED_COVERAGE', 'ABSENCE_OF_EVIDENCE': 'NOT_TESTED'}
 
@@ -17,12 +19,20 @@ def check_evidence(record):
     validate_schema(record, 'evidence')
     require(record['establishes'] == STRENGTH_MEANING[record['strength']],
             f"{record['id']}: strength/establishes mismatch")
+    if record['method'] == 'not_tested':
+        require(record['strength'] == 'ABSENCE_OF_EVIDENCE',
+                f"{record['id']}: not_tested requires ABSENCE_OF_EVIDENCE")
+    else:
+        require(record['strength'] != 'ABSENCE_OF_EVIDENCE',
+                f"{record['id']}: absence must use not_tested method")
     if record['strength'] == 'PROOF':
         require(record['method'] in ('rustc', 'formal'), f"{record['id']}: {record['method']} cannot establish PROOF")
         require(bool(record['assumptions']), f"{record['id']}: proof needs explicit assumptions")
     if record['method'] in ('kasan', 'kcsan', 'lockdep', 'kunit', 'scheduler'):
         require(record['strength'] in ('OBSERVATION', 'COVERAGE'),
                 f"{record['id']}: dynamic test is only OBSERVATION or COVERAGE")
+    if record['method'] in ('kasan', 'kcsan', 'lockdep', 'kunit', 'scheduler'):
+        require(record['coverage']['executed'] > 0, f"{record['id']}: dynamic observation has no executions")
     if record['strength'] == 'ABSENCE_OF_EVIDENCE':
         require(record['epistemic_status'] in ('OPEN', 'PROVISIONAL', 'BLOCKED'),
                 f"{record['id']}: absent evidence cannot be verified")
@@ -40,9 +50,22 @@ def check_gate(record, context):
             f'{context}: BLOCKED requires recorded findings')
 
 
+
+def check_invariant(inv):
+    validate_schema(inv, 'invariant')
+    if inv['epistemic_status'] in ('VERIFIED', 'PARTIALLY_VERIFIED'):
+        require(bool(inv['evidence_refs']), f"{inv['id']}: missing invariant evidence")
+    if inv['class'] == 'D' and inv['epistemic_status'] == 'VERIFIED':
+        require(bool(inv['external_evidence']), f"{inv['id']}: VERIFIED Type-D requires external_evidence")
+    require(all(e['ref'] in inv['evidence_refs'] for e in inv['external_evidence']),
+            f"{inv['id']}: unlinked external evidence")
+
+
 def check_oracle(oracle, invariants):
     validate_schema(oracle, 'oracle')
     index(oracle['checks'])
+    require(oracle['teardown_model'] == CATALOG_STATES, f"{oracle['id']}: invalid frozen teardown model")
+    require(oracle['safety_predicates'] == PREDICATES, f"{oracle['id']}: invalid frozen safety predicates")
     covered = set()
     for check in oracle['checks']:
         refs_exist(check['invariant_refs'], invariants, check['id'])
@@ -60,7 +83,7 @@ def validate_dossier(dossier, catalog=None):
     require(scope['domains'] == [competency['domain']], 'scope domain mismatch')
     constraints = competency['scope_constraints']
     for key in ('task_classes', 'environments'):
-        require(set(scope[key]) <= set(constraints[key]), f'scope {key}: extrapolation outside rubric')
+        require(set(scope[key]) == set(constraints[key]), f'scope {key}: must preserve complete rubric scope')
     require(set(constraints['exclusions']) <= set(scope['exclusions']), 'scope: required exclusions removed')
     require(not (set(scope['environments'] + scope['task_classes']) & set(scope['exclusions'])),
             'scope includes an excluded environment/task')
@@ -69,15 +92,22 @@ def validate_dossier(dossier, catalog=None):
     assessors = index(dossier['assessments'], 'assessor_id')
     refs_exist([dossier['primary_evidence_ref']], evidence, 'primary evidence')
     require(evidence[dossier['primary_evidence_ref']]['required'], 'primary evidence must be required')
+    early_support = {r for i in dossier['invariants'] if i['required'] for r in i['evidence_refs']}
+    early_support.update(r for a in dossier['assessments'] for o in a['observations'] for r in o['evidence_refs'])
     for item in evidence.values():
         check_evidence(item)
-        if item['required']:
+        if item['required'] or item['id'] in early_support:
             require(set(scope['environments']) <= set(item['environments']),
                     f"{item['id']}: evidence does not cover claimed environments")
     required = competency['required_evidence']
     refs_exist(required['invariant_refs'], invariants, 'required invariants')
     for inv in invariants.values():
         refs_exist([inv['id']], invariant_catalog, 'invariant catalog')
+        validate_schema(invariant_catalog[inv['id']], 'invariant')
+        require(invariant_catalog[inv['id']]['id'] == inv['id'], 'catalog invariant identity mismatch')
+        check_invariant(inv)
+        require(inv['critical'] == invariant_catalog[inv['id']]['critical'],
+                f"{inv['id']}: criticality contradicts authoritative catalog")
         require(inv['class'] == invariant_catalog[inv['id']]['class'], f"{inv['id']}: class contradicts taxonomy")
         if inv['id'] in required['invariant_refs']:
             require(inv['required'], f"{inv['id']}: required invariant disabled")
@@ -90,10 +120,16 @@ def validate_dossier(dossier, catalog=None):
             refs_exist([external['ref']], evidence, inv['id'] + ' external_evidence')
             require(external['ref'] in inv['evidence_refs'], 'external evidence not linked to invariant')
             item = evidence[external['ref']]
+            require(inv['id'] in item['invariant_refs'], 'external evidence not bound to this invariant')
+            if inv['epistemic_status'] == 'VERIFIED':
+                require(item['epistemic_status'] == 'VERIFIED',
+                        f"{inv['id']}: VERIFIED external invariant has unresolved support")
             require(item['method'] == external['type'], f"{inv['id']}: external evidence method mismatch")
             require(item['strength'] != 'ABSENCE_OF_EVIDENCE' and item['tier'] != 'E0', 'empty external support')
             require(external['assessor'] in assessors, 'external evidence assessor not present')
     results = index(dossier['oracle_results'], 'oracle_ref')
+    observations = index(dossier['oracle_observations'])
+    used_observations = set()
     require(set(results) == set(required['oracle_refs']), 'oracle references differ from required oracles')
     for oracle_id, result in results.items():
         refs_exist([oracle_id], oracle_catalog, 'oracle')
@@ -104,6 +140,31 @@ def validate_dossier(dossier, catalog=None):
         require(set(checks) == {c['id'] for c in oracle['checks']}, f'{oracle_id}: missing/extra oracle checks')
         for check in checks.values():
             refs_exist(check['evidence_refs'], evidence, check['check_id'])
+            refs_exist([check['observation_ref']], observations, 'oracle observation')
+            observation = observations[check['observation_ref']]
+            used_observations.add(observation['id'])
+            definition = next(c for c in oracle['checks'] if c['id'] == check['check_id'])
+            require(observation['oracle_ref'] == oracle_id and observation['check_id'] == check['check_id'],
+                    'observation belongs to a different oracle/check')
+            require(observation['input_ref'] == dossier['primary_evidence_ref'],
+                    'observation is not bound to this candidate input')
+            refs_exist(observation['evidence_refs'], evidence, 'observation evidence')
+            require(set(observation['evidence_refs']) == set(check['evidence_refs']),
+                    'asserted oracle evidence differs from observation provenance')
+            for ref in observation['evidence_refs']:
+                require(check['check_id'] in evidence[ref]['oracle_check_refs'],
+                        f"{check['check_id']}: unrelated evidence reference {ref}")
+                if observation['executed'] and definition['predicate'] != 'strength':
+                    require(evidence[ref]['strength'] != 'ABSENCE_OF_EVIDENCE',
+                            'executed oracle requires actual observation evidence')
+            payload = observation['payload']
+            expected_kind = {'safety': 'trace', 'teardown': 'trace',
+                             'classification': 'classification', 'strength': 'strength'}[definition['predicate']]
+            require(payload['kind'] == expected_kind, 'wrong observation payload for oracle predicate')
+            if payload['kind'] == 'classification':
+                require(payload['invariant_ref'] in definition['invariant_refs'], 'unrelated classified invariant')
+            if payload['kind'] == 'strength':
+                require(payload['evidence_ref'] in observation['evidence_refs'], 'unrelated strength observation')
             if check['result'] != 'NOT_RUN':
                 require(bool(check['evidence_refs']), f"{check['check_id']}: result without evidence")
             if check['result'] == 'PASS':
@@ -111,6 +172,7 @@ def validate_dossier(dossier, catalog=None):
                 strengths = {evidence[r]['strength'] for r in check['evidence_refs']}
                 require(set(definition['strengths']) <= strengths,
                         f"{check['check_id']}: missing required evidence strength")
+    require(used_observations == set(observations), 'unused or duplicate oracle observation records')
     check_gate(dossier['hard_gates'], 'dossier hard gates')
     behaviors = {b['id'] for group in competency['behavior_matrix'].values() for b in group}
     for a in assessors.values():
@@ -127,6 +189,8 @@ def validate_dossier(dossier, catalog=None):
     # A used reference is required even if its standalone required flag is false.
     used = {r for inv in invariants.values() if inv['required'] for r in inv['evidence_refs']}
     used.update(r for a in assessors.values() for o in a['observations'] for r in o['evidence_refs'])
+    used.update(supporting_refs(dossier))
+    refs_exist(used, evidence, 'qualification support closure')
     for ref in used:
         require(set(scope['environments']) <= set(evidence[ref]['environments']),
                 f'{ref}: referenced evidence does not cover claimed environments')
@@ -141,6 +205,8 @@ def validate_record(record, catalog=None):
         return validate_dossier(record, catalog)
     if kind in ('evidence', 'invariant', 'oracle', 'qualification'):
         validate_schema(record, kind)
+        if kind == 'invariant':
+            check_invariant(record)
         if kind == 'evidence':
             check_evidence(record)
         if kind == 'oracle':
@@ -149,6 +215,12 @@ def validate_record(record, catalog=None):
             require(digest({k: v for k, v in record.items() if k != 'assessment_hash'}) == record['assessment_hash'],
                     'qualification hash mismatch')
             require(record['decision']['scope'] == record['scope'], 'decision scope mismatch')
+            # Verification, not presentation-side repair. Reject inconsistent rehashed records.
+            from tools.derive import derive
+            c, i, o = catalog or catalogs()
+            raw = record['derivation_input']
+            expected = derive(raw, c[raw['competency_id']], i, o)
+            require(record == expected, 'qualification disagrees with deterministic derivation')
         return
     definitions = {'assessment': 'claim', 'calibration_case': 'claim', 'outcome': 'claim',
                    'task': 'oracle', 'expected_observations': 'oracle', 'taxonomy': 'invariant'}

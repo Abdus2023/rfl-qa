@@ -1,0 +1,483 @@
+{
+  "record_type": "dossier",
+  "schema_version": "1.1-alpha",
+  "qualification_id": "Q-2026-0003",
+  "timestamp": "2026-09-27T00:00:00Z",
+  "fixture_kind": "synthetic",
+  "competency_id": "C047",
+  "scope": {
+    "competencies": [
+      "C047"
+    ],
+    "domains": [
+      "c_ffi"
+    ],
+    "task_classes": [
+      "callback_registration",
+      "concurrent_teardown"
+    ],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "exclusions": [
+      "arm64",
+      "dma",
+      "nmi_context"
+    ]
+  },
+  "primary_evidence_ref": "ARTIFACT",
+  "evidence": [
+    {
+      "record_type": "evidence",
+      "id": "ARTIFACT",
+      "tier": "E5",
+      "artifact_ref": "fixture://003-callback-teardown/ARTIFACT",
+      "method": "manual_review",
+      "strength": "OBSERVATION",
+      "epistemic_status": "VERIFIED",
+      "required": true,
+      "establishes": "BOUNDED_OBSERVATION",
+      "statement": "No defect observed in the executed synthetic trace population.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": []
+    },
+    {
+      "record_type": "evidence",
+      "id": "TYPE",
+      "tier": "E4",
+      "artifact_ref": "fixture://003-callback-teardown/TYPE",
+      "method": "rustc",
+      "strength": "PROOF",
+      "epistemic_status": "VERIFIED",
+      "required": true,
+      "establishes": "ASSUMPTION_BOUND_PROOF",
+      "statement": "Borrow cannot escape the safe guard under the stated model assumptions.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1
+      },
+      "assumptions": [
+        "Sound compiler and safe API; unsafe implementation meets its contract."
+      ],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": []
+    },
+    {
+      "record_type": "evidence",
+      "id": "TEST",
+      "tier": "E4",
+      "artifact_ref": "fixture://003-callback-teardown/TEST",
+      "method": "kcsan",
+      "strength": "OBSERVATION",
+      "epistemic_status": "PARTIALLY_VERIFIED",
+      "required": true,
+      "establishes": "BOUNDED_OBSERVATION",
+      "statement": "No defect observed in the executed synthetic trace population.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": []
+    },
+    {
+      "record_type": "evidence",
+      "id": "COVERAGE",
+      "tier": "E4",
+      "artifact_ref": "fixture://003-callback-teardown/COVERAGE",
+      "method": "scheduler",
+      "strength": "COVERAGE",
+      "epistemic_status": "PARTIALLY_VERIFIED",
+      "required": true,
+      "establishes": "MEASURED_COVERAGE",
+      "statement": "1000000 generated interleavings represented; total state space unknown.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1000000
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": []
+    },
+    {
+      "record_type": "evidence",
+      "id": "NMI",
+      "tier": "E4",
+      "artifact_ref": "fixture://003-callback-teardown/NMI",
+      "method": "not_tested",
+      "strength": "ABSENCE_OF_EVIDENCE",
+      "epistemic_status": "OPEN",
+      "required": false,
+      "establishes": "NOT_TESTED",
+      "statement": "NMI context was not exercised.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 0
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": []
+    },
+    {
+      "record_type": "evidence",
+      "id": "EXT-001",
+      "tier": "E4",
+      "artifact_ref": "fixture://003-callback-teardown/EXT-001",
+      "method": "source_audit",
+      "strength": "OBSERVATION",
+      "epistemic_status": "VERIFIED",
+      "required": true,
+      "establishes": "BOUNDED_OBSERVATION",
+      "statement": "No defect observed in the executed synthetic trace population.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": []
+    }
+  ],
+  "invariants": [
+    {
+      "record_type": "invariant",
+      "id": "A01",
+      "class": "A",
+      "description": "Compiler-enforced borrow lifetime within a sound safe interface.",
+      "required": true,
+      "critical": false,
+      "epistemic_status": "VERIFIED",
+      "evidence_refs": [
+        "TYPE"
+      ],
+      "external_evidence": []
+    },
+    {
+      "record_type": "invariant",
+      "id": "B01",
+      "class": "B",
+      "description": "Safe API prevents repeated initialization and reference escape; sound implementation remains a premise.",
+      "required": true,
+      "critical": false,
+      "epistemic_status": "VERIFIED",
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "external_evidence": []
+    },
+    {
+      "record_type": "invariant",
+      "id": "C01",
+      "class": "C",
+      "description": "Runtime drain/synchronization completes before final release; bounded tests observe this protocol.",
+      "required": true,
+      "critical": false,
+      "epistemic_status": "PARTIALLY_VERIFIED",
+      "evidence_refs": [
+        "TEST"
+      ],
+      "external_evidence": []
+    },
+    {
+      "record_type": "invariant",
+      "id": "D01",
+      "class": "D",
+      "description": "External C registration/allocator contract keeps the target alive until quiescence.",
+      "required": true,
+      "critical": true,
+      "epistemic_status": "VERIFIED",
+      "evidence_refs": [
+        "EXT-001"
+      ],
+      "external_evidence": [
+        {
+          "ref": "EXT-001",
+          "type": "source_audit",
+          "description": "Synthetic source audit of unregister/drain contract.",
+          "assessor": "assessor-a"
+        }
+      ]
+    }
+  ],
+  "hard_gates": {
+    "status": "PASS",
+    "findings": []
+  },
+  "oracle_results": [
+    {
+      "oracle_ref": "OR-CALLBACK",
+      "checks": [
+        {
+          "check_id": "OR-CALLBACK-callback_after_free",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-double_free",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-uaf",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-data_race",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-deadlock",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-prohibited_sleep",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-ffi_lifetime",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-critical_external_assumption",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-required_abi_break",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-dma_ownership",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-schedule-1",
+          "result": "PASS",
+          "evidence_refs": [
+            "TEST"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-schedule-2",
+          "result": "PASS",
+          "evidence_refs": [
+            "TEST"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-schedule-3",
+          "result": "PASS",
+          "evidence_refs": [
+            "TEST"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-schedule-4",
+          "result": "PASS",
+          "evidence_refs": [
+            "TEST"
+          ]
+        },
+        {
+          "check_id": "OR-CALLBACK-schedule-5",
+          "result": "PASS",
+          "evidence_refs": [
+            "TEST"
+          ]
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "record_type": "assessment",
+      "assessor_id": "assessor-a",
+      "dossier_ref": "Q-2026-0003",
+      "dossier_digest": "98ecb91a9421e781344d1de48da9ca157f3e8f45b09122acfd2c9fe370d1b5cd",
+      "independent": true,
+      "claimed_level": "L0",
+      "observations": [
+        {
+          "behavior_id": "CB-047-01",
+          "status": "FAILED",
+          "evidence_refs": [
+            "ARTIFACT"
+          ]
+        }
+      ],
+      "evidence_tier": "E5",
+      "invariant_findings": [
+        {
+          "invariant_ref": "A01",
+          "class": "A",
+          "epistemic_status": "VERIFIED"
+        },
+        {
+          "invariant_ref": "B01",
+          "class": "B",
+          "epistemic_status": "VERIFIED"
+        },
+        {
+          "invariant_ref": "C01",
+          "class": "C",
+          "epistemic_status": "PARTIALLY_VERIFIED"
+        },
+        {
+          "invariant_ref": "D01",
+          "class": "D",
+          "epistemic_status": "VERIFIED"
+        }
+      ],
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "limitations": [
+        "Simulated independent record, not an independent human assessment."
+      ]
+    },
+    {
+      "record_type": "assessment",
+      "assessor_id": "assessor-b",
+      "dossier_ref": "Q-2026-0003",
+      "dossier_digest": "98ecb91a9421e781344d1de48da9ca157f3e8f45b09122acfd2c9fe370d1b5cd",
+      "independent": true,
+      "claimed_level": "L0",
+      "observations": [
+        {
+          "behavior_id": "CB-047-01",
+          "status": "FAILED",
+          "evidence_refs": [
+            "ARTIFACT"
+          ]
+        }
+      ],
+      "evidence_tier": "E5",
+      "invariant_findings": [
+        {
+          "invariant_ref": "A01",
+          "class": "A",
+          "epistemic_status": "VERIFIED"
+        },
+        {
+          "invariant_ref": "B01",
+          "class": "B",
+          "epistemic_status": "VERIFIED"
+        },
+        {
+          "invariant_ref": "C01",
+          "class": "C",
+          "epistemic_status": "PARTIALLY_VERIFIED"
+        },
+        {
+          "invariant_ref": "D01",
+          "class": "D",
+          "epistemic_status": "VERIFIED"
+        }
+      ],
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "limitations": [
+        "Simulated independent record, not an independent human assessment."
+      ]
+    }
+  ],
+  "limitations": [
+    "Synthetic training fixture only; all E4 labels simulate artifacts, not actual upstream evidence."
+  ]
+}

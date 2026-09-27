@@ -1,0 +1,538 @@
+[
+  {
+    "probe": "date-time",
+    "input": "2026-09-27T00:00:00Z",
+    "conforms": true
+  },
+  {
+    "probe": "date-time",
+    "input": "yesterday",
+    "conforms": false
+  },
+  {
+    "probe": "date-time",
+    "input": "2026-99-99T99:99:99Z",
+    "conforms": false
+  },
+  {
+    "probe": "date-time-implementation",
+    "source": "    @_checks_drafts(name=\"date-time\")\n    def is_datetime(instance: object) -> bool:\n        if not isinstance(instance, str):\n            return True\n        return validate_rfc3339(instance.upper())\n"
+  },
+  {
+    "probe": "reproduced-old-qualification",
+    "lab": "001-pin-init",
+    "byte_identical": true,
+    "hash": "d33165a89c2ac65f570ff14bfd825aec53830cfd893ee8ecf8124a6c29365f6e"
+  },
+  {
+    "probe": "reproduced-old-qualification",
+    "lab": "002-rcu",
+    "byte_identical": true,
+    "hash": "541b6db96101b581bc6ea726d2d78e52ad62f5bbec577cc870c41a1479b87cdc"
+  },
+  {
+    "probe": "reproduced-old-qualification",
+    "lab": "003-callback-teardown",
+    "byte_identical": true,
+    "hash": "dd34885e1274aa19b6a97d7250a5e16087c8fc5b3000ec9e899950df8a8877c1"
+  },
+  {
+    "probe": "outcome-classification",
+    "classification": "VALIDATED_WITHIN_SCOPE",
+    "preserved": true,
+    "revision_required": false
+  },
+  {
+    "probe": "outcome-classification",
+    "classification": "SCOPE_EXCEEDED",
+    "preserved": true,
+    "revision_required": false
+  },
+  {
+    "probe": "outcome-classification",
+    "classification": "ASSESSMENT_ERROR",
+    "preserved": true,
+    "revision_required": false
+  },
+  {
+    "probe": "outcome-classification",
+    "classification": "ORACLE_FAILURE",
+    "preserved": true,
+    "revision_required": false
+  },
+  {
+    "probe": "outcome-classification",
+    "classification": "SPECIFICATION_FAILURE",
+    "preserved": true,
+    "revision_required": false
+  },
+  {
+    "probe": "outcome-classification",
+    "classification": "EXTERNAL_FAILURE",
+    "preserved": true,
+    "revision_required": false
+  },
+  {
+    "probe": "outcome-classification",
+    "classification": "INCONCLUSIVE",
+    "preserved": true,
+    "revision_required": false
+  },
+  {
+    "probe": "lab-inventory",
+    "lab": "001-pin-init",
+    "files": [
+      "README.md",
+      "expected-observations.yaml",
+      "oracle.yaml",
+      "task.yaml"
+    ],
+    "input": [
+      "C baseline scenario: publish target pointer, allow concurrent user, unregister producer, then release storage. No implicit quiescence guarantee.",
+      "Schedule: user reads target; remover unregisters and frees target; delayed user accesses target.",
+      "External contract is supplied only as synthetic audit evidence; candidate must state the dependency."
+    ],
+    "checks": [
+      {
+        "id": "OR-PIN-callback_after_free",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-double_free",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-uaf",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-data_race",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-deadlock",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-prohibited_sleep",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-ffi_lifetime",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-critical_external_assumption",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "D01"
+        ]
+      },
+      {
+        "id": "OR-PIN-required_abi_break",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-dma_ownership",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-PIN-class-A",
+        "predicate": "classification",
+        "strengths": [],
+        "invariant_refs": [
+          "A01"
+        ]
+      },
+      {
+        "id": "OR-PIN-class-B",
+        "predicate": "classification",
+        "strengths": [],
+        "invariant_refs": [
+          "B01"
+        ]
+      },
+      {
+        "id": "OR-PIN-class-D",
+        "predicate": "classification",
+        "strengths": [],
+        "invariant_refs": [
+          "D01"
+        ]
+      }
+    ],
+    "teardown_model": [
+      "CREATE",
+      "REGISTER",
+      "ACTIVE",
+      "STOP",
+      "QUIESCE",
+      "CALLBACK DRAIN",
+      "REFERENCE DRAIN",
+      "DESTROY",
+      "FREE"
+    ],
+    "safety_predicates": [
+      "alive(reference) => object_alive",
+      "callback_possible => callback_target_alive",
+      "free(object) => no live reference AND no callback possible AND no RCU reader AND no registered owner"
+    ]
+  },
+  {
+    "probe": "lab-inventory",
+    "lab": "002-rcu",
+    "files": [
+      "README.md",
+      "expected-observations.yaml",
+      "oracle.yaml",
+      "task.yaml"
+    ],
+    "input": [
+      "C baseline scenario: publish target pointer, allow concurrent user, unregister producer, then release storage. No implicit quiescence guarantee.",
+      "Schedule: user reads target; remover unregisters and frees target; delayed user accesses target.",
+      "External contract is supplied only as synthetic audit evidence; candidate must state the dependency."
+    ],
+    "checks": [
+      {
+        "id": "OR-RCU-callback_after_free",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-double_free",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-uaf",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-data_race",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-deadlock",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-prohibited_sleep",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-ffi_lifetime",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-critical_external_assumption",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "D01"
+        ]
+      },
+      {
+        "id": "OR-RCU-required_abi_break",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-dma_ownership",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-RCU-PROOF",
+        "predicate": "strength",
+        "strengths": [
+          "PROOF"
+        ],
+        "invariant_refs": [
+          "A01"
+        ]
+      },
+      {
+        "id": "OR-RCU-OBSERVATION",
+        "predicate": "strength",
+        "strengths": [
+          "OBSERVATION"
+        ],
+        "invariant_refs": []
+      },
+      {
+        "id": "OR-RCU-COVERAGE",
+        "predicate": "strength",
+        "strengths": [
+          "COVERAGE"
+        ],
+        "invariant_refs": []
+      },
+      {
+        "id": "OR-RCU-ABSENCE_OF_EVIDENCE",
+        "predicate": "strength",
+        "strengths": [
+          "ABSENCE_OF_EVIDENCE"
+        ],
+        "invariant_refs": []
+      }
+    ],
+    "teardown_model": [
+      "CREATE",
+      "REGISTER",
+      "ACTIVE",
+      "STOP",
+      "QUIESCE",
+      "CALLBACK DRAIN",
+      "REFERENCE DRAIN",
+      "DESTROY",
+      "FREE"
+    ],
+    "safety_predicates": [
+      "alive(reference) => object_alive",
+      "callback_possible => callback_target_alive",
+      "free(object) => no live reference AND no callback possible AND no RCU reader AND no registered owner"
+    ]
+  },
+  {
+    "probe": "lab-inventory",
+    "lab": "003-callback-teardown",
+    "files": [
+      "README.md",
+      "expected-observations.yaml",
+      "oracle.yaml",
+      "task.yaml"
+    ],
+    "input": [
+      "C baseline scenario: publish target pointer, allow concurrent user, unregister producer, then release storage. No implicit quiescence guarantee.",
+      "Schedule: user reads target; remover unregisters and frees target; delayed user accesses target.",
+      "External contract is supplied only as synthetic audit evidence; candidate must state the dependency."
+    ],
+    "checks": [
+      {
+        "id": "OR-CALLBACK-callback_after_free",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-double_free",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-uaf",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-data_race",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-deadlock",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-prohibited_sleep",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-ffi_lifetime",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-critical_external_assumption",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "D01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-required_abi_break",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-dma_ownership",
+        "predicate": "safety",
+        "strengths": [],
+        "invariant_refs": [
+          "C01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-schedule-1",
+        "predicate": "teardown",
+        "strengths": [
+          "OBSERVATION"
+        ],
+        "invariant_refs": [
+          "B01",
+          "C01",
+          "D01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-schedule-2",
+        "predicate": "teardown",
+        "strengths": [
+          "OBSERVATION"
+        ],
+        "invariant_refs": [
+          "B01",
+          "C01",
+          "D01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-schedule-3",
+        "predicate": "teardown",
+        "strengths": [
+          "OBSERVATION"
+        ],
+        "invariant_refs": [
+          "B01",
+          "C01",
+          "D01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-schedule-4",
+        "predicate": "teardown",
+        "strengths": [
+          "OBSERVATION"
+        ],
+        "invariant_refs": [
+          "B01",
+          "C01",
+          "D01"
+        ]
+      },
+      {
+        "id": "OR-CALLBACK-schedule-5",
+        "predicate": "teardown",
+        "strengths": [
+          "OBSERVATION"
+        ],
+        "invariant_refs": [
+          "B01",
+          "C01",
+          "D01"
+        ]
+      }
+    ],
+    "teardown_model": [
+      "CREATE",
+      "REGISTER",
+      "ACTIVE",
+      "STOP",
+      "QUIESCE",
+      "CALLBACK DRAIN",
+      "REFERENCE DRAIN",
+      "DESTROY",
+      "FREE"
+    ],
+    "safety_predicates": [
+      "alive(reference) => object_alive",
+      "callback_possible => callback_target_alive",
+      "free(object) => no live reference AND no callback possible AND no RCU reader AND no registered owner"
+    ]
+  }
+]

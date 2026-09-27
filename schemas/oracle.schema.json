@@ -270,6 +270,173 @@
         "expectations"
       ],
       "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oracle_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "check_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "maxItems": 1000,
+          "uniqueItems": true
+        },
+        "executed": {
+          "type": "boolean"
+        },
+        "payload": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "trace"
+                },
+                "trace": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string",
+                        "enum": [
+                          "CREATE",
+                          "REGISTER",
+                          "ACTIVE",
+                          "STOP",
+                          "QUIESCE",
+                          "CALLBACK_DRAIN",
+                          "REFERENCE_DRAIN",
+                          "DESTROY",
+                          "FREE"
+                        ]
+                      },
+                      "object_alive": {
+                        "type": "boolean"
+                      },
+                      "live_references": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000000
+                      },
+                      "callback_possible": {
+                        "type": "boolean"
+                      },
+                      "rcu_readers": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000000
+                      },
+                      "registered_owner": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "state",
+                      "object_alive",
+                      "live_references",
+                      "callback_possible",
+                      "rcu_readers",
+                      "registered_owner"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 0,
+                  "maxItems": 9
+                }
+              },
+              "required": [
+                "kind",
+                "trace"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "classification"
+                },
+                "invariant_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "observed_class": {
+                  "type": "string",
+                  "enum": [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                  ]
+                }
+              },
+              "required": [
+                "kind",
+                "invariant_ref",
+                "observed_class"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "strength"
+                },
+                "evidence_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "observed_strength": {
+                  "type": "string",
+                  "enum": [
+                    "PROOF",
+                    "OBSERVATION",
+                    "COVERAGE",
+                    "ABSENCE_OF_EVIDENCE"
+                  ]
+                }
+              },
+              "required": [
+                "kind",
+                "evidence_ref",
+                "observed_strength"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "oracle_ref",
+        "check_id",
+        "input_ref",
+        "evidence_refs",
+        "executed",
+        "payload"
+      ],
+      "additionalProperties": false
     }
   }
 }

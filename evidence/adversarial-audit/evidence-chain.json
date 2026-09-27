@@ -1,0 +1,62 @@
+{
+  "local_branch": {
+    "exit_code": 0,
+    "stdout": "arena/01a0dfcc-rfl-qa\n",
+    "stderr": ""
+  },
+  "local_revision": {
+    "exit_code": 0,
+    "stdout": "33e4d95f835ecfd42830087dcd2772bb6cc8c216\n",
+    "stderr": ""
+  },
+  "working_tree_status": {
+    "exit_code": 0,
+    "stdout": " M README.md\n?? .github/\n?? .gitignore\n?? CHANGELOG.md\n?? GOVERNANCE.md\n?? SPEC.md\n?? assessors/\n?? calibration/\n?? competency/\n?? docs/\n?? dossiers/\n?? evidence/\n?? invariants/\n?? labs/\n?? oracles/\n?? pytest.ini\n?? requirements.txt\n?? schemas/\n?? tests/\n?? tools/\n",
+    "stderr": ""
+  },
+  "remote_revision": {
+    "exit_code": 0,
+    "stdout": "e4f1611c245d5c001d29b5c4477dee088c3d7867\n",
+    "stderr": ""
+  },
+  "local_is_ancestor_of_remote": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "remote_is_ancestor_of_local": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "claimed_source_commit": {
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: ambiguous argument '993cf96': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'\n"
+  },
+  "claimed_evidence_commit": {
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: ambiguous argument '50512a3': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'\n"
+  },
+  "actual_evidence_history": {
+    "exit_code": 0,
+    "stdout": "1bfcdf918e9b476a81ad3ed5960e56b107cbf9c3 feat: implement RFL-QA alpha measurement system and execution evidence\n",
+    "stderr": ""
+  },
+  "source_files_compared": 74,
+  "source_manifest_mismatches": [],
+  "source_manifest_hash_matches_ledger": true,
+  "command_log_files_compared": 15,
+  "log_digest_mismatches": [],
+  "remote_files_compared": 112,
+  "remote_content_mismatches": [],
+  "previous_test_claim": {
+    "passed": 119,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0
+  },
+  "previous_commit_claim": "993cf96aaf61bae7598f22bf2e2945cea7c29b42",
+  "evidence_qualification": "Historical self-authored and internally consistent; not authenticated command execution. Independent rerun recorded separately."
+}

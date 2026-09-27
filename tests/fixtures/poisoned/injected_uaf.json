@@ -53,7 +53,22 @@
       "limitations": [
         "Synthetic evidence; no actual kernel test executed."
       ],
-      "detected_defects": []
+      "detected_defects": [],
+      "oracle_check_refs": [
+        "OR-CALLBACK-callback_after_free",
+        "OR-CALLBACK-double_free",
+        "OR-CALLBACK-uaf",
+        "OR-CALLBACK-data_race",
+        "OR-CALLBACK-deadlock",
+        "OR-CALLBACK-prohibited_sleep",
+        "OR-CALLBACK-ffi_lifetime",
+        "OR-CALLBACK-critical_external_assumption",
+        "OR-CALLBACK-required_abi_break",
+        "OR-CALLBACK-dma_ownership"
+      ],
+      "invariant_refs": [
+        "B01"
+      ]
     },
     {
       "record_type": "evidence",
@@ -81,7 +96,11 @@
       "limitations": [
         "Synthetic evidence; no actual kernel test executed."
       ],
-      "detected_defects": []
+      "detected_defects": [],
+      "oracle_check_refs": [],
+      "invariant_refs": [
+        "A01"
+      ]
     },
     {
       "record_type": "evidence",
@@ -109,6 +128,16 @@
       ],
       "detected_defects": [
         "uaf"
+      ],
+      "oracle_check_refs": [
+        "OR-CALLBACK-schedule-1",
+        "OR-CALLBACK-schedule-2",
+        "OR-CALLBACK-schedule-3",
+        "OR-CALLBACK-schedule-4",
+        "OR-CALLBACK-schedule-5"
+      ],
+      "invariant_refs": [
+        "C01"
       ]
     },
     {
@@ -135,7 +164,9 @@
       "limitations": [
         "Synthetic evidence; no actual kernel test executed."
       ],
-      "detected_defects": []
+      "detected_defects": [],
+      "oracle_check_refs": [],
+      "invariant_refs": []
     },
     {
       "record_type": "evidence",
@@ -161,7 +192,9 @@
       "limitations": [
         "Synthetic evidence; no actual kernel test executed."
       ],
-      "detected_defects": []
+      "detected_defects": [],
+      "oracle_check_refs": [],
+      "invariant_refs": []
     },
     {
       "record_type": "evidence",
@@ -187,7 +220,22 @@
       "limitations": [
         "Synthetic evidence; no actual kernel test executed."
       ],
-      "detected_defects": []
+      "detected_defects": [],
+      "oracle_check_refs": [
+        "OR-CALLBACK-callback_after_free",
+        "OR-CALLBACK-double_free",
+        "OR-CALLBACK-uaf",
+        "OR-CALLBACK-data_race",
+        "OR-CALLBACK-deadlock",
+        "OR-CALLBACK-prohibited_sleep",
+        "OR-CALLBACK-ffi_lifetime",
+        "OR-CALLBACK-critical_external_assumption",
+        "OR-CALLBACK-required_abi_break",
+        "OR-CALLBACK-dma_ownership"
+      ],
+      "invariant_refs": [
+        "D01"
+      ]
     }
   ],
   "invariants": [
@@ -265,7 +313,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-callback_after_free"
         },
         {
           "check_id": "OR-CALLBACK-double_free",
@@ -273,7 +323,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-double_free"
         },
         {
           "check_id": "OR-CALLBACK-uaf",
@@ -281,7 +333,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-uaf"
         },
         {
           "check_id": "OR-CALLBACK-data_race",
@@ -289,7 +343,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-data_race"
         },
         {
           "check_id": "OR-CALLBACK-deadlock",
@@ -297,7 +353,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-deadlock"
         },
         {
           "check_id": "OR-CALLBACK-prohibited_sleep",
@@ -305,7 +363,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-prohibited_sleep"
         },
         {
           "check_id": "OR-CALLBACK-ffi_lifetime",
@@ -313,7 +373,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-ffi_lifetime"
         },
         {
           "check_id": "OR-CALLBACK-critical_external_assumption",
@@ -321,7 +383,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-critical_external_assumption"
         },
         {
           "check_id": "OR-CALLBACK-required_abi_break",
@@ -329,7 +393,9 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-required_abi_break"
         },
         {
           "check_id": "OR-CALLBACK-dma_ownership",
@@ -337,42 +403,54 @@
           "evidence_refs": [
             "ARTIFACT",
             "EXT-001"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-dma_ownership"
         },
         {
           "check_id": "OR-CALLBACK-schedule-1",
           "result": "PASS",
           "evidence_refs": [
             "TEST"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-schedule-1"
         },
         {
           "check_id": "OR-CALLBACK-schedule-2",
           "result": "PASS",
           "evidence_refs": [
             "TEST"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-schedule-2"
         },
         {
           "check_id": "OR-CALLBACK-schedule-3",
           "result": "PASS",
           "evidence_refs": [
             "TEST"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-schedule-3"
         },
         {
           "check_id": "OR-CALLBACK-schedule-4",
           "result": "PASS",
           "evidence_refs": [
             "TEST"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-schedule-4"
         },
         {
           "check_id": "OR-CALLBACK-schedule-5",
           "result": "PASS",
           "evidence_refs": [
             "TEST"
-          ]
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-CALLBACK-schedule-5"
         }
       ]
     }
@@ -382,7 +460,7 @@
       "record_type": "assessment",
       "assessor_id": "assessor-a",
       "dossier_ref": "Q-2026-0003",
-      "dossier_digest": "3c3e4bf9a63105ed220508bb3ed267940d1fff997ed90e36211bc915c7498f5b",
+      "dossier_digest": "1c9b3dc6192aad6247d7c38b7b24ef22d2d888bc852b1a6fe07c6de777578096",
       "independent": true,
       "claimed_level": "L3",
       "observations": [
@@ -446,7 +524,7 @@
       "record_type": "assessment",
       "assessor_id": "assessor-b",
       "dossier_ref": "Q-2026-0003",
-      "dossier_digest": "3c3e4bf9a63105ed220508bb3ed267940d1fff997ed90e36211bc915c7498f5b",
+      "dossier_digest": "1c9b3dc6192aad6247d7c38b7b24ef22d2d888bc852b1a6fe07c6de777578096",
       "independent": true,
       "claimed_level": "L3",
       "observations": [
@@ -509,5 +587,1322 @@
   ],
   "limitations": [
     "Synthetic training fixture only; all E4 labels simulate artifacts, not actual upstream evidence."
+  ],
+  "oracle_observations": [
+    {
+      "id": "OBS-OR-CALLBACK-callback_after_free",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-callback_after_free",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-double_free",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-double_free",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-uaf",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-uaf",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-data_race",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-data_race",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-deadlock",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-deadlock",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-prohibited_sleep",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-prohibited_sleep",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-ffi_lifetime",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-ffi_lifetime",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-critical_external_assumption",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-critical_external_assumption",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-required_abi_break",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-required_abi_break",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-dma_ownership",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-dma_ownership",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-schedule-1",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-schedule-1",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "TEST"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-schedule-2",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-schedule-2",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "TEST"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-schedule-3",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-schedule-3",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "TEST"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-schedule-4",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-schedule-4",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "TEST"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-CALLBACK-schedule-5",
+      "oracle_ref": "OR-CALLBACK",
+      "check_id": "OR-CALLBACK-schedule-5",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "TEST"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    }
   ]
 }

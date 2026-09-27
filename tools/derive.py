@@ -11,7 +11,9 @@ from tools.common import (EPISTEMIC, Invalid, canonical, catalogs, digest, index
                           validate_schema)
 from tools.validate import validate_dossier
 
-RULES_VERSION = '1.1-alpha.1'
+from tools.oracle import supporting_refs, evaluate_oracles
+
+RULES_VERSION = '1.1-alpha.2'
 
 
 def capability(assessment, competency, evidence):
@@ -75,7 +77,7 @@ def derive(dossier, competency, invariant_catalog, oracle_catalog):
                     for a in d['assessments']]
     differences = comparison(d, capabilities)
     # Required closure: explicit required evidence, required invariants and behavior trail.
-    required_refs = {r['id'] for r in d['evidence'] if r['required']}
+    required_refs = supporting_refs(d)
     statuses = []
     findings = set(d['hard_gates']['findings'])
     for item in evidence.values():
@@ -84,7 +86,7 @@ def derive(dossier, competency, invariant_catalog, oracle_catalog):
         if inv['required']:
             statuses.append(inv['epistemic_status'])
             required_refs.update(inv['evidence_refs'])
-        if inv['critical'] and inv['class'] == 'D' and inv['epistemic_status'] != 'VERIFIED':
+        if invariant_catalog[inv['id']]['critical'] and invariant_catalog[inv['id']]['class'] == 'D' and inv['epistemic_status'] != 'VERIFIED':
             findings.add('critical_external_assumption')
     for assessor in d['assessments']:
         findings.update(assessor['hard_gates']['findings'])
@@ -92,7 +94,7 @@ def derive(dossier, competency, invariant_catalog, oracle_catalog):
             original = next(i for i in d['invariants'] if i['id'] == inv['invariant_ref'])
             if original['required']:
                 statuses.append(inv['epistemic_status'])
-            if original['critical'] and inv['class'] == 'D' and inv['epistemic_status'] != 'VERIFIED':
+            if invariant_catalog[original['id']]['critical'] and invariant_catalog[original['id']]['class'] == 'D' and inv['epistemic_status'] != 'VERIFIED':
                 findings.add('critical_external_assumption')
         for observation in assessor['observations']:
             required_refs.update(observation['evidence_refs'])
@@ -100,6 +102,13 @@ def derive(dossier, competency, invariant_catalog, oracle_catalog):
     # Weakest declared required finding wins. Counts and E tiers never alter this order.
     ceiling = max(statuses, key=EPISTEMIC.index)
     checks_complete = True
+    evaluations = evaluate_oracles(d, oracle_catalog, invariant_catalog)
+    for evaluation in evaluations:
+        if evaluation['result'] == 'BLOCKED':
+            findings.update(evaluation['findings'])
+            findings.add('oracle:' + evaluation['check_id'])
+        if evaluation['result'] == 'NOT_RUN':
+            checks_complete = False
     for result in d['oracle_results']:
         oracle_checks = index(oracle_catalog[result['oracle_ref']]['checks'])
         for check in result['checks']:
@@ -135,6 +144,7 @@ def derive(dossier, competency, invariant_catalog, oracle_catalog):
                        'rationale': 'Conflicting assessment records. Cause unresolved; not an automatic specification failure.'})
     output = {'record_type': 'qualification', 'schema_version': d['schema_version'],
               'qualification_id': d['qualification_id'], 'timestamp': d['timestamp'],
+              'derivation_input': deepcopy(d), 'oracle_evaluations': evaluations,
               'scope': d['scope'], 'capability': supported, 'evidence': d['evidence'],
               'evidence_tier': tier, 'invariants': d['invariants'],
               'hard_gates': {'status': 'BLOCKED' if findings else 'PASS', 'findings': sorted(findings)},

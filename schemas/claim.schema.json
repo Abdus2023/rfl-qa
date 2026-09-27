@@ -188,12 +188,21 @@
                   },
                   "minItems": 0,
                   "uniqueItems": true
+                },
+                "provenance": {
+                  "const": "ASSERTED_RESULT"
+                },
+                "observation_ref": {
+                  "type": "string",
+                  "minLength": 1
                 }
               },
               "required": [
                 "check_id",
                 "result",
-                "evidence_refs"
+                "evidence_refs",
+                "provenance",
+                "observation_ref"
               ],
               "additionalProperties": false
             },
@@ -417,6 +426,15 @@
       },
       "minItems": 0,
       "uniqueItems": true
+    },
+    "oracle_observations": {
+      "type": "array",
+      "items": {
+        "$ref": "https://rfl-qa.dev/schemas/oracle.schema.json#/$defs/observation"
+      },
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true
     }
   },
   "required": [
@@ -433,7 +451,8 @@
     "hard_gates",
     "oracle_results",
     "assessments",
-    "limitations"
+    "limitations",
+    "oracle_observations"
   ],
   "additionalProperties": false,
   "$defs": {

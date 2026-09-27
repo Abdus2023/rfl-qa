@@ -50,14 +50,37 @@ StrictLoader.yaml_implicit_resolvers = {
 def load(path):
     path = Path(path)
     try:
+        require(path.stat().st_size <= 2_000_000, 'input exceeds 2 MB limit')
         text = path.read_text(encoding='utf-8')
         if path.suffix == '.json':
             def reject_constant(value):
                 raise Invalid(f'non-JSON number: {value}')
-            return json.loads(text, object_pairs_hook=unique_pairs, parse_constant=reject_constant)
-        return yaml.load(text, Loader=StrictLoader)
-    except (OSError, ValueError, yaml.YAMLError) as exc:
+            result = json.loads(text, object_pairs_hook=unique_pairs, parse_constant=reject_constant)
+        else:
+            result = yaml.load(text, Loader=StrictLoader)
+        check_document(result)
+        return result
+    except (OSError, ValueError, yaml.YAMLError, RecursionError, TypeError) as exc:
         raise Invalid(f'{path}: {exc}') from exc
+
+
+
+def check_document(value):
+    """Bound parser/validator work and prohibit non-JSON keys and ambiguous numeric input."""
+    stack = [(value, 0)]
+    visited = 0
+    while stack:
+        item, depth = stack.pop()
+        visited += 1
+        require(depth <= 64 and visited <= 100_000, 'document depth/node limit exceeded')
+        if isinstance(item, dict):
+            require(all(isinstance(k, str) for k in item), 'JSON object keys must be strings')
+            stack.extend((v, depth + 1) for v in item.values())
+        elif isinstance(item, list):
+            stack.extend((v, depth + 1) for v in item)
+        else:
+            require(item is None or type(item) in (str, int, bool),
+                    'unsupported scalar: integer counts required; floats/non-finite values forbidden')
 
 
 def canonical(value):
@@ -86,6 +109,7 @@ def schema_set():
 
 
 def validate_schema(value, name, definition=None):
+    check_document(value)
     schemas, registry = schema_set()
     schema = schemas[name] if definition is None else {
         '$ref': BASE + name + '.schema.json#/$defs/' + definition}

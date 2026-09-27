@@ -18,6 +18,7 @@ def report(record):
     fields = [('Scope', record['scope']), ('Capability', record['capability']),
               ('Evidence tier', record['evidence_tier']), ('Evidence records', record['evidence']),
               ('Invariants', record['invariants']), ('Epistemic ceiling', record['decision']['epistemic_ceiling']),
+              ('Oracle evaluations (derived)', record['oracle_evaluations']),
               ('Hard gates', record['hard_gates']), ('Assessors (raw records)', record['assessments']),
               ('Capabilities by assessor', record['capabilities_by_assessor']),
               ('Inter-rater result', record['inter_rater']), ('Decision', record['decision']),

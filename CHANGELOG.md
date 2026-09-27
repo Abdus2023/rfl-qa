@@ -8,3 +8,16 @@
 - Preserved prior design documents and pre-existing README changes.
 - Recorded specification conflicts and procedural calibration/CI evidence boundaries in GOVERNANCE.md.
 - No claim of human calibration, kernel safety proof, criterion validity or released alpha.
+
+## Remediation candidate — rules 1.1-alpha.2 (not released)
+
+- Reproduced the prior 119-test baseline and all saved audit acceptance counterexamples before patching. Historical commits 993cf96/50512a3 remain unresolved; no ancestry was reconstructed.
+- HG-01 / AUD-002: criticality must exactly match the authoritative invariant catalog; derivation uses the catalog, not the submitted Boolean. AUD-006: VERIFIED external invariants reject unresolved external support.
+- HG-02 / AUD-004: require both containment directions for environment and task-class combinations; retain exclusion-superset and disjointness requirements.
+- HG-03/HG-05 / AUD-003: include required oracle observations, behavioral and assessor support in the epistemic closure regardless of optional evidence flags.
+- HG-04 / AUD-005: enforce method/strength compatibility, including not_tested only with ABSENCE_OF_EVIDENCE.
+- HG-06/HG-07 / AUD-008: submitted labels are explicitly ASSERTED_RESULT. The fixed bounded evaluator emits DERIVED_RESULT from structured observation payloads, binds input/observation/evidence/oracle hashes, and evaluates the nine-state lifecycle and liveness predicates. No eval/exec, kernel execution, general expression language or artifact authentication is introduced.
+- Existing canonical/synthetic fixtures are explicitly migrated to include observation provenance and evidence bindings. Old dossiers are not silently repaired. Historical audit/execution evidence is unchanged. These are incompatible input-schema requirements within the alpha candidate, reflected by the rules-version change.
+- AUD-009: qualification validation rederives from the retained input and rejects rehashed inconsistent output, without modifying records in report.py. AUD-010: standalone invariant validation enforces context-free evidence requirements. AUD-011: bound document size, depth and nodes, reject ambiguous float counts/non-JSON keys, and handle parser recursion/type errors.
+- Record hashes still bind all recorded facts (including explicit timestamps/limitations). Presentation whitespace/key order does not affect hashes. The required RCU absence-classification check now contributes OPEN evidence to the ceiling; its decision remains PROVISIONAL. New provenance fields/rules intentionally change hashes.
+- Preserve independent human calibration, artifact authenticity/relevance, substantive kernel lab evidence and criterion-validity boundaries as OPEN/NOT_RUN. A successful software test is not a release authorization.

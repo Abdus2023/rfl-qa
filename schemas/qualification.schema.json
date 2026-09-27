@@ -702,7 +702,7 @@
       "type": "object",
       "properties": {
         "rules_version": {
-          "const": "1.1-alpha.1"
+          "const": "1.1-alpha.2"
         },
         "input_sha256": {
           "type": "string",
@@ -737,6 +737,97 @@
       "type": "string",
       "minLength": 1,
       "pattern": "^[0-9a-f]{64}$"
+    },
+    "oracle_evaluations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "oracle_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "check_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "provenance": {
+            "const": "DERIVED_RESULT"
+          },
+          "evaluator": {
+            "const": "bounded-alpha-v1"
+          },
+          "observation_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "observation_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "evidence_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "oracle_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "BLOCKED",
+              "NOT_RUN"
+            ]
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "maxItems": 1000,
+            "uniqueItems": true
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 1000,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "oracle_ref",
+          "check_id",
+          "provenance",
+          "evaluator",
+          "observation_ref",
+          "input_hash",
+          "observation_hash",
+          "evidence_hash",
+          "oracle_hash",
+          "result",
+          "findings",
+          "evidence_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true
+    },
+    "derivation_input": {
+      "$ref": "https://rfl-qa.dev/schemas/claim.schema.json"
     }
   },
   "required": [
@@ -757,7 +848,9 @@
     "derived_signature",
     "limitations",
     "provenance",
-    "assessment_hash"
+    "assessment_hash",
+    "oracle_evaluations",
+    "derivation_input"
   ],
   "additionalProperties": false
 }

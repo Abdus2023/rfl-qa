@@ -1,0 +1,310 @@
+{
+  "tools/__init__.py": {
+    "sha256": "495ec6fe6660711e17da7987c576c525fbc19c5f04c0f13d8d2170ad4482e378",
+    "sites": []
+  },
+  "tools/common.py": {
+    "sha256": "8d184dd18313f761516558e3f22c3bac5936c025851521e42910039f7e821c96",
+    "sites": [
+      {
+        "line": 2,
+        "import": "from functools import lru_cache"
+      },
+      {
+        "line": 3,
+        "import": "import hashlib"
+      },
+      {
+        "line": 4,
+        "import": "import json"
+      },
+      {
+        "line": 5,
+        "import": "from pathlib import Path"
+      },
+      {
+        "line": 7,
+        "import": "import yaml"
+      },
+      {
+        "line": 8,
+        "import": "from jsonschema import Draft202012Validator, FormatChecker"
+      },
+      {
+        "line": 9,
+        "import": "from referencing import Registry, Resource"
+      },
+      {
+        "line": 58,
+        "call": "yaml.load(text, Loader=StrictLoader)"
+      },
+      {
+        "line": 80,
+        "call": "(ROOT / 'schemas').glob('*.json')"
+      },
+      {
+        "line": 128,
+        "call": "(ROOT / 'invariants').glob('*/*.yaml')"
+      },
+      {
+        "line": 129,
+        "call": "(ROOT / 'oracles').glob('*/*.yaml')"
+      }
+    ]
+  },
+  "tools/derive.py": {
+    "sha256": "94ef2b46c2d1b918bf30e25a7c04e7cefffbd93e9e5004e3a46fcfb1d7bb5739",
+    "sites": [
+      {
+        "line": 3,
+        "import": "import argparse"
+      },
+      {
+        "line": 4,
+        "import": "from copy import deepcopy"
+      },
+      {
+        "line": 5,
+        "import": "import sys"
+      },
+      {
+        "line": 6,
+        "import": "from pathlib import Path"
+      },
+      {
+        "line": 10,
+        "import": "from tools.common import (EPISTEMIC, Invalid, canonical, catalogs, digest, index, load,\n                          validate_schema)"
+      },
+      {
+        "line": 12,
+        "import": "from tools.validate import validate_dossier"
+      }
+    ]
+  },
+  "tools/release_gates.py": {
+    "sha256": "86a97269b7e05e34217201181256d51c066e3d1e78ebcd762f9dc508e6e78412",
+    "sites": [
+      {
+        "line": 3,
+        "import": "import argparse"
+      },
+      {
+        "line": 4,
+        "import": "from datetime import datetime, timezone"
+      },
+      {
+        "line": 5,
+        "import": "import hashlib"
+      },
+      {
+        "line": 6,
+        "import": "import importlib.metadata"
+      },
+      {
+        "line": 7,
+        "import": "import json"
+      },
+      {
+        "line": 8,
+        "import": "import os"
+      },
+      {
+        "line": 9,
+        "import": "from pathlib import Path"
+      },
+      {
+        "line": 10,
+        "import": "import platform"
+      },
+      {
+        "line": 11,
+        "import": "import shlex"
+      },
+      {
+        "line": 12,
+        "import": "import subprocess"
+      },
+      {
+        "line": 13,
+        "import": "import sys"
+      },
+      {
+        "line": 14,
+        "import": "import xml.etree.ElementTree as ET"
+      },
+      {
+        "line": 18,
+        "import": "from tools.common import ROOT, canonical, digest"
+      },
+      {
+        "line": 19,
+        "import": "import yaml"
+      },
+      {
+        "line": 28,
+        "call": "subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip()"
+      },
+      {
+        "line": 28,
+        "call": "subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True)"
+      },
+      {
+        "line": 29,
+        "call": "subprocess.check_output(['git','status','--porcelain'], cwd=ROOT, text=True)"
+      },
+      {
+        "line": 33,
+        "call": "(ROOT/name).rglob('*')"
+      },
+      {
+        "line": 42,
+        "call": "datetime.now(timezone.utc).isoformat()"
+      },
+      {
+        "line": 42,
+        "call": "datetime.now(timezone.utc)"
+      },
+      {
+        "line": 43,
+        "call": "subprocess.run(command, cwd=ROOT, capture_output=True)"
+      },
+      {
+        "line": 83,
+        "call": "os.environ.get('GITHUB_SERVER_URL', 'https://github.com')"
+      },
+      {
+        "line": 83,
+        "call": "os.environ.get('GITHUB_REPOSITORY', '')"
+      },
+      {
+        "line": 84,
+        "call": "os.environ.get('GITHUB_RUN_ID')"
+      },
+      {
+        "line": 84,
+        "call": "os.environ.get('GITHUB_ACTIONS')"
+      },
+      {
+        "line": 85,
+        "call": "datetime.now(timezone.utc).isoformat()"
+      },
+      {
+        "line": 85,
+        "call": "datetime.now(timezone.utc)"
+      }
+    ]
+  },
+  "tools/report.py": {
+    "sha256": "d3edcaca3e334df28b5076a5536e0f46088ebbbe1066f7f3153b4773466a4129",
+    "sites": [
+      {
+        "line": 3,
+        "import": "import argparse"
+      },
+      {
+        "line": 4,
+        "import": "import json"
+      },
+      {
+        "line": 5,
+        "import": "from pathlib import Path"
+      },
+      {
+        "line": 6,
+        "import": "import sys"
+      },
+      {
+        "line": 10,
+        "import": "from tools.common import Invalid, load"
+      },
+      {
+        "line": 11,
+        "import": "from tools.validate import validate_record"
+      }
+    ]
+  },
+  "tools/validate.py": {
+    "sha256": "57908058b63c8f8283d12cadb161f06e8443417b073929e27483b99d113e2110",
+    "sites": [
+      {
+        "line": 3,
+        "import": "import argparse"
+      },
+      {
+        "line": 4,
+        "import": "import sys"
+      },
+      {
+        "line": 5,
+        "import": "from pathlib import Path"
+      },
+      {
+        "line": 9,
+        "import": "from tools.common import (ROOT, EPISTEMIC, GATES, Invalid, catalogs, dossier_digest,\n                          index, load, require, validate_schema, digest)"
+      },
+      {
+        "line": 158,
+        "call": "(ROOT / 'dossiers/examples').glob('*.json')"
+      },
+      {
+        "line": 187,
+        "call": "ROOT.glob(pattern)"
+      }
+    ]
+  },
+  "tier_to_capability_review": {
+    "sites": [
+      {
+        "file": "tools/derive.py",
+        "line": 17,
+        "source": "def capability(assessment, competency, evidence):"
+      },
+      {
+        "file": "tools/derive.py",
+        "line": 21,
+        "source": "    cannot demonstrate behavior. No reading of evidence_tier or claimed_level here."
+      },
+      {
+        "file": "tools/derive.py",
+        "line": 52,
+        "source": "    compare('claimed_level', a['claimed_level'], b['claimed_level'])"
+      },
+      {
+        "file": "tools/derive.py",
+        "line": 56,
+        "source": "    for key in ('evidence_tier', 'hard_gates'):"
+      },
+      {
+        "file": "tools/derive.py",
+        "line": 61,
+        "source": "        compare(f\"{assessor['assessor_id']}:tier_vs_artifact\", assessor['evidence_tier'],"
+      },
+      {
+        "file": "tools/derive.py",
+        "line": 62,
+        "source": "                evidence[dossier['primary_evidence_ref']]['tier'])"
+      },
+      {
+        "file": "tools/derive.py",
+        "line": 74,
+        "source": "    capabilities = [{'assessor_id': a['assessor_id'], 'capability': capability(a, competency, evidence)}"
+      },
+      {
+        "file": "tools/derive.py",
+        "line": 111,
+        "source": "    tier = evidence[d['primary_evidence_ref']]['tier']"
+      },
+      {
+        "file": "tools/derive.py",
+        "line": 139,
+        "source": "              'evidence_tier': tier, 'invariants': d['invariants'],"
+      },
+      {
+        "file": "tools/validate.py",
+        "line": 94,
+        "source": "            require(item['strength'] != 'ABSENCE_OF_EVIDENCE' and item['tier'] != 'E0', 'empty external support')"
+      }
+    ],
+    "conclusion": "No tier read in capability(). Tier influences artifact consistency, divergence and E0 eligibility, not computed supported levels. Valid-case audit varies tier through all 6 levels."
+  }
+}
