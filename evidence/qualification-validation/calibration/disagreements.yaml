@@ -1,0 +1,22 @@
+# Disagreement ledger — STATUS: empty (no assessments exist; no disagreement data).
+disagreements: []
+taxonomy:   # frozen categories for future rounds; analysis-time classification only
+  - RUBRIC_AMBIGUITY
+  - EVIDENCE_AMBIGUITY
+  - ORACLE_AMBIGUITY
+  - CASE_DESIGN
+  - ASSESSOR_ERROR
+  - SCOPE_ERROR
+  - PROVENANCE_ERROR
+  - SPECIFICATION_GAP
+  - OTHER
+related_frozen_vocabulary_note: >
+  calibration/inter-rater.md additionally freezes review divergence categories (acceptable,
+  assessor_training_issue, rubric_ambiguity, oracle_ambiguity, specification_defect,
+  artifact_ambiguity) used by the engine's divergence reporting. Both vocabularies classify
+  analysis; neither is an evidence tier or epistemic state.
+rules:
+  - Disagreements are preserved as evidence about the instrument; never erased by retrospective editing.
+  - Raw assessor A, raw assessor B, and any adjudication are always kept separately (review-protocol steps 6-8).
+  - A third reviewer documents cause; corrections create new hashes and retain old records.
+record_count: 0

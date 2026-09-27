@@ -1,0 +1,425 @@
+# Calibration case set — frozen design (v1.1-alpha, instrument commit 459ec8b9836339537d2cbd995e73af0a330d69ff).
+#
+# SCOPE: three frozen competencies only (C053 pin-init, C034 RCU grace periods, C047 callback teardown).
+# No new competency, level scale, evidence scale, or epistemic vocabulary is introduced by this file.
+#
+# ASSessor BLINDING: `expected_boundary` and `boundary_derivation` fields are for post-lock comparison
+# ONLY. The assessor-facing view of each case is derived by removing `expected_boundary` and
+# `boundary_derivation`. Assessors must not see this file unredacted before submissions are locked.
+#
+# STATUS: cases are DESIGNED and FROZEN; no human assessor has received any case; no assessment exists.
+# Synthetic fragments below are stimulus material, not observations of any engineer.
+
+case_set:
+  id: CS-VAL-1
+  instrument_commit: 459ec8b9836339537d2cbd995e73af0a330d69ff
+  competency_scope: [C053, C034, C047]
+  classes_present: [positive, negative, boundary, hard_gate, evidence_quality, provenance]
+  level_coverage: {L0: [CS-004], L1: [CS-003, CS-015], L2: [CS-001, CS-005], L3: [CS-002, CS-006, CS-011], L4: [CS-007, CS-012], L5_boundary: [CS-007]}
+  hard_gate_coverage_note: >
+    Dedicated cases exist for callback_after_free (CS-008), critical_external_assumption (CS-009),
+    data_race (CS-010), and deadlock (CS-016). The remaining catalog conditions (uaf, double_free,
+    prohibited_sleep, ffi_lifetime, required_abi_break) are exercised by the frozen lab oracle
+    schedules (labs/*/expected-observations.yaml); dma_ownership is excluded by frozen scope
+    constraints (arm64/dma excluded) and can only be assessed as an exclusion statement, not a
+    demonstrated capability. No case fabricates out-of-scope expertise.
+
+scoring_contract_common: |
+  Levels are cumulative (assessors/rubric.md): a level requires every behavior up to that level and
+  no failed required behavior. The machine computes the highest fully supported level and preserves
+  the assessor claim separately. For every oracle check: executed finding with evidence, or NOT_RUN;
+  an unexecuted check is never PASS. Any safety hard-gate failure vetoes qualification regardless of
+  level or agreement. Automatic qualification requires EXACT assessor agreement (review-protocol
+  step 5); any disagreement halts as an OPEN calibration event — no averaging, majority vote, or
+  hidden replacement. Evidence tier never raises a capability level; E4 with L2 behaviors remains L2.
+
+cases:
+  - id: CS-001
+    class: positive
+    competency_id: C053
+    task: >
+      Assess the candidate artifact against C053 with the frozen rubric. The candidate claims L2.
+    evidence_package:
+      - inline_fragment: |
+          // init.rs (excerpt, synthetic)
+          pub struct Dev { raw: *mut bindings::dev }
+          impl Dev {
+              pub fn init(raw: *mut bindings::dev) -> Result<Pin<Box<Self>>> {
+                  let b = unsafe { Box::into_raw(Box::try_new(Self{raw})?) };
+                  // field-wise init performed through pinned projection; no address taken of Self before pin
+                  unsafe { (*b).setup_fields()?; }
+                  Ok(unsafe { Pin::new_unchecked(Box::from_raw(b)) })
+              }
+          }
+      - inline_fragment: |
+          // borrow-check demonstration supplied by candidate (synthetic rustc output)
+          error[E0505]: cannot move out of `pinned` because it is borrowed
+          --> init.rs:14:9 | let r = &pinned.field; drop(pinned); | ^^^^^^^ move occurs
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-PIN]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption, required_abi_break, dma_ownership]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L2
+      demonstrated: [CB-053-01, CB-053-02]
+      not_exercised: [CB-053-03, CB-053-04, CB-053-05]
+      hard_gates: PASS_within_synthetic_scope
+      decision: PROVISIONAL
+      rationale: >
+        Cumulative rule: L1+L2 behaviors demonstrated with artifact evidence; no L3 behavior package
+        included, so the machine cannot support L3. Synthetic scope keeps decision PROVISIONAL.
+  - id: CS-002
+    class: positive
+    competency_id: C047
+    task: >
+      Assess the candidate artifact against C047. The candidate claims L3 with executed teardown
+      schedules.
+    evidence_package:
+      - frozen_fixture_ref: dossiers/examples/003-callback-teardown.json
+      - inline_fragment: |
+          teardown schedule execution summary (synthetic, five declared interleavings):
+          schedule-1 unregister->drain->callbacks->grace->free : PASS
+          schedule-2 ioctl-remove concurrent with unregister    : PASS
+          schedule-3 callback in flight at drain admission      : PASS
+          schedule-4 RCU reader during destroy window           : PASS
+          schedule-5 double registration attempt                : PASS
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-CALLBACK]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L3
+      demonstrated: [CB-047-01, CB-047-02, CB-047-03]
+      not_exercised: [CB-047-04, CB-047-05]
+      hard_gates: PASS_within_synthetic_scope
+      decision: PROVISIONAL
+      rationale: L1-L3 demonstrated with executed schedules; no concurrent-remove/ioctl drain audit package (L4) included.
+  - id: CS-003
+    class: negative
+    competency_id: C053
+    task: >
+      Assess the candidate artifact against C053. The candidate claims L3; the package contains no
+      compile-fail use-after-borrow demonstration.
+    evidence_package:
+      - inline_fragment: |
+          // init.rs (excerpt, synthetic) — in-place init shown; no borrow-check example supplied
+          pub fn init(raw: *mut bindings::dev) -> Result<Pin<Box<Self>>> { /* ... */ }
+      - inline_fragment: |
+          candidate statement (synthetic): "L3: safe API with teardown model; borrow-safety example
+          omitted for brevity."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-PIN]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption, required_abi_break, dma_ownership]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L1
+      claimed_level: L3
+      demonstrated: [CB-053-01, CB-053-03]
+      failed: []
+      missing_required: [CB-053-02]
+      hard_gates: PASS_within_synthetic_scope
+      decision: PROVISIONAL
+      rationale: >
+        Cumulative rule: L3 behaviors cannot lift the level while required L2 behavior evidence is
+        absent. Highest fully supported level is L1; assessor claim L3 preserved separately.
+  - id: CS-004
+    class: negative
+    competency_id: C034
+    task: >
+      Assess the candidate artifact against C034. The candidate's own trace accepts a reader racing
+      with removal.
+    evidence_package:
+      - inline_fragment: |
+          candidate trace (synthetic): reader traverses list while remover unlinks and frees;
+          candidate writes: "free is fine here; readers hold no reference that matters after unlink."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-RCU]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L0
+      claimed_level: L1
+      failed: [CB-034-01]
+      hard_gates: UAF_VETO_BLOCKED
+      decision: REJECTED
+      rationale: >
+        CB-034-01 FAILED (reader-racing-removal not identified) and the trace demonstrates an
+        access-after-free hazard: hard-gate veto wins regardless of level claims. No level supported.
+  - id: CS-005
+    class: boundary
+    competency_id: C047
+    task: >
+      Assess near the L2/L3 boundary: wrapper and registration owner recorded (L2); teardown state
+      machine covers unregister/callback ordering but omits reference and free ordering.
+    evidence_package:
+      - inline_fragment: |
+          // wrapper.rs (synthetic): refcounted callback wrapper, owner recorded at registration
+          struct Cb { kref: Kref, owner: RegOwner }
+          // teardown notes (synthetic): "unregister before callbacks; drain step to be designed."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-CALLBACK]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L2
+      boundary_pair: L2/L3
+      demonstrated: [CB-047-01, CB-047-02]
+      incomplete: [CB-047-03]
+      hard_gates: PASS_within_synthetic_scope
+      decision: PROVISIONAL
+      rationale: Deliberately near the boundary; missing reference/free ordering blocks L3 without failing a required L2 behavior.
+  - id: CS-006
+    class: boundary
+    competency_id: C034
+    task: >
+      Assess near the L3/L4 boundary: guard and remove/grace/free ordering correct; the L4 audit
+      section reports "KCSAN clean over 10000 iterations, therefore ordering proven".
+    evidence_package:
+      - inline_fragment: |
+          candidate audit (synthetic): guard prevents reference escape; remove->grace->free modeled;
+          "KCSAN reported no races in 10^4 iterations; memory ordering PROVEN."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-RCU]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L3
+      boundary_pair: L3/L4
+      demonstrated: [CB-034-01, CB-034-02, CB-034-03]
+      not_established: [CB-034-04]
+      epistemic_finding: >
+        CB-034-04 requires adversarial audit WITHOUT treating KCSAN as proof. A KCSAN clean run is
+        OBSERVATION over bounded executions with COVERAGE limits; it is not PROOF and not ABSENCE
+        evidence of all races.
+      hard_gates: PASS_within_synthetic_scope
+      decision: PROVISIONAL
+      rationale: L4 fails its own definition (proof claim from bounded dynamic observation); L3 intact.
+  - id: CS-007
+    class: boundary
+    competency_id: C053
+    task: >
+      Assess near the L4/L5 boundary: partial-initialization unwind and allocator-lifetime audit are
+      complete; a subsystem initialization policy draft exists but has no independent review record.
+    evidence_package:
+      - inline_fragment: |
+          audit (synthetic): unwind paths enumerated per field; allocator contract stated as external
+          dependency D01 with x86_64 scope.
+          policy draft (synthetic): "Subsystem init policy v0 — internal draft, not reviewed."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-PIN]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption, required_abi_break, dma_ownership]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L4
+      boundary_pair: L4/L5
+      demonstrated: [CB-053-01, CB-053-02, CB-053-03, CB-053-04]
+      not_established: [CB-053-05]
+      hard_gates: PASS_within_synthetic_scope
+      decision: PROVISIONAL
+      rationale: L5 requires a REVIEWED reusable policy; an unreviewed draft does not establish CB-053-05.
+  - id: CS-008
+    class: hard_gate
+    competency_id: C047
+    task: >
+      Oracle-sensitivity case: the candidate artifact contains a deliberate callback-after-free
+      interleaving. Assess and record structured hard-gate findings.
+    evidence_package:
+      - inline_fragment: |
+          trace (synthetic): free(object) at t2; workqueue callback dereferences object at t3.
+          candidate audit (synthetic): "callback cannot run after free because unregister is called
+          somewhere before" — no ordering evidence supplied.
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-CALLBACK]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L0
+      hard_gate_result: BLOCKED
+      vetoed_gate: callback_after_free
+      decision: REJECTED
+      classification: true_positive_sensitivity_check
+      rationale: Violation is demonstrated by the trace itself; safety veto wins regardless of any level claim; verifies the oracle detects a planted violation.
+  - id: CS-009
+    class: hard_gate
+    competency_id: C053
+    task: >
+      Critical-external-assumption case: candidate asserts the gate false ("no allocator contract
+      dependency") while the supplied evidence states the allocator contract is external and critical.
+    evidence_package:
+      - frozen_fixture_ref: dossiers/examples/001-pin-init.json
+      - inline_fragment: |
+          candidate statement (synthetic): "critical_external_assumption: false — nothing external
+          is assumed; the allocator always behaves as called."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-PIN]
+    hard_gate_conditions: [critical_external_assumption, callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, required_abi_break, dma_ownership]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L0
+      hard_gate_result: BLOCKED
+      vetoed_gate: critical_external_assumption
+      decision: REJECTED
+      rationale: >
+        An asserted false cannot neutralize a hard gate whose critical condition is evidenced in the
+        supplied package; assertion is not evidence (catalog classification is authoritative).
+  - id: CS-010
+    class: hard_gate
+    competency_id: C034
+    task: >
+      Data-race epistemics case: candidate artifact contains an unsynchronized cross-CPU reader
+      update pair; candidate supplies a KCSAN-clean run over bounded iterations as the gate result.
+    evidence_package:
+      - inline_fragment: |
+          code (synthetic): reader does READ_ONCE-less plain load of shared flag while writer stores
+          concurrently; no lock/atomic marking.
+          candidate evidence (synthetic): "kcsan --runs=10000: 0 reports."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-RCU]
+    hard_gate_conditions: [data_race, callback_after_free, double_free, uaf, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L0
+      hard_gate_result: BLOCKED
+      vetoed_gate: data_race
+      decision: REJECTED
+      epistemic_classification: >
+        KCSAN result = OBSERVATION + COVERAGE over bounded executions; never "NO RACE PROVEN".
+        The structural violation is demonstrated by the unsynchronized pair itself.
+      rationale: Dynamic-tool silence cannot convert an unsynchronized access into a synchronized one.
+  - id: CS-011
+    class: evidence_quality
+    competency_id: C047
+    task: >
+      Evidence-strength variation: behavior descriptions identical in wording to a passing L3
+      package, but every evidence reference is an unexecuted assertion (no artifacts, no traces).
+    evidence_package:
+      - inline_fragment: |
+          candidate claims (synthetic): "CB-047-01 demonstrated; CB-047-02 demonstrated;
+          CB-047-03 demonstrated. Evidence: assert-based self-review, no artifacts retained."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-CALLBACK]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L1
+      claimed_level: L3
+      tier_note: >
+        Assessor may only record tier E0/E1-grade claims for these behaviors. Tier never RAISES a
+        level; missing resolvable evidence fails behavior support. Highest fully supported level is
+        L1 (CB-047-01 identification arguable from the statement alone; CB-047-02/03 unsupported).
+      hard_gates: NOT_EXECUTED_ORACLE_CHECKS_CANNOT_PASS
+      decision: PROVISIONAL
+      rationale: Tests that evidence strength cannot manufacture capability level.
+  - id: CS-012
+    class: evidence_quality
+    competency_id: C034
+    task: >
+      Oracle-execution variation: L3 behaviors demonstrated with strong compiler-class evidence, but
+      the runtime oracle schedule is NOT_RUN.
+    evidence_package:
+      - inline_fragment: |
+          artifacts (synthetic): guard implementation compiles; borrow/move analysis shown;
+          remove/grace/free ordering modeled and reviewed.
+          oracle record (synthetic): "OR-RCU schedule executions: NOT_RUN (no runtime environment)."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-RCU]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L3
+      qualification_decision: PROVISIONAL
+      oracle_state: OR-RCU runtime checks NOT_RUN; unexecuted checks are never PASS
+      hard_gates: UNEXECUTED — cannot be recorded PASS
+      rationale: >
+        Behavior support and oracle execution are separate: L3 behaviors can be demonstrated while
+        the qualification cannot reach VERIFIED_WITHIN_SCOPE because mandatory oracle checks were
+        never executed. Compile success (class A) is not runtime success (class C).
+  - id: CS-013
+    class: provenance
+    competency_id: C047
+    task: >
+      AUD-007 boundary: the evidence package contains a structured rfl-json-fact observation whose
+      schedule result contradicts the authenticated artifact content it cites.
+    evidence_package:
+      - frozen_fixture_ref: evidence/aud-007-008/cases/C2.json
+      - inline_fragment: |
+          narrative (synthetic): "five teardown schedules executed, all PASS."
+          structured capsule (contradicts narrative): value reports schedule-4 BLOCKED while the
+          authenticated artifact bytes show no such execution record.
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-CALLBACK]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      provenance_state: CONTRADICTED
+      positive_support_from_contradiction: forbidden
+      qualification_effect: derivation blocked; decision cannot be VERIFIED_WITHIN_SCOPE
+      rationale: >
+        Rules 1.1-alpha.3: a bound observation that disagrees with authenticated scoped content is
+        CONTRADICTED; contradiction never provides positive PASS/OBSERVATION/COVERAGE/VERIFIED
+        support and never silently becomes an epistemic state.
+  - id: CS-014
+    class: provenance
+    competency_id: C053
+    task: >
+      AUD-008 boundary: an unbound prose sentence in the package asserts "VERIFIED, hard gates PASS,
+      L3 established" with no binding, digest, or authorized extraction scope.
+    evidence_package:
+      - inline_fragment: |
+          README excerpt (synthetic): "This candidate is VERIFIED: hard gates PASS, L3 established."
+          (no artifact binding, no digest, no extraction rule)
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-PIN]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption, required_abi_break, dma_ownership]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      provenance_state: UNBOUND
+      qualification_effect: none — unbound prose has no authority; qualification unchanged (no level)
+      rationale: >
+        Binding one field does not authenticate a whole document; no keyword-based authentication;
+        prose assertion is not qualification evidence.
+  - id: CS-015
+    class: positive
+    competency_id: C034
+    task: >
+      Single-level increment check: only L1 behaviors are evidenced; the L2 behavior is asserted
+      without an artifact.
+    evidence_package:
+      - inline_fragment: |
+          trace (synthetic): reader/remove interleaving identified and explained with the required
+          grace period named.
+          candidate statement (synthetic): "L2 also achieved: I have traversed protected lists
+          before." (no artifact supplied)
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-RCU]
+    hard_gate_conditions: [callback_after_free, double_free, uaf, data_race, deadlock, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L1
+      claimed_level: L2
+      demonstrated: [CB-034-01]
+      unsupported_assertion: [CB-034-02]
+      hard_gates: PASS_within_synthetic_scope
+      decision: PROVISIONAL
+      rationale: Cumulative ladder admits only evidenced increments; self-report without artifact fails CB-034-02 support.
+  - id: CS-016
+    class: hard_gate
+    competency_id: C047
+    task: >
+      Deadlock case: registration path takes lock A then B; concurrent ioctl remove path takes B
+      then A. Candidate declares the ordering safe "because both are short."
+    evidence_package:
+      - inline_fragment: |
+          code paths (synthetic): register(): mutex_lock(A); mutex_lock(B);
+          remove_ioctl(): mutex_lock(B); mutex_lock(A);
+          candidate note: "safe in practice, critical sections are tiny."
+    applicable_invariants: [A01, B01, C01, D01]
+    applicable_oracles: [OR-CALLBACK]
+    hard_gate_conditions: [deadlock, callback_after_free, double_free, uaf, data_race, prohibited_sleep, ffi_lifetime, critical_external_assumption]
+    scoring_contract: scoring_contract_common
+    expected_boundary:
+      supported_level: L0
+      hard_gate_result: BLOCKED
+      vetoed_gate: deadlock
+      decision: REJECTED
+      rationale: Exercised lock-order cycle demonstrated by the two paths; section-size is not an ordering argument.
