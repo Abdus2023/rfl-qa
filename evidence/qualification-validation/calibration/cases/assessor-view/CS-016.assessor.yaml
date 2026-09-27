@@ -1,0 +1,32 @@
+id: CS-016
+class: hard_gate
+competency_id: C047
+task: 'Deadlock case: registration path takes lock A then B; concurrent ioctl remove path takes B then
+  A. Candidate declares the ordering safe "because both are short."
+
+  '
+evidence_package:
+- inline_fragment: 'code paths (synthetic): register(): mutex_lock(A); mutex_lock(B);
+
+    remove_ioctl(): mutex_lock(B); mutex_lock(A);
+
+    candidate note: "safe in practice, critical sections are tiny."
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-CALLBACK
+hard_gate_conditions:
+- deadlock
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

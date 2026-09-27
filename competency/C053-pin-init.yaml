@@ -1,0 +1,58 @@
+record_type: competency
+id: C053
+domain: initialization
+title: In-place initialization
+description: Scoped in-place initialization behavior assessed with a synthetic alpha
+  task; not blanket engineering certification.
+behavior_matrix:
+  L1:
+  - id: CB-053-01
+    description: Identifies the address-change failure in a self-referential C structure.
+  L2:
+  - id: CB-053-02
+    description: Initializes fields in place and supplies a compile-fail use-after-borrow
+      example.
+  L3:
+  - id: CB-053-03
+    description: Encodes single initialization and pinned lifetime in a safe API with
+      a teardown model.
+  L4:
+  - id: CB-053-04
+    description: Audits partial-initialization unwind paths and allocator lifetime
+      assumptions under adversarial teardown.
+  L5:
+  - id: CB-053-05
+    description: Produces a reviewed reusable subsystem initialization policy with
+      explicit ABI boundaries.
+required_evidence:
+  behavior_evidence_required: true
+  invariant_refs:
+  - A01
+  - B01
+  - C01
+  - D01
+  oracle_refs:
+  - OR-PIN
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+- required_abi_break
+- dma_ownership
+scope_constraints:
+  task_classes:
+  - in_place_initialization
+  - partial_init_teardown
+  environments:
+  - x86_64
+  - CONFIG_RUST=y
+  - PREEMPT_RT=y
+  exclusions:
+  - arm64
+  - dma
+  - nmi_context

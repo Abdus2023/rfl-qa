@@ -1,0 +1,30 @@
+record_type: assessor_view_generation
+generated_by: calibration/cases/make_assessor_views.py
+frozen_case_set: evidence/qualification-validation/calibration/cases.yaml
+frozen_case_set_sha256: eaa73255e59336131f7eb0a5b63a3de4d5aba3a4f75520ed2c7da802a19e12ff
+case_set_id: CS-VAL-1
+case_set_instrument_commit: 459ec8b9836339537d2cbd995e73af0a330d69ff
+blind_fields_removed:
+- expected_boundary
+- boundary_derivation
+view_count: 16
+view_sha256:
+  CS-001: 93b1b933b93afc4bcf661850390a3c3507545c97cf5edcb953575cad58b96f60
+  CS-002: e42477d6ca04d2cde3fb50d565d462b9b889ae288c0a8887eaeb516dfa866ab1
+  CS-003: ea5e57bc39969e01fce3247dafd32892f5ba7660308f3d49ccac8006bb876099
+  CS-004: 1ed7419b130c13635947ead0163299bd95b52ed69db83246bb1ecdff8c89166b
+  CS-005: 6fae56163f938e39cad043aa5bcea61361a3bc164335639af63061cd428fa967
+  CS-006: 5b8824d0c159e4945d20912e8b523d0c615b50777e5255042a05d76e425a7c1d
+  CS-007: d64cf35cf795f58bc65fa9f27a313cf39f359659bb170f4f19e1d96bf1208a14
+  CS-008: c86a41b2f94aa7524549f997517b887b54782de1282e49d0628096f3eba7d12b
+  CS-009: b37227a01a314bc8679ffa86e9522fb20038b86c8ddbcf450c67f065a8c5637e
+  CS-010: 257510cf70ad9ef1ad2458a03afc7a19299c38091206937ee13feeebae42c1fb
+  CS-011: 9688742619d3476ba2d5e74ce7909d1027a10e7fbbe005ce82c82ada1070853a
+  CS-012: 308c4fdf161c750aaca631fe830142eacf50eaea6bf8e93d8d21638b9a487fd5
+  CS-013: 4322857ce90c202d3f386cad4dbca5dd89b21142090f9a987065949c3cc24383
+  CS-014: 6d337fec20f0b2c2a9918d505aca5c6902e0ff532cbc2f23a246aaa8a93acce8
+  CS-015: 1074f5b751386238e52a92c5beb764b77430a3068aa48d1c7306c557afb915a6
+  CS-016: 3fa06301f44bcfdc0a8247b2f2b3eab1aed3ac256b3d4c47f52b14328bfbf925
+frozen_source_unmodified: true
+status: PREPARED_FOR_DISTRIBUTION_DISTRIBUTION_NOT_RUN
+distribution_blocker: No independent human assessors exist in this execution environment.

@@ -1,0 +1,51 @@
+ci:
+  run_id: null
+  commit: 06053bfc03366912e9880eab5208ba13af3f5da8
+  conclusion: NOT_RUN
+  gate: BLOCKED
+  jobs: []
+  logs:
+    available: false
+  artifacts:
+    available: false
+  logs_available: false
+  artifacts_available: false
+  failure_detail: UNCONFIRMED
+  publication_failure: GitHub App lacks workflows permission; push rejected before
+    source reached remote.
+  remote_branch_commit: 92d3bba82fc1ef17856d21a9e4fcf1ae8a4f07af
+  baseline_runs_only:
+  - conclusion: failure
+    databaseId: 36282808557
+    headSha: 92d3bba82fc1ef17856d21a9e4fcf1ae8a4f07af
+    status: completed
+    url: https://github.com/Abdus2023/rfl-qa/actions/runs/36282808557
+  - conclusion: failure
+    databaseId: 36282806031
+    headSha: 92d3bba82fc1ef17856d21a9e4fcf1ae8a4f07af
+    status: completed
+    url: https://github.com/Abdus2023/rfl-qa/actions/runs/36282806031
+  - conclusion: failure
+    databaseId: 36282488859
+    headSha: b0582f61ae4fad99c02a262c9b27475330bd018e
+    status: completed
+    url: https://github.com/Abdus2023/rfl-qa/actions/runs/36282488859
+  - conclusion: failure
+    databaseId: 36282486359
+    headSha: b0582f61ae4fad99c02a262c9b27475330bd018e
+    status: completed
+    url: https://github.com/Abdus2023/rfl-qa/actions/runs/36282486359
+  - conclusion: failure
+    databaseId: 36282225044
+    headSha: 3651ffbbf2487585d04c2e0e0ea9559baa3ea7ad
+    status: completed
+    url: https://github.com/Abdus2023/rfl-qa/actions/runs/36282225044
+  - conclusion: failure
+    databaseId: 36282222576
+    headSha: 3651ffbbf2487585d04c2e0e0ea9559baa3ea7ad
+    status: completed
+    url: https://github.com/Abdus2023/rfl-qa/actions/runs/36282222576
+  baseline_logs_and_artifacts: Frozen earlier EOF observations retained; not relabeled
+    as current-source retrieval attempts.
+  required_action: Reconnect GitHub in Arena with workflows permission, push the fixed
+    session branch, then observe actual run/jobs/logs/artifacts.

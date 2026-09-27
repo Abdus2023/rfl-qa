@@ -1,0 +1,36 @@
+# Assessor A record — STATUS: NOT_RUN (no fabricated assessments permitted).
+# GOVERNANCE.md and calibration/inter-rater.md (F-005) prohibit synthetic concordance from
+# counting as human calibration. This file is a submission TEMPLATE + round placeholder only.
+round_status: NOT_RUN
+round_id: CS-VAL-1
+instrument_commit: 459ec8b9836339537d2cbd995e73af0a330d69ff
+assessor:
+  assessor_id: ASR-A            # pseudonymous; real identity held by governance, not in evidence
+  independent: null             # must be declared true BY THE HUMAN with conflict disclosures; not pre-filled
+  conflict_declarations: null
+  training_records: null
+submission:
+  submitted_at: null
+  assessments: []               # schema per schemas/claim.schema.json 'assessment':
+  #   record_type: assessment
+  #   assessor_id: ASR-A
+  #   dossier_ref: 'Q-YYYY-NNNN'
+  #   dossier_digest: <sha256 over all dossier fields except assessments>
+  #   independent: true
+  #   claimed_level: L0..L5
+  #   observations: [{behavior_id: CB-*, status: DEMONSTRATED|FAILED, evidence_refs: [...]}]
+  #   evidence_tier: E0..E5
+  #   invariant_findings: [{invariant_ref, class: A|B|C|D, ...}]
+  #   oracle_results / hard_gate_results / rationale per frozen schema
+not_run_reason: >
+  No independent human assessor is available in this execution environment. Agent- or
+  model-generated assessments are prohibited as calibration evidence (synthetic != human).
+  Filling assessments here without actual independent humans would violate GOVERNANCE.md,
+  calibration/inter-rater.md, and calibration failure condition 'fewer than required
+  independent assessors participate'.
+resumption_condition: >
+  A human calibration round may start only after: (1) instrument unchanged since commit
+  459ec8b9836339537d2cbd995e73af0a330d69ff, or a new instrument version created per freeze
+  rules; (2) two conflict-free independent human assessors appointed with conflict and
+  training records; (3) assessor-facing case views (expected_boundary/boundary_derivation
+  removed) distributed; (4) independent submissions locked before any comparison.

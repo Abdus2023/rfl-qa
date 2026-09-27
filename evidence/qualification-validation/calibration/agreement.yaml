@@ -1,0 +1,39 @@
+# Inter-rater agreement record — STATUS: NOT_RUN (no independent human submissions exist).
+inter_rater:
+  cases_prepared: 16
+  cases_assessed: 0
+  assessors: 0            # of required 2 independent human assessors
+  round_id: CS-VAL-1
+  instrument_commit: 459ec8b9836339537d2cbd995e73af0a330d69ff
+  exact_agreement: null
+  level_agreement: null
+  behavior_agreement: null
+  hard_gate_agreement: null
+  epistemic_status_agreement: null
+  statistic: NOT_RUN
+  statistic_interpretation: >
+    No agreement data exists. Even a single two-assessor pass over 16 cases would support
+    only descriptive exact-agreement proportions, not a generalized reliability estimate;
+    any inferential statistic on that sample would be STATISTICALLY_INSUFFICIENT. No
+    statistic has been computed because no data exists; none will be selected post hoc to
+    produce a favorable result.
+  measurement_result: NOT_OBSERVED    # becomes OBSERVED only from real submissions
+  decision_threshold:
+    automatic_qualification_alpha: EXACT_AGREEMENT_REQUIRED
+    threshold_source: assessors/review-protocol.md step 5 (frozen): 'Exact agreement is required
+      for automatic qualification in alpha. Any safety veto wins even during disagreement.'
+    general_reliability_threshold: NOT_SPECIFIED   # governance defines none; none is invented here
+  limitations:
+    - No human calibration has been executed; synthetic fixture concordance
+      (tests/fixtures/calibration/*) is engine exercise only, never reliability evidence.
+    - One agreement pair would not establish general inter-rater reliability
+      (calibration/inter-rater.md).
+  failure_conditions_checked:
+    fewer_than_required_assessors: true      # this condition holds -> calibration NOT_ESTABLISHED
+    assessors_not_independent: false         # no assessors at all
+    cases_modified_during_assessment: false  # no assessment round started
+    raw_submissions_missing: true            # this condition holds
+    evidence_provenance_incomplete: false
+    disagreement_data_overwritten: false
+    rubric_changed_mid_round: false
+  conclusion: NOT_RUN / NOT_ESTABLISHED

@@ -1,0 +1,30 @@
+id: CS-009
+class: hard_gate
+competency_id: C053
+task: 'Critical-external-assumption case: candidate asserts the gate false ("no allocator contract dependency")
+  while the supplied evidence states the allocator contract is external and critical.
+
+  '
+evidence_package:
+- frozen_fixture_ref: dossiers/examples/001-pin-init.json
+- inline_fragment: "candidate statement (synthetic): \"critical_external_assumption: false \u2014 nothing\
+    \ external\nis assumed; the allocator always behaves as called.\"\n"
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-PIN
+hard_gate_conditions:
+- critical_external_assumption
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- required_abi_break
+- dma_ownership
+scoring_contract: scoring_contract_common

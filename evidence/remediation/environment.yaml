@@ -1,0 +1,57 @@
+recorded_at: '2026-09-27T00:30:06.279982+00:00'
+source_commit: b0582f61ae4fad99c02a262c9b27475330bd018e
+implementation_commit: 3651ffbbf2487585d04c2e0e0ea9559baa3ea7ad
+baseline_commit: e4f1611c245d5c001d29b5c4477dee088c3d7867
+branch: arena/01a0dfcc-rfl-qa
+python: 3.11.2 (main, Apr  8 2026, 01:58:00) [GCC 12.2.0]
+executable: /home/user/rfl-qa/.venv/bin/python
+os: Linux-6.1.158+-x86_64-with-glibc2.36
+architecture: x86_64
+os_release: 'PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+
+  NAME="Debian GNU/Linux"
+
+  VERSION_ID="12"
+
+  VERSION="12 (bookworm)"
+
+  VERSION_CODENAME=bookworm
+
+  ID=debian
+
+  HOME_URL="https://www.debian.org/"
+
+  SUPPORT_URL="https://www.debian.org/support"
+
+  BUG_REPORT_URL="https://bugs.debian.org/"
+
+  '
+dependencies:
+- attrs==26.1.0
+- iniconfig==2.3.0
+- jsonschema==4.23.0
+- jsonschema-specifications==2025.9.1
+- packaging==26.3
+- pluggy==1.6.0
+- pytest==8.3.5
+- PyYAML==6.0.2
+- referencing==0.37.0
+- rfc3339-validator==0.1.4
+- rpds-py==2026.6.3
+- six==1.17.0
+- typing_extensions==4.16.0
+environment_allowlist:
+  LANG: null
+  LC_ALL: null
+  LC_CTYPE: C.UTF-8
+  TZ: null
+  PYTHONHASHSEED: null
+  CI: null
+  GITHUB_ACTIONS: null
+locale: LC_CTYPE=C.UTF-8;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=C;LC_PAPER=C;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=C;LC_IDENTIFICATION=C
+effective_timezone:
+- UTC
+- UTC
+provenance_note: Source/test commit above is the executed revision; a later evidence-only
+  receipt commit does not claim a new source execution. No unavailable historical
+  commit was reconstructed.

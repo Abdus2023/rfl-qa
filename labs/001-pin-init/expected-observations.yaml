@@ -1,0 +1,46 @@
+record_type: expected_observations
+oracle_ref: OR-PIN
+expectations:
+- check_id: OR-PIN-callback_after_free
+  expected_result: PASS
+  reason: callback_possible implies target alive
+- check_id: OR-PIN-double_free
+  expected_result: PASS
+  reason: final free occurs once
+- check_id: OR-PIN-uaf
+  expected_result: PASS
+  reason: no access follows free
+- check_id: OR-PIN-data_race
+  expected_result: PASS
+  reason: concurrent accesses are synchronized
+- check_id: OR-PIN-deadlock
+  expected_result: PASS
+  reason: lock ordering has no exercised cycle
+- check_id: OR-PIN-prohibited_sleep
+  expected_result: PASS
+  reason: no sleep in prohibited context
+- check_id: OR-PIN-ffi_lifetime
+  expected_result: PASS
+  reason: C pointer validity outlives each use
+- check_id: OR-PIN-critical_external_assumption
+  expected_result: PASS
+  reason: critical C lifetime contract is evidenced
+- check_id: OR-PIN-required_abi_break
+  expected_result: PASS
+  reason: required public ABI behavior is preserved; internal API stability not assumed
+- check_id: OR-PIN-dma_ownership
+  expected_result: PASS
+  reason: DMA excluded; no DMA capability claimed or ownership transferred by this
+    task
+- check_id: OR-PIN-class-A
+  expected_result: PASS
+  reason: Invariant class A independently recorded from epistemic status; external
+    evidence required for VERIFIED D.
+- check_id: OR-PIN-class-B
+  expected_result: PASS
+  reason: Invariant class B independently recorded from epistemic status; external
+    evidence required for VERIFIED D.
+- check_id: OR-PIN-class-D
+  expected_result: PASS
+  reason: Invariant class D independently recorded from epistemic status; external
+    evidence required for VERIFIED D.

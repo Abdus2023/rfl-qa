@@ -1,0 +1,17 @@
+# Environment for the qualification-validation phase (locally EXECUTED facts).
+cycle: qualification-validation-phase
+source_commit: 459ec8b9836339537d2cbd995e73af0a330d69ff
+parent_commit: d3abe21f4c28b70932aba9f3054e1000537fd993 (workflow correction by repository owner)
+python: 3.11.2
+os: Linux x86_64
+sandbox_note: >
+  The sandbox rehydrated again at the start of this phase (git objects reset to the orphan
+  root; working-tree files intact). The branch was re-aligned to the durable remote tip
+  459ec8b via explicit fetch and mixed reset; tree verified clean. Both sealed packages
+  verified byte-intact at this commit (evidence/aud-007-008/seal.py --verify PASS: 80
+  evidence + 98 source files; 183 prior evidence files preserved).
+dependencies: pinned per requirements.txt (installed --no-cache-dir); pip check clean.
+kernel_laboratory: NOT AVAILABLE — no kernel build/runtime/sanitizer environment exists in
+  this sandbox; none was provisioned; none is claimed.
+human_assessors: NOT AVAILABLE — no independent human assessors exist in this environment;
+  fabricating them is prohibited (GOVERNANCE.md, calibration/inter-rater.md F-005).

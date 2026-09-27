@@ -1,0 +1,19 @@
+# Assessor B record — STATUS: NOT_RUN (no fabricated assessments permitted).
+# Structurally identical to assessor-a.yaml; see that file for the full rationale.
+# Independence requirement: ASR-B must not see ASR-A's submissions before its own lock,
+# and vice versa. One assessor's result must never become the other's input.
+round_status: NOT_RUN
+round_id: CS-VAL-1
+instrument_commit: 459ec8b9836339537d2cbd995e73af0a330d69ff
+assessor:
+  assessor_id: ASR-B
+  independent: null
+  conflict_declarations: null
+  training_records: null
+submission:
+  submitted_at: null
+  assessments: []
+not_run_reason: >
+  No independent human assessor available; agent-generated assessments are prohibited as
+  calibration evidence. Calibration remains NOT_RUN/BLOCKED per calibration failure
+  conditions (fewer than required independent assessors participate).

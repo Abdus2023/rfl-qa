@@ -1,0 +1,33 @@
+id: CS-010
+class: hard_gate
+competency_id: C034
+task: 'Data-race epistemics case: candidate artifact contains an unsynchronized cross-CPU reader update
+  pair; candidate supplies a KCSAN-clean run over bounded iterations as the gate result.
+
+  '
+evidence_package:
+- inline_fragment: 'code (synthetic): reader does READ_ONCE-less plain load of shared flag while writer
+    stores
+
+    concurrently; no lock/atomic marking.
+
+    candidate evidence (synthetic): "kcsan --runs=10000: 0 reports."
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-RCU
+hard_gate_conditions:
+- data_race
+- callback_after_free
+- double_free
+- uaf
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

@@ -1,0 +1,284 @@
+[
+  {
+    "id": "json",
+    "hash_equal": true,
+    "byte_equal": true
+  },
+  {
+    "id": "yaml",
+    "hash_equal": true,
+    "byte_equal": true
+  },
+  {
+    "id": "yaml-reversed-mapping",
+    "hash_equal": true,
+    "byte_equal": true
+  },
+  {
+    "id": "determinism-0-True",
+    "exit_code": 0,
+    "byte_equal": true,
+    "env": {
+      "PYTHONHASHSEED": "0",
+      "LC_ALL": "C",
+      "TZ": "UTC"
+    }
+  },
+  {
+    "id": "determinism-0-False",
+    "exit_code": 0,
+    "byte_equal": true,
+    "env": {
+      "PYTHONHASHSEED": "0",
+      "LC_ALL": "C",
+      "TZ": "UTC"
+    }
+  },
+  {
+    "id": "determinism-1-True",
+    "exit_code": 0,
+    "byte_equal": true,
+    "env": {
+      "PYTHONHASHSEED": "1",
+      "LC_ALL": "C.utf8",
+      "TZ": "Africa/Tunis"
+    }
+  },
+  {
+    "id": "determinism-1-False",
+    "exit_code": 0,
+    "byte_equal": true,
+    "env": {
+      "PYTHONHASHSEED": "1",
+      "LC_ALL": "C.utf8",
+      "TZ": "Africa/Tunis"
+    }
+  },
+  {
+    "id": "determinism-2-True",
+    "exit_code": 0,
+    "byte_equal": true,
+    "env": {
+      "PYTHONHASHSEED": "42",
+      "LC_ALL": "C",
+      "TZ": "Pacific/Honolulu"
+    }
+  },
+  {
+    "id": "determinism-2-False",
+    "exit_code": 0,
+    "byte_equal": true,
+    "env": {
+      "PYTHONHASHSEED": "42",
+      "LC_ALL": "C",
+      "TZ": "Pacific/Honolulu"
+    }
+  },
+  {
+    "id": "determinism-3-True",
+    "exit_code": 0,
+    "byte_equal": true,
+    "env": {
+      "PYTHONHASHSEED": "random",
+      "LC_ALL": "C.utf8",
+      "TZ": "UTC"
+    }
+  },
+  {
+    "id": "determinism-3-False",
+    "exit_code": 0,
+    "byte_equal": true,
+    "env": {
+      "PYTHONHASHSEED": "random",
+      "LC_ALL": "C.utf8",
+      "TZ": "UTC"
+    }
+  },
+  {
+    "id": "concurrent-process-0",
+    "exit_code": 0,
+    "byte_equal": true
+  },
+  {
+    "id": "concurrent-process-1",
+    "exit_code": 0,
+    "byte_equal": true
+  },
+  {
+    "id": "concurrent-process-2",
+    "exit_code": 0,
+    "byte_equal": true
+  },
+  {
+    "id": "concurrent-process-3",
+    "exit_code": 0,
+    "byte_equal": true
+  },
+  {
+    "id": "concurrent-process-4",
+    "exit_code": 0,
+    "byte_equal": true
+  },
+  {
+    "id": "concurrent-process-5",
+    "exit_code": 0,
+    "byte_equal": true
+  },
+  {
+    "id": "concurrent-process-6",
+    "exit_code": 0,
+    "byte_equal": true
+  },
+  {
+    "id": "concurrent-process-7",
+    "exit_code": 0,
+    "byte_equal": true
+  },
+  {
+    "id": "duplicate-json",
+    "exception": "Invalid",
+    "reason": "/tmp/rfl-audit-ej2avxjh/duplicate-json.json: duplicate key: id"
+  },
+  {
+    "id": "duplicate-yaml",
+    "exception": "Invalid",
+    "reason": "/tmp/rfl-audit-ej2avxjh/duplicate-yaml.yaml: duplicate key: id"
+  },
+  {
+    "id": "yaml-on",
+    "loaded_type": "dict",
+    "value": {
+      "record_type": "invariant",
+      "epistemic_status": true
+    },
+    "semantic": "REJECTED",
+    "reason": "epistemic_status: True is not of type 'string'; epistemic_status: True is not one of ['VERIFIED', 'PARTIALLY_VERIFIED', 'PROVISIONAL', 'OPEN', 'BLOCKED']; $: 'id' is a required property; $: 'class' is a required property; $: 'description' is a required property; $: 'required' is a required property; $: 'critical' is a required property; $: 'evidence_refs' is a required property; $: 'external_evidence' is a required property"
+  },
+  {
+    "id": "yaml-python-tag",
+    "exception": "Invalid",
+    "reason": "/tmp/rfl-audit-ej2avxjh/yaml-python-tag.yaml: could not determine a constructor for the tag 'tag:yaml.org,2002:python/object/apply:builtins.str'\n  in \"<unicode string>\", line 1, column 1:\n    !!python/object/apply:builtins.s ... \n    ^"
+  },
+  {
+    "id": "yaml-cycle",
+    "exception": "Invalid",
+    "reason": "/tmp/rfl-audit-ej2avxjh/yaml-cycle.yaml: found unconstructable recursive node\n  in \"<unicode string>\", line 1, column 7:\n    self: &root {back: *root}\n          ^"
+  },
+  {
+    "id": "yaml-integer",
+    "loaded_type": "dict",
+    "value": {
+      "count": 1
+    }
+  },
+  {
+    "id": "yaml-null",
+    "loaded_type": "dict",
+    "value": {
+      "status": null
+    },
+    "semantic": "REJECTED",
+    "reason": "unknown record_type: None"
+  },
+  {
+    "id": "yaml-timestamp",
+    "loaded_type": "dict",
+    "value": {
+      "timestamp": "2026-09-27T00:00:00Z"
+    }
+  },
+  {
+    "id": "yaml-benign-alias",
+    "loaded_type": "dict",
+    "value": {
+      "a": [
+        "x86_64"
+      ],
+      "b": [
+        "x86_64"
+      ]
+    },
+    "alias_same_object": true
+  },
+  {
+    "id": "json-deep",
+    "exception": "RecursionError",
+    "reason": "maximum recursion depth exceeded while decoding a JSON array from a unicode string"
+  },
+  {
+    "id": "yaml-deep",
+    "exception": "RecursionError",
+    "reason": "maximum recursion depth exceeded in comparison"
+  },
+  {
+    "id": "actual-yaml-anchors",
+    "byte_equal": true,
+    "contains_yaml_anchor": true
+  },
+  {
+    "id": "cli-json-deep",
+    "exit_code": 1,
+    "traceback": true
+  },
+  {
+    "id": "cli-yaml-deep",
+    "exit_code": 1,
+    "traceback": true
+  },
+  {
+    "id": "cli-yaml-on",
+    "exit_code": 1,
+    "traceback": false
+  },
+  {
+    "id": "cli-yaml-python-tag",
+    "exit_code": 1,
+    "traceback": false
+  },
+  {
+    "id": "hash-capability",
+    "hash_changed": true,
+    "decision_equal": true,
+    "signature_equal": false
+  },
+  {
+    "id": "hash-scope",
+    "hash_changed": true,
+    "decision_equal": false,
+    "signature_equal": true
+  },
+  {
+    "id": "hash-epistemic",
+    "hash_changed": true,
+    "decision_equal": false,
+    "signature_equal": false
+  },
+  {
+    "id": "hash-timestamp",
+    "hash_changed": true,
+    "decision_equal": true,
+    "signature_equal": true
+  },
+  {
+    "id": "hash-presentation-limitations",
+    "hash_changed": true,
+    "decision_equal": true,
+    "signature_equal": true
+  },
+  {
+    "id": "hash-array-order",
+    "hash_changed": true,
+    "decision_equal": true,
+    "signature_equal": true
+  },
+  {
+    "id": "hash-numeric-representation",
+    "hash_changed": true,
+    "decision_equal": true,
+    "signature_equal": true
+  },
+  {
+    "id": "standalone-d-verified-no-evidence",
+    "outcome": "ACCEPTED"
+  }
+]

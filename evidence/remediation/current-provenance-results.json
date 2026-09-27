@@ -1,0 +1,137 @@
+[
+  {
+    "counterexample": "contradictory-teardown-trace-with-pass-labels.json",
+    "migration": "synthetic template observations/bindings added; old fields retained; NOT a transcription or authentication of narrative facts",
+    "result": "ACCEPTED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "critical-open-declared-noncritical.json",
+    "result": "REJECTED",
+    "reason": "D01: criticality contradicts authoritative catalog"
+  },
+  {
+    "counterexample": "critical-verified-with-open-support.json",
+    "result": "REJECTED",
+    "reason": "D01: VERIFIED external invariant has unresolved support"
+  },
+  {
+    "counterexample": "not-tested-as-observation.json",
+    "result": "REJECTED",
+    "reason": "ARTIFACT: not_tested requires ABSENCE_OF_EVIDENCE"
+  },
+  {
+    "counterexample": "oracle-open-evidence-not-in-ceiling.json",
+    "migration": "synthetic template observations/bindings added; old fields retained; NOT a transcription or authentication of narrative facts",
+    "result": "ACCEPTED",
+    "decision": {
+      "status": "PROVISIONAL",
+      "epistemic_ceiling": "OPEN",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "scope-erased-CONFIG_RUST-y.json",
+    "result": "REJECTED",
+    "reason": "scope environments: must preserve complete rubric scope"
+  },
+  {
+    "counterexample": "scope-erased-PREEMPT_RT-y.json",
+    "result": "REJECTED",
+    "reason": "scope environments: must preserve complete rubric scope"
+  },
+  {
+    "counterexample": "scope-erased-x86_64.json",
+    "result": "REJECTED",
+    "reason": "scope environments: must preserve complete rubric scope"
+  },
+  {
+    "counterexample": "type-d-unrelated_audit.json",
+    "migration": "synthetic template observations/bindings added; old fields retained; NOT a transcription or authentication of narrative facts",
+    "result": "ACCEPTED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  }
+]

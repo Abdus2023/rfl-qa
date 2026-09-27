@@ -1,0 +1,10 @@
+record_type: invariant
+id: B01
+class: B
+description: Safe API prevents repeated initialization and reference escape; sound
+  implementation remains a premise.
+required: true
+critical: false
+epistemic_status: OPEN
+evidence_refs: []
+external_evidence: []

@@ -28,10 +28,10 @@ jobs:
       - name: Full evidence and procedural release gate
         # Deliberately nonzero until real independent human calibration is evidenced.
         # Synthetic fixture agreement must never authorize a release.
-        run: python tools/release_gates.py
+        run: python tools/release_gates.py --output evidence/aud-007-008/ci-execution
       - name: Retain actual execution evidence even when release is blocked
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: alpha-execution-evidence
-          path: evidence/execution/
+          name: aud-007-008-execution-evidence
+          path: evidence/aud-007-008/ci-execution/

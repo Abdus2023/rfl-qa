@@ -1,0 +1,9 @@
+record_type: invariant
+id: A01
+class: A
+description: Compiler-enforced borrow lifetime within a sound safe interface.
+required: true
+critical: false
+epistemic_status: OPEN
+evidence_refs: []
+external_evidence: []

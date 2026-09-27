@@ -1,0 +1,25 @@
+# Criterion observations index — STATUS: NOT_COLLECTED (no population, no outcome data).
+# Section 16 schema preserved for future entries. Pseudonymous identifiers only; no PII.
+phase: empirical-validation-execution
+study_id: CRIT-1
+observations: []
+population_available: false
+exact_blocker: >
+  RESOURCE MISSING: no qualified population exists (human calibration has never run, so no
+  engineer holds a current dual-assessor RFL-QA assessment), and no external upstream outcome
+  records have been retrieved or observed for this project. Collecting personal outcome data
+  without the governance-required consent and independence structures is outside this
+  environment's authority; none was attempted.
+criterion_observation_schema:   # frozen requirement for every future entry
+  subject_id: required (pseudonymous)
+  assessment_date: required
+  rfl_qa_assessment_date: required
+  criterion_name: required
+  criterion_value: required
+  source: required
+  source_digest: required
+  collection_method: required
+  inclusion_status: required
+  missingness: required
+missing_data_treatment: per frozen study-protocol.yaml (no imputation; exclusions per frozen rules)
+analysis_status: NOT_ESTABLISHED (see ../analysis/phase2-analysis.yaml)

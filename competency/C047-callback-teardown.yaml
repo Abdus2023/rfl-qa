@@ -1,0 +1,59 @@
+record_type: competency
+id: C047
+domain: c_ffi
+title: Callback teardown
+description: Scoped callback teardown behavior assessed with a synthetic alpha task;
+  not blanket engineering certification.
+behavior_matrix:
+  L1:
+  - id: CB-047-01
+    description: Identifies the callback-after-free interleaving in the supplied C
+      baseline.
+  L2:
+  - id: CB-047-02
+    description: Constructs a refcounted callback wrapper and records the registration
+      owner.
+  L3:
+  - id: CB-047-03
+    description: Constructs a lifetime guard and a teardown state machine covering
+      unregister/callback/reference/free ordering.
+  L4:
+  - id: CB-047-04
+    description: Resolves concurrent remove and ioctl races with explicit drain synchronization
+      and adversarial observations.
+  L5:
+  - id: CB-047-05
+    description: Produces a reviewed subsystem-wide asynchronous callback lifecycle
+      policy.
+required_evidence:
+  behavior_evidence_required: true
+  invariant_refs:
+  - A01
+  - B01
+  - C01
+  - D01
+  oracle_refs:
+  - OR-CALLBACK
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+- required_abi_break
+- dma_ownership
+scope_constraints:
+  task_classes:
+  - callback_registration
+  - concurrent_teardown
+  environments:
+  - x86_64
+  - CONFIG_RUST=y
+  - PREEMPT_RT=y
+  exclusions:
+  - arm64
+  - dma
+  - nmi_context

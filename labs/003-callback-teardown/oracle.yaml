@@ -1,0 +1,233 @@
+record_type: oracle
+id: OR-CALLBACK
+competency_id: C047
+description: Assessor oracle over declared evidence; NOT universal formal verification.
+hard_gate_coverage:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+- required_abi_break
+- dma_ownership
+checks:
+- id: OR-CALLBACK-callback_after_free
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    callback_after_free'
+  expected_condition: callback_possible implies target alive
+  failure_condition: 'Observed or logically demonstrated violation of: callback_possible
+    implies target alive'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - callback_after_free
+- id: OR-CALLBACK-double_free
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    double_free'
+  expected_condition: final free occurs once
+  failure_condition: 'Observed or logically demonstrated violation of: final free
+    occurs once'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - double_free
+- id: OR-CALLBACK-uaf
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    uaf'
+  expected_condition: no access follows free
+  failure_condition: 'Observed or logically demonstrated violation of: no access follows
+    free'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - uaf
+- id: OR-CALLBACK-data_race
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    data_race'
+  expected_condition: concurrent accesses are synchronized
+  failure_condition: 'Observed or logically demonstrated violation of: concurrent
+    accesses are synchronized'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - data_race
+- id: OR-CALLBACK-deadlock
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    deadlock'
+  expected_condition: lock ordering has no exercised cycle
+  failure_condition: 'Observed or logically demonstrated violation of: lock ordering
+    has no exercised cycle'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - deadlock
+- id: OR-CALLBACK-prohibited_sleep
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    prohibited_sleep'
+  expected_condition: no sleep in prohibited context
+  failure_condition: 'Observed or logically demonstrated violation of: no sleep in
+    prohibited context'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - prohibited_sleep
+- id: OR-CALLBACK-ffi_lifetime
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    ffi_lifetime'
+  expected_condition: C pointer validity outlives each use
+  failure_condition: 'Observed or logically demonstrated violation of: C pointer validity
+    outlives each use'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - ffi_lifetime
+- id: OR-CALLBACK-critical_external_assumption
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    critical_external_assumption'
+  expected_condition: critical C lifetime contract is evidenced
+  failure_condition: 'Observed or logically demonstrated violation of: critical C
+    lifetime contract is evidenced'
+  predicate: safety
+  invariant_refs:
+  - D01
+  strengths: []
+  hard_gate_refs:
+  - critical_external_assumption
+- id: OR-CALLBACK-required_abi_break
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    required_abi_break'
+  expected_condition: required public ABI behavior is preserved; internal API stability
+    not assumed
+  failure_condition: 'Observed or logically demonstrated violation of: required public
+    ABI behavior is preserved; internal API stability not assumed'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - required_abi_break
+- id: OR-CALLBACK-dma_ownership
+  input: '003-callback-teardown: trace, safety audit and applicability statement for
+    dma_ownership'
+  expected_condition: DMA excluded; no DMA capability claimed or ownership transferred
+    by this task
+  failure_condition: 'Observed or logically demonstrated violation of: DMA excluded;
+    no DMA capability claimed or ownership transferred by this task'
+  predicate: safety
+  invariant_refs:
+  - C01
+  strengths: []
+  hard_gate_refs:
+  - dma_ownership
+- id: OR-CALLBACK-schedule-1
+  input: 'Adversarial schedule: callback vs unregister; pause participant before resource
+    release.'
+  expected_condition: Drain admission, callbacks, references and RCU readers before
+    destroy/free. free(object) => no live reference AND no callback possible AND no
+    RCU reader AND no registered owner
+  failure_condition: Any live reference, callback, reader or registration remains
+    at free.
+  predicate: teardown
+  invariant_refs:
+  - B01
+  - C01
+  - D01
+  strengths:
+  - OBSERVATION
+  hard_gate_refs: []
+- id: OR-CALLBACK-schedule-2
+  input: 'Adversarial schedule: callback vs free; pause participant before resource
+    release.'
+  expected_condition: Drain admission, callbacks, references and RCU readers before
+    destroy/free. free(object) => no live reference AND no callback possible AND no
+    RCU reader AND no registered owner
+  failure_condition: Any live reference, callback, reader or registration remains
+    at free.
+  predicate: teardown
+  invariant_refs:
+  - B01
+  - C01
+  - D01
+  strengths:
+  - OBSERVATION
+  hard_gate_refs: []
+- id: OR-CALLBACK-schedule-3
+  input: 'Adversarial schedule: ioctl vs remove; pause participant before resource
+    release.'
+  expected_condition: Drain admission, callbacks, references and RCU readers before
+    destroy/free. free(object) => no live reference AND no callback possible AND no
+    RCU reader AND no registered owner
+  failure_condition: Any live reference, callback, reader or registration remains
+    at free.
+  predicate: teardown
+  invariant_refs:
+  - B01
+  - C01
+  - D01
+  strengths:
+  - OBSERVATION
+  hard_gate_refs: []
+- id: OR-CALLBACK-schedule-4
+  input: 'Adversarial schedule: reference release vs free; pause participant before
+    resource release.'
+  expected_condition: Drain admission, callbacks, references and RCU readers before
+    destroy/free. free(object) => no live reference AND no callback possible AND no
+    RCU reader AND no registered owner
+  failure_condition: Any live reference, callback, reader or registration remains
+    at free.
+  predicate: teardown
+  invariant_refs:
+  - B01
+  - C01
+  - D01
+  strengths:
+  - OBSERVATION
+  hard_gate_refs: []
+- id: OR-CALLBACK-schedule-5
+  input: 'Adversarial schedule: RCU reader vs destroy; pause participant before resource
+    release.'
+  expected_condition: Drain admission, callbacks, references and RCU readers before
+    destroy/free. free(object) => no live reference AND no callback possible AND no
+    RCU reader AND no registered owner
+  failure_condition: Any live reference, callback, reader or registration remains
+    at free.
+  predicate: teardown
+  invariant_refs:
+  - B01
+  - C01
+  - D01
+  strengths:
+  - OBSERVATION
+  hard_gate_refs: []
+teardown_model:
+- CREATE
+- REGISTER
+- ACTIVE
+- STOP
+- QUIESCE
+- CALLBACK DRAIN
+- REFERENCE DRAIN
+- DESTROY
+- FREE
+safety_predicates:
+- alive(reference) => object_alive
+- callback_possible => callback_target_alive
+- free(object) => no live reference AND no callback possible AND no RCU reader AND
+  no registered owner

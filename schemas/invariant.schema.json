@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rfl-qa.dev/schemas/invariant.schema.json",
+  "type": "object",
+  "properties": {
+    "record_type": {
+      "const": "invariant"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "class": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "critical": {
+      "type": "boolean"
+    },
+    "epistemic_status": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "PARTIALLY_VERIFIED",
+        "PROVISIONAL",
+        "OPEN",
+        "BLOCKED"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "external_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "source_audit",
+              "hardware_documentation",
+              "subsystem_contract",
+              "reviewed_specification"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "assessor": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "ref",
+          "type",
+          "description",
+          "assessor"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "record_type",
+    "id",
+    "class",
+    "description",
+    "required",
+    "critical",
+    "epistemic_status",
+    "evidence_refs",
+    "external_evidence"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "version",
+        "classes",
+        "epistemic_statuses",
+        "strengths",
+        "note"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "taxonomy"
+        },
+        "version": {
+          "const": "1.1-alpha"
+        },
+        "classes": {
+          "const": {
+            "A": "compiler-enforceable",
+            "B": "API-enforceable",
+            "C": "runtime-enforced",
+            "D": "external/system assumption"
+          }
+        },
+        "epistemic_statuses": {
+          "const": [
+            "VERIFIED",
+            "PARTIALLY_VERIFIED",
+            "PROVISIONAL",
+            "OPEN",
+            "BLOCKED"
+          ]
+        },
+        "strengths": {
+          "const": [
+            "PROOF",
+            "OBSERVATION",
+            "COVERAGE",
+            "ABSENCE_OF_EVIDENCE"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

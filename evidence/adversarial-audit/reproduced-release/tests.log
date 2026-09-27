@@ -1,0 +1,10 @@
+$ /home/user/rfl-qa/.venv/bin/python -m pytest -q --junitxml=/home/user/rfl-qa/evidence/adversarial-audit/reproduced-release/pytest.xml
+STDOUT:
+........................................................................ [ 60%]
+...............................................                          [100%]
+- generated xml file: /home/user/rfl-qa/evidence/adversarial-audit/reproduced-release/pytest.xml -
+119 passed in 4.72s
+
+STDERR:
+
+EXIT_CODE: 0

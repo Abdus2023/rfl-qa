@@ -1,0 +1,34 @@
+# commands.log — receipt for the qualification-validation phase.
+# Commands actually executed this cycle in /home/user/rfl-qa, with observed outcomes.
+
+git fetch origin refs/heads/arena/01a0dfcc-rfl-qa:refs/remotes/origin/arena/01a0dfcc-rfl-qa
+  -> exit 0
+git ls-remote origin refs/heads/arena/01a0dfcc-rfl-qa
+  -> 459ec8b9836339537d2cbd995e73af0a330d69ff (durable baseline intact after sandbox rehydration)
+git reset 459ec8b9836339537d2cbd995e73af0a330d69ff (mixed; no file replacement, no force)
+  -> exit 0; git status --short: clean
+python3 -m venv .venv && .venv/bin/pip install --no-cache-dir -q -r requirements.txt && .venv/bin/pip check
+  -> exit 0; "No broken requirements found"
+.venv/bin/python evidence/aud-007-008/seal.py --verify
+  -> exit 0; "PASS: 80 evidence files and 98 source files sealed; all 183 old evidence files preserved. CI remains BLOCKED."
+.venv/bin/python - <<EOF  (instrument freeze)
+  -> exit 0; evidence/qualification-validation/instrument.yaml written: 32 frozen files,
+     directory manifest digest 8fbf31d89f7e8391... at commit 459ec8b98363
+(env PYTHONHASHSEED=0|1|2 TZ=UTC LC_ALL=C .venv/bin/python tools/derive.py dossiers/examples/{001-pin-init,002-rcu,003-callback-teardown}.json > /tmp/val-repro/q-N.json ; tools/report.py ... > r-N.md) x 9
+  -> exit 0 (9 seed-varied derivation+report processes)
+env PYTHONHASHSEED=7 TZ=Asia/Tunis LC_ALL=C.UTF-8 ... derive/report (process 10)
+  -> exit 0
+[initial comparison loop flagged MISMATCH=1 due to a harness index arithmetic error referencing
+ nonexistent q-11/q-12 files; no derivation mismatch existed. Redone cleanly:]
+cmp (qualification.json and report.md) for processes 1..10 against sealed
+  evidence/aud-007-008/procedural/{dossier}.qualification.json/.report.md
+  -> 10/10 byte-identical
+env PYTHONHASHSEED=random TZ=Asia/Tunis LC_ALL=C.UTF-8 tools/report.py /tmp/val-repro/q-10.json
+  -> exit 0; report byte-identical (11th comparison)
+echo "COMPARISONS=11 MISMATCH=0"
+  -> COMPARISONS=11 MISMATCH=0
+.venv/bin/python tools/validate.py --all
+  -> exit 0; all dossier PASS lines (measurement package did not disturb validation)
+git add ... (four separate commits; see git log)
+git push origin arena/01a0dfcc-rfl-qa
+  -> exit 0 (publication SHA recorded in REPORT.md publication note and final cycle report)

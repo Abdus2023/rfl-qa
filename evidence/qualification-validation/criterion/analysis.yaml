@@ -1,0 +1,18 @@
+# Criterion-validity analysis — STATUS: NOT_ESTABLISHED / INSUFFICIENT_EVIDENCE (no data exists).
+analysis:
+  study_id: CRIT-1
+  pre_registered_plan: study-protocol.yaml (frozen before data collection)
+  data_available: false
+  primary_criterion_result: NOT_OBSERVED
+  secondary_criterion_results: []
+  statistical_inference: INSUFFICIENT_EVIDENCE
+  conclusion: NOT_ESTABLISHED
+  forbidden_inferences:
+    - internal consistency (653 tests PASS) implies criterion validity          # false
+    - two assessors agreeing implies criterion validity                         # false
+    - 'RFL-QA predicts outcome' implies 'RFL-QA causes outcome'                 # false
+    - this phase's preparation implies any external validity                    # false
+  note: >
+    This file exists to pre-commit the analysis to the frozen protocol and to record honestly
+    that no criterion-validity evidence exists. It must be replaced only by analysis of actually
+    collected, digest-bound outcome data under the frozen protocol.

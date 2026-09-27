@@ -1,0 +1,10 @@
+record_type: invariant
+id: C01
+class: C
+description: Runtime drain/synchronization completes before final release; bounded
+  tests observe this protocol.
+required: true
+critical: false
+epistemic_status: OPEN
+evidence_refs: []
+external_evidence: []

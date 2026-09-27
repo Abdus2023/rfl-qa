@@ -1,0 +1,144 @@
+gates:
+  schema:
+    claimed: PASS
+    observed_legacy_command_result: PASS
+    audit_disposition: FAIL
+    claim_progression:
+    - CLAIMED
+    - OBSERVED
+    - REPRODUCED
+    execution_scope: Original machine tests rerun with pinned Python 3.11.2 environment;
+      not human or kernel validation.
+    findings:
+    - AUD-004
+    - AUD-005
+    - AUD-009
+    - AUD-010
+    evidence:
+    - reproduced-release/schema.log
+    - engine-results.json
+  derivation:
+    claimed: PASS
+    observed_legacy_command_result: PASS
+    audit_disposition: FAIL
+    claim_progression:
+    - CLAIMED
+    - OBSERVED
+    - REPRODUCED
+    execution_scope: Original machine tests rerun with pinned Python 3.11.2 environment;
+      not human or kernel validation.
+    findings:
+    - AUD-003
+    - AUD-005
+    evidence:
+    - reproduced-release/derivation.log
+    - engine-results.json
+  invariant:
+    claimed: PASS
+    observed_legacy_command_result: PASS
+    audit_disposition: FAIL
+    claim_progression:
+    - CLAIMED
+    - OBSERVED
+    - REPRODUCED
+    execution_scope: Original machine tests rerun with pinned Python 3.11.2 environment;
+      not human or kernel validation.
+    findings:
+    - AUD-002
+    - AUD-006
+    - AUD-010
+    evidence:
+    - reproduced-release/invariant.log
+    - engine-results.json
+  oracle:
+    claimed: PASS
+    observed_legacy_command_result: PASS
+    audit_disposition: FAIL
+    claim_progression:
+    - CLAIMED
+    - OBSERVED
+    - REPRODUCED
+    execution_scope: Original machine tests rerun with pinned Python 3.11.2 environment;
+      not human or kernel validation.
+    findings:
+    - AUD-008
+    - AUD-012
+    evidence:
+    - reproduced-release/oracle.log
+    - engine-results.json
+  hard_gate:
+    claimed: PASS
+    observed_legacy_command_result: PASS
+    audit_disposition: FAIL
+    claim_progression:
+    - CLAIMED
+    - OBSERVED
+    - REPRODUCED
+    execution_scope: Original machine tests rerun with pinned Python 3.11.2 environment;
+      not human or kernel validation.
+    findings:
+    - AUD-002
+    - AUD-006
+    evidence:
+    - reproduced-release/hard_gate.log
+    - engine-results.json
+  calibration:
+    claimed: BLOCKED
+    observed_legacy_command_result: BLOCKED
+    audit_disposition: BLOCKED
+    claim_progression:
+    - CLAIMED
+    - OBSERVED
+    - REPRODUCED
+    execution_scope: Original machine tests rerun with pinned Python 3.11.2 environment;
+      not human or kernel validation.
+    findings:
+    - AUD-014
+    evidence:
+    - reproduced-release/calibration_automated.log
+    - engine-results.json
+  reproducibility:
+    claimed: PASS
+    observed_legacy_command_result: PASS
+    audit_disposition: PASS
+    claim_progression:
+    - CLAIMED
+    - OBSERVED
+    - REPRODUCED
+    - VERIFIED_WITHIN_EXECUTION_SCOPE
+    execution_scope: Three old outputs reproduced byte-identically; 100 original repeated
+      derivations plus 16 independent subprocess variants (seeds, CWD, TZ, locale,
+      concurrency). Fixed source/dependencies/catalogs only.
+    findings: []
+    evidence:
+    - reproduced-release/reproducibility.log
+    - engine-results.json
+  remote_ci:
+    claimed: NOT_RUN
+    audit_disposition: FAIL
+    claim_progression:
+    - CLAIMED
+    - OBSERVED
+    evidence:
+    - commands.log:ci-details
+    - commands.log:ci-other-details
+    logs_available: false
+  human_calibration:
+    audit_disposition: NOT_RUN
+  kernel_execution:
+    audit_disposition: NOT_RUN
+  criterion_validity:
+    audit_disposition: NOT_ESTABLISHED
+release: BLOCKED
+note: Legacy PASS means the existing tests ran successfully. Adversarial FAIL means
+  broader frozen assurance was refuted. NOT_RUN and NOT_ESTABLISHED are not test failures.
+original_suite:
+  passed: 119
+  failed: 0
+  skipped: 0
+  errors: 0
+adversarial_engine:
+  probes: 150
+  boundary_held: 139
+  counterexamples_or_evidence_limitations: 11
+implementation_modified: false

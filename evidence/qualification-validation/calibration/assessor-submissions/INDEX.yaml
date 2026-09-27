@@ -1,0 +1,25 @@
+# Assessor submission index — STATUS: NOT_RUN (resource missing: no independent human assessors).
+# Section 5 protocol preserved exactly; nothing has been distributed, assessed, or locked.
+round_id: CS-VAL-1
+case_set: evidence/qualification-validation/calibration/cases.yaml
+case_set_sha256: eaa73255e59336131f7eb0a5b63a3de4d5aba3a4f75520ed2c7da802a19e12ff
+assessor_view_package: evidence/qualification-validation/calibration/cases/assessor-view/  # 16 blinded views, PREPARED
+submissions: []
+required_assessors: 2
+available_independent_human_assessors: 0
+submission_lock: NOT_REACHED
+per_assessor_status:
+  ASR-A: {received_package: false, submitted: false, locked: false, submission_digest: null, timestamp: null, validation_result: null}
+  ASR-B: {received_package: false, submitted: false, locked: false, submission_digest: null, timestamp: null, validation_result: null}
+exact_blocker: >
+  RESOURCE MISSING: no independent human assessors exist in this execution environment.
+  Recruitment is impossible from inside the sandbox (no human channels). Agent- or
+  model-generated assessments are prohibited as calibration evidence (section 1 of the phase
+  protocol; GOVERNANCE.md; calibration/inter-rater.md F-005). Manufacturing submissions would
+  violate the non-negotiable epistemic boundary.
+state_machine_position: RESOURCE CHECK -> RESOURCE MISSING -> NOT_RUN (calibration execution)
+preservation: >
+  The frozen instrument, case set, expected boundaries, and submission protocol are unchanged
+  and ready for the round the moment two conflict-free independent human assessors are
+  appointed by governance. The instrument MUST be re-verified (manifests/verify_precheck.py)
+  before distribution.

@@ -1,0 +1,66 @@
+# Criterion-validity study protocol — FROZEN BEFORE ANY OUTCOME DATA COLLECTION.
+# Frozen at instrument commit 459ec8b9836339537d2cbd995e73af0a330d69ff.
+# The criterion is defined independently of RFL-QA outputs. RFL-QA scores, levels, or derived
+# results are NEVER the criterion (that would be circular validation).
+criterion_study:
+  study_id: CRIT-1
+  status: NOT_STARTED
+  population:
+    definition: >
+      Engineers who complete a dual-assessor RFL-QA v1.1-alpha qualification within the frozen
+      alpha scope (C053 pin-init, C034 RCU grace periods, C047 callback teardown; x86_64
+      PREEMPT_RT task classes) during the study enrollment period.
+    expected_size: small (alpha scope; no enrollment exists yet)
+  inclusion_criteria:
+    - Qualification completed by two independent human assessors with exact-agreement or a
+      resolved third-review outcome on file.
+    - Provenance-bound evidence only (rules 1.1-alpha.3); assessments with unresolved provenance
+      blocks are excluded from the study, not silently repaired.
+  exclusion_criteria:
+    - Assessments with OPEN calibration events at enrollment.
+    - Missing informed consent for outcome follow-up (where governance requires it).
+    - Outcome window incomplete at analysis time.
+  assessment_time: at qualification (t0)
+  outcome_window: 12 months following t0, per engineer
+  primary_criterion:
+    definition: >
+      Upstream acceptance ratio: maintainer-accepted in-scope patches divided by submitted
+      in-scope patches over the outcome window, as recorded in public kernel/lore history
+      by a reviewer independent of the assessors and of the implementation author.
+    independence_guarantee: >
+      Derived solely from upstream repository/review records; never from RFL-QA scores,
+      levels, or derived results.
+  secondary_criteria:
+    - Post-merge defect events in declared scope categories (UAF, data race, deadlock,
+      lifetime regression, ABI regression) per merged in-scope patch over the window.
+    - Review rework rate (revisions requested per accepted patch) over the window.
+  confounders:   # identified before analysis (frozen)
+    - prior kernel experience
+    - subsystem familiarity
+    - review exposure
+    - task complexity
+    - patch size
+    - mentorship
+    - toolchain familiarity
+    - organizational support
+  confounding_policy: >
+    Association claims must adjust for or explicitly bound these confounders; no causal claim
+    is permitted from correlational analysis. A relationship between RFL-QA results and
+    outcomes may support association only, never that RFL-QA caused the outcome.
+  missing_data_policy:
+    - Engineers with incomplete outcome windows are excluded from the primary analysis (no imputation).
+    - Missing upstream records for a submitted patch count as not-accepted for the primary ratio
+      only if submission itself is independently verifiable; otherwise the patch is excluded.
+    - No missing outcome is replaced by an assumed value.
+  analysis_plan:
+    primary: descriptive comparison of acceptance-ratio distributions across RFL-QA supported
+      levels (no threshold fitting on this dataset)
+    association: only if sample size supports it; test choice must be pre-registered here before
+      data collection, not selected after seeing results
+    if_insufficient: CRITERION_VALIDITY = NOT_ESTABLISHED (never PASS by default)
+  validity_boundary: >
+    Even a successful study establishes criterion-related association evidence only. It cannot
+    establish measurement validity alone, cannot substitute for calibration reliability, and
+    cannot authorize release by itself.
+frozen_before_data_collection: true
+data_collected_to_date: none

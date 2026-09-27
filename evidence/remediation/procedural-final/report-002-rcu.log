@@ -1,0 +1,870 @@
+$ /home/user/rfl-qa/.venv/bin/python tools/report.py /home/user/rfl-qa/evidence/remediation/procedural-final/002-rcu.qualification.json
+STDOUT:
+# Scoped qualification Q-2026-0002
+
+> This report is not universal certification or evidence of system validity.
+
+## Scope
+
+```json
+{
+  "competencies": [
+    "C034"
+  ],
+  "domains": [
+    "concurrency_lkmm"
+  ],
+  "environments": [
+    "x86_64",
+    "CONFIG_RUST=y",
+    "PREEMPT_RT=y"
+  ],
+  "exclusions": [
+    "arm64",
+    "dma",
+    "nmi_context"
+  ],
+  "task_classes": [
+    "rcu_read_side",
+    "grace_period_teardown"
+  ]
+}
+```
+
+## Capability
+
+```json
+{
+  "demonstrated_behaviors": [
+    "CB-034-01",
+    "CB-034-02",
+    "CB-034-03"
+  ],
+  "evidence_refs": [
+    "ARTIFACT"
+  ],
+  "failed_behaviors": [],
+  "level": "L3",
+  "level_boundary": {
+    "L0_satisfied": true,
+    "L1_satisfied": true,
+    "L2_satisfied": true,
+    "L3_satisfied": true,
+    "L4_satisfied": false,
+    "L5_satisfied": false
+  }
+}
+```
+
+## Evidence tier
+
+```json
+"E4"
+```
+
+## Evidence records
+
+```json
+[
+  {
+    "artifact_ref": "fixture://002-rcu/ARTIFACT",
+    "assumptions": [],
+    "coverage": {
+      "executed": 1,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "VERIFIED",
+    "establishes": "BOUNDED_OBSERVATION",
+    "id": "ARTIFACT",
+    "invariant_refs": [
+      "B01"
+    ],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "manual_review",
+    "oracle_check_refs": [
+      "OR-RCU-callback_after_free",
+      "OR-RCU-double_free",
+      "OR-RCU-uaf",
+      "OR-RCU-data_race",
+      "OR-RCU-deadlock",
+      "OR-RCU-prohibited_sleep",
+      "OR-RCU-ffi_lifetime",
+      "OR-RCU-critical_external_assumption",
+      "OR-RCU-required_abi_break",
+      "OR-RCU-dma_ownership"
+    ],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "No defect observed in the executed synthetic trace population.",
+    "strength": "OBSERVATION",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://002-rcu/TYPE",
+    "assumptions": [
+      "Sound compiler and safe API; unsafe implementation meets its contract."
+    ],
+    "coverage": {
+      "executed": 1,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "VERIFIED",
+    "establishes": "ASSUMPTION_BOUND_PROOF",
+    "id": "TYPE",
+    "invariant_refs": [
+      "A01"
+    ],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "rustc",
+    "oracle_check_refs": [
+      "OR-RCU-PROOF"
+    ],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "Borrow cannot escape the safe guard under the stated model assumptions.",
+    "strength": "PROOF",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://002-rcu/TEST",
+    "assumptions": [],
+    "coverage": {
+      "executed": 1,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "PARTIALLY_VERIFIED",
+    "establishes": "BOUNDED_OBSERVATION",
+    "id": "TEST",
+    "invariant_refs": [
+      "C01"
+    ],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "kcsan",
+    "oracle_check_refs": [
+      "OR-RCU-OBSERVATION"
+    ],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "No defect observed in the executed synthetic trace population.",
+    "strength": "OBSERVATION",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://002-rcu/COVERAGE",
+    "assumptions": [],
+    "coverage": {
+      "executed": 1000000,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "PARTIALLY_VERIFIED",
+    "establishes": "MEASURED_COVERAGE",
+    "id": "COVERAGE",
+    "invariant_refs": [],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "scheduler",
+    "oracle_check_refs": [
+      "OR-RCU-COVERAGE"
+    ],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "1000000 generated interleavings represented; total state space unknown.",
+    "strength": "COVERAGE",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://002-rcu/NMI",
+    "assumptions": [],
+    "coverage": {
+      "executed": 0,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "OPEN",
+    "establishes": "NOT_TESTED",
+    "id": "NMI",
+    "invariant_refs": [],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "not_tested",
+    "oracle_check_refs": [
+      "OR-RCU-ABSENCE_OF_EVIDENCE"
+    ],
+    "record_type": "evidence",
+    "required": false,
+    "statement": "NMI context was not exercised.",
+    "strength": "ABSENCE_OF_EVIDENCE",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://002-rcu/EXT-001",
+    "assumptions": [],
+    "coverage": {
+      "executed": 1,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "VERIFIED",
+    "establishes": "BOUNDED_OBSERVATION",
+    "id": "EXT-001",
+    "invariant_refs": [
+      "D01"
+    ],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "source_audit",
+    "oracle_check_refs": [
+      "OR-RCU-callback_after_free",
+      "OR-RCU-double_free",
+      "OR-RCU-uaf",
+      "OR-RCU-data_race",
+      "OR-RCU-deadlock",
+      "OR-RCU-prohibited_sleep",
+      "OR-RCU-ffi_lifetime",
+      "OR-RCU-critical_external_assumption",
+      "OR-RCU-required_abi_break",
+      "OR-RCU-dma_ownership"
+    ],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "No defect observed in the executed synthetic trace population.",
+    "strength": "OBSERVATION",
+    "tier": "E4"
+  }
+]
+```
+
+## Invariants
+
+```json
+[
+  {
+    "class": "A",
+    "critical": false,
+    "description": "Compiler-enforced borrow lifetime within a sound safe interface.",
+    "epistemic_status": "VERIFIED",
+    "evidence_refs": [
+      "TYPE"
+    ],
+    "external_evidence": [],
+    "id": "A01",
+    "record_type": "invariant",
+    "required": true
+  },
+  {
+    "class": "B",
+    "critical": false,
+    "description": "Safe API prevents repeated initialization and reference escape; sound implementation remains a premise.",
+    "epistemic_status": "VERIFIED",
+    "evidence_refs": [
+      "ARTIFACT"
+    ],
+    "external_evidence": [],
+    "id": "B01",
+    "record_type": "invariant",
+    "required": true
+  },
+  {
+    "class": "C",
+    "critical": false,
+    "description": "Runtime drain/synchronization completes before final release; bounded tests observe this protocol.",
+    "epistemic_status": "PARTIALLY_VERIFIED",
+    "evidence_refs": [
+      "TEST"
+    ],
+    "external_evidence": [],
+    "id": "C01",
+    "record_type": "invariant",
+    "required": true
+  },
+  {
+    "class": "D",
+    "critical": true,
+    "description": "External C registration/allocator contract keeps the target alive until quiescence.",
+    "epistemic_status": "VERIFIED",
+    "evidence_refs": [
+      "EXT-001"
+    ],
+    "external_evidence": [
+      {
+        "assessor": "assessor-a",
+        "description": "Synthetic source audit of unregister/drain contract.",
+        "ref": "EXT-001",
+        "type": "source_audit"
+      }
+    ],
+    "id": "D01",
+    "record_type": "invariant",
+    "required": true
+  }
+]
+```
+
+## Epistemic ceiling
+
+```json
+"OPEN"
+```
+
+## Oracle evaluations (derived)
+
+```json
+[
+  {
+    "check_id": "OR-RCU-callback_after_free",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "749dd242f58cc6080eb1937763d105ba2870e207146869fb2a557fb15834f7fd",
+    "observation_ref": "OBS-OR-RCU-callback_after_free",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-double_free",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "21e62d983fcaf0827ef266ed3b078cb03e9fc80d217801da10f5445c2c6eb41f",
+    "observation_ref": "OBS-OR-RCU-double_free",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-uaf",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "fc124e8e0a8da7b181f91c72d0f39e83cb147847fdf647fc09f078716c82b8c6",
+    "observation_ref": "OBS-OR-RCU-uaf",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-data_race",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "f3bb8ff194a87710dc123a45bf141cb7367ee054be716f650cb2d8a6fa313402",
+    "observation_ref": "OBS-OR-RCU-data_race",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-deadlock",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "e412da92b02666e6a4858f37a2bb1151bb65b6331d4affb6d3e725632e8ef50a",
+    "observation_ref": "OBS-OR-RCU-deadlock",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-prohibited_sleep",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "4a7910ff9b97e37818249e5c4d2e079d4e20d9cd48a93ff224066434bc80d262",
+    "observation_ref": "OBS-OR-RCU-prohibited_sleep",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-ffi_lifetime",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "a0f49ea1d475e959bd498d3c8048b14b913c5d3899037a6857aad2a6a56d7dee",
+    "observation_ref": "OBS-OR-RCU-ffi_lifetime",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-critical_external_assumption",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "19298029d5a65e1d0a8326d3814c060d7eb7a43ec5d1ebbda37e500ead5d71f2",
+    "observation_ref": "OBS-OR-RCU-critical_external_assumption",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-required_abi_break",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "64e88ffab5ff97605ce51a31871d327fd49da45651fffcf2e0ab1df2fe0f5b5a",
+    "observation_ref": "OBS-OR-RCU-required_abi_break",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-dma_ownership",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "41ee652c509f6aaf0f886335fc5d73acf464476e09aad09dbe1a3d6d899712c3",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "a9d473abe06081e6715a97e11b8d4452659e0fe2edf4776391e69091756a9e54",
+    "observation_hash": "2801cc0038560195ceb3129ca9194c1b7011f6d0f34becd1697a45680af9c12f",
+    "observation_ref": "OBS-OR-RCU-dma_ownership",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-PROOF",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "8f0c62f1fe05e8a97cf4780f6831e84ffea13c84f6a1f6ced4bbc969af46b19d",
+    "evidence_refs": [
+      "ARTIFACT",
+      "TYPE"
+    ],
+    "findings": [],
+    "input_hash": "bfb6d66ec587cbbe7167ed148848f0eee96c4232da34db0618cd0e75baae5a65",
+    "observation_hash": "9668b7d3c5b549281dcacea3869d4c99f20391c8d8a516cce3d8ddf15de97d15",
+    "observation_ref": "OBS-OR-RCU-PROOF",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-OBSERVATION",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "3d4bb273eff11d21c645bc51c2cca6877d76479c77d3fc2b1cef4961373cd01c",
+    "evidence_refs": [
+      "ARTIFACT",
+      "TEST"
+    ],
+    "findings": [],
+    "input_hash": "9fe33f24e08589df516e11e8c00912656e7de9ba4de2d49f0dc25077239c2f00",
+    "observation_hash": "2b5015bdf45a55bab795c22d625fbcf08f54c7e5fbd7597f850a72c7f72672be",
+    "observation_ref": "OBS-OR-RCU-OBSERVATION",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-COVERAGE",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "2e23205775c8e8658cc12ae90165f2e71cb968d9061d595df0c8df6d8cce0396",
+    "evidence_refs": [
+      "ARTIFACT",
+      "COVERAGE"
+    ],
+    "findings": [],
+    "input_hash": "36b5092d0202b6d34527712ef5c07c2c19c2dc87591788c354da090f46732ab6",
+    "observation_hash": "8fb12c8d4c99690a8dfe4bb0c4e51f475a89f62b7a8d113db38859e7a2cde999",
+    "observation_ref": "OBS-OR-RCU-COVERAGE",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-RCU-ABSENCE_OF_EVIDENCE",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "49d32e5e8190603062c1b1fb28dd07486b5949418af995aff6d24bfc45641a27",
+    "evidence_refs": [
+      "ARTIFACT",
+      "NMI"
+    ],
+    "findings": [],
+    "input_hash": "b5f30a52fc034e4c27af703457e83e644e35a36865879074973f3c0ad9f43cbf",
+    "observation_hash": "2c0099031a1710bcfa9f828b487ec5a6f32de6162eaf539312353da9e501e7f6",
+    "observation_ref": "OBS-OR-RCU-ABSENCE_OF_EVIDENCE",
+    "oracle_hash": "7c05a3f8c8105d333a708733b04f0e876947a5e9f9fb400c45327db324e17b8c",
+    "oracle_ref": "OR-RCU",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  }
+]
+```
+
+## Hard gates
+
+```json
+{
+  "findings": [],
+  "status": "PASS"
+}
+```
+
+## Assessors (raw records)
+
+```json
+[
+  {
+    "assessor_id": "assessor-a",
+    "claimed_level": "L3",
+    "dossier_digest": "ce131b80e37d4c115d2eeb0cfb7cf57dd07233093ba2cf1ef645f7fd12241f8a",
+    "dossier_ref": "Q-2026-0002",
+    "evidence_refs": [
+      "ARTIFACT"
+    ],
+    "evidence_tier": "E4",
+    "hard_gates": {
+      "findings": [],
+      "status": "PASS"
+    },
+    "independent": true,
+    "invariant_findings": [
+      {
+        "class": "A",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "A01"
+      },
+      {
+        "class": "B",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "B01"
+      },
+      {
+        "class": "C",
+        "epistemic_status": "PARTIALLY_VERIFIED",
+        "invariant_ref": "C01"
+      },
+      {
+        "class": "D",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "D01"
+      }
+    ],
+    "limitations": [
+      "Simulated independent record, not an independent human assessment."
+    ],
+    "observations": [
+      {
+        "behavior_id": "CB-034-01",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      },
+      {
+        "behavior_id": "CB-034-02",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      },
+      {
+        "behavior_id": "CB-034-03",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      }
+    ],
+    "record_type": "assessment"
+  },
+  {
+    "assessor_id": "assessor-b",
+    "claimed_level": "L3",
+    "dossier_digest": "ce131b80e37d4c115d2eeb0cfb7cf57dd07233093ba2cf1ef645f7fd12241f8a",
+    "dossier_ref": "Q-2026-0002",
+    "evidence_refs": [
+      "ARTIFACT"
+    ],
+    "evidence_tier": "E4",
+    "hard_gates": {
+      "findings": [],
+      "status": "PASS"
+    },
+    "independent": true,
+    "invariant_findings": [
+      {
+        "class": "A",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "A01"
+      },
+      {
+        "class": "B",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "B01"
+      },
+      {
+        "class": "C",
+        "epistemic_status": "PARTIALLY_VERIFIED",
+        "invariant_ref": "C01"
+      },
+      {
+        "class": "D",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "D01"
+      }
+    ],
+    "limitations": [
+      "Simulated independent record, not an independent human assessment."
+    ],
+    "observations": [
+      {
+        "behavior_id": "CB-034-01",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      },
+      {
+        "behavior_id": "CB-034-02",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      },
+      {
+        "behavior_id": "CB-034-03",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      }
+    ],
+    "record_type": "assessment"
+  }
+]
+```
+
+## Capabilities by assessor
+
+```json
+[
+  {
+    "assessor_id": "assessor-a",
+    "capability": {
+      "demonstrated_behaviors": [
+        "CB-034-01",
+        "CB-034-02",
+        "CB-034-03"
+      ],
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "failed_behaviors": [],
+      "level": "L3",
+      "level_boundary": {
+        "L0_satisfied": true,
+        "L1_satisfied": true,
+        "L2_satisfied": true,
+        "L3_satisfied": true,
+        "L4_satisfied": false,
+        "L5_satisfied": false
+      }
+    }
+  },
+  {
+    "assessor_id": "assessor-b",
+    "capability": {
+      "demonstrated_behaviors": [
+        "CB-034-01",
+        "CB-034-02",
+        "CB-034-03"
+      ],
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "failed_behaviors": [],
+      "level": "L3",
+      "level_boundary": {
+        "L0_satisfied": true,
+        "L1_satisfied": true,
+        "L2_satisfied": true,
+        "L3_satisfied": true,
+        "L4_satisfied": false,
+        "L5_satisfied": false
+      }
+    }
+  }
+]
+```
+
+## Inter-rater result
+
+```json
+{
+  "agreement": true,
+  "automatic_qualification_halted": false,
+  "events": []
+}
+```
+
+## Decision
+
+```json
+{
+  "epistemic_ceiling": "OPEN",
+  "scope": {
+    "competencies": [
+      "C034"
+    ],
+    "domains": [
+      "concurrency_lkmm"
+    ],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "exclusions": [
+      "arm64",
+      "dma",
+      "nmi_context"
+    ],
+    "task_classes": [
+      "rcu_read_side",
+      "grace_period_teardown"
+    ]
+  },
+  "status": "PROVISIONAL"
+}
+```
+
+## Signature
+
+```json
+"L3-E4-C034-OPEN"
+```
+
+## Limitations
+
+```json
+[
+  "Synthetic training fixture only; all E4 labels simulate artifacts, not actual upstream evidence.",
+  "Synthetic fixture: not a real candidate qualification or human calibration."
+]
+```
+
+## Provenance
+
+```json
+{
+  "input_sha256": "0f3f578a24e8adb16361d787cfd6dca4de4d83b43ae2aae1f7bcdaddf0d25d8f",
+  "invariant_catalog_sha256": "6578e8f4f8e31b7d8aea25ef85497e271542a2ab5783dd1b9bfe534e7fa61e7d",
+  "oracles_sha256": "dcc14b268bcbb2fe09e3d9d2925ca8dd59f65d46a0525f972c52cd09d2545c09",
+  "rubric_sha256": "7ddcfdb8c01e52a53d7f473c285f71bd83a3e146d96a56985561456e864d8d31",
+  "rules_version": "1.1-alpha.2"
+}
+```
+
+## Hash
+
+```json
+"8dafc33f049205c6679f75959e48fa81882e75d4feaed537e012ce17877d1961"
+```
+
+STDERR:
+
+EXIT_CODE: 0

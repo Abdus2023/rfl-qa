@@ -1,0 +1,30 @@
+id: CS-007
+class: boundary
+competency_id: C053
+task: 'Assess near the L4/L5 boundary: partial-initialization unwind and allocator-lifetime audit are
+  complete; a subsystem initialization policy draft exists but has no independent review record.
+
+  '
+evidence_package:
+- inline_fragment: "audit (synthetic): unwind paths enumerated per field; allocator contract stated as\
+    \ external\ndependency D01 with x86_64 scope.\npolicy draft (synthetic): \"Subsystem init policy v0\
+    \ \u2014 internal draft, not reviewed.\"\n"
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-PIN
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+- required_abi_break
+- dma_ownership
+scoring_contract: scoring_contract_common

@@ -1,0 +1,78 @@
+instrument:
+  identity: RFL-QA measurement instrument (rule set 1.1-alpha.3)
+  current_version: 1.1-alpha.3 (unreleased; authoritative until an approved new freeze)
+  source_commit: f1f4810058b58bcb4183e85d473f717823ae9792
+  aggregate_digest_method: SHA256 over sorted "path sha256" lines (identical method to phase-1 instrument.yaml
+    for comparability)
+  aggregate_digest: 8fbf31d89f7e8391ee5c8402091c8e128a8f3402818e5e3f5f846dcb55dcf930
+  file_count: 32
+  files:
+  - path: GOVERNANCE.md
+    sha256: 45b8cd05af653e657c6005bd314db61b0b0296a544edf4ef9f16d300ddf6b8f2
+  - path: SPEC.md
+    sha256: de79bba7eefbeaa8e6c23e8bad99ff78a186022790e67f1bff853e9dde457e7a
+  - path: assessors/review-protocol.md
+    sha256: aebb47e544c82ef3b1c16b07c5a3db0743ddb5202492da02e2f3db2c6a8a941d
+  - path: assessors/rubric.md
+    sha256: cb5802064b5983aae668fd28736957e93e0fd44b41535ee89327e74611c41c4b
+  - path: calibration/inter-rater.md
+    sha256: a6d996c27e8745f99c1780baa622d79601f39979c7218612d4a28c7ac6be8640
+  - path: competency/C034-rcu-grace-periods.yaml
+    sha256: 0306d5f50bd017093d789dde5337dd70c5783d4281d0d5e6fbce0c10ac6da335
+  - path: competency/C047-callback-teardown.yaml
+    sha256: 4fcdd6a119fa7a7e69ae617cad72366b5fd0b89395809eef6f9dd909a1d09358
+  - path: competency/C053-pin-init.yaml
+    sha256: cc26c925be9ab9cdbf4aa849e0ed3a9f0ba9fcf1dd58722b6da16ef0f1c807c9
+  - path: competency/_schema.yaml
+    sha256: 206ec8169dd1efa1302e8c3571cdbfc1ce02534fb9c5f59e7149763d356717ce
+  - path: invariants/A-compiler/A01.yaml
+    sha256: 70fafa0197327c8a6c3d3617f941cef560729b495e1d64f91b1d53057e284645
+  - path: invariants/B-api/B01.yaml
+    sha256: 86355c190e07b536a4d3b4bba342591758d20fa3316a312aae06008c171d2723
+  - path: invariants/C-runtime/C01.yaml
+    sha256: 20b708b95d9816a1a13b8ed25fd5398f3a8f8e0043b570e09ed64c8ba7de0c47
+  - path: invariants/D-external/D01.yaml
+    sha256: 91e20a71b0647c0420210becbaf70fea826820a09acbacb923a6362fbfd1ce13
+  - path: invariants/taxonomy.yaml
+    sha256: 69abf0478590e3ce079d67b4787fd6bd2d3b0790dbc518ee1f0feeecaee9565c
+  - path: labs/001-pin-init/expected-observations.yaml
+    sha256: f4536dba89aa44052568e0e755421c7aec5cff9b3bfda1c42db18a8ccbe6b596
+  - path: labs/001-pin-init/oracle.yaml
+    sha256: 25501cb266cf7907093bc7073f7b499b2b8924e3148c5180e435bf6d9fb1b5ca
+  - path: labs/001-pin-init/task.yaml
+    sha256: 107bb948738a614e6e11a6dddacc613f7e8d4fbaf8d9145fb543a53347d8f0d0
+  - path: labs/002-rcu/expected-observations.yaml
+    sha256: 939837f1bca2a7de69a580bc583cb15e6464e1dc8b7c928ee22d2e7df8183d65
+  - path: labs/002-rcu/oracle.yaml
+    sha256: 6317259b75c320b29dc7dc9da8ca48ef5886a8499209549a62f0958684815d65
+  - path: labs/002-rcu/task.yaml
+    sha256: 10ebe9c950691276a300989922584c2e5f5eedf96b3328659ef4bddae7f98984
+  - path: labs/003-callback-teardown/expected-observations.yaml
+    sha256: f2722caee2dc687159f8f2c468473810bb4d014b7f9784aefe8d0677f5f07bbd
+  - path: labs/003-callback-teardown/oracle.yaml
+    sha256: d4b6792047e48e3a3e4fe5d05f1abefb6063da428277dfbe0b86128330194a28
+  - path: labs/003-callback-teardown/task.yaml
+    sha256: dc9577d2e44fb6bb54a0d1699b6c831fbcf9392f07e57feb97e311ffd8d35b59
+  - path: oracles/context/oracle.yaml
+    sha256: 6317259b75c320b29dc7dc9da8ca48ef5886a8499209549a62f0958684815d65
+  - path: oracles/ffi/oracle.yaml
+    sha256: 25501cb266cf7907093bc7073f7b499b2b8924e3148c5180e435bf6d9fb1b5ca
+  - path: oracles/teardown/oracle.yaml
+    sha256: d4b6792047e48e3a3e4fe5d05f1abefb6063da428277dfbe0b86128330194a28
+  - path: schemas/claim.schema.json
+    sha256: 41dc18633b43c3ff322bf736dc4ef49f8c50fd6b018638b8615901a2364f4380
+  - path: schemas/evidence.schema.json
+    sha256: 98f9ed3b023900c152f5f419a0bd48c780b34eae481cd7816ccf022282bbb882
+  - path: schemas/invariant.schema.json
+    sha256: 9b4c48688af5b0f47639a65a5b0e52ddd6e037a3afeb774ae200da92d4552999
+  - path: schemas/oracle.schema.json
+    sha256: c104a03aac188cea2d4ed11cb6e7ea3f331917e0ee5ff2f7b49dfd53062dc4d6
+  - path: schemas/qualification.schema.json
+    sha256: a1eae2d238350b7cbc6db54eaab806108ad7ab48e9f23b0c5f5175e7e3596178
+  - path: schemas/source.schema.json
+    sha256: 132fb4955939dc476892e9463c6ffef7ccbf440a2306d81f520d3aca72deb1c6
+freeze_note: Frozen for the proposal stage ONLY. No instrument file may be modified until Stage B is explicitly
+  approved and a new freeze is executed (authoritative instrument remains 1.1-alpha.3).
+comparison_to_phase1: 'Same 32-file scope and digest method as evidence/qualification-validation/instrument.yaml;
+  verify: digest must equal 8fbf31d89f7e8391... if unchanged since phase-1 freeze.'
+unchanged_since_phase1: true

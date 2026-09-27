@@ -1,0 +1,36 @@
+record_type: competency_model_audit_input_manifest
+audit_cycle: competency-model-validity-audit
+audit_baseline_commit: b2ecdd4d894f9c3d3dc15d5062a0f302bd32c3f3
+audit_baseline_note: expected baseline b62b7d9... is an ancestor; actual tip includes one additional additive
+  boundary-documentation commit (b2ecdd4); all audited inputs byte-identical across both
+hash_method: SHA256 per file
+directory_manifest_digest: c09377b5ddcbcd1b8e535b9869f1ac05acf07ca6a17c1ab5f0612bef02c2d5e5
+input_count: 22
+inputs:
+  competency/_schema.yaml: 206ec8169dd1efa1302e8c3571cdbfc1ce02534fb9c5f59e7149763d356717ce
+  competency/C034-rcu-grace-periods.yaml: 0306d5f50bd017093d789dde5337dd70c5783d4281d0d5e6fbce0c10ac6da335
+  competency/C047-callback-teardown.yaml: 4fcdd6a119fa7a7e69ae617cad72366b5fd0b89395809eef6f9dd909a1d09358
+  competency/C053-pin-init.yaml: cc26c925be9ab9cdbf4aa849e0ed3a9f0ba9fcf1dd58722b6da16ef0f1c807c9
+  SPEC.md: de79bba7eefbeaa8e6c23e8bad99ff78a186022790e67f1bff853e9dde457e7a
+  GOVERNANCE.md: 45b8cd05af653e657c6005bd314db61b0b0296a544edf4ef9f16d300ddf6b8f2
+  assessors/rubric.md: cb5802064b5983aae668fd28736957e93e0fd44b41535ee89327e74611c41c4b
+  assessors/review-protocol.md: aebb47e544c82ef3b1c16b07c5a3db0743ddb5202492da02e2f3db2c6a8a941d
+  invariants/taxonomy.yaml: 69abf0478590e3ce079d67b4787fd6bd2d3b0790dbc518ee1f0feeecaee9565c
+  invariants/A-compiler/A01.yaml: 70fafa0197327c8a6c3d3617f941cef560729b495e1d64f91b1d53057e284645
+  invariants/B-api/B01.yaml: 86355c190e07b536a4d3b4bba342591758d20fa3316a312aae06008c171d2723
+  invariants/C-runtime/C01.yaml: 20b708b95d9816a1a13b8ed25fd5398f3a8f8e0043b570e09ed64c8ba7de0c47
+  invariants/D-external/D01.yaml: 91e20a71b0647c0420210becbaf70fea826820a09acbacb923a6362fbfd1ce13
+  oracles/context/oracle.yaml: 6317259b75c320b29dc7dc9da8ca48ef5886a8499209549a62f0958684815d65
+  oracles/ffi/oracle.yaml: 25501cb266cf7907093bc7073f7b499b2b8924e3148c5180e435bf6d9fb1b5ca
+  oracles/teardown/oracle.yaml: d4b6792047e48e3a3e4fe5d05f1abefb6063da428277dfbe0b86128330194a28
+  labs/001-pin-init/task.yaml: 107bb948738a614e6e11a6dddacc613f7e8d4fbaf8d9145fb543a53347d8f0d0
+  labs/002-rcu/task.yaml: 10ebe9c950691276a300989922584c2e5f5eedf96b3328659ef4bddae7f98984
+  labs/003-callback-teardown/task.yaml: dc9577d2e44fb6bb54a0d1699b6c831fbcf9392f07e57feb97e311ffd8d35b59
+  docs/rfl-competency-framework-v1.md: 50825fa0a957adfbebf41769040be0451bda55a65e050017b0aced305007aa5f
+  docs/rfl-engineering-capability-model-2026.md: 871c1076e3f069a0bbbf4f3b555e454d23470d19959d8caabe381d91d5836e44
+  calibration/inter-rater.md: a6d996c27e8745f99c1780baa622d79601f39979c7218612d4a28c7ac6be8640
+normative_extras_justification: oracles and lab task definitions operationalize behavior claims; capability-model
+  and competency-framework docs are named interpretive context; calibration policy governs how behaviors
+  are scored
+freeze_note: Competency files are FROZEN instrument inputs; this audit does NOT modify them (audit-first
+  mandate). Any model change requires a new instrument freeze per calibration rules.

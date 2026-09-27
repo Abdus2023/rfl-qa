@@ -1,0 +1,54 @@
+# CI run records for the workflow correction cycle.
+# Facts below are CI API metadata (Observed), not log-derived content.
+# Log content and artifact byte contents were NOT retrievable (see log-results.yaml,
+# artifact-results.yaml) and are recorded as UNCONFIRMED, never inferred.
+
+publication:
+  workflow_commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+  parent: d3abe21f4c28b70932aba9f3054e1000537fd993
+  remote: https://github.com/Abdus2023/rfl-qa.git
+  branch: arena/01a0dfcc-rfl-qa
+  force_push: false
+  authored_by: Abdus2023 <130234450+Abdus2023@users.noreply.github.com>
+  committed_at: '2026-09-27T08:47:58+01:00'
+  commit_message: 'Update release gates script and artifact paths'
+  files_changed: 1
+  insertions: 3
+  deletions: 3
+  note: >
+    The workflow-only change was applied and pushed manually by the repository owner
+    exactly as planned. The separated patch file did not survive a sandbox rehydration;
+    it was regenerated from the surviving working-tree file against the durable remote
+    blob at d3abe21 and verified byte-identical to the previously recorded two-hunk
+    diff (blobs bf1d929..181501d). The committed d3abe21..6b426364 diff was then
+    verified byte-identical to that same recorded patch before any further action.
+
+current_source_ci:
+  primary_run:
+    run_id: 36304213414
+    event: push
+    workflow: Alpha release gates
+    commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+    started: '2026-09-27T07:48:00Z'
+    job_started: '2026-09-27T07:48:03Z'
+    completed: '2026-09-27T07:49:56Z'
+    status: completed
+    conclusion: failure   # deliberate: procedural release gate exits 1 while release is BLOCKED
+    sha_matches_pushed_workflow_commit: true
+  corroboration_run:
+    run_id: 36304216174
+    event: pull_request
+    workflow: Alpha release gates
+    commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+    started: '2026-09-27T07:48:04Z'
+    status: completed
+    conclusion: failure   # same designed semantics; only failing step = procedural release gate
+  prior_current_source_run_not_substituted:
+    run_id: 36304104832
+    commit: d3abe21f4c28b70932aba9f3054e1000537fd993
+    role: historical predecessor; recorded, not used as evidence for 6b426364
+  substitution_checks:
+    older_run_used: false
+    different_branch_used: false
+    pr_run_used_as_primary: false   # PR run is corroboration only
+    local_execution_used_as_ci: false

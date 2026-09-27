@@ -1,0 +1,192 @@
+disposition_semantics: FIXED_LOCALLY_CI_PENDING means a local correction/regression
+  exists but the required successful whole-workflow CI chain is still missing, despite
+  observed successful software steps. No FIXED_AND_RETESTED or VERIFIED fix is asserted.
+findings:
+- id: AUD-001
+  severity: HIGH
+  disposition: OPEN
+  observation: 'UNRESOLVED_HISTORICAL_COMMIT: 993cf96/50512a3 remain unavailable after
+    fetch. New receipts use available commits and content hashes; historical claims
+    are not repaired.'
+  baseline_evidence: commands.log and immutable prior audit
+  regression_evidence: initial history inspections
+  positive_control: No complete fix claimed
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-002
+  severity: HIGH
+  disposition: FIXED_LOCALLY_CI_PENDING
+  observation: Catalog criticality equality and authoritative derivation reject original
+    false downgrade and inconsistent catalog metadata.
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: test_hg01*, test_catalog_*; current-provenance-results.json
+  positive_control: Canonical/schema positive records and valid structured-trace control;
+    full 564-test suite
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-003
+  severity: HIGH
+  disposition: FIXED_LOCALLY_CI_PENDING
+  observation: Closure includes optional-flagged material oracle/observation/assessor/behavior
+    support. Original OPEN oracle support now produces PROVISIONAL/OPEN, not VERIFIED.
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: test_hg03*, test_hg05*; current-provenance-results.json
+  positive_control: Canonical/schema positive records and valid structured-trace control;
+    full 564-test suite
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-004
+  severity: HIGH
+  disposition: FIXED_LOCALLY_CI_PENDING
+  observation: Complete environment/task combinations and required exclusions enforced;
+    all three original omission variants reject.
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: test_hg02*; current-provenance-results.json
+  positive_control: Canonical/schema positive records and valid structured-trace control;
+    full 564-test suite
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-005
+  severity: HIGH
+  disposition: FIXED_LOCALLY_CI_PENDING
+  observation: Method/strength compatibility rejects not_tested OBSERVATION; dynamic
+    methods require a nonempty executed population.
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: test_hg04*, test_empty_dynamic_population_not_observation;
+    current-provenance-results.json
+  positive_control: Canonical/schema positive records and valid structured-trace control;
+    full 564-test suite
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-006
+  severity: HIGH
+  disposition: FIXED_LOCALLY_CI_PENDING
+  observation: VERIFIED external invariants reject unresolved external support, with
+    explicit binding requirements. This is not source-document authentication.
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: test_original_bypass_with_current_provenance_rejects[critical-verified-with-open-support];
+    current-provenance-results.json
+  positive_control: Canonical/schema positive records and valid structured-trace control;
+    full 564-test suite
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-007
+  severity: MEDIUM
+  disposition: OPEN
+  observation: Unrelated audit prose remains accepted when all declared bindings are
+    fabricated consistently. Record bindings cannot establish source relevance or
+    adequacy.
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: current-provenance-results.json:type-d-unrelated_audit.json
+  positive_control: No complete fix claimed
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-008
+  severity: HIGH
+  disposition: OPEN
+  observation: 'Partial correction: fixed bounded evaluator and ASSERTED_RESULT/DERIVED_RESULT
+    provenance work for supplied structured traces; unsafe explicit transcription
+    blocks. Contradictory prose paired with fabricated safe snapshots remains accepted.
+    Full finding is NOT closed.'
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: test_hg06*, test_hg07*, test_original_unsafe_narrative_explicitly_transcribed_to_trace;
+    current-provenance-results.json
+  positive_control: No complete fix claimed
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-009
+  severity: MEDIUM
+  disposition: FIXED_LOCALLY_CI_PENDING
+  observation: Report validation recomputes qualification from retained input and
+    rejects a rehashed contradictory decision.
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: test_aud009_contradictory_rehashed_report_rejected
+  positive_control: Canonical/schema positive records and valid structured-trace control;
+    full 564-test suite
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-010
+  severity: MEDIUM
+  disposition: FIXED_LOCALLY_CI_PENDING
+  observation: Standalone invariant validation applies context-free required evidence
+    rules; original D VERIFIED without support rejects.
+  baseline_evidence: pre-fix-counterexamples.json
+  regression_evidence: test_aud010_standalone_invariant_rules; post-fix-counterexamples.json
+  positive_control: Canonical/schema positive records and valid structured-trace control;
+    full 564-test suite
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-011
+  severity: MEDIUM
+  disposition: FIXED_LOCALLY_CI_PENDING
+  observation: Bounded parser rejects deep/recursive/ambiguous data with controlled
+    Invalid errors. Supplemental baseline replay used exact e4f1611 common.py in isolation
+    after patching; its old behavior was reproduced, not assumed.
+  baseline_evidence: commands.log and immutable prior audit
+  regression_evidence: test_aud011*, test_yaml_scalar_and_alias_boundaries; supplemental-checks
+    command; trust-boundary-review.json
+  positive_control: Canonical/schema positive records and valid structured-trace control;
+    full 564-test suite
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-012
+  severity: MEDIUM
+  disposition: OPEN
+  observation: Structured synthetic fixtures are more executable as models, but substantive
+    candidate/kernel artifacts for labs 001/002 remain unestablished. No real kernel/compiler/sanitizer
+    execution was performed.
+  baseline_evidence: commands.log and immutable prior audit
+  regression_evidence: unchanged labs/001-pin-init and labs/002-rcu; synthetic fixture
+    declarations
+  positive_control: No complete fix claimed
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-013
+  severity: LOW
+  disposition: SPECIFICATION_FAILURE
+  observation: Outcome scope terminology conflict remains unresolved. No silent enum
+    rename or expanded outcome interpretation was introduced.
+  baseline_evidence: commands.log and immutable prior audit
+  regression_evidence: immutable audit AUD-013; tests/test_outcomes.py only confirms
+    current implementation
+  positive_control: No complete fix claimed
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-014
+  severity: INFORMATIONAL
+  disposition: OPEN
+  observation: No independent human calibration, actual kernel execution or upstream
+    criterion evidence was supplied or generated. Synthetic agreement does not satisfy
+    these gates.
+  baseline_evidence: commands.log and immutable prior audit
+  regression_evidence: procedural-final/ledger.yaml; calibration fixtures remain synthetic
+  positive_control: No complete fix claimed
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false
+- id: AUD-015
+  severity: INFORMATIONAL
+  disposition: EXTERNAL_FAILURE
+  observation: 'Actual final CI runs/jobs observed: software steps succeed, overall
+    workflows fail at procedural gate. Raw logs and artifact downloads return EOF.
+    Successful whole-workflow CI is still absent; remote detailed failure cause is
+    not independently confirmed.'
+  baseline_evidence: commands.log and immutable prior audit
+  regression_evidence: ci-results.json; ci-final-raw-logs and ci-final-artifacts commands
+  positive_control: No complete fix claimed
+  ci: Software step success observed; whole workflow FAIL. Successful-CI prerequisite
+    still outstanding.
+  verified_fix_claim: false

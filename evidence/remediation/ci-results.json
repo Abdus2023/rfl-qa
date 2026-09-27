@@ -1,0 +1,188 @@
+[
+  {
+    "conclusion": "failure",
+    "databaseId": 36282488859,
+    "event": "pull_request",
+    "headSha": "b0582f61ae4fad99c02a262c9b27475330bd018e",
+    "jobs": [
+      {
+        "completedAt": "2026-09-27T00:27:35Z",
+        "conclusion": "failure",
+        "databaseId": 108516876827,
+        "name": "gates",
+        "startedAt": "2026-09-27T00:26:18Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install pinned dependencies",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Schema and reference gate",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Automated gates",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "CLI derivation and reporting",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Full evidence and procedural release gate",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Retain actual execution evidence even when release is blocked",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Abdus2023/rfl-qa/actions/runs/36282488859/job/108516876827"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/Abdus2023/rfl-qa/actions/runs/36282488859"
+  },
+  {
+    "conclusion": "failure",
+    "databaseId": 36282486359,
+    "event": "push",
+    "headSha": "b0582f61ae4fad99c02a262c9b27475330bd018e",
+    "jobs": [
+      {
+        "completedAt": "2026-09-27T00:27:36Z",
+        "conclusion": "failure",
+        "databaseId": 108516870448,
+        "name": "gates",
+        "startedAt": "2026-09-27T00:26:16Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install pinned dependencies",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Schema and reference gate",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Automated gates",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "CLI derivation and reporting",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Full evidence and procedural release gate",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Retain actual execution evidence even when release is blocked",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Abdus2023/rfl-qa/actions/runs/36282486359/job/108516870448"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/Abdus2023/rfl-qa/actions/runs/36282486359"
+  }
+]

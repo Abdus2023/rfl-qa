@@ -1,0 +1,376 @@
+[
+  {
+    "counterexample": "contradictory-teardown-trace-with-pass-labels.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "critical-open-declared-noncritical.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "PROVISIONAL",
+      "epistemic_ceiling": "OPEN",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "critical-verified-with-open-support.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "PROVISIONAL",
+      "epistemic_ceiling": "OPEN",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "not-tested-as-observation.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "oracle-invalid-state-model.catalog.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "oracle-open-evidence-not-in-ceiling.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "report-rehashed-contradictory-decision.json",
+    "outcome": "PRESENTED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "scope-erased-CONFIG_RUST-y.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "CONFIG_RUST=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "scope-erased-PREEMPT_RT-y.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "scope-erased-x86_64.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  },
+  {
+    "counterexample": "standalone-d-verified-no-evidence.yaml",
+    "outcome": "VALIDATED",
+    "decision": null,
+    "hard_gates": null
+  },
+  {
+    "counterexample": "type-d-unrelated_audit.json",
+    "outcome": "DERIVED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    }
+  }
+]

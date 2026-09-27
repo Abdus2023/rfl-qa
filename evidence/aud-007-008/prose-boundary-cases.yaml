@@ -1,0 +1,14 @@
+contract: aud-007-008-v1
+oracle: No decision, capability, epistemic, invariant, oracle or hard-gate state change; no positive authority from text.
+cases:
+- {id: P1, location: unregistered_markdown, text: Candidate passed callback safety.}
+- {id: P2, location: unregistered_README, text: This implementation is production safe.}
+- {id: P3, location: assessor_limitations, text: Candidate definitely passed.}
+- {id: P4, location: unrelated_notes, text: Callback after free definitely occurred.}
+- {id: P5, location: unrelated_notes, text: C047 C053 C034 candidate qualified.}
+- {id: P6, location: unrelated_notes, text: OR-CALLBACK OR-RCU PASS.}
+- {id: P7, location: unrelated_notes, text: VERIFIED}
+- {id: P8, location: unrelated_notes, text: PASS}
+- {id: P9, location: unrelated_notes, text: critical_external_assumption callback_after_free}
+- {id: P10, location: unrelated_notes, text: Independent human calibration occurred.}
+identity_note: Assessor limitations remain full-record hash-bound metadata, but have zero authority. External unregistered files do not even affect the record hash.

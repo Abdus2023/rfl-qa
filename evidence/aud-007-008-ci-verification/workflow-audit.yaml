@@ -1,0 +1,50 @@
+# Workflow semantic audit (section 5 of the cycle instructions).
+# Performed on the full .github/workflows/alpha-gates.yml at commit 6b426364.
+workflow_commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+audit_method: full-file inspection of the complete workflow plus byte-comparison of the
+  d3abe21..6b426364 diff against the previously recorded two-hunk patch.
+diff_scope:
+  files_changed: 1
+  file: .github/workflows/alpha-gates.yml
+  hunks: 2
+  changed_lines: 3
+  blob_transition: bf1d929..181501d
+  byte_identical_to_recorded_patch: true
+unchanged_elements:
+  triggers: 'push (branch arena/01a0dfcc-rfl-qa), pull_request, workflow_dispatch'
+  checkout: actions/checkout@v4
+  python_runtime: "actions/setup-python@v5, python-version '3.11', cache pip"
+  dependency_installation: 'python -m pip install -r requirements.txt'
+  schema_gate: 'python tools/validate.py --all'
+  automated_tests: 'pytest -q'
+  cli_derivation_reporting: 'python tools/derive.py dossiers/examples/003-callback-teardown.json + report.py (same commands)'
+  gate_ordering: unchanged
+  permissions: 'contents: read (unchanged)'
+  runs_on: ubuntu-latest (unchanged)
+changed_elements:
+  - element: procedural release gate invocation
+    before: 'python tools/release_gates.py'
+    after: 'python tools/release_gates.py --output evidence/aud-007-008/ci-execution'
+    semantics: same script, same checks, same deliberately-nonzero blocking behavior; only the evidence output destination added
+  - element: evidence upload artifact name
+    before: alpha-execution-evidence
+    after: aud-007-008-execution-evidence
+    semantics: destination/naming only
+  - element: evidence upload path
+    before: evidence/execution/
+    after: evidence/aud-007-008/ci-execution/
+    semantics: destination only; 'if: always()' retention condition unchanged
+prohibited_changes_check:
+  release_gate_logic_changed: false
+  test_commands_changed: false
+  python_version_changed: false
+  dependencies_changed: false
+  permissions_changed: false
+  failures_suppressed: false
+  procedural_gate_made_to_succeed: false
+  calibration_requirements_removed: false
+  evidence_upload_removed: false
+conclusion: >
+  The patch changes EVIDENCE DESTINATION ONLY. Same tests, same commands, same gate
+  ordering, same exit behavior, same release-blocking logic. Audited and recorded as
+  execution evidence per the cycle instructions.

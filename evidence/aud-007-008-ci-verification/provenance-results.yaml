@@ -1,0 +1,93 @@
+# Local validation and provenance results at the current-source workflow commit.
+# All entries below are locally EXECUTED this cycle at commit 6b426364 unless marked otherwise.
+source_commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+parent: d3abe21f4c28b70932aba9f3054e1000537fd993
+delta_parent_to_commit: workflow file only (.github/workflows/alpha-gates.yml, +3/-3)
+
+local_validation:
+  full_suite:
+    command: .venv/bin/python -m pytest -q
+    result: '653 passed in 70.24s'
+    exit_code: 0
+    prior_count_retained: 564
+    provenance_additions: 89
+  schema_reference:
+    command: .venv/bin/python tools/validate.py --all
+    result: all dossiers PASS
+    exit_code: 0
+  provenance_regression_suite:
+    command: '.venv/bin/python -m pytest -q tests/test_source_provenance.py tests/provenance_cases.py'
+    result: '89 passed in 18.12s'
+    exit_code: 0
+
+determinism_workflow_only_check:
+  method: >
+    Fresh local execution of all three canonical derive/report pipelines at 6b426364,
+    byte-compared (cmp) against the sealed outputs in evidence/aud-007-008/procedural/.
+  results:
+    - {dossier: 001-pin-init, qualification_json: BYTE-IDENTICAL, report_md: BYTE-IDENTICAL}
+    - {dossier: 002-rcu, qualification_json: BYTE-IDENTICAL, report_md: BYTE-IDENTICAL}
+    - {dossier: 003-callback-teardown, qualification_json: BYTE-IDENTICAL, report_md: BYTE-IDENTICAL}
+  conclusion: >
+    The workflow-only modification changed no qualification output. Fresh canonical
+    outputs are byte-identical to the sealed baseline; qualification semantics untouched.
+  prior_process_experiment:
+    reference: evidence/aud-007-008/determinism-results.json (sealed, executed at source aa71917)
+    content: 16 derivation + 16 contradiction processes byte-identical per population
+    status: retained, not rerun (source semantics unchanged)
+
+frozen_case_receipts_referenced:
+  counterexamples: evidence/aud-007-008/replay-results.json  # C1-C15: 15/15 PASS + both original attacks REJECTED + paired controls VERIFIED_WITHIN_SCOPE
+  metamorphic: evidence/aud-007-008/contradiction-cases.yaml  # M1-M7 defined; regressions within the 89
+  prose_boundary: evidence/aud-007-008/prose-boundary-cases.yaml  # P1-P10 defined; regressions within the 89
+  pre_fix_reproduction: evidence/aud-007-008/before.json  # both original attacks ACCEPTED pre-fix (counterexample reproduced)
+  full_sealed_package: evidence/aud-007-008/ (seal.py --verify PASS at 6b426364)
+  note: >
+    Sealed case-level receipts were executed at source aa71917. The tree at 6b426364 is
+    byte-identical to aa71917 for every file except .github/workflows/alpha-gates.yml
+    (verified by the sealed hash manifest over 98 tracked source files), so those receipts
+    bind the current source tree. No sealed file was modified.
+
+current_source_ci_evidence:
+  run_id: 36304213414
+  commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+  automated_gates_step: success   # pytest -q full suite (incl. all 89 provenance regressions) exited 0
+  schema_step: success
+  cli_step: success
+  procedural_step: failure (DESIGNED BLOCKED)
+  log_content: UNCONFIRMED (EOF)
+  artifact_content: UNCONFIRMED (EOF; metadata confirms new evidence path)
+
+dispositions:
+  AUD-007:
+    finding: fabricated structured observations contradicting narrative (current mission naming)
+    historical_name_note: >
+      Frozen earlier audit artifacts used a different naming crosswalk for AUD-007
+      (unrelated audit relevance). Historical evidence is preserved unmodified; this
+      receipt records the current mission naming as used since the aud-007-008 cycle.
+    disposition: FIXED_AND_RETESTED
+    verified_fix_claim: true
+    basis:
+      local_implementation: true   # rules 1.1-alpha.3, scoped authenticated sources, contradiction rejection
+      local_regression: true       # 89/89 at 6b426364 this cycle; 653/653 full suite
+      adversarial: true            # C1-C15 15/15; both original attacks REJECTED; positive controls pass (sealed replay)
+      determinism: true            # 16+16 processes (sealed); fresh canonical byte-identical this cycle
+      current_source_ci: true      # run 36304213414 at 6b426364: Automated gates + Schema + CLI steps success
+    claim_boundary: >
+      Establishes that the audited bypasses no longer succeed at the current published
+      source, under local execution and current-source CI software gates. It does NOT
+      establish measurement validity, criterion validity, or release eligibility.
+  AUD-008:
+    finding: unrelated prose not authenticated / unbound prose treated as qualification authority (current mission naming)
+    historical_name_note: >
+      Frozen earlier audit artifacts mapped AUD-008 to asserted oracle/prose contradiction.
+      Historical evidence preserved unmodified; crosswalk documented, not silently relabeled.
+    disposition: FIXED_AND_RETESTED
+    verified_fix_claim: true
+    basis:
+      local_implementation: true   # binding-scoped authority; unbound prose has none; no keyword authentication
+      local_regression: true       # P1-P10 within the 89 at 6b426364 this cycle
+      adversarial: true            # unbound PASS/VERIFIED/calibration cases rejected; bound-only scope enforced (sealed receipts)
+      determinism: true            # fresh canonical byte-identical; sealed 16+16
+      current_source_ci: true      # run 36304213414 at 6b426364: Automated gates success covers P-suite
+    claim_boundary: same as AUD-007

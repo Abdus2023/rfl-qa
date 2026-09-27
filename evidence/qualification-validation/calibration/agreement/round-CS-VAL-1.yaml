@@ -1,0 +1,28 @@
+# Inter-rater agreement analysis — STATUS: NOT_RUN (lock never reached; no submissions exist).
+round_id: CS-VAL-1
+agreement_pipeline:
+  lock: NOT_REACHED            # prerequisite for everything below
+  normalize: NOT_RUN           # nothing to normalize
+  compare: NOT_RUN             # nothing to compare
+  disagreement_ledger: EMPTY_BY_ABSENCE
+results:
+  exact_agreement: null
+  level_agreement: null
+  behavior_agreement: null
+  hard_gate_agreement: null
+  epistemic_status_agreement: null
+  statistic: NOT_RUN
+  statistic_reason: NO_INDEPENDENT_SUBMISSIONS   # stronger than INSUFFICIENT_SAMPLE: zero data points
+  statistic_note: >
+    Even with one two-assessor pass over 16 cases, only descriptive exact-agreement proportions
+    would be justified; no inferential statistic would be. With zero submissions, nothing is
+    computed and none is selected post hoc.
+threshold:
+  automatic_qualification_alpha: EXACT_AGREEMENT_REQUIRED
+  threshold_source: frozen instrument (assessors/review-protocol.md step 5)
+  general_reliability_threshold: NOT_SPECIFIED (governance defines none; none invented)
+conclusion: NOT_RUN / NOT_ESTABLISHED
+epistemic_status: BLOCKED   # calibration cannot proceed without human assessors
+forbidden_conversion: >
+  This NOT_RUN must not be converted into OBSERVED, PARTIALLY_VERIFIED, or VERIFIED by any
+  downstream synthesis, nor compensated by software-gate evidence.

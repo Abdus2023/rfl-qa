@@ -1,0 +1,16 @@
+record_type: calibration_case
+id: CAL-001
+qualification_ref: Q-2026-0003
+classification: INCONCLUSIVE
+fixture_kind: synthetic
+rationale: No observed upstream outcome or independent human assessment exists.
+scope_analysis: x86_64 callback teardown only; ARM64 DMA is excluded.
+candidate_behavior: Synthetic L3 trace, not observed engineer performance.
+assessment_record: tests/fixtures/calibration/lab003_assessor_a.yaml and lab003_assessor_b.yaml
+oracle_capability: Five explicit teardown interleavings, not universal coverage.
+specification_coverage: Three-competency alpha only.
+confounders:
+- No real hardware access or longitudinal follow-up.
+evidence_refs:
+- fixture://lab003
+revision_required: false

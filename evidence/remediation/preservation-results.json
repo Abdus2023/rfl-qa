@@ -1,0 +1,18 @@
+{
+  "unchanged_prior_evidence_files": 97,
+  "unchanged_original_python_test_files": 11,
+  "original_test_files": [
+    "tests/conftest.py",
+    "tests/test_determinism.py",
+    "tests/test_epistemic_ceiling.py",
+    "tests/test_hard_gate_veto.py",
+    "tests/test_inter_rater.py",
+    "tests/test_no_e_to_l_inference.py",
+    "tests/test_oracle_gate.py",
+    "tests/test_outcomes.py",
+    "tests/test_schema_gate.py",
+    "tests/test_strength_separation.py",
+    "tests/test_type_d_requires_evidence.py"
+  ],
+  "result": "PASS"
+}

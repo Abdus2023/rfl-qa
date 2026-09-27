@@ -1,0 +1,40 @@
+record_type: assessment
+assessor_id: assessor-b
+dossier_ref: Q-2026-0003
+dossier_digest: b3339313657382e2cc9b55fa83103cf3a7a5f8e9fd940cad9d1d7aabc8660013
+independent: true
+claimed_level: L3
+observations:
+- behavior_id: CB-047-01
+  status: DEMONSTRATED
+  evidence_refs:
+  - ARTIFACT
+- behavior_id: CB-047-02
+  status: DEMONSTRATED
+  evidence_refs:
+  - ARTIFACT
+- behavior_id: CB-047-03
+  status: DEMONSTRATED
+  evidence_refs:
+  - ARTIFACT
+evidence_tier: E4
+invariant_findings:
+- invariant_ref: A01
+  class: A
+  epistemic_status: VERIFIED
+- invariant_ref: B01
+  class: B
+  epistemic_status: VERIFIED
+- invariant_ref: C01
+  class: C
+  epistemic_status: PARTIALLY_VERIFIED
+- invariant_ref: D01
+  class: D
+  epistemic_status: VERIFIED
+hard_gates:
+  status: PASS
+  findings: []
+evidence_refs:
+- ARTIFACT
+limitations:
+- Simulated independent record, not an independent human assessment.

@@ -1,0 +1,62 @@
+contract: aud-007-008-v1
+phase: FORMALIZED_BEFORE_IMPLEMENTATION
+baseline_source: b0582f61ae4fad99c02a262c9b27475330bd018e
+baseline_receipt: 92d3bba
+release: BLOCKED
+finding_identity_note: >-
+  This mission calls the contradiction boundary AUD-007 and prose authority AUD-008.
+  The preserved previous audit numbered unrelated prose AUD-007 and combined oracle
+  self-attestation/contradiction AUD-008. Both boundaries are tested together; no old receipt is renamed.
+trust_root:
+  authority: Explicit repository-controlled artifact registry, separate from submitted dossiers.
+  not_authority: [dossier-supplied artifact contents, file discovery, filename, timestamp, insertion order, environment variables, prose keywords]
+  limitations: >-
+    Authorized content integrity is not producer identity, honest observation, human calibration,
+    source-audit adequacy, actual kernel execution, or criterion validity. An administrator who
+    changes the trusted registry/code can change the authority root; candidate inputs cannot.
+source_contract:
+  artifact_identity: Canonical SHA256 of artifact_id, dossier_ref and exact UTF-8 content, using tools.common.digest.
+  selection: Fixed registry paths confined to artifacts/sources; no candidate-supplied path or network.
+  extraction_rule: rfl-json-fact-v1
+  grammar: 'One explicitly authorized line: RFL-QA-FACT {"subject": "...", "value": ...}'
+  grammar_limits: Strict JSON, duplicate-key/nonfinite rejection, bounded document parser; no prose interpretation.
+  location: Explicit 1-based single-line range. start must equal end. No whole-document fallback.
+  authorization: Registry declares dossier, subject, artifact, rule and exact selector independently of observation.
+  completeness: Every registry authorization for a required subject must be bound; omission cannot hide conflict.
+  overlap: Duplicate bindings/scopes reject; overlapping multiline ranges are inadmissible. Separate artifacts may support the same subject.
+  missing: Missing artifact or absent extractable fact is UNVERIFIABLE; missing binding is UNBOUND.
+observation_contract:
+  values: Existing dossier fields, not a duplicated observation vocabulary.
+  required_subjects: [claim identity, scope, primary evidence identity, all evidence records including their explicitly declared statements, all invariant records, oracle observations, structured assessor findings, hard gates]
+  excluded_authority: [unregistered files, unrelated prose, assessor limitations, dossier limitations, input timestamp, asserted positive oracle labels]
+  assertions: ASSERTED_RESULT remains distinct from DERIVED_RESULT; reported BLOCKED remains a conservative veto.
+  projection: Exact canonical typed equality; true is not integer 1. No inference/default/repair.
+provenance_states:
+  separate_from_epistemic_status: true
+  vocabulary: [SUPPORTED, CONTRADICTED, UNBOUND, UNVERIFIABLE, INVALID_BINDING]
+  decision: Any state other than SUPPORTED prevents derivation; emit explicit diagnostics and reject, never map contradiction to an epistemic state.
+  contradiction: Observation differs from the explicitly scoped fact, or authorized sources for the same subject disagree.
+  multiple_sources: Evaluate all authorized sources; sorted diagnostics, never choose a winner.
+  integrity_and_contradiction: >-
+    Diagnostics are a set, not a precedence-winner. Changed source bytes with stale pins yields
+    INVALID_BINDING. If the authorized slice is still parseable and disagrees, also emit CONTRADICTED
+    as a syntactic difference, NOT as authenticated truth. Only an intact pin permits SUPPORTED.
+    Re-authenticating a changed source without changing the observation yields CONTRADICTED alone.
+  m1_note: This explicitly reconciles M1's contradiction oracle with case E's mandatory digest failure; neither is silently discarded.
+hashing:
+  identity_bound: [artifact ID, dossier ID, exact content, digest pin, binding key, subject, extraction rule, source selector, observed value]
+  presentation_only: [mapping key order, serialization indentation, unrelated unbound files]
+  artifact_byte_changes: Any content change changes artifact identity, including whitespace inside artifact text; this is intentional integrity binding, not semantic authority for every line.
+  extracted_value_identity: Canonical digest of the extracted typed value; JSON key order is irrelevant.
+  array_policy: Preserve existing complete-record array order semantics. Source registry/order and binding-map insertion order are irrelevant.
+  output: Include binding/value/source identities and deterministic provenance diagnostics in valid qualifications/reports.
+legacy_regressions:
+  count: 564
+  policy: >-
+    Keep all existing test bodies and oracles unchanged. The legacy run fixture may explicitly issue
+    independent synthetic authorized snapshots for its controlled inputs, to isolate downstream rules.
+    This issuance exists only in test/fixture preparation, never production derivation. New provenance
+    tests freeze authority before mutation and do not use that legacy run fixture.
+implementation_refinement:
+  omission_closure: All authorizations for the dossier remain mandatory even if the candidate deletes their target record; omission cannot erase an authenticated adverse fact.
+  test: test_omitting_authorized_evidence_cannot_hide_its_fact

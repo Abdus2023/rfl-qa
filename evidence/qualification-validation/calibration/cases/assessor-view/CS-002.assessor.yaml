@@ -1,0 +1,38 @@
+id: CS-002
+class: positive
+competency_id: C047
+task: 'Assess the candidate artifact against C047. The candidate claims L3 with executed teardown schedules.
+
+  '
+evidence_package:
+- frozen_fixture_ref: dossiers/examples/003-callback-teardown.json
+- inline_fragment: 'teardown schedule execution summary (synthetic, five declared interleavings):
+
+    schedule-1 unregister->drain->callbacks->grace->free : PASS
+
+    schedule-2 ioctl-remove concurrent with unregister    : PASS
+
+    schedule-3 callback in flight at drain admission      : PASS
+
+    schedule-4 RCU reader during destroy window           : PASS
+
+    schedule-5 double registration attempt                : PASS
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-CALLBACK
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

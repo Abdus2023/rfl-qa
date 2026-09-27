@@ -1,0 +1,8 @@
+$ /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_no_e_to_l_inference.py tests/test_epistemic_ceiling.py
+STDOUT:
+.................                                                        [100%]
+17 passed in 0.41s
+
+STDERR:
+
+EXIT_CODE: 0

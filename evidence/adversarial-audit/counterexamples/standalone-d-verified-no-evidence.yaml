@@ -1,0 +1,10 @@
+class: D
+critical: true
+description: External C registration/allocator contract keeps the target alive until
+  quiescence.
+epistemic_status: VERIFIED
+evidence_refs: []
+external_evidence: []
+id: D01
+record_type: invariant
+required: true

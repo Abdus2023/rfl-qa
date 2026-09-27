@@ -1,0 +1,5632 @@
+[
+  {
+    "id": "tier-E5-L0",
+    "group": "E_TO_L",
+    "expected": "capability L0",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L0",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L0-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "4121722641bb3369ff580466e9b1e9995b230c3e6e3aa81abdb230d87cebddb0",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "tier-E4-L1",
+    "group": "E_TO_L",
+    "expected": "capability L1",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L1",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L1-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "5260b9019bb7a51d96cf1f916200016bc4ac10855385788b0cbf7766f27029e9",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "tier-E4-L2",
+    "group": "E_TO_L",
+    "expected": "capability L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "d0bf90039f2945e1e6da7154fdedf1ef8d16a0f06ccd3b1605e94d5e8883562c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "tier-E3-L2",
+    "group": "E_TO_L",
+    "expected": "capability L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E3-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "90a685aae94ecc517788205e3ed2bf991d6f06b87f59a24f28755ff34d22cc57",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "tier-E2-L3",
+    "group": "E_TO_L",
+    "expected": "capability L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E2-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "5c285a9e744aea85cd49250a3421e12583681bafe343f09bc6c6fadf93c0402b",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "tier-E1-L4",
+    "group": "E_TO_L",
+    "expected": "capability L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E1-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "4e6a85e67d432b46f865e4e96b29265a0594ecb61881966c1067abd273a9d3c0",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "tier-E0-L5",
+    "group": "E_TO_L",
+    "expected": "capability L5",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "01a68d0c076ef2ffb2dd58ebbf01d52b466a2e81c85ff806c5cbcdf29da264c4",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L0-E0",
+    "group": "E_TO_L",
+    "expected": "L0",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L0",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "2822dd45ba565ddfebf1950d750459fc692eca4c8cf026639ba498257e8af02e",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L0-E1",
+    "group": "E_TO_L",
+    "expected": "L0",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L0",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L0-E1-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "4a922fc55a1ae8b9d2027b503586ef79c0fa564fdb40cf077e7354101fb28a68",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L0-E2",
+    "group": "E_TO_L",
+    "expected": "L0",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L0",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L0-E2-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "776f41c4675148afa943dab86fa353013fa06a6fe6488dededc90aa5e841c977",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L0-E3",
+    "group": "E_TO_L",
+    "expected": "L0",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L0",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L0-E3-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "2eaa9aef0252dd08f547b519bd005043ee9941b1989cafd8e910ae441e9bc405",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L0-E4",
+    "group": "E_TO_L",
+    "expected": "L0",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L0",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L0-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "e21fc3bec5f93db60ece62b91865527102f78955dc1e7be9a1cafe79bac9fe50",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L0-E5",
+    "group": "E_TO_L",
+    "expected": "L0",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L0",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L0-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "4121722641bb3369ff580466e9b1e9995b230c3e6e3aa81abdb230d87cebddb0",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L1-E0",
+    "group": "E_TO_L",
+    "expected": "L1",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L1",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "9d0d2d7396a0071b9e5995b716c5c604020a57099d9a44fa4f28edb2b755f5ce",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L1-E1",
+    "group": "E_TO_L",
+    "expected": "L1",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L1",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L1-E1-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "353df213e975aea13677ba0acb2ed4d42fdd7afe690da0863247a590a312b73f",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L1-E2",
+    "group": "E_TO_L",
+    "expected": "L1",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L1",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L1-E2-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "8bd5ce4e6b1746008d5ac4772c8c87317beaaef3b5bb6ac5aabb04d53d6b31eb",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L1-E3",
+    "group": "E_TO_L",
+    "expected": "L1",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L1",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L1-E3-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "766333a67a37a5bbdf41df7d6bc10429522d5a781119005f43e70dd73a2aeb5d",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L1-E4",
+    "group": "E_TO_L",
+    "expected": "L1",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L1",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L1-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "5260b9019bb7a51d96cf1f916200016bc4ac10855385788b0cbf7766f27029e9",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L1-E5",
+    "group": "E_TO_L",
+    "expected": "L1",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L1",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L1-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "74a1221451e8f5c73c614bf198e72fc93b784c9762f2f683aa30c4678eedd77e",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L2-E0",
+    "group": "E_TO_L",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "ba795ca6dde8a88670cd3bb897d649f5f5d1b8e61a19514bcd160c2c07f2e781",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L2-E1",
+    "group": "E_TO_L",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E1-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "7835327a57b9b167f1f63c1de68fa4c718d3bae0569b9b4e49197595ad02120a",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L2-E2",
+    "group": "E_TO_L",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E2-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "17ab7315b41f3b8ee34996ccc47d193957910b48cc6d4e7f2820e6f9d566e644",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L2-E3",
+    "group": "E_TO_L",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E3-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "90a685aae94ecc517788205e3ed2bf991d6f06b87f59a24f28755ff34d22cc57",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L2-E4",
+    "group": "E_TO_L",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "d0bf90039f2945e1e6da7154fdedf1ef8d16a0f06ccd3b1605e94d5e8883562c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L2-E5",
+    "group": "E_TO_L",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "73858743db373b0a51a5e3e4ccfc2d3342a2016c1ae73cc82b3c4bb21d1b32ba",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L3-E0",
+    "group": "E_TO_L",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "b590dc98feac2af4faf7f7a37fa023637a013b5c06af48ea40d649764e87d317",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L3-E1",
+    "group": "E_TO_L",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E1-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "bf271eccc70efc61ca40cd3510aec82dd025ee9fc3bb94ffab61ac37c3ae50de",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L3-E2",
+    "group": "E_TO_L",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E2-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "5c285a9e744aea85cd49250a3421e12583681bafe343f09bc6c6fadf93c0402b",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L3-E3",
+    "group": "E_TO_L",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E3-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "70c6664699f593ae9e3c5afd18059d904d34da70e0ffbeff7bce3b11da5bd48f",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L3-E4",
+    "group": "E_TO_L",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "dd34885e1274aa19b6a97d7250a5e16087c8fc5b3000ec9e899950df8a8877c1",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L3-E5",
+    "group": "E_TO_L",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "2d40cada1952f90a7fdf0a97fcd2ac80bc6b295c37cd8f0c60403fe1d5f76e09",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L4-E0",
+    "group": "E_TO_L",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "edfac76d5b87c991dcd009e3b92782cc0a0c0e9bdaa052754c8e8024008c9c63",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L4-E1",
+    "group": "E_TO_L",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E1-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "4e6a85e67d432b46f865e4e96b29265a0594ecb61881966c1067abd273a9d3c0",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L4-E2",
+    "group": "E_TO_L",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E2-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "b1e9cda453db79fcc2d07004dd36fca4106f71befa5953c0fbf6123fe90d57eb",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L4-E3",
+    "group": "E_TO_L",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E3-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "4d5bfc427ab92ceae6ee405eb8cf5896f73d437490b533855173b1602893030c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L4-E4",
+    "group": "E_TO_L",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "2d37d777260a79a66a23cd96d3ea069ca9b39e613d058ae4f8e324522d1d6190",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L4-E5",
+    "group": "E_TO_L",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "59377c2ccaa24e2446f304280a9070569030d32298c68a5a2dafed24b9560053",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L5-E0",
+    "group": "E_TO_L",
+    "expected": "L5",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "01a68d0c076ef2ffb2dd58ebbf01d52b466a2e81c85ff806c5cbcdf29da264c4",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L5-E1",
+    "group": "E_TO_L",
+    "expected": "L5",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L5-E1-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "d4363146c4fcaf5543b4b63a2df2fc10487985bafcb3f86168d45ca6d397a031",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L5-E2",
+    "group": "E_TO_L",
+    "expected": "L5",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L5-E2-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "745f9fd727b75a9e6b6a5e2c6bd140e94e4c7f76996495cb52ce5fc8f693f7c2",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L5-E3",
+    "group": "E_TO_L",
+    "expected": "L5",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L5-E3-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "b6226239b522145827c7b0297c331744ce918eba3151b6fdfacd36ad7e546bce",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L5-E4",
+    "group": "E_TO_L",
+    "expected": "L5",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L5-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "2566007a37e2ecb1bcaf04dc65a6f071c45424bc8e8613cb33addc91df80ce48",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "fixed-behavior-L5-E5",
+    "group": "E_TO_L",
+    "expected": "L5",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L5-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "256a6a4aeca22479581feea2db849582fea8258ca7fb380d3e5bd628d4000332",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "all-L2",
+    "group": "BEHAVIOR",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "d0bf90039f2945e1e6da7154fdedf1ef8d16a0f06ccd3b1605e94d5e8883562c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "failed-required-L2",
+    "group": "BEHAVIOR",
+    "expected": "L1",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L1",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L1-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "a6af7ae99af08e0d26c53c88213ab23d9f236b371bf7549237a9cefdf99afca1",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "all-L3",
+    "group": "BEHAVIOR",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "dd34885e1274aa19b6a97d7250a5e16087c8fc5b3000ec9e899950df8a8877c1",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "failed-required-L3",
+    "group": "BEHAVIOR",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "5e084505607e3bee6067292d9e1ae25dd2becb6d9e211f4917a87f0e0c1f0a4d",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "all-L4",
+    "group": "BEHAVIOR",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "2d37d777260a79a66a23cd96d3ea069ca9b39e613d058ae4f8e324522d1d6190",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "failed-required-L4",
+    "group": "BEHAVIOR",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "4570ff065cef3dc9175a90dc7fbd8414ba898582c6f9546888e5015eb981844f",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "all-L5",
+    "group": "BEHAVIOR",
+    "expected": "L5",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L5-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "2566007a37e2ecb1bcaf04dc65a6f071c45424bc8e8613cb33addc91df80ce48",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "failed-required-L5",
+    "group": "BEHAVIOR",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "3972ae6de01b83d68d4ee95a036c66a61b6c82f3c5de3e1849db5b35b0f47bd0",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "partial-L3-only-L2",
+    "group": "BEHAVIOR",
+    "expected": "L2",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L2",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L2-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "6eeacf756e71643a5542d987b79f6dafdbf9815438932b2d3ec3e804ebb8ec20",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "incomplete-L4-high-tier",
+    "group": "BEHAVIOR",
+    "expected": "L3",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "e817f1fc6feed84031b4d39c866df15b2f8b5f5c17b2cdc4267b1d8d6f9d0b4c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "incomplete-L5-high-tier",
+    "group": "BEHAVIOR",
+    "expected": "L4",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L4",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L4-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "e416604c1a1fdc01505a4a62b0df4efbfeec9a2a10b02ab32b81128c5489846f",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "invented-CB-047-999",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "assessments/0/observations/0/behavior_id: 'CB-047-999' does not match '^CB-\\\\d{3}-\\\\d{2}$'"
+  },
+  {
+    "id": "invented-CB-047-99",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "unknown behavior ID"
+  },
+  {
+    "id": "invented-CB-053-01",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "unknown behavior ID"
+  },
+  {
+    "id": "duplicate-identical-behavior",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "assessments/0/observations: [{'behavior_id': 'CB-047-01', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}, {'behavior_id': 'CB-047-02', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}, {'behavior_id': 'CB-047-03', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}, {'behavior_id': 'CB-047-01', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}] has non-unique elements"
+  },
+  {
+    "id": "duplicate-conflicting-behavior",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "duplicate behavior_id: CB-047-01"
+  },
+  {
+    "id": "scope-outside-arm64",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "scope environments: extrapolation outside rubric"
+  },
+  {
+    "id": "scope-outside-dma",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "scope task_classes: extrapolation outside rubric"
+  },
+  {
+    "id": "scope-outside-nmi_context",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "scope task_classes: extrapolation outside rubric"
+  },
+  {
+    "id": "scope-outside-PREEMPT_RT=n",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "scope environments: extrapolation outside rubric"
+  },
+  {
+    "id": "scope-outside-C053",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "scope/competencies: ['C047', 'C053'] is too long"
+  },
+  {
+    "id": "scope-outside-all_ffi",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "scope task_classes: extrapolation outside rubric"
+  },
+  {
+    "id": "scope-missing-competencies",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "scope: 'competencies' is a required property"
+  },
+  {
+    "id": "scope-missing-domains",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "scope: 'domains' is a required property"
+  },
+  {
+    "id": "scope-missing-task_classes",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "scope: 'task_classes' is a required property"
+  },
+  {
+    "id": "scope-missing-environments",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "scope: 'environments' is a required property"
+  },
+  {
+    "id": "scope-missing-exclusions",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "scope: 'exclusions' is a required property"
+  },
+  {
+    "id": "scope-task-subset",
+    "group": "SCOPE",
+    "expected": "preserved narrower task scope",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "c4dd5f5e0b92802706051332daf1b4a38e43ba83ad6ad02d95d8935f673f194c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "scope-erased-x86_64",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "0fc41811677a2607ef98641ded0261d0a6062ec2c9488b8464396fb91ca03e46",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "scope-erased-PREEMPT_RT-y",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "e1dbedf02e4823ca5918398f152a339dbc5c3c9c163452a3f865777d5a5e989f",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "scope-erased-CONFIG_RUST-y",
+    "group": "SCOPE",
+    "expected": "REJECT_INVALID",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "CONFIG_RUST=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "e004c82f20092630cefe3c1db107686d48d82e4b90b54577f9d0d60ee08efa3b",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "type-d-missing",
+    "group": "TYPE_D",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "invariants/3: 'external_evidence' is a required property"
+  },
+  {
+    "id": "type-d-boolean",
+    "group": "TYPE_D",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "invariants/3/external_evidence: True is not of type 'array'"
+  },
+  {
+    "id": "type-d-empty",
+    "group": "TYPE_D",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "D01: VERIFIED Type-D requires external_evidence"
+  },
+  {
+    "id": "type-d-bad_ref",
+    "group": "TYPE_D",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "D01 external_evidence: dangling reference {'MISSING'}"
+  },
+  {
+    "id": "type-d-unrelated_method",
+    "group": "TYPE_D",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "D01: external evidence method mismatch"
+  },
+  {
+    "id": "type-d-unknown_assessor",
+    "group": "TYPE_D",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "external evidence assessor not present"
+  },
+  {
+    "id": "type-d-valid",
+    "group": "TYPE_D",
+    "expected": "supported D accepted",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "772af806f465ce863c1ff457fafff447cf8040080c8a6b71a054709f0bbc5587",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "type-d-provisional",
+    "group": "TYPE_D",
+    "expected": "BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PROVISIONAL",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "critical_external_assumption"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "22a31ceb666541dab54667280f122e56b1b4d0356333b20236f0783072e84c06",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "type-d-open",
+    "group": "TYPE_D",
+    "expected": "BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "critical_external_assumption"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "46a577b57acd06733d1adf8060d7e9ecd3eec39c04ca9c721314724a02075f6c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "type-d-unrelated_audit",
+    "group": "TYPE_D",
+    "expected": "REJECT_INVALID",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "63f6e2a57b1f3d969faa677df0f01851f99b3c4f9c1ebdcb785422d3654a8bba",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "critical-open-control",
+    "group": "HARD_GATE",
+    "expected": "BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "critical_external_assumption"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "46a577b57acd06733d1adf8060d7e9ecd3eec39c04ca9c721314724a02075f6c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "critical-open-declared-noncritical",
+    "group": "HARD_GATE",
+    "expected": "BLOCKED or validation rejection",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-OPEN",
+      "assessment_hash": "cf2e3c19f9fcb0c53c9c994740b2eec06c8b2a95e771bd5f6ac4caa371741cf9",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "critical-verified-with-open-support",
+    "group": "TYPE_D",
+    "expected": "BLOCKED or validation rejection",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-OPEN",
+      "assessment_hash": "ee9e69a89f83cecb7ef9e9d05ffb2d7537a0ef9695ef59f638f206c8195223c8",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "epistemic-A01-PROVISIONAL",
+    "group": "EPISTEMIC",
+    "expected": "PROVISIONAL",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PROVISIONAL",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PROVISIONAL",
+      "assessment_hash": "af597b14836ab6939b94046db5f01d0000066e8130013e03765a3330407f682a",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "epistemic-B01-VERIFIED",
+    "group": "EPISTEMIC",
+    "expected": "VERIFIED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "772af806f465ce863c1ff457fafff447cf8040080c8a6b71a054709f0bbc5587",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "epistemic-C01-PARTIALLY_VERIFIED",
+    "group": "EPISTEMIC",
+    "expected": "PARTIALLY_VERIFIED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "5235eb4e4b08fc5560c44242c9a30b2e7778da60b6a559aac95359fa8858a8e1",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "epistemic-D01-OPEN",
+    "group": "EPISTEMIC",
+    "expected": "OPEN",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "critical_external_assumption"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "c745cfd46cefff5cac27187436b0562d952162ea545f919ca3edfab34e0da33d",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "epistemic-C01-PROVISIONAL",
+    "group": "EPISTEMIC",
+    "expected": "PROVISIONAL",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PROVISIONAL",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PROVISIONAL",
+      "assessment_hash": "0bc9dc7c04f94e739cc59c185b8df7ce43c02ea81e1ca866374a880d35268a33",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "epistemic-B01-OPEN",
+    "group": "EPISTEMIC",
+    "expected": "OPEN",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-OPEN",
+      "assessment_hash": "159c485ca0817e6bea5521793d48f3bee3e9bdb972ec61844e2088278bf8c5e1",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-VERIFIED-E0",
+    "group": "EPISTEMIC",
+    "expected": "VERIFIED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "fca702f3b7b47ea12bf2882c0a41dcee143cb0ecd06737605c79444b572899e1",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-VERIFIED-E4",
+    "group": "EPISTEMIC",
+    "expected": "VERIFIED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "772af806f465ce863c1ff457fafff447cf8040080c8a6b71a054709f0bbc5587",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-VERIFIED-E5",
+    "group": "EPISTEMIC",
+    "expected": "VERIFIED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E5-C047-VERIFIED",
+      "assessment_hash": "9c1e8c0e5a876a16a2cd913b29d551d173b15dec732935e8496a6679a4f1f950",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-PARTIALLY_VERIFIED-E0",
+    "group": "EPISTEMIC",
+    "expected": "PARTIALLY_VERIFIED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "a8e011a9d70baf275c6f4b811deeb7ac2388c92a15f68fc974bfa170e99b03e3",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-PARTIALLY_VERIFIED-E4",
+    "group": "EPISTEMIC",
+    "expected": "PARTIALLY_VERIFIED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "80434a79b5ad051b36b790b9289a9450094fd3c8ff6f084454826f8877e02a76",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-PARTIALLY_VERIFIED-E5",
+    "group": "EPISTEMIC",
+    "expected": "PARTIALLY_VERIFIED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E5-C047-PARTIALLY_VERIFIED",
+      "assessment_hash": "ad07434badd5d1a661663da76e58a818d8e16eda6f3e1383c6ba713628ff4e2c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-PROVISIONAL-E0",
+    "group": "EPISTEMIC",
+    "expected": "PROVISIONAL",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PROVISIONAL",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "957dd877a78fcb246a690ef5ba54a64184a5a2b02fa2587afcd88ac82a52c8ab",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-PROVISIONAL-E4",
+    "group": "EPISTEMIC",
+    "expected": "PROVISIONAL",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PROVISIONAL",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-PROVISIONAL",
+      "assessment_hash": "9504e0df5ece01a5aa64ff40602fd978e7986bdf1c92a7a0990e1347fac6786f",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-PROVISIONAL-E5",
+    "group": "EPISTEMIC",
+    "expected": "PROVISIONAL",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PROVISIONAL",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E5-C047-PROVISIONAL",
+      "assessment_hash": "fd410ffedbbdc8ac1aca44fbb672a9ca2aa942dc0dee9cb594b0adc2781539a6",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-OPEN-E0",
+    "group": "EPISTEMIC",
+    "expected": "OPEN",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "a9bd4fe21246bd086ee09cad6694790720aa6ddd39f13019421bf952d666b9c4",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-OPEN-E4",
+    "group": "EPISTEMIC",
+    "expected": "OPEN",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-OPEN",
+      "assessment_hash": "159c485ca0817e6bea5521793d48f3bee3e9bdb972ec61844e2088278bf8c5e1",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-OPEN-E5",
+    "group": "EPISTEMIC",
+    "expected": "OPEN",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "OPEN",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E5-C047-OPEN",
+      "assessment_hash": "74280face4b7db05343c6354eaa4f4753e0a7fbd0d15d59e7473b7bdb0fe48bd",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-BLOCKED-E0",
+    "group": "EPISTEMIC",
+    "expected": "BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "BLOCKED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "8366c500a1a37bd53297e612e3b03cdc74c718ed9f83e2d3c012501328ec5495",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-BLOCKED-E4",
+    "group": "EPISTEMIC",
+    "expected": "BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "BLOCKED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "8212b36a3c137daf87623f0efe28e4d11fa79e8e475c432b33b8ad2d1fcdc166",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "ceiling-BLOCKED-E5",
+    "group": "EPISTEMIC",
+    "expected": "BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "BLOCKED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "3f39c5b4dc0234e8de990aa117505af6fcf4a72fd4572e6bd440b352f81b71bb",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "oracle-open-evidence-not-in-ceiling",
+    "group": "EPISTEMIC",
+    "expected": "ceiling OPEN or rejection",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "de7e5e2f97c2a0d05871343f2c28543b0b94a0f23cb9562217c306eb99d2beb5",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "not-tested-as-observation",
+    "group": "STRENGTH",
+    "expected": "REJECT_INVALID",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "d143a2dc1256392ec69b8745e907e0f10459d8d51dbb0edb131e6fcd64e8c72c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "kcsan-PROOF",
+    "group": "STRENGTH",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "TEST: kcsan cannot establish PROOF"
+  },
+  {
+    "id": "kcsan-COVERAGE",
+    "group": "STRENGTH",
+    "expected": "strength preserved",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "14709dc79cff408baca30583efeab33136a5cac2279bdd8df20df29698ebfa44",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "kcsan-OBSERVATION",
+    "group": "STRENGTH",
+    "expected": "strength preserved",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "43c3c4c82c0d71b90674b808bd72160f73ee930d2b60091e116ee5b0aefc3c5f",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-callback_after_free",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "callback_after_free"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "9b3a47364bd969f987e2c65955afb3d232b51f52957b99de9584e1ecf5e4a47c",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-double_free",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "double_free"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "8b98ca204966486d9d7c7a0e0acf0e4183d7d17e01a4ccd91d79542701a4bc08",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-uaf",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "uaf"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "f60495dd02d43855852736e2470782ecc86026dfc66f5a222f100b64a65eea40",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-data_race",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "data_race"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "20d4c2056e35708dcd0ff29950026fd7948024227e77972954db42aa0f482b7f",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-deadlock",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "deadlock"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "9ec475d0b0e719c82cc9f503285bfb09aeb447910b4ebd24dad13527dbe74aab",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-prohibited_sleep",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "prohibited_sleep"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "4c865905b9f30d62514b42569292e07597a62bb4154e89b038d20c585369e0cd",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-ffi_lifetime",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "ffi_lifetime"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "eec7fa1315a7b7ac29452c8df42cee0f859d4c5dfc1f9c25677dc7e8b691ec2e",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-critical_external_assumption",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "critical_external_assumption"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "1b3a048daf8dc0ca9f33e32f99b38f1c6c42220d4856f3b26f810c0c3c67bab6",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-required_abi_break",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "required_abi_break"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "1a6429156063673793f3c2d7fd3a4e6d565ad69824041f607b637d688e305146",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "hard-gate-dma_ownership",
+    "group": "HARD_GATE",
+    "expected": "REJECTED/BLOCKED",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L5",
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "dma_ownership"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "6bcd7e68ecdd90f29c056bc3c02d4050a3b2719ad6045eb0d5632e276fa3ab5a",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "malformed-qualification_id",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "qualification_id: 'bad' does not match '^Q-\\\\d{4}-\\\\d{4}$'"
+  },
+  {
+    "id": "malformed-timestamp",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "timestamp: 'not-a-date' is not a 'date-time'"
+  },
+  {
+    "id": "malformed-scope",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "scope: None is not of type 'object'"
+  },
+  {
+    "id": "malformed-competency_id",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "competency_id: 'C999' is not one of ['C047', 'C053', 'C034']"
+  },
+  {
+    "id": "unknown-property",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "$: Additional properties are not allowed ('extra' was unexpected)"
+  },
+  {
+    "id": "empty-evidence",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "evidence: [] should be non-empty"
+  },
+  {
+    "id": "empty-assessments",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "assessments: [] is too short"
+  },
+  {
+    "id": "unknown-invariant",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "required invariants: dangling reference {'A01'}"
+  },
+  {
+    "id": "unknown-assessor-ref",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SEMANTIC",
+    "reason": "external evidence assessor not present"
+  },
+  {
+    "id": "bad-level-type",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "assessments/0/claimed_level: 4 is not of type 'string'; assessments/0/claimed_level: 4 is not one of ['L0', 'L1', 'L2', 'L3', 'L4', 'L5']"
+  },
+  {
+    "id": "unknown-epistemic",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "invariants/0/epistemic_status: 'PROVED' is not one of ['VERIFIED', 'PARTIALLY_VERIFIED', 'PROVISIONAL', 'OPEN', 'BLOCKED']"
+  },
+  {
+    "id": "unknown-class",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "invariants/0/class: 'UNKNOWN' is not one of ['A', 'B', 'C', 'D']"
+  },
+  {
+    "id": "missing-behavior-evidence",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "assessments/0/observations/0/evidence_refs: [] should be non-empty"
+  },
+  {
+    "id": "duplicate-assessor",
+    "group": "SCHEMA",
+    "expected": "REJECT_INVALID",
+    "boundary_held": true,
+    "outcome": "REJECTED_INVALID",
+    "phase": "SCHEMA",
+    "reason": "assessments: [{'record_type': 'assessment', 'assessor_id': 'assessor-a', 'dossier_ref': 'Q-2026-0003', 'dossier_digest': 'fd5e097a9fedb9ff1c95da1f27f9133172ef01645221530c8c391e2455c4f1c8', 'independent': True, 'claimed_level': 'L3', 'observations': [{'behavior_id': 'CB-047-01', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}, {'behavior_id': 'CB-047-02', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}, {'behavior_id': 'CB-047-03', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}], 'evidence_tier': 'E4', 'invariant_findings': [{'invariant_ref': 'A01', 'class': 'A', 'epistemic_status': 'VERIFIED'}, {'invariant_ref': 'B01', 'class': 'B', 'epistemic_status': 'VERIFIED'}, {'invariant_ref': 'C01', 'class': 'C', 'epistemic_status': 'PARTIALLY_VERIFIED'}, {'invariant_ref': 'D01', 'class': 'D', 'epistemic_status': 'VERIFIED'}], 'hard_gates': {'status': 'PASS', 'findings': []}, 'evidence_refs': ['ARTIFACT'], 'limitations': ['Simulated independent record, not an independent human assessment.']}, {'record_type': 'assessment', 'assessor_id': 'assessor-a', 'dossier_ref': 'Q-2026-0003', 'dossier_digest': 'fd5e097a9fedb9ff1c95da1f27f9133172ef01645221530c8c391e2455c4f1c8', 'independent': True, 'claimed_level': 'L3', 'observations': [{'behavior_id': 'CB-047-01', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}, {'behavior_id': 'CB-047-02', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}, {'behavior_id': 'CB-047-03', 'status': 'DEMONSTRATED', 'evidence_refs': ['ARTIFACT']}], 'evidence_tier': 'E4', 'invariant_findings': [{'invariant_ref': 'A01', 'class': 'A', 'epistemic_status': 'VERIFIED'}, {'invariant_ref': 'B01', 'class': 'B', 'epistemic_status': 'VERIFIED'}, {'invariant_ref': 'C01', 'class': 'C', 'epistemic_status': 'PARTIALLY_VERIFIED'}, {'invariant_ref': 'D01', 'class': 'D', 'epistemic_status': 'VERIFIED'}], 'hard_gates': {'status': 'PASS', 'findings': []}, 'evidence_refs': ['ARTIFACT'], 'limitations': ['Simulated independent record, not an independent human assessment.']}] has non-unique elements"
+  },
+  {
+    "id": "assessor-disagreement-capability",
+    "group": "CALIBRATION",
+    "expected": "halt and preserve divergence",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": null,
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "AWAITING_ADJUDICATION",
+      "assessment_hash": "252a77439418dee100ad1049b3eb45b5588928002eb8479b50e28b9ea6e99194",
+      "inter_rater": {
+        "agreement": false,
+        "automatic_qualification_halted": true,
+        "events": [
+          {
+            "id": "CAL-e47bafce54c61de8",
+            "classification": "artifact_ambiguity",
+            "differences": [
+              "claimed_level"
+            ],
+            "adjudication_status": "OPEN",
+            "rationale": "Conflicting assessment records. Cause unresolved; not an automatic specification failure."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "assessor-disagreement-evidence",
+    "group": "CALIBRATION",
+    "expected": "halt and preserve divergence",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": null,
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "AWAITING_ADJUDICATION",
+      "assessment_hash": "e5b6448ffb7791b166cdd2ab318f943afb2deeb909b78d7f0bd4302d3f18808a",
+      "inter_rater": {
+        "agreement": false,
+        "automatic_qualification_halted": true,
+        "events": [
+          {
+            "id": "CAL-50d961d055d3a3c5",
+            "classification": "artifact_ambiguity",
+            "differences": [
+              "assessor-b:tier_vs_artifact",
+              "evidence_tier"
+            ],
+            "adjudication_status": "OPEN",
+            "rationale": "Conflicting assessment records. Cause unresolved; not an automatic specification failure."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "assessor-disagreement-invariant",
+    "group": "CALIBRATION",
+    "expected": "halt and preserve divergence",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": null,
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "AWAITING_ADJUDICATION",
+      "assessment_hash": "de71fb7c6a151ddb6e3c784952c062bd2f80a2ad2618fd9123289447548358f7",
+      "inter_rater": {
+        "agreement": false,
+        "automatic_qualification_halted": true,
+        "events": [
+          {
+            "id": "CAL-b64eecfb64fb0eda",
+            "classification": "artifact_ambiguity",
+            "differences": [
+              "assessor-b:invariant_findings_vs_dossier"
+            ],
+            "adjudication_status": "OPEN",
+            "rationale": "Conflicting assessment records. Cause unresolved; not an automatic specification failure."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "assessor-disagreement-epistemic",
+    "group": "CALIBRATION",
+    "expected": "halt and preserve divergence",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": null,
+      "decision": {
+        "status": "PROVISIONAL",
+        "epistemic_ceiling": "PROVISIONAL",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "AWAITING_ADJUDICATION",
+      "assessment_hash": "60e4836d34b329dff672748c095cf00eb5c5fc8add624b0619d19374eb866362",
+      "inter_rater": {
+        "agreement": false,
+        "automatic_qualification_halted": true,
+        "events": [
+          {
+            "id": "CAL-63da4e766b5d341c",
+            "classification": "artifact_ambiguity",
+            "differences": [
+              "assessor-b:invariant_findings_vs_dossier"
+            ],
+            "adjudication_status": "OPEN",
+            "rationale": "Conflicting assessment records. Cause unresolved; not an automatic specification failure."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "assessor-disagreement-hard-gate",
+    "group": "CALIBRATION",
+    "expected": "halt and preserve divergence",
+    "boundary_held": true,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": null,
+      "decision": {
+        "status": "REJECTED",
+        "epistemic_ceiling": "PARTIALLY_VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "BLOCKED",
+        "findings": [
+          "uaf"
+        ]
+      },
+      "derived_signature": "BLOCKED",
+      "assessment_hash": "4609e9e14b5d1d92ebca18054f75af168ad0ac332dd41734d736f14c117c2097",
+      "inter_rater": {
+        "agreement": false,
+        "automatic_qualification_halted": true,
+        "events": [
+          {
+            "id": "CAL-21f253e05e006ef6",
+            "classification": "artifact_ambiguity",
+            "differences": [
+              "assessor-b:hard_gates_vs_dossier",
+              "hard_gates"
+            ],
+            "adjudication_status": "OPEN",
+            "rationale": "Conflicting assessment records. Cause unresolved; not an automatic specification failure."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "contradictory-teardown-trace-with-pass-labels",
+    "group": "ORACLE",
+    "expected": "BLOCKED or rejection",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "77b80cbe6608d740e97afd66ea6875702407eb3957884d194b032d464a14457b",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "oracle-invalid-state-model",
+    "group": "ORACLE",
+    "expected": "reject missing frozen states/predicate",
+    "boundary_held": false,
+    "outcome": "ACCEPTED",
+    "value": {
+      "capability": "L3",
+      "decision": {
+        "status": "VERIFIED_WITHIN_SCOPE",
+        "epistemic_ceiling": "VERIFIED",
+        "scope": {
+          "competencies": [
+            "C047"
+          ],
+          "domains": [
+            "c_ffi"
+          ],
+          "task_classes": [
+            "callback_registration",
+            "concurrent_teardown"
+          ],
+          "environments": [
+            "x86_64",
+            "CONFIG_RUST=y",
+            "PREEMPT_RT=y"
+          ],
+          "exclusions": [
+            "arm64",
+            "dma",
+            "nmi_context"
+          ]
+        }
+      },
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "derived_signature": "L3-E4-C047-VERIFIED",
+      "assessment_hash": "a0f262e1de4bea8e00de9e857298bb37e9b5058d5bff77511932c5e4940b1ddb",
+      "inter_rater": {
+        "agreement": true,
+        "automatic_qualification_halted": false,
+        "events": []
+      }
+    }
+  },
+  {
+    "id": "report-purity-VERIFIED",
+    "group": "REPORT",
+    "boundary_held": true,
+    "outcome": "PRESENTED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    }
+  },
+  {
+    "id": "report-purity-PARTIALLY_VERIFIED",
+    "group": "REPORT",
+    "boundary_held": true,
+    "outcome": "PRESENTED",
+    "decision": {
+      "status": "PROVISIONAL",
+      "epistemic_ceiling": "PARTIALLY_VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    }
+  },
+  {
+    "id": "report-purity-PROVISIONAL",
+    "group": "REPORT",
+    "boundary_held": true,
+    "outcome": "PRESENTED",
+    "decision": {
+      "status": "PROVISIONAL",
+      "epistemic_ceiling": "PROVISIONAL",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    }
+  },
+  {
+    "id": "report-purity-OPEN",
+    "group": "REPORT",
+    "boundary_held": true,
+    "outcome": "PRESENTED",
+    "decision": {
+      "status": "PROVISIONAL",
+      "epistemic_ceiling": "OPEN",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    }
+  },
+  {
+    "id": "report-purity-BLOCKED",
+    "group": "REPORT",
+    "boundary_held": true,
+    "outcome": "PRESENTED",
+    "decision": {
+      "status": "REJECTED",
+      "epistemic_ceiling": "BLOCKED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    }
+  },
+  {
+    "id": "report-rehashed-contradictory-decision",
+    "group": "REPORT",
+    "boundary_held": false,
+    "expected": "reject self-contradictory qualification",
+    "outcome": "PRESENTED",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    }
+  }
+]

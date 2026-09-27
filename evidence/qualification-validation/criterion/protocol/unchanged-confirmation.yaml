@@ -1,0 +1,16 @@
+# Criterion protocol freeze confirmation — section 15 of the execution phase.
+# Verifies the frozen study protocol is byte-unchanged since phase 1 (frozen before any
+# data collection) and that the primary criterion has not been altered post hoc.
+phase: empirical-validation-execution
+protocol_file: evidence/qualification-validation/criterion/study-protocol.yaml
+confirmation:
+  recomputed_this_phase: true
+  primary_criterion_unchanged: true
+  primary_criterion_still_independent_of_rfl_qa_output: true   # acceptance ratio from upstream records, never an RFL-QA score
+  data_collection_started: false
+  post_hoc_change_occurred: false
+  note: >
+    Byte verification is recorded via manifests/hash-manifest-phase2.yaml, which hashes
+    study-protocol.yaml as collected evidence; phase-1 value is in the phase-1 hash manifest
+    and in manifests/freeze-verification.yaml context. Any future change requires a NEW
+    frozen protocol version BEFORE resuming collection (frozen rule), never an edit here.

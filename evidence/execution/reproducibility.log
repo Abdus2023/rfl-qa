@@ -1,0 +1,8 @@
+$ /usr/bin/python -m pytest -q tests/test_determinism.py
+STDOUT:
+.....                                                                    [100%]
+5 passed in 2.64s
+
+STDERR:
+
+EXIT_CODE: 0

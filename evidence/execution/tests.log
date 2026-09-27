@@ -1,0 +1,10 @@
+$ /usr/bin/python -m pytest -q --junitxml=/home/user/rfl-qa/evidence/execution/pytest.xml
+STDOUT:
+........................................................................ [ 60%]
+...............................................                          [100%]
+----- generated xml file: /home/user/rfl-qa/evidence/execution/pytest.xml ------
+119 passed in 4.86s
+
+STDERR:
+
+EXIT_CODE: 0

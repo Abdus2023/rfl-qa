@@ -1,0 +1,35 @@
+$ /home/user/rfl-qa/.venv/bin/python tools/validate.py --all
+STDOUT:
+PASS competency/_schema.yaml catalog schemas and references
+PASS /home/user/rfl-qa/calibration/cases/CAL-001.yaml calibration_case
+PASS /home/user/rfl-qa/calibration/cases/outcome-example.yaml outcome
+PASS /home/user/rfl-qa/dossiers/examples/001-pin-init.json dossier
+PASS /home/user/rfl-qa/dossiers/examples/002-rcu.json dossier
+PASS /home/user/rfl-qa/dossiers/examples/003-callback-teardown.json dossier
+PASS /home/user/rfl-qa/dossiers/template/dossier.yaml dossier
+PASS /home/user/rfl-qa/invariants/A-compiler/A01.yaml invariant
+PASS /home/user/rfl-qa/invariants/B-api/B01.yaml invariant
+PASS /home/user/rfl-qa/invariants/C-runtime/C01.yaml invariant
+PASS /home/user/rfl-qa/invariants/D-external/D01.yaml invariant
+PASS /home/user/rfl-qa/invariants/taxonomy.yaml taxonomy
+PASS /home/user/rfl-qa/labs/001-pin-init/expected-observations.yaml expected_observations
+PASS /home/user/rfl-qa/labs/001-pin-init/oracle.yaml oracle
+PASS /home/user/rfl-qa/labs/001-pin-init/task.yaml task
+PASS /home/user/rfl-qa/labs/002-rcu/expected-observations.yaml expected_observations
+PASS /home/user/rfl-qa/labs/002-rcu/oracle.yaml oracle
+PASS /home/user/rfl-qa/labs/002-rcu/task.yaml task
+PASS /home/user/rfl-qa/labs/003-callback-teardown/expected-observations.yaml expected_observations
+PASS /home/user/rfl-qa/labs/003-callback-teardown/oracle.yaml oracle
+PASS /home/user/rfl-qa/labs/003-callback-teardown/task.yaml task
+PASS /home/user/rfl-qa/oracles/context/oracle.yaml oracle
+PASS /home/user/rfl-qa/oracles/ffi/oracle.yaml oracle
+PASS /home/user/rfl-qa/oracles/teardown/oracle.yaml oracle
+PASS /home/user/rfl-qa/tests/fixtures/calibration/lab003_assessor_a.yaml assessment
+PASS /home/user/rfl-qa/tests/fixtures/calibration/lab003_assessor_b.yaml assessment
+PASS /home/user/rfl-qa/tests/fixtures/valid/001-pin-init.json dossier
+PASS /home/user/rfl-qa/tests/fixtures/valid/002-rcu.json dossier
+PASS /home/user/rfl-qa/tests/fixtures/valid/003-callback-teardown.json dossier
+
+STDERR:
+
+EXIT_CODE: 0

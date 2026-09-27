@@ -1,0 +1,30 @@
+# Artifact verification for current-source CI run 36304213414 at 6b426364.
+# Sources: GitHub Actions API artifact metadata (Observed) and a direct archive
+# download attempt (Failed with EOF). These are separate evidence classes.
+artifact:
+  id: 10925809245
+  name: aud-007-008-execution-evidence
+  size_in_bytes: 107829
+  created_at: '2026-09-27T07:49:54Z'
+  expired: false
+  archive_download_url: 'https://api.github.com/repos/Abdus2023/rfl-qa/actions/artifacts/10925809245/zip'
+evidence_path_confirmation:
+  expected_upload_path: evidence/aud-007-008/ci-execution/
+  expected_artifact_name: aud-007-008-execution-evidence
+  observed_artifact_name: aud-007-008-execution-evidence
+  path_took_effect: true   # OBSERVED via API metadata: the uploaded artifact name is the new one,
+                           # which only exists in the workflow version committed at 6b426364.
+retrieval:
+  attempted: true
+  attempts: 1
+  result: EOF   # Azure blob storage closed connection; zero bytes received
+  exit_code: 1
+  metadata_available: true
+  content_available: false
+  detailed_contents: UNCONFIRMED
+  artifact_sha256: null   # not computable: zero bytes retrieved; no content hash claimed
+claim_boundary: >
+  The artifact's existence, name, size, creation time, and non-expiry are OBSERVED API metadata.
+  The artifact's internal files were NOT independently retrieved or verified. No claim is made
+  about the artifact's internal contents, and the procedural gate's in-CI outputs inside the
+  archive remain UNCONFIRMED from this environment (viewable manually in the Actions UI).

@@ -1,0 +1,53 @@
+python: 3.11.2 (main, Apr  8 2026, 01:58:00) [GCC 12.2.0]
+executable: /home/user/rfl-qa/.venv/bin/python
+os: Linux-6.1.158+-x86_64-with-glibc2.36
+architecture: x86_64
+revision: 33e4d95f835ecfd42830087dcd2772bb6cc8c216
+content_matches_remote: e4f1611c245d5c001d29b5c4477dee088c3d7867
+pinned_dependencies:
+  attrs: 26.1.0
+  iniconfig: 2.3.0
+  jsonschema: 4.23.0
+  jsonschema-specifications: 2025.9.1
+  packaging: '26.3'
+  pluggy: 1.6.0
+  pytest: 8.3.5
+  PyYAML: 6.0.2
+  referencing: 0.37.0
+  rpds-py: 2026.6.3
+  typing_extensions: 4.16.0
+  rfc3339-validator: 0.1.4
+  six: 1.17.0
+installed_dependencies:
+  attrs: 26.1.0
+  iniconfig: 2.3.0
+  jsonschema: 4.23.0
+  jsonschema-specifications: 2025.9.1
+  packaging: '26.3'
+  pluggy: 1.6.0
+  pytest: 8.3.5
+  PyYAML: 6.0.2
+  referencing: 0.37.0
+  rpds-py: 2026.6.3
+  typing_extensions: 4.16.0
+  rfc3339-validator: 0.1.4
+  six: 1.17.0
+relevant_environment:
+  PYTHONHASHSEED: <unset>
+  PYTHONPATH: <unset>
+  PYTHONHOME: <unset>
+  PYTEST_ADDOPTS: <unset>
+  PYTEST_DISABLE_PLUGIN_AUTOLOAD: <unset>
+  LANG: <unset>
+  LC_ALL: <unset>
+  TZ: <unset>
+  VIRTUAL_ENV: <unset>
+locales:
+- C
+- C.utf8
+- POSIX
+secret_environment_policy: Only named test-related variables recorded; credentials
+  excluded.
+venv_bootstrap_tools:
+  pip: 23.0.1
+  setuptools: 66.1.1

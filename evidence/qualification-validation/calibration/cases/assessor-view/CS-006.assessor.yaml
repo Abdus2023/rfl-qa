@@ -1,0 +1,31 @@
+id: CS-006
+class: boundary
+competency_id: C034
+task: 'Assess near the L3/L4 boundary: guard and remove/grace/free ordering correct; the L4 audit section
+  reports "KCSAN clean over 10000 iterations, therefore ordering proven".
+
+  '
+evidence_package:
+- inline_fragment: 'candidate audit (synthetic): guard prevents reference escape; remove->grace->free
+    modeled;
+
+    "KCSAN reported no races in 10^4 iterations; memory ordering PROVEN."
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-RCU
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+scoring_contract: scoring_contract_common

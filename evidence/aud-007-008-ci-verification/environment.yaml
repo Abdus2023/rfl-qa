@@ -1,0 +1,17 @@
+# Environment for this verification cycle (locally EXECUTED facts).
+cycle: aud-007-008-ci-verification
+source_commit: 6b426364c594c1040f98f47ba7e8c49d2b2b2a91
+parent_commit: d3abe21f4c28b70932aba9f3054e1000537fd993
+python: 3.11.2
+os: Linux x86_64
+sandbox_note: >
+  The sandbox rehydrated at the start of this cycle (git objects for local-only commits
+  lost previously; working-tree files intact). The branch was re-aligned to the durable
+  remote tip 6b426364 via explicit fetch and mixed reset; the working tree was verified
+  clean against it. The sealed evidence package verified byte-intact at this commit
+  (seal.py --verify PASS: 80 evidence files + 98 source files; 183 prior evidence files preserved).
+dependencies: pinned per requirements.txt at the source commit (installed with --no-cache-dir
+  after a corrupt cached wheel for packaging==26.3 failed PyPI's index hash check; cold-cache
+  install succeeded and pip check reported no broken requirements).
+venv: .venv (recreated this cycle)
+network_use: GitHub Actions API and git remote operations only; no network access in production code.

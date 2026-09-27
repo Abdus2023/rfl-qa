@@ -1,0 +1,59 @@
+record_type: expected_observations
+oracle_ref: OR-CALLBACK
+expectations:
+- check_id: OR-CALLBACK-callback_after_free
+  expected_result: PASS
+  reason: callback_possible implies target alive
+- check_id: OR-CALLBACK-double_free
+  expected_result: PASS
+  reason: final free occurs once
+- check_id: OR-CALLBACK-uaf
+  expected_result: PASS
+  reason: no access follows free
+- check_id: OR-CALLBACK-data_race
+  expected_result: PASS
+  reason: concurrent accesses are synchronized
+- check_id: OR-CALLBACK-deadlock
+  expected_result: PASS
+  reason: lock ordering has no exercised cycle
+- check_id: OR-CALLBACK-prohibited_sleep
+  expected_result: PASS
+  reason: no sleep in prohibited context
+- check_id: OR-CALLBACK-ffi_lifetime
+  expected_result: PASS
+  reason: C pointer validity outlives each use
+- check_id: OR-CALLBACK-critical_external_assumption
+  expected_result: PASS
+  reason: critical C lifetime contract is evidenced
+- check_id: OR-CALLBACK-required_abi_break
+  expected_result: PASS
+  reason: required public ABI behavior is preserved; internal API stability not assumed
+- check_id: OR-CALLBACK-dma_ownership
+  expected_result: PASS
+  reason: DMA excluded; no DMA capability claimed or ownership transferred by this
+    task
+- check_id: OR-CALLBACK-schedule-1
+  expected_result: PASS
+  reason: Drain admission, callbacks, references and RCU readers before destroy/free.
+    free(object) => no live reference AND no callback possible AND no RCU reader AND
+    no registered owner
+- check_id: OR-CALLBACK-schedule-2
+  expected_result: PASS
+  reason: Drain admission, callbacks, references and RCU readers before destroy/free.
+    free(object) => no live reference AND no callback possible AND no RCU reader AND
+    no registered owner
+- check_id: OR-CALLBACK-schedule-3
+  expected_result: PASS
+  reason: Drain admission, callbacks, references and RCU readers before destroy/free.
+    free(object) => no live reference AND no callback possible AND no RCU reader AND
+    no registered owner
+- check_id: OR-CALLBACK-schedule-4
+  expected_result: PASS
+  reason: Drain admission, callbacks, references and RCU readers before destroy/free.
+    free(object) => no live reference AND no callback possible AND no RCU reader AND
+    no registered owner
+- check_id: OR-CALLBACK-schedule-5
+  expected_result: PASS
+  reason: Drain admission, callbacks, references and RCU readers before destroy/free.
+    free(object) => no live reference AND no callback possible AND no RCU reader AND
+    no registered owner

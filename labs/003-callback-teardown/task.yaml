@@ -1,0 +1,20 @@
+record_type: task
+id: LAB-003
+competency_id: C047
+oracle_ref: OR-CALLBACK
+candidate_task: Constructs a lifetime guard and a teardown state machine covering
+  unregister/callback/reference/free ordering.
+inputs:
+- 'C baseline scenario: publish target pointer, allow concurrent user, unregister
+  producer, then release storage. No implicit quiescence guarantee.'
+- 'Schedule: user reads target; remover unregisters and frees target; delayed user
+  accesses target.'
+- External contract is supplied only as synthetic audit evidence; candidate must state
+  the dependency.
+required_outputs:
+- Rust wrapper or design artifact with explicit safety preconditions
+- Behavior-linked evidence, scope and exclusions
+- Teardown state machine and adversarial traces
+- A/B/C/D findings with independent epistemic and strength fields
+measurement: Preserve two raw independent assessments and detect disagreement without
+  averaging.

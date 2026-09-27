@@ -1,0 +1,1814 @@
+{
+  "record_type": "dossier",
+  "schema_version": "1.1-alpha",
+  "qualification_id": "Q-2026-0001",
+  "timestamp": "2026-09-27T00:00:00Z",
+  "fixture_kind": "synthetic",
+  "competency_id": "C053",
+  "scope": {
+    "competencies": [
+      "C053"
+    ],
+    "domains": [
+      "initialization"
+    ],
+    "task_classes": [
+      "in_place_initialization",
+      "partial_init_teardown"
+    ],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "exclusions": [
+      "arm64",
+      "dma",
+      "nmi_context"
+    ]
+  },
+  "primary_evidence_ref": "ARTIFACT",
+  "evidence": [
+    {
+      "record_type": "evidence",
+      "id": "ARTIFACT",
+      "tier": "E4",
+      "artifact_ref": "fixture://001-pin-init/ARTIFACT",
+      "method": "manual_review",
+      "strength": "OBSERVATION",
+      "epistemic_status": "VERIFIED",
+      "required": true,
+      "establishes": "BOUNDED_OBSERVATION",
+      "statement": "No defect observed in the executed synthetic trace population.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": [],
+      "oracle_check_refs": [
+        "OR-PIN-callback_after_free",
+        "OR-PIN-double_free",
+        "OR-PIN-uaf",
+        "OR-PIN-data_race",
+        "OR-PIN-deadlock",
+        "OR-PIN-prohibited_sleep",
+        "OR-PIN-ffi_lifetime",
+        "OR-PIN-critical_external_assumption",
+        "OR-PIN-required_abi_break",
+        "OR-PIN-dma_ownership",
+        "OR-PIN-class-A",
+        "OR-PIN-class-B",
+        "OR-PIN-class-D"
+      ],
+      "invariant_refs": [
+        "B01"
+      ]
+    },
+    {
+      "record_type": "evidence",
+      "id": "TYPE",
+      "tier": "E4",
+      "artifact_ref": "fixture://001-pin-init/TYPE",
+      "method": "rustc",
+      "strength": "PROOF",
+      "epistemic_status": "VERIFIED",
+      "required": true,
+      "establishes": "ASSUMPTION_BOUND_PROOF",
+      "statement": "Borrow cannot escape the safe guard under the stated model assumptions.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1
+      },
+      "assumptions": [
+        "Sound compiler and safe API; unsafe implementation meets its contract."
+      ],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": [],
+      "oracle_check_refs": [],
+      "invariant_refs": [
+        "A01"
+      ]
+    },
+    {
+      "record_type": "evidence",
+      "id": "TEST",
+      "tier": "E4",
+      "artifact_ref": "fixture://001-pin-init/TEST",
+      "method": "kcsan",
+      "strength": "OBSERVATION",
+      "epistemic_status": "PARTIALLY_VERIFIED",
+      "required": true,
+      "establishes": "BOUNDED_OBSERVATION",
+      "statement": "No defect observed in the executed synthetic trace population.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": [],
+      "oracle_check_refs": [],
+      "invariant_refs": [
+        "C01"
+      ]
+    },
+    {
+      "record_type": "evidence",
+      "id": "COVERAGE",
+      "tier": "E4",
+      "artifact_ref": "fixture://001-pin-init/COVERAGE",
+      "method": "scheduler",
+      "strength": "COVERAGE",
+      "epistemic_status": "PARTIALLY_VERIFIED",
+      "required": true,
+      "establishes": "MEASURED_COVERAGE",
+      "statement": "1000000 generated interleavings represented; total state space unknown.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1000000
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": [],
+      "oracle_check_refs": [],
+      "invariant_refs": []
+    },
+    {
+      "record_type": "evidence",
+      "id": "NMI",
+      "tier": "E4",
+      "artifact_ref": "fixture://001-pin-init/NMI",
+      "method": "not_tested",
+      "strength": "ABSENCE_OF_EVIDENCE",
+      "epistemic_status": "OPEN",
+      "required": false,
+      "establishes": "NOT_TESTED",
+      "statement": "NMI context was not exercised.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 0
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": [],
+      "oracle_check_refs": [],
+      "invariant_refs": []
+    },
+    {
+      "record_type": "evidence",
+      "id": "EXT-001",
+      "tier": "E4",
+      "artifact_ref": "fixture://001-pin-init/EXT-001",
+      "method": "source_audit",
+      "strength": "OBSERVATION",
+      "epistemic_status": "VERIFIED",
+      "required": true,
+      "establishes": "BOUNDED_OBSERVATION",
+      "statement": "No defect observed in the executed synthetic trace population.",
+      "coverage": {
+        "population": "Synthetic lab schedules, not a kernel run",
+        "executed": 1
+      },
+      "assumptions": [],
+      "environments": [
+        "x86_64",
+        "CONFIG_RUST=y",
+        "PREEMPT_RT=y"
+      ],
+      "limitations": [
+        "Synthetic evidence; no actual kernel test executed."
+      ],
+      "detected_defects": [],
+      "oracle_check_refs": [
+        "OR-PIN-callback_after_free",
+        "OR-PIN-double_free",
+        "OR-PIN-uaf",
+        "OR-PIN-data_race",
+        "OR-PIN-deadlock",
+        "OR-PIN-prohibited_sleep",
+        "OR-PIN-ffi_lifetime",
+        "OR-PIN-critical_external_assumption",
+        "OR-PIN-required_abi_break",
+        "OR-PIN-dma_ownership",
+        "OR-PIN-class-A",
+        "OR-PIN-class-B",
+        "OR-PIN-class-D"
+      ],
+      "invariant_refs": [
+        "D01"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "record_type": "invariant",
+      "id": "A01",
+      "class": "A",
+      "description": "Compiler-enforced borrow lifetime within a sound safe interface.",
+      "required": true,
+      "critical": false,
+      "epistemic_status": "VERIFIED",
+      "evidence_refs": [
+        "TYPE"
+      ],
+      "external_evidence": []
+    },
+    {
+      "record_type": "invariant",
+      "id": "B01",
+      "class": "B",
+      "description": "Safe API prevents repeated initialization and reference escape; sound implementation remains a premise.",
+      "required": true,
+      "critical": false,
+      "epistemic_status": "VERIFIED",
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "external_evidence": []
+    },
+    {
+      "record_type": "invariant",
+      "id": "C01",
+      "class": "C",
+      "description": "Runtime drain/synchronization completes before final release; bounded tests observe this protocol.",
+      "required": true,
+      "critical": false,
+      "epistemic_status": "PARTIALLY_VERIFIED",
+      "evidence_refs": [
+        "TEST"
+      ],
+      "external_evidence": []
+    },
+    {
+      "record_type": "invariant",
+      "id": "D01",
+      "class": "D",
+      "description": "External C registration/allocator contract keeps the target alive until quiescence.",
+      "required": true,
+      "critical": true,
+      "epistemic_status": "VERIFIED",
+      "evidence_refs": [
+        "EXT-001"
+      ],
+      "external_evidence": [
+        {
+          "ref": "EXT-001",
+          "type": "source_audit",
+          "description": "Synthetic source audit of unregister/drain contract.",
+          "assessor": "assessor-a"
+        }
+      ]
+    }
+  ],
+  "hard_gates": {
+    "status": "PASS",
+    "findings": []
+  },
+  "oracle_results": [
+    {
+      "oracle_ref": "OR-PIN",
+      "checks": [
+        {
+          "check_id": "OR-PIN-callback_after_free",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-callback_after_free"
+        },
+        {
+          "check_id": "OR-PIN-double_free",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-double_free"
+        },
+        {
+          "check_id": "OR-PIN-uaf",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-uaf"
+        },
+        {
+          "check_id": "OR-PIN-data_race",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-data_race"
+        },
+        {
+          "check_id": "OR-PIN-deadlock",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-deadlock"
+        },
+        {
+          "check_id": "OR-PIN-prohibited_sleep",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-prohibited_sleep"
+        },
+        {
+          "check_id": "OR-PIN-ffi_lifetime",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-ffi_lifetime"
+        },
+        {
+          "check_id": "OR-PIN-critical_external_assumption",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-critical_external_assumption"
+        },
+        {
+          "check_id": "OR-PIN-required_abi_break",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-required_abi_break"
+        },
+        {
+          "check_id": "OR-PIN-dma_ownership",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-dma_ownership"
+        },
+        {
+          "check_id": "OR-PIN-class-A",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-class-A"
+        },
+        {
+          "check_id": "OR-PIN-class-B",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-class-B"
+        },
+        {
+          "check_id": "OR-PIN-class-D",
+          "result": "PASS",
+          "evidence_refs": [
+            "ARTIFACT",
+            "EXT-001"
+          ],
+          "provenance": "ASSERTED_RESULT",
+          "observation_ref": "OBS-OR-PIN-class-D"
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "record_type": "assessment",
+      "assessor_id": "assessor-a",
+      "dossier_ref": "Q-2026-0001",
+      "dossier_digest": "8a8009cee5e64a67ee6d81995ede38556c6c1be7837bcf98ac1a817b07818e70",
+      "independent": true,
+      "claimed_level": "L3",
+      "observations": [
+        {
+          "behavior_id": "CB-053-01",
+          "status": "DEMONSTRATED",
+          "evidence_refs": [
+            "ARTIFACT"
+          ]
+        },
+        {
+          "behavior_id": "CB-053-02",
+          "status": "DEMONSTRATED",
+          "evidence_refs": [
+            "ARTIFACT"
+          ]
+        },
+        {
+          "behavior_id": "CB-053-03",
+          "status": "DEMONSTRATED",
+          "evidence_refs": [
+            "ARTIFACT"
+          ]
+        }
+      ],
+      "evidence_tier": "E4",
+      "invariant_findings": [
+        {
+          "invariant_ref": "A01",
+          "class": "A",
+          "epistemic_status": "VERIFIED"
+        },
+        {
+          "invariant_ref": "B01",
+          "class": "B",
+          "epistemic_status": "VERIFIED"
+        },
+        {
+          "invariant_ref": "C01",
+          "class": "C",
+          "epistemic_status": "PARTIALLY_VERIFIED"
+        },
+        {
+          "invariant_ref": "D01",
+          "class": "D",
+          "epistemic_status": "VERIFIED"
+        }
+      ],
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "limitations": [
+        "Simulated independent record, not an independent human assessment."
+      ]
+    },
+    {
+      "record_type": "assessment",
+      "assessor_id": "assessor-b",
+      "dossier_ref": "Q-2026-0001",
+      "dossier_digest": "8a8009cee5e64a67ee6d81995ede38556c6c1be7837bcf98ac1a817b07818e70",
+      "independent": true,
+      "claimed_level": "L3",
+      "observations": [
+        {
+          "behavior_id": "CB-053-01",
+          "status": "DEMONSTRATED",
+          "evidence_refs": [
+            "ARTIFACT"
+          ]
+        },
+        {
+          "behavior_id": "CB-053-02",
+          "status": "DEMONSTRATED",
+          "evidence_refs": [
+            "ARTIFACT"
+          ]
+        },
+        {
+          "behavior_id": "CB-053-03",
+          "status": "DEMONSTRATED",
+          "evidence_refs": [
+            "ARTIFACT"
+          ]
+        }
+      ],
+      "evidence_tier": "E4",
+      "invariant_findings": [
+        {
+          "invariant_ref": "A01",
+          "class": "A",
+          "epistemic_status": "VERIFIED"
+        },
+        {
+          "invariant_ref": "B01",
+          "class": "B",
+          "epistemic_status": "VERIFIED"
+        },
+        {
+          "invariant_ref": "C01",
+          "class": "C",
+          "epistemic_status": "PARTIALLY_VERIFIED"
+        },
+        {
+          "invariant_ref": "D01",
+          "class": "D",
+          "epistemic_status": "VERIFIED"
+        }
+      ],
+      "hard_gates": {
+        "status": "PASS",
+        "findings": []
+      },
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "limitations": [
+        "Simulated independent record, not an independent human assessment."
+      ]
+    }
+  ],
+  "limitations": [
+    "Synthetic training fixture only; all E4 labels simulate artifacts, not actual upstream evidence."
+  ],
+  "oracle_observations": [
+    {
+      "id": "OBS-OR-PIN-callback_after_free",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-callback_after_free",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-double_free",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-double_free",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-uaf",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-uaf",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-data_race",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-data_race",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-deadlock",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-deadlock",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-prohibited_sleep",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-prohibited_sleep",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-ffi_lifetime",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-ffi_lifetime",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-critical_external_assumption",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-critical_external_assumption",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-required_abi_break",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-required_abi_break",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-dma_ownership",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-dma_ownership",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "trace",
+        "trace": [
+          {
+            "state": "CREATE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REGISTER",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 0,
+            "registered_owner": true
+          },
+          {
+            "state": "ACTIVE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "STOP",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": true
+          },
+          {
+            "state": "QUIESCE",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": true,
+            "rcu_readers": 1,
+            "registered_owner": false
+          },
+          {
+            "state": "CALLBACK_DRAIN",
+            "object_alive": true,
+            "live_references": 1,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "REFERENCE_DRAIN",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "DESTROY",
+            "object_alive": true,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          },
+          {
+            "state": "FREE",
+            "object_alive": false,
+            "live_references": 0,
+            "callback_possible": false,
+            "rcu_readers": 0,
+            "registered_owner": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-class-A",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-class-A",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "classification",
+        "invariant_ref": "A01",
+        "observed_class": "A"
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-class-B",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-class-B",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "classification",
+        "invariant_ref": "B01",
+        "observed_class": "B"
+      }
+    },
+    {
+      "id": "OBS-OR-PIN-class-D",
+      "oracle_ref": "OR-PIN",
+      "check_id": "OR-PIN-class-D",
+      "input_ref": "ARTIFACT",
+      "evidence_refs": [
+        "ARTIFACT",
+        "EXT-001"
+      ],
+      "executed": true,
+      "payload": {
+        "kind": "classification",
+        "invariant_ref": "D01",
+        "observed_class": "D"
+      }
+    }
+  ],
+  "source_bindings": {
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-000": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "assessment:assessor-a",
+      "location": {
+        "type": "line_range",
+        "start": 3,
+        "end": 3
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-001": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "assessment:assessor-b",
+      "location": {
+        "type": "line_range",
+        "start": 4,
+        "end": 4
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-002": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "claim",
+      "location": {
+        "type": "line_range",
+        "start": 5,
+        "end": 5
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-003": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "evidence:ARTIFACT",
+      "location": {
+        "type": "line_range",
+        "start": 6,
+        "end": 6
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-004": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "evidence:COVERAGE",
+      "location": {
+        "type": "line_range",
+        "start": 7,
+        "end": 7
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-005": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "evidence:EXT-001",
+      "location": {
+        "type": "line_range",
+        "start": 8,
+        "end": 8
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-006": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "evidence:NMI",
+      "location": {
+        "type": "line_range",
+        "start": 9,
+        "end": 9
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-007": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "evidence:TEST",
+      "location": {
+        "type": "line_range",
+        "start": 10,
+        "end": 10
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-008": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "evidence:TYPE",
+      "location": {
+        "type": "line_range",
+        "start": 11,
+        "end": 11
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-009": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "hard_gates",
+      "location": {
+        "type": "line_range",
+        "start": 12,
+        "end": 12
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-010": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "invariant:A01",
+      "location": {
+        "type": "line_range",
+        "start": 13,
+        "end": 13
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-011": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "invariant:B01",
+      "location": {
+        "type": "line_range",
+        "start": 14,
+        "end": 14
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-012": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "invariant:C01",
+      "location": {
+        "type": "line_range",
+        "start": 15,
+        "end": 15
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-013": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "invariant:D01",
+      "location": {
+        "type": "line_range",
+        "start": 16,
+        "end": 16
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-014": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-callback_after_free",
+      "location": {
+        "type": "line_range",
+        "start": 17,
+        "end": 17
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-015": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-class-A",
+      "location": {
+        "type": "line_range",
+        "start": 18,
+        "end": 18
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-016": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-class-B",
+      "location": {
+        "type": "line_range",
+        "start": 19,
+        "end": 19
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-017": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-class-D",
+      "location": {
+        "type": "line_range",
+        "start": 20,
+        "end": 20
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-018": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-critical_external_assumption",
+      "location": {
+        "type": "line_range",
+        "start": 21,
+        "end": 21
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-019": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-data_race",
+      "location": {
+        "type": "line_range",
+        "start": 22,
+        "end": 22
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-020": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-deadlock",
+      "location": {
+        "type": "line_range",
+        "start": 23,
+        "end": 23
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-021": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-dma_ownership",
+      "location": {
+        "type": "line_range",
+        "start": 24,
+        "end": 24
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-022": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-double_free",
+      "location": {
+        "type": "line_range",
+        "start": 25,
+        "end": 25
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-023": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-ffi_lifetime",
+      "location": {
+        "type": "line_range",
+        "start": 26,
+        "end": 26
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-024": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-prohibited_sleep",
+      "location": {
+        "type": "line_range",
+        "start": 27,
+        "end": 27
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-025": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-required_abi_break",
+      "location": {
+        "type": "line_range",
+        "start": 28,
+        "end": 28
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-026": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "oracle:OBS-OR-PIN-uaf",
+      "location": {
+        "type": "line_range",
+        "start": 29,
+        "end": 29
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    },
+    "BND-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa-027": {
+      "artifact_id": "ART-1fe003dc8549828d7ca7032da23052d0ada7f3340ea6dc38c244275b2cca2daa",
+      "subject": "scope",
+      "location": {
+        "type": "line_range",
+        "start": 30,
+        "end": 30
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "b566a73c70886d49f4b7eaf0311af1cccacb2d412dc670ec21bcd5726b79f4c7"
+    }
+  }
+}

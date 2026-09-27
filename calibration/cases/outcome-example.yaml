@@ -1,0 +1,23 @@
+record_type: outcome
+qualification_ref: Q-2026-0003
+fixture_kind: synthetic
+observation_window:
+  start: '2026-10-01'
+  end: '2027-10-01'
+artifacts:
+  patches_submitted: 14
+  patches_merged: 9
+  patches_revised: 5
+  patches_reverted: 0
+defect_events:
+  uaf: 0
+  data_race: 1
+  deadlock: 0
+  lifetime_regression: 0
+  abi_regression: 0
+maintainer_feedback:
+  safety_rewrite_required: 1
+  semantic_rewrite_required: 2
+confounders:
+- Synthetic future example, NOT actual observation.
+- Hardware access LIMITED; reviewer continuity HIGH; subsystem churn MEDIUM.

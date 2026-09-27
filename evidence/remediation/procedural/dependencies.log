@@ -1,0 +1,7 @@
+$ /home/user/rfl-qa/.venv/bin/python -m pip check
+STDOUT:
+No broken requirements found.
+
+STDERR:
+
+EXIT_CODE: 0

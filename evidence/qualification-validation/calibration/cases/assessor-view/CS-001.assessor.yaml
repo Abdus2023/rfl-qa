@@ -1,0 +1,38 @@
+id: CS-001
+class: positive
+competency_id: C053
+task: 'Assess the candidate artifact against C053 with the frozen rubric. The candidate claims L2.
+
+  '
+evidence_package:
+- inline_fragment: "// init.rs (excerpt, synthetic)\npub struct Dev { raw: *mut bindings::dev }\nimpl\
+    \ Dev {\n    pub fn init(raw: *mut bindings::dev) -> Result<Pin<Box<Self>>> {\n        let b = unsafe\
+    \ { Box::into_raw(Box::try_new(Self{raw})?) };\n        // field-wise init performed through pinned\
+    \ projection; no address taken of Self before pin\n        unsafe { (*b).setup_fields()?; }\n    \
+    \    Ok(unsafe { Pin::new_unchecked(Box::from_raw(b)) })\n    }\n}\n"
+- inline_fragment: '// borrow-check demonstration supplied by candidate (synthetic rustc output)
+
+    error[E0505]: cannot move out of `pinned` because it is borrowed
+
+    --> init.rs:14:9 | let r = &pinned.field; drop(pinned); | ^^^^^^^ move occurs
+
+    '
+applicable_invariants:
+- A01
+- B01
+- C01
+- D01
+applicable_oracles:
+- OR-PIN
+hard_gate_conditions:
+- callback_after_free
+- double_free
+- uaf
+- data_race
+- deadlock
+- prohibited_sleep
+- ffi_lifetime
+- critical_external_assumption
+- required_abi_break
+- dma_ownership
+scoring_contract: scoring_contract_common
