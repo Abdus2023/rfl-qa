@@ -1,0 +1,25 @@
+contract: aud-007-008-v1
+cases:
+- {id: C1, mutation: none, states: [SUPPORTED], derive: ALLOWED}
+- {id: C2, mutation: invert_bound_value, states: [CONTRADICTED], derive: REJECTED}
+- {id: C3, mutation: replace_source_bytes_stale_pin, states: [INVALID_BINDING, CONTRADICTED], derive: REJECTED}
+- {id: C4, mutation: wrong_digest, states: [INVALID_BINDING], derive: REJECTED}
+- {id: C5, mutation: wrong_selector, states: [INVALID_BINDING], derive: REJECTED}
+- {id: C6, mutation: missing_source, states: [UNVERIFIABLE], derive: REJECTED}
+- {id: C7, mutation: unbound_PASS, states: [SUPPORTED], derive: UNCHANGED}
+- {id: C8, mutation: unbound_VERIFIED, states: [SUPPORTED], derive: UNCHANGED}
+- {id: C9, mutation: unbound_calibration, states: [SUPPORTED], derive: UNCHANGED}
+- {id: C10, mutation: unbound_competency_identifier, states: [SUPPORTED], derive: UNCHANGED}
+- {id: C11, mutation: conflicting_authorized_sources, states: [CONTRADICTED], derive: REJECTED}
+- {id: C12, mutation: forged_PASS_with_unsafe_source, states: [CONTRADICTED], derive: REJECTED}
+- {id: C13, mutation: fabricated_hard_gate_neutralization, states: [CONTRADICTED], derive: REJECTED}
+- {id: C14, mutation: copy_between_dossiers, states: [INVALID_BINDING], derive: REJECTED}
+- {id: C15, mutation: schema_valid_fabricated_content, states: [CONTRADICTED], derive: REJECTED}
+metamorphic:
+- {id: M1, mutation: source_value_only, required_states: [CONTRADICTED, INVALID_BINDING]}
+- {id: M2, mutation: observation_only, required_states: [CONTRADICTED]}
+- {id: M3, mutation: unbound_prose_only, result: UNCHANGED}
+- {id: M4, mutation: delete_source, required_states: [UNVERIFIABLE]}
+- {id: M5, mutation: change_digest, required_states: [INVALID_BINDING]}
+- {id: M6, mutation: copy_dossier_identity, required_states: [INVALID_BINDING]}
+- {id: M7, mutation: change_scope, required_states: [INVALID_BINDING]}

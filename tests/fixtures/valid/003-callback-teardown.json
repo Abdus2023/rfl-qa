@@ -458,7 +458,7 @@
       "record_type": "assessment",
       "assessor_id": "assessor-a",
       "dossier_ref": "Q-2026-0003",
-      "dossier_digest": "4078857aac2f7bfc330ab74e967d82da425755d29f499e7a8fea885210f08681",
+      "dossier_digest": "b3339313657382e2cc9b55fa83103cf3a7a5f8e9fd940cad9d1d7aabc8660013",
       "independent": true,
       "claimed_level": "L3",
       "observations": [
@@ -522,7 +522,7 @@
       "record_type": "assessment",
       "assessor_id": "assessor-b",
       "dossier_ref": "Q-2026-0003",
-      "dossier_digest": "4078857aac2f7bfc330ab74e967d82da425755d29f499e7a8fea885210f08681",
+      "dossier_digest": "b3339313657382e2cc9b55fa83103cf3a7a5f8e9fd940cad9d1d7aabc8660013",
       "independent": true,
       "claimed_level": "L3",
       "observations": [
@@ -1902,5 +1902,337 @@
         ]
       }
     }
-  ]
+  ],
+  "source_bindings": {
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-000": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "assessment:assessor-a",
+      "location": {
+        "type": "line_range",
+        "start": 3,
+        "end": 3
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-001": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "assessment:assessor-b",
+      "location": {
+        "type": "line_range",
+        "start": 4,
+        "end": 4
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-002": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "claim",
+      "location": {
+        "type": "line_range",
+        "start": 5,
+        "end": 5
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-003": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "evidence:ARTIFACT",
+      "location": {
+        "type": "line_range",
+        "start": 6,
+        "end": 6
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-004": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "evidence:COVERAGE",
+      "location": {
+        "type": "line_range",
+        "start": 7,
+        "end": 7
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-005": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "evidence:EXT-001",
+      "location": {
+        "type": "line_range",
+        "start": 8,
+        "end": 8
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-006": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "evidence:NMI",
+      "location": {
+        "type": "line_range",
+        "start": 9,
+        "end": 9
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-007": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "evidence:TEST",
+      "location": {
+        "type": "line_range",
+        "start": 10,
+        "end": 10
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-008": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "evidence:TYPE",
+      "location": {
+        "type": "line_range",
+        "start": 11,
+        "end": 11
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-009": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "hard_gates",
+      "location": {
+        "type": "line_range",
+        "start": 12,
+        "end": 12
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-010": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "invariant:A01",
+      "location": {
+        "type": "line_range",
+        "start": 13,
+        "end": 13
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-011": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "invariant:B01",
+      "location": {
+        "type": "line_range",
+        "start": 14,
+        "end": 14
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-012": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "invariant:C01",
+      "location": {
+        "type": "line_range",
+        "start": 15,
+        "end": 15
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-013": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "invariant:D01",
+      "location": {
+        "type": "line_range",
+        "start": 16,
+        "end": 16
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-014": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-callback_after_free",
+      "location": {
+        "type": "line_range",
+        "start": 17,
+        "end": 17
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-015": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-critical_external_assumption",
+      "location": {
+        "type": "line_range",
+        "start": 18,
+        "end": 18
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-016": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-data_race",
+      "location": {
+        "type": "line_range",
+        "start": 19,
+        "end": 19
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-017": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-deadlock",
+      "location": {
+        "type": "line_range",
+        "start": 20,
+        "end": 20
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-018": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-dma_ownership",
+      "location": {
+        "type": "line_range",
+        "start": 21,
+        "end": 21
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-019": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-double_free",
+      "location": {
+        "type": "line_range",
+        "start": 22,
+        "end": 22
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-020": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-ffi_lifetime",
+      "location": {
+        "type": "line_range",
+        "start": 23,
+        "end": 23
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-021": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-prohibited_sleep",
+      "location": {
+        "type": "line_range",
+        "start": 24,
+        "end": 24
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-022": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-required_abi_break",
+      "location": {
+        "type": "line_range",
+        "start": 25,
+        "end": 25
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-023": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-schedule-1",
+      "location": {
+        "type": "line_range",
+        "start": 26,
+        "end": 26
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-024": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-schedule-2",
+      "location": {
+        "type": "line_range",
+        "start": 27,
+        "end": 27
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-025": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-schedule-3",
+      "location": {
+        "type": "line_range",
+        "start": 28,
+        "end": 28
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-026": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-schedule-4",
+      "location": {
+        "type": "line_range",
+        "start": 29,
+        "end": 29
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-027": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-schedule-5",
+      "location": {
+        "type": "line_range",
+        "start": 30,
+        "end": 30
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-028": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "oracle:OBS-OR-CALLBACK-uaf",
+      "location": {
+        "type": "line_range",
+        "start": 31,
+        "end": 31
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    },
+    "BND-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201-029": {
+      "artifact_id": "ART-668da523da5614befa41d96649f2448a3ccf9c08616a4affea7493cefe8c0201",
+      "subject": "scope",
+      "location": {
+        "type": "line_range",
+        "start": 32,
+        "end": 32
+      },
+      "rule_id": "rfl-json-fact-v1",
+      "artifact_digest": "dca290207303cf7dd185b14df7aa6cccafce68291155e7facd86db3b2dbe7422"
+    }
+  }
 }

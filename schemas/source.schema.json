@@ -1,0 +1,364 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rfl-qa.dev/schemas/source.schema.json",
+  "type": "object",
+  "properties": {
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "dossier_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]+\\.md$",
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "id",
+          "dossier_ref",
+          "digest",
+          "file"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 1024,
+      "uniqueItems": true
+    },
+    "authorizations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "dossier_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "subject": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "location": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "line_range"
+              },
+              "start": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100000
+              },
+              "end": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100000
+              }
+            },
+            "required": [
+              "type",
+              "start",
+              "end"
+            ],
+            "additionalProperties": false
+          },
+          "rule_id": {
+            "const": "rfl-json-fact-v1"
+          }
+        },
+        "required": [
+          "id",
+          "dossier_ref",
+          "artifact_id",
+          "subject",
+          "location",
+          "rule_id"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 1024,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "artifacts",
+    "authorizations"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "binding": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "artifact_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "line_range"
+            },
+            "start": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            }
+          },
+          "required": [
+            "type",
+            "start",
+            "end"
+          ],
+          "additionalProperties": false
+        },
+        "rule_id": {
+          "const": "rfl-json-fact-v1"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_digest",
+        "subject",
+        "location",
+        "rule_id"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "dossier_ref": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "content": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 2000000
+              }
+            },
+            "required": [
+              "id",
+              "dossier_ref",
+              "digest",
+              "content"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 1024,
+          "uniqueItems": true
+        },
+        "authorizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "dossier_ref": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "artifact_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "subject": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "location": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "line_range"
+                  },
+                  "start": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000
+                  },
+                  "end": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000
+                  }
+                },
+                "required": [
+                  "type",
+                  "start",
+                  "end"
+                ],
+                "additionalProperties": false
+              },
+              "rule_id": {
+                "const": "rfl-json-fact-v1"
+              }
+            },
+            "required": [
+              "id",
+              "dossier_ref",
+              "artifact_id",
+              "subject",
+              "location",
+              "rule_id"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 1024,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "artifacts",
+        "authorizations"
+      ],
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "PASS",
+            "BLOCKED"
+          ]
+        },
+        "bindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "binding_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "subject": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "states": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "SUPPORTED",
+                    "CONTRADICTED",
+                    "UNBOUND",
+                    "UNVERIFIABLE",
+                    "INVALID_BINDING"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 1024,
+                "uniqueItems": true
+              },
+              "binding_digest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "value_digest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "source_digest": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "binding_id",
+              "subject",
+              "states",
+              "binding_digest",
+              "value_digest",
+              "source_digest"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 1024,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "status",
+        "bindings"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

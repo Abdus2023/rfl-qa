@@ -702,7 +702,7 @@
       "type": "object",
       "properties": {
         "rules_version": {
-          "const": "1.1-alpha.2"
+          "const": "1.1-alpha.3"
         },
         "input_sha256": {
           "type": "string",
@@ -828,6 +828,9 @@
     },
     "derivation_input": {
       "$ref": "https://rfl-qa.dev/schemas/claim.schema.json"
+    },
+    "source_authentication": {
+      "$ref": "https://rfl-qa.dev/schemas/source.schema.json#/$defs/result"
     }
   },
   "required": [
@@ -850,7 +853,8 @@
     "provenance",
     "assessment_hash",
     "oracle_evaluations",
-    "derivation_input"
+    "derivation_input",
+    "source_authentication"
   ],
   "additionalProperties": false
 }

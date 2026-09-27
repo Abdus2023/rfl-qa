@@ -29,7 +29,7 @@ def main():
     status = subprocess.check_output(['git','status','--porcelain'], cwd=ROOT, text=True)
     sources = []
     for name in ['tools','schemas','competency','invariants','oracles','labs','dossiers',
-                 'assessors','calibration','tests','.github']:
+                 'assessors','calibration','tests','artifacts','.github']:
         sources.extend(p for p in (ROOT/name).rglob('*') if p.is_file() and
                        '__pycache__' not in p.parts and '.pytest_cache' not in p.parts)
     sources.extend(ROOT/name for name in ['SPEC.md','GOVERNANCE.md','CHANGELOG.md','requirements.txt','pytest.ini','.gitignore'])
@@ -58,6 +58,8 @@ def main():
         'derivation':['tests/test_no_e_to_l_inference.py','tests/test_epistemic_ceiling.py'],
         'invariant':['tests/test_type_d_requires_evidence.py','tests/test_strength_separation.py'],
         'oracle':['tests/test_oracle_gate.py'],
+        'aud_007_provenance':['tests/test_source_provenance.py'],
+        'aud_008_prose_authority':['tests/test_source_provenance.py','-k','negative_space_prose or no_inference'],
         'hard_gate':['tests/test_hard_gate_veto.py'],
         'calibration_automated':['tests/test_inter_rater.py','tests/test_outcomes.py'],
         'reproducibility':['tests/test_determinism.py'],
@@ -97,7 +99,7 @@ def main():
            '',f'Environment: `{e["environment"]}`',f'Python: `{platform.python_version()}`',
            'Dependencies: pinned in `requirements.txt`; installed versions recorded in `ledger.yaml`.','',
            '| Gate | Status | Executed evidence |','|---|---|---|']
-    for name in ['schema','derivation','invariant','oracle','hard_gate','calibration','reproducibility']:
+    for name in ['schema','derivation','invariant','oracle','hard_gate','aud_007_provenance','aud_008_prose_authority','calibration','reproducibility']:
         evidence = ('`calibration_automated.log`: synthetic comparison tests only; independent human run unavailable'
                     if name=='calibration' else f'`{name}.log`')
         lines.append(f'| {name.upper()} | **{gates[name]}** | {evidence} |')
@@ -109,7 +111,7 @@ def main():
                   '- **Human calibration BLOCKED:** only synthetic fixture assessors were available; no independent human measurements or adjudication were performed.',
                   (f'- **CI release gate BLOCKED:** current run {ci_run}; consult GitHub for the final job result.' if ci_run else '- **Remote CI NOT_RUN:** local commands have executed; workflow existence is not CI execution evidence.'),
                   '- **No real kernel runs:** no Rust/compiler/sanitizer/hardware execution or actual candidate artifact review. Structured fixture results are not kernel safety proof.',
-                  '- **Evidence authentication OPEN:** artifact/source-audit references and independence declarations are structurally checked, not authenticated.',
+                  '- **External authenticity OPEN:** scoped content integrity and authorization are checked against the explicit registry; producer honesty, source-audit adequacy and actual human independence remain unestablished.',
                   '- **Outcome attribution OPEN:** causal classifications require reviewed scope/confounder evidence; no downstream bug is automatically a false positive or validation.',
                   '- **Criterion validity OPEN:** no longitudinal upstream data. Hash consistency is not authenticity or empirical validity.',
                   '- See `GOVERNANCE.md` for recorded vocabulary/sample-code contradictions and their limited treatment.',

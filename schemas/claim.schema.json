@@ -435,6 +435,16 @@
       "minItems": 1,
       "maxItems": 1000,
       "uniqueItems": true
+    },
+    "source_bindings": {
+      "type": "object",
+      "maxProperties": 1024,
+      "propertyNames": {
+        "pattern": "^BND-[A-Za-z0-9_-]+$"
+      },
+      "additionalProperties": {
+        "$ref": "https://rfl-qa.dev/schemas/source.schema.json#/$defs/binding"
+      }
     }
   },
   "required": [
@@ -452,7 +462,8 @@
     "oracle_results",
     "assessments",
     "limitations",
-    "oracle_observations"
+    "oracle_observations",
+    "source_bindings"
   ],
   "additionalProperties": false,
   "$defs": {

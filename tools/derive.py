@@ -13,7 +13,7 @@ from tools.validate import validate_dossier
 
 from tools.oracle import supporting_refs, evaluate_oracles
 
-RULES_VERSION = '1.1-alpha.2'
+RULES_VERSION = '1.1-alpha.3'
 
 
 def capability(assessment, competency, evidence):
@@ -68,9 +68,12 @@ def comparison(dossier, capabilities):
     return sorted(differences)
 
 
-def derive(dossier, competency, invariant_catalog, oracle_catalog):
-    """No clock, network, random values or writes. Caller supplies the exact rule inputs."""
-    validate_dossier(dossier, ({competency['id']: competency}, invariant_catalog, oracle_catalog))
+def derive(dossier, competency, invariant_catalog, oracle_catalog, source_context=None):
+    """No clock, network, random values or writes. Optional authority snapshot is a trusted caller input; otherwise load the fixed repository registry."""
+    from tools import provenance
+    source_context = provenance.load_context() if source_context is None else source_context
+    validate_dossier(dossier, ({competency['id']: competency}, invariant_catalog, oracle_catalog), source_context)
+    authentication = provenance.enforce(dossier, source_context)
     d = deepcopy(dossier)
     evidence = index(d['evidence'])
     capabilities = [{'assessor_id': a['assessor_id'], 'capability': capability(a, competency, evidence)}
@@ -145,6 +148,7 @@ def derive(dossier, competency, invariant_catalog, oracle_catalog):
     output = {'record_type': 'qualification', 'schema_version': d['schema_version'],
               'qualification_id': d['qualification_id'], 'timestamp': d['timestamp'],
               'derivation_input': deepcopy(d), 'oracle_evaluations': evaluations,
+              'source_authentication': authentication,
               'scope': d['scope'], 'capability': supported, 'evidence': d['evidence'],
               'evidence_tier': tier, 'invariants': d['invariants'],
               'hard_gates': {'status': 'BLOCKED' if findings else 'PASS', 'findings': sorted(findings)},

@@ -21,3 +21,13 @@
 - AUD-009: qualification validation rederives from the retained input and rejects rehashed inconsistent output, without modifying records in report.py. AUD-010: standalone invariant validation enforces context-free evidence requirements. AUD-011: bound document size, depth and nodes, reject ambiguous float counts/non-JSON keys, and handle parser recursion/type errors.
 - Record hashes still bind all recorded facts (including explicit timestamps/limitations). Presentation whitespace/key order does not affect hashes. The required RCU absence-classification check now contributes OPEN evidence to the ceiling; its decision remains PROVISIONAL. New provenance fields/rules intentionally change hashes.
 - Preserve independent human calibration, artifact authenticity/relevance, substantive kernel lab evidence and criterion-validity boundaries as OPEN/NOT_RUN. A successful software test is not a release authorization.
+
+## Scoped-source remediation candidate — rules 1.1-alpha.3 (not released)
+
+- Reproduced the unchanged 564-test baseline and both frozen open counterexamples before implementation; preserved all prior audit/execution/remediation receipts.
+- Formalized machine-readable provenance, contradiction and negative-prose contracts before patching.
+- Added an independently controlled local source registry, exact canonical artifact identities, dossier-specific grants, one-line bounded JSON fact extraction, explicit contradiction/unbound/unverifiable/invalid-binding diagnostics, and fail-closed enforcement before qualification.
+- Added source/binding/value identities to qualification reports and hash inputs. No new epistemic status, capability level or evidence tier. Existing oracle evaluator and non-compensable gates remain authoritative.
+- Explicitly migrated controlled fixtures. Existing 564 test bodies are unchanged; their test-only run fixture issues authorized synthetic input snapshots to isolate the pre-existing rules. New adversarial tests freeze authority before mutation and never use that fixture.
+- Added named AUD-007/AUD-008 procedural software gates. CI writes new receipts to its own audit directory instead of overwriting previous execution evidence. The human release gate remains nonzero and BLOCKED.
+- Artifact content authorization is NOT real-world authenticity or measurement validity. Human calibration and kernel execution remain NOT_RUN; criterion validity NOT_ESTABLISHED. No release/tag authorized.

@@ -19,6 +19,7 @@ def report(record):
               ('Evidence tier', record['evidence_tier']), ('Evidence records', record['evidence']),
               ('Invariants', record['invariants']), ('Epistemic ceiling', record['decision']['epistemic_ceiling']),
               ('Oracle evaluations (derived)', record['oracle_evaluations']),
+              ('Source authentication (not real-world truth)', record['source_authentication']),
               ('Hard gates', record['hard_gates']), ('Assessors (raw records)', record['assessments']),
               ('Capabilities by assessor', record['capabilities_by_assessor']),
               ('Inter-rater result', record['inter_rater']), ('Decision', record['decision']),

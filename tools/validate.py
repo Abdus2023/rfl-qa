@@ -74,7 +74,7 @@ def check_oracle(oracle, invariants):
             f"{oracle['id']}: missing explicit hard-gate check coverage")
 
 
-def validate_dossier(dossier, catalog=None):
+def validate_dossier(dossier, catalog=None, source_context=None):
     validate_schema(dossier, 'claim')
     competencies, invariant_catalog, oracle_catalog = catalog or catalogs()
     competency = competencies[dossier['competency_id']]
@@ -194,15 +194,17 @@ def validate_dossier(dossier, catalog=None):
     for ref in used:
         require(set(scope['environments']) <= set(evidence[ref]['environments']),
                 f'{ref}: referenced evidence does not cover claimed environments')
+    from tools import provenance
+    provenance.enforce(dossier, provenance.load_context() if source_context is None else source_context)
     # Different assessors may record different findings; comparison, not repair, follows.
     return competency
 
 
-def validate_record(record, catalog=None):
+def validate_record(record, catalog=None, source_context=None):
     require(isinstance(record, dict), 'record must be an object')
     kind = record.get('record_type')
     if kind == 'dossier':
-        return validate_dossier(record, catalog)
+        return validate_dossier(record, catalog, source_context)
     if kind in ('evidence', 'invariant', 'oracle', 'qualification'):
         validate_schema(record, kind)
         if kind == 'invariant':
@@ -219,7 +221,7 @@ def validate_record(record, catalog=None):
             from tools.derive import derive
             c, i, o = catalog or catalogs()
             raw = record['derivation_input']
-            expected = derive(raw, c[raw['competency_id']], i, o)
+            expected = derive(raw, c[raw['competency_id']], i, o, source_context=source_context)
             require(record == expected, 'qualification disagrees with deterministic derivation')
         return
     definitions = {'assessment': 'claim', 'calibration_case': 'claim', 'outcome': 'claim',
