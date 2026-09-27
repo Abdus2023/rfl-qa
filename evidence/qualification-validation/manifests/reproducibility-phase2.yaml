@@ -1,0 +1,27 @@
+# Reproducibility record — section 23 of the execution phase.
+# Executed AFTER evidence preparation. Canonical derive/report pipelines rerun in multiple
+# independent processes; only permitted environmental dimensions varied; byte-for-byte
+# comparison against the sealed committed-source outputs.
+reproducibility:
+  process_count: 11                    # 11 derivation + 11 report executions (paired)
+  comparison_count: 22                 # every qualification.json and report.md vs sealed
+  mismatch_count: 0
+  environment_variants:
+    - {processes: 1-9, PYTHONHASHSEED: '0,1,2 (one per dossier triplet)', TZ: UTC, LC_ALL: C}
+    - {process: 10, PYTHONHASHSEED: '7', TZ: Asia/Tunis, LC_ALL: C.UTF-8}
+    - {process: 11, PYTHONHASHSEED: random, TZ: Asia/Tunis, LC_ALL: C.UTF-8}
+  dossiers: [001-pin-init, 002-rcu, 003-callback-teardown]
+  mapping: {1: 001-pin-init, 2: 002-rcu, 3: 003-callback-teardown, 4: 001-pin-init, 5: 002-rcu, 6: 003-callback-teardown, 7: 001-pin-init, 8: 002-rcu, 9: 003-callback-teardown, 10: 002-rcu, 11: 003-callback-teardown}
+  reference_outputs: evidence/aud-007-008/procedural/  # sealed committed-source canonical outputs
+  output_hashes: recorded in reproducibility-phase2-output-hashes.txt (fresh-process outputs; all byte-identical to sealed, hence also to each other)
+  comparison_method: full byte equality (Python bytes comparison in-process)
+  harness_integrity_note: >
+    This phase's harness used an explicit process->dossier mapping with a pre-declared expected
+    process count (11) checked before comparison. The previous phase's transient index-arithmetic
+    harness error (which flagged a false mismatch by referencing nonexistent files) was preserved
+    in the phase-1 commands.log together with the corrected invocation, per the frozen rule that
+    failed and corrected harness invocations are both retained and classified separately.
+  result: PASS — deterministic derivation unchanged by any evidence preparation; 0 mismatches.
+  boundary: >
+    11/11 byte-identical deterministic runs demonstrate internal consistency of derivation ONLY.
+    They are not empirical validity, not calibration reliability, and not criterion validity.

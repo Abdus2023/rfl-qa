@@ -1,0 +1,14 @@
+# Environment — empirical validation execution phase (locally EXECUTED facts).
+phase: empirical-validation-execution
+precheck_source_commit: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+publication_commit: recorded in phase-report.md section 12 (post-push note)
+python: 3.11.2
+os: Linux x86_64 (running kernel 6.1.158+, no kernel build tree)
+sandbox_note: >
+  Sandbox rehydrated again at phase start (HEAD reset to orphan root; working-tree files
+  intact). Branch re-aligned to the durable remote tip bb3970d via explicit fetch and mixed
+  reset; tree verified clean. Freeze verification PASS (manifests/freeze-verification.yaml):
+  instrument directory manifest digest unchanged; phase-1 receipts unchanged; sealed
+  aud-007-008 package verify PASS.
+toolchain_presence: see kernel/lab-001/execution.yaml environment_probe (only make present; no Rust/LLVM/kernel toolchain)
+network_use: git remote operations and GitHub Actions API/CLI only; no package installation attempted for labs; no network access in production code.

@@ -1,0 +1,34 @@
+record_type: phase_execution_precheck
+phase: empirical-validation-execution
+verdict: PASS
+failures: []
+checks:
+  git_facts:
+    head: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+    branch: arena/01a0dfcc-rfl-qa
+    remote_url: https://github.com/Abdus2023/rfl-qa.git
+    remote_tip: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+    parent_of_head: 63fc12edc57d97c7d21bd162c2b0cec7e196decd
+    working_tree_status: ?? evidence/qualification-validation/manifests/
+    tag_count: 0
+    baseline_expected: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+    baseline_matches_remote: true
+    head_matches_remote: true
+  instrument_freeze:
+    instrument_commit_recorded: 459ec8b9836339537d2cbd995e73af0a330d69ff
+    instrument_commit_current_head: bb3970d5dfda6175e01058505ca3bbbebb9d8d10
+    instrument_commit_unchanged: false
+    file_count_recorded: 32
+    file_count_recomputed: 32
+    recorded_directory_manifest_digest: 8fbf31d89f7e8391ee5c8402091c8e128a8f3402818e5e3f5f846dcb55dcf930
+    recomputed_directory_manifest_digest: 8fbf31d89f7e8391ee5c8402091c8e128a8f3402818e5e3f5f846dcb55dcf930
+    directory_manifest_digest_unchanged: true
+    drift: []
+  phase1_receipts:
+    phase1_receipt_files: 14
+    phase1_receipt_drift: []
+    phase1_receipts_unchanged: true
+  sealed_prior_evidence:
+    exit_code: 0
+    stdout_tail: 'PASS: 80 evidence files and 98 source files sealed; all 183 old evidence files preserved.
+      CI remains BLOCKED.'

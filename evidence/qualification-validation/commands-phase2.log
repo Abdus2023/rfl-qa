@@ -1,0 +1,38 @@
+# commands-phase2.log — empirical validation execution phase command receipt.
+# Commands actually executed this cycle in /home/user/rfl-qa, with observed outcomes.
+# Phase-1 commands.log and all sealed command records remain untouched (append-only package).
+
+git fetch origin refs/heads/arena/01a0dfcc-rfl-qa:refs/remotes/origin/arena/01a0dfcc-rfl-qa
+  -> exit 0
+git ls-remote origin refs/heads/arena/01a0dfcc-rfl-qa
+  -> bb3970d5dfda6175e01058505ca3bbbebb9d8d10 (frozen baseline intact; matches required precheck)
+git reset bb3970d5dfda6175e01058505ca3bbbebb9d8d10 (mixed; no file replacement, no force)
+  -> exit 0; git status --short: clean; tags: 0
+python3 -m venv .venv && .venv/bin/pip install --no-cache-dir -q -r requirements.txt && .venv/bin/pip check
+  -> exit 0; "No broken requirements found"
+.venv/bin/python evidence/aud-007-008/seal.py --verify
+  -> exit 0; "PASS: 80 evidence files and 98 source files sealed; all 183 old evidence files preserved. CI remains BLOCKED."
+.venv/bin/python evidence/qualification-validation/manifests/verify_precheck.py --write
+  -> exit 0; verdict PASS; instrument_digest_unchanged=true; phase1_receipts_unchanged=true; wrote manifests/freeze-verification.yaml
+command -v rustc|cargo|bindgen|clang|llvm-config|make|flex|bison|pahole|bpftool|qemu-system-x86_64 (environment probe)
+  -> only make found (/usr/bin/make); all others NOT_FOUND; /lib/modules/$(uname -r)/build absent
+  -> labs 001/002/003: RESOURCE_MISSING -> NOT_RUN (no install attempted)
+( env PYTHONHASHSEED=$s TZ=$tz LC_ALL=$lc tools/derive.py dossiers/examples/$d.json ; tools/report.py ) x 11 processes
+  -> exit 0 for all; PROCESSES=11 (expected 11) EXEC_FAIL=0
+python comparison driver over explicit mapping {1..11 -> dossier}
+  -> exit 0; COMPARISONS=22 MISMATCH_PROCESSES=0
+.venv/bin/python evidence/qualification-validation/calibration/cases/make_assessor_views.py
+  -> first invocation exit 1 (script-internal path depth bug: parents[1] vs parents[2]; FileNotFoundError).
+     PRESERVED HERE per the no-erasure rule; the defect was in the receipt-generation harness, not in
+     any frozen instrument, case, or derivation output.
+  -> after single-line path fix (recorded in the script's edit history) exit 0; views=16; problems=[];
+     frozen_source_unmodified=true (digest round-trip eaa73255e59336131f7eb0a5b63a3de4d5aba3a4f75520ed2c7da802a19e12ff)
+grep 'expected_boundary' assessor-view/CS-013.assessor.yaml
+  -> 0 matches (no blind-field leakage)
+cp /tmp/emp-repro/output-hashes.txt manifests/reproducibility-phase2-output-hashes.txt
+  -> exit 0; 11 hash lines
+git add/commit (structured: calibration evidence, kernel evidence, criterion evidence, manifests+report)
+git push origin arena/01a0dfcc-rfl-qa
+  -> exit 0 (publication SHA in phase-report.md section 12)
+gh run watch <run-id at publication commit> ; gh run view ; artifact metadata query ; artifact+log download attempts
+  -> results recorded in manifests/ci-observation-phase2.yaml (committed separately after observation)
