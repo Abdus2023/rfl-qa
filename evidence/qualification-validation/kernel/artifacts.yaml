@@ -1,0 +1,16 @@
+# Laboratory artifact manifest — STATUS: empty (no execution artifacts collected).
+# No kernel build, runtime, or sanitizer artifact exists for this phase. This manifest defines
+# the required future entry shape so that artifacts can only be recorded with full binding.
+artifacts: []
+required_entry_shape:
+  lab_id: required
+  artifact_kind: required        # build_log | runtime_log | sanitizer_log | kernel_image | trace
+  sha256: required
+  bytes: required
+  created_at: required
+  produced_by_command_digest: required
+  environment_digest: required
+  notes: optional
+policy:
+  - No artifact may be synthesized to fill this manifest.
+  - Artifact presence is a precondition for any kernel-execution claim; its absence keeps kernel execution NOT_RUN.

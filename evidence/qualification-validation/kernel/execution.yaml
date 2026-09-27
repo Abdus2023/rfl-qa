@@ -1,0 +1,117 @@
+# Kernel laboratory execution record — STATUS: NOT_RUN (no kernel execution performed or claimed).
+# Labs, environments, and commands below are derived from the FROZEN laboratory specifications at
+# instrument commit 459ec8b9836339537d2cbd995e73af0a330d69ff (labs/*/task.yaml, labs/*/oracle.yaml,
+# labs/*/expected-observations.yaml, competency scope constraints).
+kernel_execution:
+  - lab_id: 001-pin-init
+    competency_id: C053
+    oracle_ref: OR-PIN
+    frozen_environment_requirements:
+      architecture: x86_64
+      config: ['CONFIG_RUST=y', 'PREEMPT_RT=y']
+      exclusions: [arm64, dma, nmi_context]
+    required_candidate_outputs_from_lab_spec:
+      - Rust wrapper or design artifact with explicit safety preconditions
+      - Behavior-linked evidence, scope and exclusions
+      - Teardown state machine and adversarial traces
+      - A/B/C/D findings with independent epistemic and strength fields
+    planned_execution_stages:
+      compile:  {status: NOT_RUN, epistemic_class: OBSERVATION, note: compiler acceptance is not wrapper soundness (class A != class C)}
+      runtime:  {status: NOT_RUN, epistemic_class: OBSERVATION, note: bounded schedules only}
+      sanitizer:
+        status: NOT_RUN
+        epistemic_class: OBSERVATION
+        note: >
+          Any future sanitizer/KCSAN result is an observation over a population of executions with
+          coverage limits. 'KCSAN PASS' must never be reported as 'NO RACE PROVEN'; Miri success is
+          never 'ALL POSSIBLE EXECUTIONS SAFE'; a test suite PASS is never 'BUG-FREE'.
+      formal_proof: {status: NOT_RUN, epistemic_class: PROOF, note: no formal proof exists or is claimed for these labs}
+    kernel_version: null
+    compiler_version: null
+    rust_version: null
+    config_digest: null
+    config: null
+    build_result: NOT_RUN
+    runtime_result: NOT_RUN
+    sanitizer_result: NOT_RUN
+    logs: none_collected
+    artifacts: none_collected
+    limitations:
+      - No kernel laboratory environment exists in this execution environment; none was provisioned.
+      - Frozen scope is x86_64/PREEMPT_RT only; results could never be extrapolated to ARM64/DMA/NMI.
+  - lab_id: 002-rcu
+    competency_id: C034
+    oracle_ref: OR-RCU
+    frozen_environment_requirements:
+      architecture: x86_64
+      config: ['CONFIG_RUST=y', 'PREEMPT_RT=y']
+      exclusions: [arm64, dma, nmi_context]
+    planned_execution_stages:
+      compile:      {status: NOT_RUN, epistemic_class: OBSERVATION}
+      runtime:      {status: NOT_RUN, epistemic_class: OBSERVATION}
+      sanitizer:    {status: NOT_RUN, epistemic_class: OBSERVATION, note: KCSAN results = OBSERVATION + COVERAGE, never PROOF}
+      formal_proof: {status: NOT_RUN, epistemic_class: PROOF}
+    kernel_version: null
+    compiler_version: null
+    rust_version: null
+    config_digest: null
+    config: null
+    build_result: NOT_RUN
+    runtime_result: NOT_RUN
+    sanitizer_result: NOT_RUN
+    logs: none_collected
+    artifacts: none_collected
+    limitations: ['No kernel laboratory environment; none provisioned.', 'Frozen x86_64/PREEMPT_RT scope only.']
+  - lab_id: 003-callback-teardown
+    competency_id: C047
+    oracle_ref: OR-CALLBACK
+    frozen_environment_requirements:
+      architecture: x86_64
+      config: ['CONFIG_RUST=y', 'PREEMPT_RT=y']
+      exclusions: [arm64, dma, nmi_context]
+    planned_execution_stages:
+      compile:      {status: NOT_RUN, epistemic_class: OBSERVATION}
+      runtime:      {status: NOT_RUN, epistemic_class: OBSERVATION, note: five declared interleavings are bounded schedules, not universal coverage}
+      sanitizer:    {status: NOT_RUN, epistemic_class: OBSERVATION}
+      formal_proof: {status: NOT_RUN, epistemic_class: PROOF}
+    kernel_version: null
+    compiler_version: null
+    rust_version: null
+    config_digest: null
+    config: null
+    build_result: NOT_RUN
+    runtime_result: NOT_RUN
+    sanitizer_result: NOT_RUN
+    logs: none_collected
+    artifacts: none_collected
+    limitations: ['No kernel laboratory environment; none provisioned.', 'Frozen x86_64/PREEMPT_RT scope only.']
+
+evidence_binding_schema:   # every future execution result MUST bind these identities (frozen requirement)
+  command: required
+  command_digest: required
+  environment_digest: required
+  input_digest: required
+  output_digest: required
+  artifact_digest: required
+  result: required
+  rule: >
+    Assessor-entered PASS strings are never sufficient execution evidence; each stage result must
+    bind source, environment, command, configuration, artifacts, and result identities with digests.
+
+negative_fixture_plan:   # oracle-sensitivity checks (frozen section 14 of the phase protocol)
+  purpose: verify oracle sensitivity with known-failure fixtures before any positive claims are relied upon
+  planned_fixtures:
+    - {kind: intentional_uaf, lab: 001-pin-init, expected_oracle: OR-PIN-uaf BLOCKED, status: NOT_RUN}
+    - {kind: intentional_data_race, lab: 002-rcu, expected_oracle: OR-RCU-data_race BLOCKED, status: NOT_RUN}
+    - {kind: intentional_callback_after_free, lab: 003-callback-teardown, expected_oracle: OR-CALLBACK-callback_after_free BLOCKED, status: NOT_RUN}
+    - {kind: intentional_prohibited_sleep, lab: 003-callback-teardown, expected_oracle: OR-CALLBACK-prohibited_sleep BLOCKED, status: NOT_RUN}
+    - {kind: intentional_lifetime_violation, lab: 001-pin-init, expected_oracle: OR-PIN-ffi_lifetime BLOCKED, status: NOT_RUN}
+  recording_rule: >
+    Where the experimental design supports it, record true_positive / false_negative per fixture.
+    Detector sensitivity must never be generalized from a single synthetic case.
+  status: NOT_RUN
+
+global_limitations:
+  - Synthetic fixtures and dossiers are NOT equivalent to real kernel execution and were never counted as such.
+  - No kernel, compiler, or sanitizer execution occurred in this phase; every execution field is NOT_RUN.
+  - 'PASS' states recorded anywhere in the frozen alpha fixtures are synthetic oracle expectations over supplied evidence, not hardware observations.
