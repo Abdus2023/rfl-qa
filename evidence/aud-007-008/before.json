@@ -1,0 +1,70 @@
+[
+  {
+    "input": "contradictory-teardown-trace-with-pass-labels",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    },
+    "attack_statement": "Counterexample: FREE(target) while callback_possible=true and live_reference=true. Delayed callback then dereferences freed target."
+  },
+  {
+    "input": "type-d-unrelated_audit",
+    "decision": {
+      "status": "VERIFIED_WITHIN_SCOPE",
+      "epistemic_ceiling": "VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ]
+      }
+    },
+    "hard_gates": {
+      "status": "PASS",
+      "findings": []
+    },
+    "attack_statement": "No defect observed in the executed synthetic trace population."
+  }
+]

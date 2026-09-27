@@ -1,0 +1,8 @@
+$ /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_source_provenance.py -k 'negative_space_prose or no_inference'
+STDOUT:
+...............                                                          [100%]
+15 passed, 74 deselected in 3.78s
+
+STDERR:
+
+EXIT_CODE: 0

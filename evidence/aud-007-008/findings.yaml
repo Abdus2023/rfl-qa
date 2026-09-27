@@ -1,0 +1,44 @@
+naming: Mission names retained here; prior audit associated prose with AUD-007 and
+  combined oracle/contradiction with AUD-008. Prior artifacts unchanged.
+findings:
+- id: AUD-007
+  scope: Contradictory observation versus authorized exact source slice
+  disposition: FIXED_LOCALLY_CI_PENDING
+  verified_fix_claim: false
+  pre_fix: 'before.json: both old attacks accepted VERIFIED_WITHIN_SCOPE before patching'
+  correction: Independent registry grants, canonical artifact identity, exact bounded
+    extraction, all-source conflict closure, fail-closed qualification
+  regressions: 89 dedicated tests; C1-C15 and M1-M7; 653 total tests passed
+  replay: 'replay-results.json: both original attacks rejected with explicit CONTRADICTED;
+    paired controls pass'
+  determinism: 16 valid CLI processes + 16 contradiction processes byte-identical
+    per population
+  ci: BLOCKED / NOT_RUN for current source; GitHub workflows permission prevents publication
+  limitations:
+  - Content integrity/authorization is not an honest producer or real-world observation.
+  - Only declared single-line structured capsules are admissible; arbitrary prose
+    has no inferred semantics.
+  - Registry/code administration is a trusted deployment boundary, not an untrusted
+    dossier input.
+  - Human calibration and kernel execution NOT_RUN; criterion validity NOT_ESTABLISHED.
+- id: AUD-008
+  scope: Unbound prose and unauthorized evidence-source authority
+  disposition: FIXED_LOCALLY_CI_PENDING
+  verified_fix_claim: false
+  pre_fix: 'before.json: both old attacks accepted VERIFIED_WITHIN_SCOPE before patching'
+  correction: Independent registry grants, canonical artifact identity, exact bounded
+    extraction, all-source conflict closure, fail-closed qualification
+  regressions: 89 dedicated tests; C1-C15 and M1-M7; 653 total tests passed
+  replay: 'replay-results.json: both original attacks rejected with explicit CONTRADICTED;
+    paired controls pass'
+  determinism: 16 valid CLI processes + 16 contradiction processes byte-identical
+    per population
+  ci: BLOCKED / NOT_RUN for current source; GitHub workflows permission prevents publication
+  limitations:
+  - Content integrity/authorization is not an honest producer or real-world observation.
+  - Only declared single-line structured capsules are admissible; arbitrary prose
+    has no inferred semantics.
+  - Registry/code administration is a trusted deployment boundary, not an untrusted
+    dossier input.
+  - Human calibration and kernel execution NOT_RUN; criterion validity NOT_ESTABLISHED.
+release: BLOCKED

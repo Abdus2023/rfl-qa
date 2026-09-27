@@ -1,0 +1,291 @@
+{
+  "cases": [
+    {
+      "id": "C1",
+      "expected": {
+        "id": "C1",
+        "mutation": "none",
+        "states": [
+          "SUPPORTED"
+        ],
+        "derive": "ALLOWED"
+      },
+      "states": [
+        "SUPPORTED"
+      ],
+      "outcome": "VERIFIED_WITHIN_SCOPE",
+      "result": "PASS"
+    },
+    {
+      "id": "C2",
+      "expected": {
+        "id": "C2",
+        "mutation": "invert_bound_value",
+        "states": [
+          "CONTRADICTED"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "CONTRADICTED",
+        "SUPPORTED"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C3",
+      "expected": {
+        "id": "C3",
+        "mutation": "replace_source_bytes_stale_pin",
+        "states": [
+          "INVALID_BINDING",
+          "CONTRADICTED"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "CONTRADICTED",
+        "INVALID_BINDING"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C4",
+      "expected": {
+        "id": "C4",
+        "mutation": "wrong_digest",
+        "states": [
+          "INVALID_BINDING"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "INVALID_BINDING",
+        "SUPPORTED"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C5",
+      "expected": {
+        "id": "C5",
+        "mutation": "wrong_selector",
+        "states": [
+          "INVALID_BINDING"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "INVALID_BINDING",
+        "SUPPORTED"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C6",
+      "expected": {
+        "id": "C6",
+        "mutation": "missing_source",
+        "states": [
+          "UNVERIFIABLE"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "UNVERIFIABLE"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C7",
+      "expected": {
+        "id": "C7",
+        "mutation": "unbound_PASS",
+        "states": [
+          "SUPPORTED"
+        ],
+        "derive": "UNCHANGED"
+      },
+      "states": [
+        "SUPPORTED"
+      ],
+      "outcome": "VERIFIED_WITHIN_SCOPE",
+      "result": "PASS"
+    },
+    {
+      "id": "C8",
+      "expected": {
+        "id": "C8",
+        "mutation": "unbound_VERIFIED",
+        "states": [
+          "SUPPORTED"
+        ],
+        "derive": "UNCHANGED"
+      },
+      "states": [
+        "SUPPORTED"
+      ],
+      "outcome": "VERIFIED_WITHIN_SCOPE",
+      "result": "PASS"
+    },
+    {
+      "id": "C9",
+      "expected": {
+        "id": "C9",
+        "mutation": "unbound_calibration",
+        "states": [
+          "SUPPORTED"
+        ],
+        "derive": "UNCHANGED"
+      },
+      "states": [
+        "SUPPORTED"
+      ],
+      "outcome": "VERIFIED_WITHIN_SCOPE",
+      "result": "PASS"
+    },
+    {
+      "id": "C10",
+      "expected": {
+        "id": "C10",
+        "mutation": "unbound_competency_identifier",
+        "states": [
+          "SUPPORTED"
+        ],
+        "derive": "UNCHANGED"
+      },
+      "states": [
+        "SUPPORTED"
+      ],
+      "outcome": "VERIFIED_WITHIN_SCOPE",
+      "result": "PASS"
+    },
+    {
+      "id": "C11",
+      "expected": {
+        "id": "C11",
+        "mutation": "conflicting_authorized_sources",
+        "states": [
+          "CONTRADICTED"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "CONTRADICTED",
+        "SUPPORTED"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C12",
+      "expected": {
+        "id": "C12",
+        "mutation": "forged_PASS_with_unsafe_source",
+        "states": [
+          "CONTRADICTED"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "CONTRADICTED",
+        "SUPPORTED"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C13",
+      "expected": {
+        "id": "C13",
+        "mutation": "fabricated_hard_gate_neutralization",
+        "states": [
+          "CONTRADICTED"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "CONTRADICTED",
+        "SUPPORTED"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C14",
+      "expected": {
+        "id": "C14",
+        "mutation": "copy_between_dossiers",
+        "states": [
+          "INVALID_BINDING"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "CONTRADICTED",
+        "INVALID_BINDING",
+        "UNBOUND"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    },
+    {
+      "id": "C15",
+      "expected": {
+        "id": "C15",
+        "mutation": "schema_valid_fabricated_content",
+        "states": [
+          "CONTRADICTED"
+        ],
+        "derive": "REJECTED"
+      },
+      "states": [
+        "CONTRADICTED",
+        "SUPPORTED"
+      ],
+      "outcome": "REJECTED",
+      "result": "PASS"
+    }
+  ],
+  "original_attacks": [
+    {
+      "input": "contradictory-teardown-trace-with-pass-labels",
+      "control": "VERIFIED_WITHIN_SCOPE",
+      "attack": "REJECTED",
+      "conflicts": [
+        {
+          "binding_id": "BND-42eb6dbceb558516e79137936b82f9bbd34016691941ad8676d4dd86e4b4009d-003",
+          "subject": "evidence:ARTIFACT",
+          "states": [
+            "CONTRADICTED"
+          ],
+          "binding_digest": "4a7d7722447fe17c86c5d430e6bf69f3248559062d4ae22bb7afc9384578577d",
+          "value_digest": "d8a482e913b00782f84592e6ad3d876bf0d7f6fa8018745f38f8a508e468df70",
+          "source_digest": "f82dc294d778f7b8879c68681f5431dcc53dbca451aba94548a9e83351ebb1c2"
+        }
+      ]
+    },
+    {
+      "input": "type-d-unrelated_audit",
+      "control": "VERIFIED_WITHIN_SCOPE",
+      "attack": "REJECTED",
+      "conflicts": [
+        {
+          "binding_id": "BND-dd319fc2b0a61589c90bc4b3f5dde7ba3621ae29d2388c0c4b9dfe51965f6504-005",
+          "subject": "evidence:EXT-001",
+          "states": [
+            "CONTRADICTED"
+          ],
+          "binding_digest": "902237242b9fcd1b90c419506ddc2179539959966bef7e7741e1eee3dee9a5e6",
+          "value_digest": "ec7368e136deb6153d5620cacd8d76217534ecc6c914e31d33b914c7867e5663",
+          "source_digest": "57ed16993a9c7afb1758596803149372e22b540d7d9b8318c7e973d5477ef849"
+        }
+      ]
+    }
+  ]
+}

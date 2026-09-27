@@ -1,0 +1,196 @@
+[
+  {
+    "file": "tools/__init__.py",
+    "sha256": "495ec6fe6660711e17da7987c576c525fbc19c5f04c0f13d8d2170ad4482e378",
+    "boundary_calls": []
+  },
+  {
+    "file": "tools/common.py",
+    "sha256": "e6749837fb968eae0c17f3dba8ae441d5e934c124b82eb4382334fa62f669a2a",
+    "boundary_calls": [
+      {
+        "line": 11,
+        "call": "Path(__file__).resolve()"
+      },
+      {
+        "line": 46,
+        "call": "StrictLoader.yaml_implicit_resolvers.items()"
+      },
+      {
+        "line": 54,
+        "call": "path.read_text(encoding='utf-8')"
+      },
+      {
+        "line": 60,
+        "call": "yaml.load(text, Loader=StrictLoader)"
+      },
+      {
+        "line": 103,
+        "call": "(ROOT / 'schemas').glob('*.json')"
+      },
+      {
+        "line": 152,
+        "call": "(ROOT / 'invariants').glob('*/*.yaml')"
+      },
+      {
+        "line": 153,
+        "call": "(ROOT / 'oracles').glob('*/*.yaml')"
+      }
+    ]
+  },
+  {
+    "file": "tools/derive.py",
+    "sha256": "d9efb32ce15034e551a035e37f028c815f38a06d8712ae0b0e34962a27f1d4ba",
+    "boundary_calls": [
+      {
+        "line": 9,
+        "call": "Path(__file__).resolve()"
+      }
+    ]
+  },
+  {
+    "file": "tools/oracle.py",
+    "sha256": "322bdeb5a23c27b8786c9a779f6644d463124a28f6a9dcd648e2439a9e6f7a7c",
+    "boundary_calls": []
+  },
+  {
+    "file": "tools/provenance.py",
+    "sha256": "78ff119033b08434f488a353ea3fc3368de17655c60f82b6d0b9eb32e3eeb001",
+    "boundary_calls": [
+      {
+        "line": 28,
+        "call": "root.resolve()"
+      },
+      {
+        "line": 28,
+        "call": "path.resolve()"
+      }
+    ]
+  },
+  {
+    "file": "tools/release_gates.py",
+    "sha256": "98824b4bf108a3edef603a454ea1d3cfb106cf955fb51ae4d058ab3be239767c",
+    "boundary_calls": [
+      {
+        "line": 26,
+        "call": "args.output.resolve()"
+      },
+      {
+        "line": 28,
+        "call": "subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip()"
+      },
+      {
+        "line": 29,
+        "call": "subprocess.check_output(['git','status','--porcelain'], cwd=ROOT, text=True)"
+      },
+      {
+        "line": 38,
+        "call": "(output/'source-manifest.json').write_bytes(canonical(manifest)+b'\\n')"
+      },
+      {
+        "line": 95,
+        "call": "(output/'ledger.yaml').write_text(yaml.safe_dump(ledger,sort_keys=False))"
+      },
+      {
+        "line": 120,
+        "call": "(output/'REPORT.md').write_text('\\n'.join(lines)+'\\n')"
+      },
+      {
+        "line": 36,
+        "call": "hashlib.sha256(p.read_bytes()).hexdigest()"
+      },
+      {
+        "line": 43,
+        "call": "subprocess.run(command, cwd=ROOT, capture_output=True)"
+      },
+      {
+        "line": 45,
+        "call": "log.write_bytes(b'$ '+shlex.join(command).encode()+b'\\nSTDOUT:\\n'+result.stdout+b'\\nSTDERR:\\n'+result.stderr+\n                        f'\\nEXIT_CODE: {result.returncode}\\n'.encode())"
+      },
+      {
+        "line": 83,
+        "call": "importlib.metadata.version(line.split('==')[0])"
+      },
+      {
+        "line": 28,
+        "call": "subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True)"
+      },
+      {
+        "line": 48,
+        "call": "(output/stdout_file).write_bytes(result.stdout)"
+      },
+      {
+        "line": 51,
+        "call": "hashlib.sha256(log.read_bytes()).hexdigest()"
+      },
+      {
+        "line": 84,
+        "call": "(ROOT/'requirements.txt').read_text().splitlines()"
+      },
+      {
+        "line": 86,
+        "call": "os.environ.get('GITHUB_RUN_ID')"
+      },
+      {
+        "line": 86,
+        "call": "os.environ.get('GITHUB_ACTIONS')"
+      },
+      {
+        "line": 85,
+        "call": "os.environ.get('GITHUB_SERVER_URL', 'https://github.com')"
+      },
+      {
+        "line": 85,
+        "call": "os.environ.get('GITHUB_REPOSITORY', '')"
+      },
+      {
+        "line": 17,
+        "call": "Path(__file__).resolve()"
+      },
+      {
+        "line": 33,
+        "call": "(ROOT/name).rglob('*')"
+      },
+      {
+        "line": 36,
+        "call": "p.read_bytes()"
+      },
+      {
+        "line": 84,
+        "call": "(ROOT/'requirements.txt').read_text()"
+      },
+      {
+        "line": 51,
+        "call": "log.read_bytes()"
+      }
+    ]
+  },
+  {
+    "file": "tools/report.py",
+    "sha256": "7d68c1940406097f7cfa0f95a89bb79e6e1339522db9c21ce4d23b1f7a6b5f35",
+    "boundary_calls": [
+      {
+        "line": 9,
+        "call": "Path(__file__).resolve()"
+      }
+    ]
+  },
+  {
+    "file": "tools/validate.py",
+    "sha256": "ba086a8a5218d8839b380aa8cece8dd6e54cbba4a11308550b434146edafbef6",
+    "boundary_calls": [
+      {
+        "line": 261,
+        "call": "ROOT.glob(pattern)"
+      },
+      {
+        "line": 8,
+        "call": "Path(__file__).resolve()"
+      },
+      {
+        "line": 232,
+        "call": "(ROOT / 'dossiers/examples').glob('*.json')"
+      }
+    ]
+  }
+]
