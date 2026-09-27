@@ -1,0 +1,38 @@
+[
+  {
+    "case": "bytes-exact",
+    "expected_accept": true,
+    "actual_accept": true,
+    "result": "PASS"
+  },
+  {
+    "case": "bytes-over",
+    "expected_accept": false,
+    "actual_accept": false,
+    "result": "PASS"
+  },
+  {
+    "case": "depth-exact",
+    "expected_accept": true,
+    "actual_accept": true,
+    "result": "PASS"
+  },
+  {
+    "case": "depth-over",
+    "expected_accept": false,
+    "actual_accept": false,
+    "result": "PASS"
+  },
+  {
+    "case": "nodes-exact",
+    "expected_accept": true,
+    "actual_accept": true,
+    "result": "PASS"
+  },
+  {
+    "case": "nodes-over",
+    "expected_accept": false,
+    "actual_accept": false,
+    "result": "PASS"
+  }
+]

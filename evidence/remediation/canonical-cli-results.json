@@ -1,0 +1,98 @@
+[
+  {
+    "dossier": "dossiers/examples/001-pin-init.json",
+    "assessment_hash": "1c456ffcd29ddbdc8573fa61e66a9a803a204d874f26f0f05b57ea42b1faf656",
+    "decision": {
+      "epistemic_ceiling": "PARTIALLY_VERIFIED",
+      "scope": {
+        "competencies": [
+          "C053"
+        ],
+        "domains": [
+          "initialization"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ],
+        "task_classes": [
+          "in_place_initialization",
+          "partial_init_teardown"
+        ]
+      },
+      "status": "PROVISIONAL"
+    },
+    "derive_exit_code": 0,
+    "report_exit_code": 0
+  },
+  {
+    "dossier": "dossiers/examples/002-rcu.json",
+    "assessment_hash": "8dafc33f049205c6679f75959e48fa81882e75d4feaed537e012ce17877d1961",
+    "decision": {
+      "epistemic_ceiling": "OPEN",
+      "scope": {
+        "competencies": [
+          "C034"
+        ],
+        "domains": [
+          "concurrency_lkmm"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ],
+        "task_classes": [
+          "rcu_read_side",
+          "grace_period_teardown"
+        ]
+      },
+      "status": "PROVISIONAL"
+    },
+    "derive_exit_code": 0,
+    "report_exit_code": 0
+  },
+  {
+    "dossier": "dossiers/examples/003-callback-teardown.json",
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8",
+    "decision": {
+      "epistemic_ceiling": "PARTIALLY_VERIFIED",
+      "scope": {
+        "competencies": [
+          "C047"
+        ],
+        "domains": [
+          "c_ffi"
+        ],
+        "environments": [
+          "x86_64",
+          "CONFIG_RUST=y",
+          "PREEMPT_RT=y"
+        ],
+        "exclusions": [
+          "arm64",
+          "dma",
+          "nmi_context"
+        ],
+        "task_classes": [
+          "callback_registration",
+          "concurrent_teardown"
+        ]
+      },
+      "status": "PROVISIONAL"
+    },
+    "derive_exit_code": 0,
+    "report_exit_code": 0
+  }
+]

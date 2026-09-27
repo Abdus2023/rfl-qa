@@ -1,0 +1,8 @@
+$ /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_hard_gate_veto.py
+STDOUT:
+...............                                                          [100%]
+15 passed in 0.87s
+
+STDERR:
+
+EXIT_CODE: 0

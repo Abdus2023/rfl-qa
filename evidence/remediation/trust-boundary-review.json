@@ -1,0 +1,105 @@
+{
+  "baseline_parser_commit": "e4f1611c245d5c001d29b5c4477dee088c3d7867",
+  "baseline_common_sha256": "8d184dd18313f761516558e3f22c3bac5936c025851521e42910039f7e821c96",
+  "production_tools": [
+    {
+      "file": "tools/__init__.py",
+      "sha256": "495ec6fe6660711e17da7987c576c525fbc19c5f04c0f13d8d2170ad4482e378",
+      "boundary_sites": []
+    },
+    {
+      "file": "tools/common.py",
+      "sha256": "e6749837fb968eae0c17f3dba8ae441d5e934c124b82eb4382334fa62f669a2a",
+      "boundary_sites": [
+        {
+          "line": 60,
+          "call": "yaml.load(text, Loader=StrictLoader)"
+        },
+        {
+          "line": 103,
+          "call": "(ROOT / 'schemas').glob('*.json')"
+        },
+        {
+          "line": 152,
+          "call": "(ROOT / 'invariants').glob('*/*.yaml')"
+        },
+        {
+          "line": 153,
+          "call": "(ROOT / 'oracles').glob('*/*.yaml')"
+        }
+      ]
+    },
+    {
+      "file": "tools/derive.py",
+      "sha256": "f03c0c2df09271ef6206816e5fe452cfca6ca8f5979870c01593840250fb5d70",
+      "boundary_sites": []
+    },
+    {
+      "file": "tools/oracle.py",
+      "sha256": "322bdeb5a23c27b8786c9a779f6644d463124a28f6a9dcd648e2439a9e6f7a7c",
+      "boundary_sites": []
+    },
+    {
+      "file": "tools/release_gates.py",
+      "sha256": "86a97269b7e05e34217201181256d51c066e3d1e78ebcd762f9dc508e6e78412",
+      "boundary_sites": [
+        {
+          "line": 28,
+          "call": "subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip()"
+        },
+        {
+          "line": 29,
+          "call": "subprocess.check_output(['git','status','--porcelain'], cwd=ROOT, text=True)"
+        },
+        {
+          "line": 42,
+          "call": "datetime.now(timezone.utc).isoformat()"
+        },
+        {
+          "line": 43,
+          "call": "subprocess.run(command, cwd=ROOT, capture_output=True)"
+        },
+        {
+          "line": 28,
+          "call": "subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True)"
+        },
+        {
+          "line": 85,
+          "call": "datetime.now(timezone.utc).isoformat()"
+        },
+        {
+          "line": 42,
+          "call": "datetime.now(timezone.utc)"
+        },
+        {
+          "line": 33,
+          "call": "(ROOT/name).rglob('*')"
+        },
+        {
+          "line": 85,
+          "call": "datetime.now(timezone.utc)"
+        }
+      ]
+    },
+    {
+      "file": "tools/report.py",
+      "sha256": "3bbc999c8af8a9e45a9b4e0a6413f6eaba9be6483f88943f2f857485e1f8dc5a",
+      "boundary_sites": []
+    },
+    {
+      "file": "tools/validate.py",
+      "sha256": "493ca634d0debc920ffb6df8f649b3d03b3754c2107643409945602ffbb88996",
+      "boundary_sites": [
+        {
+          "line": 259,
+          "call": "ROOT.glob(pattern)"
+        },
+        {
+          "line": 230,
+          "call": "(ROOT / 'dossiers/examples').glob('*.json')"
+        }
+      ]
+    }
+  ],
+  "limitations": "Bounded source review and tests, not a security certification; fact authentication and kernel execution remain outside this evaluator."
+}

@@ -1,0 +1,10 @@
+# Workflow and trust boundary review
+
+The existing workflow was inspected, not weakened or changed: Python 3.11; pinned requirements; schema/reference CLI; full pytest; derive/report CLI; full release runner (which includes deterministic reproduction); upload-artifact with always(). It intentionally retains a nonzero human-calibration release gate. Dependency/schema/test/CLI and upload step success are observed in the run/job API; source inspection alone is not used as execution evidence. Exact remote test counts and procedural ledger details are unavailable because downloads return EOF.
+
+Production source review: no eval/exec/pickle, dynamic imports, network, candidate shell execution, arbitrary expressions, or new framework. YAML uses a strict SafeLoader subclass, with document bounds and controlled parser errors; not an unsafe object loader. CLI reads supplied files and trusted repository catalogs; derivation does not execute candidate artifacts or use current time/random/environment as qualification facts. New oracle payloads have a closed schema and a ≤9-state trace; general parsed documents have 2 MB/depth64/node100000 bounds. The existing release runner uses subprocess with fixed trusted CLI/test commands and writes only its selected evidence directory. New remediation harnesses likewise run trusted git/pytest/CLI/gh commands, not candidate code. No shell=True was found in production AST inspection. This source review is not a security certification.
+
+The deliberate remaining trust boundary is supplied observation truth versus external reality: hashes bind records but authenticate neither a trace producer nor a narrative source. AUD-007/008 remain OPEN. Complete-record hashes bind timestamps, limitations, scope, observations, array order, evidence and behavior facts. YAML/JSON serialization and mapping-key order are irrelevant presentation; array order is intentionally NOT canonicalized away.
+
+Workflow file hashes:
+- `.github/workflows/alpha-gates.yml`: `f42a01d85f53e35d52e4353c9a0159dd469e6bae5906034a2f57adf54a4308de`

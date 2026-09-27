@@ -1,0 +1,162 @@
+[
+  {
+    "label": "determinism-0-True",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "0",
+      "LC_ALL": "C",
+      "TZ": "UTC"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "determinism-0-False",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "0",
+      "LC_ALL": "C",
+      "TZ": "UTC"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "determinism-1-True",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "1",
+      "LC_ALL": "C.utf8",
+      "TZ": "Africa/Tunis"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "determinism-1-False",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "1",
+      "LC_ALL": "C.utf8",
+      "TZ": "Africa/Tunis"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "determinism-42-True",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "42",
+      "LC_ALL": "C",
+      "TZ": "Pacific/Honolulu"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "determinism-42-False",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "42",
+      "LC_ALL": "C",
+      "TZ": "Pacific/Honolulu"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "determinism-random-True",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "random",
+      "LC_ALL": "C.utf8",
+      "TZ": "UTC"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "determinism-random-False",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "random",
+      "LC_ALL": "C.utf8",
+      "TZ": "UTC"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "parallel-0",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "0"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "parallel-1",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "1"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "parallel-2",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "2"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "parallel-3",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "3"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "parallel-4",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "4"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "parallel-5",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "5"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "parallel-6",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "6"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  },
+  {
+    "label": "parallel-7",
+    "exit_code": 0,
+    "environment": {
+      "PYTHONHASHSEED": "7"
+    },
+    "byte_identical": true,
+    "assessment_hash": "56325b9a7164d73282aefe9bb8307593429bb927331cba5acc86ed9e9bceb6c8"
+  }
+]

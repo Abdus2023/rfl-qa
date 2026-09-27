@@ -1,0 +1,139 @@
+execution:
+  commit: b0582f61ae4fad99c02a262c9b27475330bd018e
+  timestamp: '2026-09-27T00:27:12.465445+00:00'
+  source_manifest_sha256: 19b6eabd0b1179a97344d44eb1bb98f1ee084c18b50f229d09d963092d8c5d94
+  worktree_status_at_start:
+  - ?? evidence/remediation/
+  environment: Linux-6.1.158+-x86_64-with-glibc2.36
+  python: 3.11.2 (main, Apr  8 2026, 01:58:00) [GCC 12.2.0]
+  executable: /home/user/rfl-qa/.venv/bin/python
+  dependencies:
+    attrs: 26.1.0
+    iniconfig: 2.3.0
+    jsonschema: 4.23.0
+    jsonschema-specifications: 2025.9.1
+    packaging: '26.3'
+    pluggy: 1.6.0
+    pytest: 8.3.5
+    PyYAML: 6.0.2
+    referencing: 0.37.0
+    rpds-py: 2026.6.3
+    typing_extensions: 4.16.0
+    rfc3339-validator: 0.1.4
+    six: 1.17.0
+  commands:
+  - command: /home/user/rfl-qa/.venv/bin/python -m pip check
+    timestamp: '2026-09-27T00:26:28.551261+00:00'
+    exit_code: 0
+    result: PASS
+    log: dependencies.log
+    log_sha256: 428524bbbb4a08364560eec9c6bac2126192d7652bf15b8232042fae1dcd5e2a
+  - command: /home/user/rfl-qa/.venv/bin/python tools/validate.py --all
+    timestamp: '2026-09-27T00:26:28.919225+00:00'
+    exit_code: 0
+    result: PASS
+    log: schema.log
+    log_sha256: 89f07a01606bc21a276c830f49ff11724dcb218862477b5546e420f9b13eaf43
+  - command: /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_no_e_to_l_inference.py
+      tests/test_epistemic_ceiling.py
+    timestamp: '2026-09-27T00:26:29.664073+00:00'
+    exit_code: 0
+    result: PASS
+    log: derivation.log
+    log_sha256: e2a0aa5d6c581c4b4084d69e121740f9fa4cd1e4715569e9ed3ed6e00d88ac94
+  - command: /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_type_d_requires_evidence.py
+      tests/test_strength_separation.py
+    timestamp: '2026-09-27T00:26:31.073765+00:00'
+    exit_code: 0
+    result: PASS
+    log: invariant.log
+    log_sha256: 15dd76ac3d5f4183cfb602bfd9bc57371d92132fb083650e0bc56afb078e827b
+  - command: /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_oracle_gate.py
+    timestamp: '2026-09-27T00:26:31.765996+00:00'
+    exit_code: 0
+    result: PASS
+    log: oracle.log
+    log_sha256: 199417b1ce9b385dacd5a89353f3987d82a77bf760e74a81aadeeadb1c480445
+  - command: /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_hard_gate_veto.py
+    timestamp: '2026-09-27T00:26:32.284322+00:00'
+    exit_code: 0
+    result: PASS
+    log: hard_gate.log
+    log_sha256: 10c14b02eeff1b53ec3735629eac5bf87c28c64ba15a4bd2c74ae1008de74f27
+  - command: /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_inter_rater.py
+      tests/test_outcomes.py
+    timestamp: '2026-09-27T00:26:33.423960+00:00'
+    exit_code: 0
+    result: PASS
+    log: calibration_automated.log
+    log_sha256: f0429ef3101ed7662a9816342281445592fa551792cccf7b93e91bd48bc5bdf6
+  - command: /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_determinism.py
+    timestamp: '2026-09-27T00:26:34.157367+00:00'
+    exit_code: 0
+    result: PASS
+    log: reproducibility.log
+    log_sha256: d589ee5e17b20fb1debf96b4a88da73769a385690c4727d8a22479a90b1b3e28
+  - command: /home/user/rfl-qa/.venv/bin/python -m pytest -q --junitxml=/home/user/rfl-qa/evidence/remediation/procedural-final/pytest.xml
+    timestamp: '2026-09-27T00:26:40.293846+00:00'
+    exit_code: 0
+    result: PASS
+    log: tests.log
+    log_sha256: d63bd0e69edd5d5ce31c7d33957f1fa8fb1152ee969b1f0a1aa3641046b3d181
+  - command: /home/user/rfl-qa/.venv/bin/python tools/derive.py dossiers/examples/001-pin-init.json
+    timestamp: '2026-09-27T00:27:09.403517+00:00'
+    exit_code: 0
+    result: PASS
+    log: derive-001-pin-init.log
+    log_sha256: 9fc4ad5ffbc61f735506b45ce4a14cc6462da035b1a4803ed9e6e6d3d8203d45
+  - command: /home/user/rfl-qa/.venv/bin/python tools/report.py /home/user/rfl-qa/evidence/remediation/procedural-final/001-pin-init.qualification.json
+    timestamp: '2026-09-27T00:27:09.877254+00:00'
+    exit_code: 0
+    result: PASS
+    log: report-001-pin-init.log
+    log_sha256: a374261dd4d1d337badfecf09ed928654c7251ee67ddee1a3161115480fcf653
+  - command: /home/user/rfl-qa/.venv/bin/python tools/derive.py dossiers/examples/002-rcu.json
+    timestamp: '2026-09-27T00:27:10.484652+00:00'
+    exit_code: 0
+    result: PASS
+    log: derive-002-rcu.log
+    log_sha256: c7fc8214d21c6a3a3802f1a8f540953bea8c557e1b3effec6a6d4134783338a2
+  - command: /home/user/rfl-qa/.venv/bin/python tools/report.py /home/user/rfl-qa/evidence/remediation/procedural-final/002-rcu.qualification.json
+    timestamp: '2026-09-27T00:27:10.977151+00:00'
+    exit_code: 0
+    result: PASS
+    log: report-002-rcu.log
+    log_sha256: 2fc7872a41c27fd6ecb36f8d44dffde18f38ac96283b6642d9ddd005922657db
+  - command: /home/user/rfl-qa/.venv/bin/python tools/derive.py dossiers/examples/003-callback-teardown.json
+    timestamp: '2026-09-27T00:27:11.470885+00:00'
+    exit_code: 0
+    result: PASS
+    log: derive-003-callback-teardown.log
+    log_sha256: d8f243c99198120a764fdd5c632d7ccc06243f5b46075743784ffc61a7b32aab
+  - command: /home/user/rfl-qa/.venv/bin/python tools/report.py /home/user/rfl-qa/evidence/remediation/procedural-final/003-callback-teardown.qualification.json
+    timestamp: '2026-09-27T00:27:11.954014+00:00'
+    exit_code: 0
+    result: PASS
+    log: report-003-callback-teardown.log
+    log_sha256: f1c945f573bd1e0b3c6f39c88391145b6c9276c453177f585924d0997bc299a0
+  gates:
+    schema: PASS
+    derivation: PASS
+    invariant: PASS
+    oracle: PASS
+    hard_gate: PASS
+    calibration_automated: PASS
+    reproducibility: PASS
+    calibration: BLOCKED
+  tests:
+    passed: 564
+    failed: 0
+    skipped: 0
+    errors: 0
+  ci: NOT_RUN
+  ci_run_url: null
+  human_calibration: BLOCKED
+  release_status: BLOCKED
+  limitations:
+  - Local execution only; CI authority requires actual remote run evidence.
+  - Synthetic assessor records do not establish independent human calibration.
+  - No kernel tests or upstream outcome studies executed.

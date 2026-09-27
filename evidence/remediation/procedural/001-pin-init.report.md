@@ -1,0 +1,845 @@
+# Scoped qualification Q-2026-0001
+
+> This report is not universal certification or evidence of system validity.
+
+## Scope
+
+```json
+{
+  "competencies": [
+    "C053"
+  ],
+  "domains": [
+    "initialization"
+  ],
+  "environments": [
+    "x86_64",
+    "CONFIG_RUST=y",
+    "PREEMPT_RT=y"
+  ],
+  "exclusions": [
+    "arm64",
+    "dma",
+    "nmi_context"
+  ],
+  "task_classes": [
+    "in_place_initialization",
+    "partial_init_teardown"
+  ]
+}
+```
+
+## Capability
+
+```json
+{
+  "demonstrated_behaviors": [
+    "CB-053-01",
+    "CB-053-02",
+    "CB-053-03"
+  ],
+  "evidence_refs": [
+    "ARTIFACT"
+  ],
+  "failed_behaviors": [],
+  "level": "L3",
+  "level_boundary": {
+    "L0_satisfied": true,
+    "L1_satisfied": true,
+    "L2_satisfied": true,
+    "L3_satisfied": true,
+    "L4_satisfied": false,
+    "L5_satisfied": false
+  }
+}
+```
+
+## Evidence tier
+
+```json
+"E4"
+```
+
+## Evidence records
+
+```json
+[
+  {
+    "artifact_ref": "fixture://001-pin-init/ARTIFACT",
+    "assumptions": [],
+    "coverage": {
+      "executed": 1,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "VERIFIED",
+    "establishes": "BOUNDED_OBSERVATION",
+    "id": "ARTIFACT",
+    "invariant_refs": [
+      "B01"
+    ],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "manual_review",
+    "oracle_check_refs": [
+      "OR-PIN-callback_after_free",
+      "OR-PIN-double_free",
+      "OR-PIN-uaf",
+      "OR-PIN-data_race",
+      "OR-PIN-deadlock",
+      "OR-PIN-prohibited_sleep",
+      "OR-PIN-ffi_lifetime",
+      "OR-PIN-critical_external_assumption",
+      "OR-PIN-required_abi_break",
+      "OR-PIN-dma_ownership",
+      "OR-PIN-class-A",
+      "OR-PIN-class-B",
+      "OR-PIN-class-D"
+    ],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "No defect observed in the executed synthetic trace population.",
+    "strength": "OBSERVATION",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://001-pin-init/TYPE",
+    "assumptions": [
+      "Sound compiler and safe API; unsafe implementation meets its contract."
+    ],
+    "coverage": {
+      "executed": 1,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "VERIFIED",
+    "establishes": "ASSUMPTION_BOUND_PROOF",
+    "id": "TYPE",
+    "invariant_refs": [
+      "A01"
+    ],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "rustc",
+    "oracle_check_refs": [],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "Borrow cannot escape the safe guard under the stated model assumptions.",
+    "strength": "PROOF",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://001-pin-init/TEST",
+    "assumptions": [],
+    "coverage": {
+      "executed": 1,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "PARTIALLY_VERIFIED",
+    "establishes": "BOUNDED_OBSERVATION",
+    "id": "TEST",
+    "invariant_refs": [
+      "C01"
+    ],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "kcsan",
+    "oracle_check_refs": [],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "No defect observed in the executed synthetic trace population.",
+    "strength": "OBSERVATION",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://001-pin-init/COVERAGE",
+    "assumptions": [],
+    "coverage": {
+      "executed": 1000000,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "PARTIALLY_VERIFIED",
+    "establishes": "MEASURED_COVERAGE",
+    "id": "COVERAGE",
+    "invariant_refs": [],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "scheduler",
+    "oracle_check_refs": [],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "1000000 generated interleavings represented; total state space unknown.",
+    "strength": "COVERAGE",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://001-pin-init/NMI",
+    "assumptions": [],
+    "coverage": {
+      "executed": 0,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "OPEN",
+    "establishes": "NOT_TESTED",
+    "id": "NMI",
+    "invariant_refs": [],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "not_tested",
+    "oracle_check_refs": [],
+    "record_type": "evidence",
+    "required": false,
+    "statement": "NMI context was not exercised.",
+    "strength": "ABSENCE_OF_EVIDENCE",
+    "tier": "E4"
+  },
+  {
+    "artifact_ref": "fixture://001-pin-init/EXT-001",
+    "assumptions": [],
+    "coverage": {
+      "executed": 1,
+      "population": "Synthetic lab schedules, not a kernel run"
+    },
+    "detected_defects": [],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "epistemic_status": "VERIFIED",
+    "establishes": "BOUNDED_OBSERVATION",
+    "id": "EXT-001",
+    "invariant_refs": [
+      "D01"
+    ],
+    "limitations": [
+      "Synthetic evidence; no actual kernel test executed."
+    ],
+    "method": "source_audit",
+    "oracle_check_refs": [
+      "OR-PIN-callback_after_free",
+      "OR-PIN-double_free",
+      "OR-PIN-uaf",
+      "OR-PIN-data_race",
+      "OR-PIN-deadlock",
+      "OR-PIN-prohibited_sleep",
+      "OR-PIN-ffi_lifetime",
+      "OR-PIN-critical_external_assumption",
+      "OR-PIN-required_abi_break",
+      "OR-PIN-dma_ownership",
+      "OR-PIN-class-A",
+      "OR-PIN-class-B",
+      "OR-PIN-class-D"
+    ],
+    "record_type": "evidence",
+    "required": true,
+    "statement": "No defect observed in the executed synthetic trace population.",
+    "strength": "OBSERVATION",
+    "tier": "E4"
+  }
+]
+```
+
+## Invariants
+
+```json
+[
+  {
+    "class": "A",
+    "critical": false,
+    "description": "Compiler-enforced borrow lifetime within a sound safe interface.",
+    "epistemic_status": "VERIFIED",
+    "evidence_refs": [
+      "TYPE"
+    ],
+    "external_evidence": [],
+    "id": "A01",
+    "record_type": "invariant",
+    "required": true
+  },
+  {
+    "class": "B",
+    "critical": false,
+    "description": "Safe API prevents repeated initialization and reference escape; sound implementation remains a premise.",
+    "epistemic_status": "VERIFIED",
+    "evidence_refs": [
+      "ARTIFACT"
+    ],
+    "external_evidence": [],
+    "id": "B01",
+    "record_type": "invariant",
+    "required": true
+  },
+  {
+    "class": "C",
+    "critical": false,
+    "description": "Runtime drain/synchronization completes before final release; bounded tests observe this protocol.",
+    "epistemic_status": "PARTIALLY_VERIFIED",
+    "evidence_refs": [
+      "TEST"
+    ],
+    "external_evidence": [],
+    "id": "C01",
+    "record_type": "invariant",
+    "required": true
+  },
+  {
+    "class": "D",
+    "critical": true,
+    "description": "External C registration/allocator contract keeps the target alive until quiescence.",
+    "epistemic_status": "VERIFIED",
+    "evidence_refs": [
+      "EXT-001"
+    ],
+    "external_evidence": [
+      {
+        "assessor": "assessor-a",
+        "description": "Synthetic source audit of unregister/drain contract.",
+        "ref": "EXT-001",
+        "type": "source_audit"
+      }
+    ],
+    "id": "D01",
+    "record_type": "invariant",
+    "required": true
+  }
+]
+```
+
+## Epistemic ceiling
+
+```json
+"PARTIALLY_VERIFIED"
+```
+
+## Oracle evaluations (derived)
+
+```json
+[
+  {
+    "check_id": "OR-PIN-callback_after_free",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "f34e9f9f25877a746fa31ddfbca20ac12820e26863fae9f4dd71bd8e47e93400",
+    "observation_ref": "OBS-OR-PIN-callback_after_free",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-double_free",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "12a1e7e67868dedf4af89b256bf15930ed244b8c86d5ff7c21e4be6b5d7e07c7",
+    "observation_ref": "OBS-OR-PIN-double_free",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-uaf",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "731986a4c9c5fc6ae73f1256c1b12505002d20c65ed8773098378dc6fced3cfe",
+    "observation_ref": "OBS-OR-PIN-uaf",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-data_race",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "0bd07e8c6ad2d3af4797be879d4ea2d8c04a03b4bce81264988c3315dafea280",
+    "observation_ref": "OBS-OR-PIN-data_race",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-deadlock",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "f3a2b649ca01c725b31a7f55bb5dab38c6e8b839e35aa78b07b430c133ad2a4f",
+    "observation_ref": "OBS-OR-PIN-deadlock",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-prohibited_sleep",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "cc5ff55ab14535c7355c166a6cf522763e5f164135cd60830bccc9e85eb77b2f",
+    "observation_ref": "OBS-OR-PIN-prohibited_sleep",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-ffi_lifetime",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "fe697ee6be8e6b5a5751d714f51fb205353baead6fd5c2e80f4bc24573715caa",
+    "observation_ref": "OBS-OR-PIN-ffi_lifetime",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-critical_external_assumption",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "1e2094118d57e4c1a8430b8596130ab03b5717a59473689c6d4393532fb4395b",
+    "observation_ref": "OBS-OR-PIN-critical_external_assumption",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-required_abi_break",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "b4bbd333c0d7f5267816d1ba31916970fafef388cd9abaff39307b54099c2508",
+    "observation_ref": "OBS-OR-PIN-required_abi_break",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-dma_ownership",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "481cb32bed6cbe53f7dc833a91586151d3b09176ba5dc88ed03a7e851b5da859",
+    "observation_hash": "a135b78ad1a966003ba1ec7c62fafb6deb9bf3c91a9eac3c863a686b59c75dcf",
+    "observation_ref": "OBS-OR-PIN-dma_ownership",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-class-A",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "11c581286219a1ebb33b9433db532323ec694318a162eccdb2c4b36209e1b847",
+    "observation_hash": "3f7cce1c4856d0e14e0cd7f8d3d0d1f72774c886659ca79de1b60d104531177f",
+    "observation_ref": "OBS-OR-PIN-class-A",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-class-B",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "4b450f12f9ac40310420dabe2ce1afdae8d3ea09341421132e22bdf4a7339513",
+    "observation_hash": "e947be2ef589741ed73049ffda2f4adacf27debd799c543d855fdd7860d522b4",
+    "observation_ref": "OBS-OR-PIN-class-B",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  },
+  {
+    "check_id": "OR-PIN-class-D",
+    "evaluator": "bounded-alpha-v1",
+    "evidence_hash": "f9ca0390c68b0520e246bdcb57b66dfc112f395548dbbfb724d0ec1bb47c6cf6",
+    "evidence_refs": [
+      "ARTIFACT",
+      "EXT-001"
+    ],
+    "findings": [],
+    "input_hash": "8a1f4dcfa1682f757d54ad1a95693a63437d14a2d0c00a9c5e9569dd004fb8d7",
+    "observation_hash": "aa79805bf2e143757c86406d4b0f38a3b879d0b273082ebe521d2d1bcfe07c57",
+    "observation_ref": "OBS-OR-PIN-class-D",
+    "oracle_hash": "ef6bf5591b666f9029f49cfa7ed11b23354c649ec37edfb098eaf2d0c804b6e6",
+    "oracle_ref": "OR-PIN",
+    "provenance": "DERIVED_RESULT",
+    "result": "PASS"
+  }
+]
+```
+
+## Hard gates
+
+```json
+{
+  "findings": [],
+  "status": "PASS"
+}
+```
+
+## Assessors (raw records)
+
+```json
+[
+  {
+    "assessor_id": "assessor-a",
+    "claimed_level": "L3",
+    "dossier_digest": "eb88d8b4f34c8b2d7e6825a370101a815e0110e2dfa657675a088e5fb97b389b",
+    "dossier_ref": "Q-2026-0001",
+    "evidence_refs": [
+      "ARTIFACT"
+    ],
+    "evidence_tier": "E4",
+    "hard_gates": {
+      "findings": [],
+      "status": "PASS"
+    },
+    "independent": true,
+    "invariant_findings": [
+      {
+        "class": "A",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "A01"
+      },
+      {
+        "class": "B",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "B01"
+      },
+      {
+        "class": "C",
+        "epistemic_status": "PARTIALLY_VERIFIED",
+        "invariant_ref": "C01"
+      },
+      {
+        "class": "D",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "D01"
+      }
+    ],
+    "limitations": [
+      "Simulated independent record, not an independent human assessment."
+    ],
+    "observations": [
+      {
+        "behavior_id": "CB-053-01",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      },
+      {
+        "behavior_id": "CB-053-02",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      },
+      {
+        "behavior_id": "CB-053-03",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      }
+    ],
+    "record_type": "assessment"
+  },
+  {
+    "assessor_id": "assessor-b",
+    "claimed_level": "L3",
+    "dossier_digest": "eb88d8b4f34c8b2d7e6825a370101a815e0110e2dfa657675a088e5fb97b389b",
+    "dossier_ref": "Q-2026-0001",
+    "evidence_refs": [
+      "ARTIFACT"
+    ],
+    "evidence_tier": "E4",
+    "hard_gates": {
+      "findings": [],
+      "status": "PASS"
+    },
+    "independent": true,
+    "invariant_findings": [
+      {
+        "class": "A",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "A01"
+      },
+      {
+        "class": "B",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "B01"
+      },
+      {
+        "class": "C",
+        "epistemic_status": "PARTIALLY_VERIFIED",
+        "invariant_ref": "C01"
+      },
+      {
+        "class": "D",
+        "epistemic_status": "VERIFIED",
+        "invariant_ref": "D01"
+      }
+    ],
+    "limitations": [
+      "Simulated independent record, not an independent human assessment."
+    ],
+    "observations": [
+      {
+        "behavior_id": "CB-053-01",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      },
+      {
+        "behavior_id": "CB-053-02",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      },
+      {
+        "behavior_id": "CB-053-03",
+        "evidence_refs": [
+          "ARTIFACT"
+        ],
+        "status": "DEMONSTRATED"
+      }
+    ],
+    "record_type": "assessment"
+  }
+]
+```
+
+## Capabilities by assessor
+
+```json
+[
+  {
+    "assessor_id": "assessor-a",
+    "capability": {
+      "demonstrated_behaviors": [
+        "CB-053-01",
+        "CB-053-02",
+        "CB-053-03"
+      ],
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "failed_behaviors": [],
+      "level": "L3",
+      "level_boundary": {
+        "L0_satisfied": true,
+        "L1_satisfied": true,
+        "L2_satisfied": true,
+        "L3_satisfied": true,
+        "L4_satisfied": false,
+        "L5_satisfied": false
+      }
+    }
+  },
+  {
+    "assessor_id": "assessor-b",
+    "capability": {
+      "demonstrated_behaviors": [
+        "CB-053-01",
+        "CB-053-02",
+        "CB-053-03"
+      ],
+      "evidence_refs": [
+        "ARTIFACT"
+      ],
+      "failed_behaviors": [],
+      "level": "L3",
+      "level_boundary": {
+        "L0_satisfied": true,
+        "L1_satisfied": true,
+        "L2_satisfied": true,
+        "L3_satisfied": true,
+        "L4_satisfied": false,
+        "L5_satisfied": false
+      }
+    }
+  }
+]
+```
+
+## Inter-rater result
+
+```json
+{
+  "agreement": true,
+  "automatic_qualification_halted": false,
+  "events": []
+}
+```
+
+## Decision
+
+```json
+{
+  "epistemic_ceiling": "PARTIALLY_VERIFIED",
+  "scope": {
+    "competencies": [
+      "C053"
+    ],
+    "domains": [
+      "initialization"
+    ],
+    "environments": [
+      "x86_64",
+      "CONFIG_RUST=y",
+      "PREEMPT_RT=y"
+    ],
+    "exclusions": [
+      "arm64",
+      "dma",
+      "nmi_context"
+    ],
+    "task_classes": [
+      "in_place_initialization",
+      "partial_init_teardown"
+    ]
+  },
+  "status": "PROVISIONAL"
+}
+```
+
+## Signature
+
+```json
+"L3-E4-C053-PARTIALLY_VERIFIED"
+```
+
+## Limitations
+
+```json
+[
+  "Synthetic training fixture only; all E4 labels simulate artifacts, not actual upstream evidence.",
+  "Synthetic fixture: not a real candidate qualification or human calibration."
+]
+```
+
+## Provenance
+
+```json
+{
+  "input_sha256": "599836ec8368ddd6da72a1bc6034fd6bd63b3eb9ace17b4eb98ca5f50be0c405",
+  "invariant_catalog_sha256": "6578e8f4f8e31b7d8aea25ef85497e271542a2ab5783dd1b9bfe534e7fa61e7d",
+  "oracles_sha256": "4e4c19b138200a90673009662438bb6f43ab5773c723a6b263c759f73d9bd689",
+  "rubric_sha256": "183732b29a232c0fe972c33911524d8dc9d4429c9b4ada4a3a3427e2de443f33",
+  "rules_version": "1.1-alpha.2"
+}
+```
+
+## Hash
+
+```json
+"1c456ffcd29ddbdc8573fa61e66a9a803a204d874f26f0f05b57ea42b1faf656"
+```

@@ -1,0 +1,8 @@
+$ /home/user/rfl-qa/.venv/bin/python -m pytest -q tests/test_type_d_requires_evidence.py tests/test_strength_separation.py
+STDOUT:
+.................................                                        [100%]
+33 passed in 0.46s
+
+STDERR:
+
+EXIT_CODE: 0
