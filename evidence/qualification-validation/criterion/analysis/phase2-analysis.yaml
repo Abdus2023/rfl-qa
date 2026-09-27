@@ -1,0 +1,23 @@
+# Criterion-validity analysis — phase execution update.
+analysis:
+  study_id: CRIT-1
+  phase: empirical-validation-execution
+  data_available: false
+  descriptive_comparison: NOT_RUN (no data)
+  association_analysis: NOT_RUN (no data)
+  statistical_inference: INSUFFICIENT_EVIDENCE   # zero observations
+  result: NOT_ESTABLISHED
+  discipline_records:
+    primary_endpoint_changed_post_hoc: false
+    threshold_optimized_on_evaluation_data: false
+    observations_discarded_without_frozen_rule: false
+    model_selection_for_apparent_validation: false
+    causal_claim_made: false
+  forbidden_implications_preserved:
+    - 'criterion association (even if later observed) != causal validity'
+    - 'calibration reliability != criterion validity'
+    - 'internal consistency != criterion validity'
+  note: >
+    This file extends criterion/analysis.yaml (frozen phase-1 record, unmodified). It records
+    the execution-phase outcome honestly: the study could not start because its population
+    precondition (completed human calibrations) does not exist.
