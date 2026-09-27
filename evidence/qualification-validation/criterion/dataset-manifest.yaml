@@ -1,0 +1,18 @@
+# Criterion study dataset manifest — STATUS: NOT_COLLECTED.
+# No upstream outcome data has been retrieved or observed for this project or any population.
+dataset_manifest:
+  study_id: CRIT-1
+  status: NOT_COLLECTED
+  entries: []
+required_entry_shape:
+  population_ref: required
+  source: required            # public repository/review record identity
+  retrieval_date: required
+  retrieval_command_or_url: required
+  content_sha256: required
+  license: required
+  reviewer_independence_record: required
+policy:
+  - Data collection must not begin by searching for outcomes that make RFL-QA look successful;
+    collection follows study-protocol.yaml (frozen) exactly.
+  - Every retrieval binds source identity and digest; unverifiable records are excluded, not repaired.
